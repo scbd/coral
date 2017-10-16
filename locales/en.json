@@ -1,0 +1,15 @@
+{
+  "component":{
+"HeaderBar": {
+
+},
+    "Me": {
+      "signin": "Sign In",
+      "logout": "Log Out",
+      "profile": "Profile"
+    },
+    "Locale": {
+      "languages": "Languages"
+    }
+  }
+}
