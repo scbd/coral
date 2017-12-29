@@ -1,4 +1,4 @@
-FROM node:7.8.0-alpine
+FROM node:8.9.1-alpine
 
 ENV HOST 0.0.0.0
 ARG COMMIT
@@ -11,13 +11,15 @@ WORKDIR /usr/src/app
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git
 
+ARG COMMIT
+ENV COMMIT $COMMIT
 
-ONBUILD COPY . /usr/src/app/
-ONBUILD RUN npm install
+COPY . /usr/src/app/
+RUN npm install
 
 
 # Build app
-ONBUILD RUN npm run build
+RUN npm run build
 
 EXPOSE 3333
 

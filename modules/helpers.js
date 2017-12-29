@@ -1,3 +1,10 @@
+export function isEmpty(obj) {
+    if (obj == null) return true;
+     if (Array.isArray(obj) || typeof obj === 'string') return (obj.length === 0);
+     for (var key in obj) if (obj[key]) return false;
+     return true;
+}
+
 export function getValueByPath(obj, path) {
     const value = path.split('.').reduce((o, i) => o[i], obj)
     return value

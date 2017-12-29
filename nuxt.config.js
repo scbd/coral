@@ -1,6 +1,10 @@
+require('dotenv').config()
+
 module.exports = {
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3333'
+    baseUrl: process.env.BASE_URL,
+    isLocalHost: process.env.isLocalHost || false,
+    apiUrl: process.env.apiUrl || 'https://api.cbddev.xyz'
   },
   // ============================================================
   // Headers of the page
@@ -9,29 +13,30 @@ module.exports = {
     titleTemplate: '%s | UN Biodiversity',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Admin for hooligans' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: 'assets/images/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,400,500,900' }
     ]
-    // link: [
-    //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    // ]
   },
   css: [
-    { src: 'assets/css/main.sass', lang: 'sass' },
-    { src: 'assets/css/main.css' }
+    { src: '@/assets/css/main.sass', lang: 'sass' },
+    { src: '@/assets/css/fontello.css' },
+    { src: '@/assets/css/main.css' }
   ],
   // ============================================================
   //  Customize the progress-bar color
   // ============================================================
-  loading: { color: '#009b48' },
+  loading: { color: '#0086b7' },
 
   // ============================================================
   //
   // ============================================================
   manifest: {
-    name: 'CBD-VUE-POC',
-    description: 'Universal App',
-    theme_color: '#009b48'
+    name: 'Coral Reefs | UN Biodiversity',
+    description: 'Coral Reefs ',
+    theme_color: '#0086b7'
   },
 
   // ============================================================
@@ -46,11 +51,11 @@ module.exports = {
   //
   // ============================================================
   plugins: [
-    '~plugins/vuex-router-sync.js',
-    '~/plugins/i18n.js',
-    {src: '~plugins/ga.js', ssr: false},
-    {src: '~plugins/gtm.js', ssr: false},
-    {src: '~plugins/fb-sdk.js', ssr: false}
+    '~/modules/plugins/vuex-router-sync.js',
+    '~/modules/plugins/i18n.js',
+    {src: '~/modules/plugins/ga.js', ssr: false},
+    {src: '~/modules/plugins/gtm.js', ssr: false},
+    {src: '~/modules/plugins/fb-sdk.js', ssr: false}
   ],
 
   // ============================================================
@@ -70,7 +75,17 @@ module.exports = {
   // Build configuration
   // ============================================================
   build: {
-    vendor: ['axios', 'vee-validate', 'vue-multiselect', 'vue-i18n', '@nuxtjs/pwa', '@nuxtjs/component-cache']
+    vendor: ['axios', 'vee-validate', 'vue-multiselect', 'vue-i18n', '@nuxtjs/pwa', '@nuxtjs/component-cache'],
+
+    extend (config) {
+          const vueLoader = config.module.rules.find((r) => {
+            return r.loader === 'vue-loader'
+          })
+          vueLoader.options.preLoaders = vueLoader.options.preLoaders || {}
+          vueLoader.options.preLoaders.i18n = 'json-loader'
+          vueLoader.options.loaders.i18n = 'vue-i18n-loader'
+        }
+
     // Run ESLINT on save
     // extend (config, ctx) {
     //   if (ctx.dev && ctx.isClient) {
@@ -82,9 +97,8 @@ module.exports = {
     //     })
     //   }
     // }
-  }
-  // serverMiddleware: [{ path: '/api', handler: '~/server-middleware/api.js' }]
 
+  }
 }
 
 // ============================================================

@@ -1,4 +1,3 @@
-
 // initial state
 const state = {
       feedback:[]
@@ -16,7 +15,12 @@ const mutations = {
     warn: addWarn,
     danger:addDanger,
     success:addSuccess,
-    clear:clear
+    clear:clear,
+    // '401':notAuthorizedMutation,
+    // '404':notFoundMutation,
+    // '400':badRequestMutation,
+    // '502':badGatewayMutation,
+    '500':internalServerMutation
 }
 
 //============================================================
@@ -29,6 +33,13 @@ export default {
   mutations
 }
 
+//============================================================
+//
+//============================================================
+function internalServerMutation(state,data){
+    data.type='success'
+    state.feedback.push(data)
+}
 //============================================================
 // data.type =info, warn ...
 // data.title  ='title of message'

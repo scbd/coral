@@ -1,8 +1,8 @@
 {
-  "name": "vue-poc",
+  "name": "Coral-Reefs-UN-Biodiversity",
   "version": "1.0.0",
-  "description": "CBD vue-poc",
-  "author": "Randy J. Houlahan <randy.houlahan@cbd.int>",
+  "description": "Coral Reefs portal",
+  "author": "Secretariat of the Convention on Biological Diversity <it@cbd.int>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -14,16 +14,17 @@
   },
   "dependencies": {
     "@nuxtjs/component-cache": "^0.1.3",
-    "@nuxtjs/pwa": "latest",
+    "@nuxtjs/pwa": "^2.0.5",
     "axios": "^0.16.2",
-    "bulma": "^0.5.2",
+    "bulma": "^0.6.1",
+    "dotenv": "^4.0.0",
     "es6-promise": "^4.1.1",
+    "fs": "^0.0.1-security",
     "node-sass": "^4.5.3",
     "nuxt": "^1.0.0-rc11",
     "promise-polyfill": "^6.0.2",
-    "sass-loader": "^6.0.6",
     "vee-validate": "^2.0.0-rc.13",
-    "vue-i18n": "^7.0.5",
+    "vue-i18n": "^7.3.3",
     "vue-multiselect": "^2.0.2"
   },
   "engines": {
@@ -41,8 +42,12 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^3.13.1",
+    "file": "^0.2.2",
+    "json-loader": "^0.5.7",
     "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "system": "^2.0.1",
+    "vue-i18n-extensions": "^0.1.0"
   },
   "config": {
     "nuxt": {

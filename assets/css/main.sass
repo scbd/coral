@@ -1,43 +1,37 @@
-
-// @import "~bulma/bulma.sass"
 @import "~bulma/sass/utilities/initial-variables"
-
-
+@import "~bulma/sass/utilities/functions"
+@import "~bulma/sass/utilities/derived-variables"
 $weight-semibold: 600
 
 $green: #009b48
-$pink: #ffb3b3
-$pink-invert: #fff
-$primary: $green
-$primary-invert: $pink-invert
+$pink: #ff3e94
+$pink-invert: #fac1ff
+$primary: #4a4a4a
+$primary-invert: #aacfff
 $danger: $orange
-$family-sans-serif:  "Helvetica Neue", "Helvetica", "Arial", sans-serif 
-@import "~bulma/bulma"
+$family-sans-serif:  "Roboto", sans-serif, Trebuchet MS
+
+// $background: #ffffff
+
+$link-hover: #000000
+
+$footer-background-color: #ffffff
+
+@import "~bulma/bulma.sass"
+
+.coral-footer
+  @extend .footer
+  padding-top: 0px !important
+  padding-top: 5px !important
+  
+// @import "~bulma/bulma"
 // @import "~bulma/sass/utilities/functions"
 // @import "~bulma/sass/utilities/derived-variables"
 // @import "~bulma/sass/utilities/controls"
 // @import "~bulma/sass/utilities/mixins"
 // @import "~bulma/sass/utilities/animations"
-//
+// //
 // @import "~bulma/sass/base/_all"
 // @import "~bulma/sass/grid/columns"
 // @import "~bulma/sass/layout/_all"
 // @import "~bulma/sass/components/navbar.sass"
-
-
-// .field-body
-//   section .field .field
-//     margin-bottom: 0
-//   +tablet
-//     display: flex
-//     flex-basis: 0
-//     flex-grow: 5
-//     flex-shrink: 1
-//     .field
-//       margin-bottom: 0
-//     & > .field
-//       flex-shrink: 1
-//       &:not(.is-narrow)
-//         flex-grow: 1
-//       &:not(:last-child)
-//         margin-right: 0.75rem

@@ -4,7 +4,9 @@ import Vue from 'vue'
 
 const state = {
       locales: ['en','es', 'fr','ru','ar','zh'],
-      locale: 'en'
+      locale: 'en',
+      pageMessages:{},
+      showMobileFlag:false
 }
 
 // getters
@@ -20,7 +22,8 @@ const actions = {
 // mutations
 const mutations = {
     setLocale: setLocaleMutation,
-    setI18nLocale:setI18nLocaleMutation
+    setPageMessage: setPageMessageMutation,
+    setMobileShow:setMobileShowMutation
 }
 
 export default {
@@ -35,15 +38,17 @@ export default {
 //
 //============================================================
 function setLocale ({app,state,commit},locale){
-
     try {
 
         if(!locale)locale='en';
 
         cookie.setItem('locale',locale,Infinity,'/')
         commit('setLocale',locale)
+        if(app && app.i18n)
+          app.i18n.locale = locale;
 
-        app.i18n.locale = locale;
+        // axios.defaults.headers.common['Accept-Language'] = lang
+        // document.querySelector('html').setAttribute('lang', lang)
     } catch (e){
         // commit('feedback/danger',{
         //     title:'Not Found',
@@ -64,17 +69,21 @@ function setLocaleMutation (state,locale){
     else
       Vue.set(state,'locale','en');
 }
-
 //============================================================
 //
 //============================================================
-function setI18nLocaleMutation (state,locale){
-
-    if(locale && locale!=='false')
-      Vue.set(state.i18n,'locale',locale);
-    else
-      Vue.set(state.i18n,'locale','en');
+function setMobileShowMutation (state,show){
+      Vue.set(state,'showMobileFlag',show);
 }
+//============================================================
+//
+//============================================================
+function setPageMessageMutation (state,payload){
+      if(!payload.messages || !payload.page) throw new Error('Cannot pass empty data to $store.locale.setPageMessageMutation')
+      if(!state.pageMessages[payload.page])
+        Vue.set(state.pageMessages,payload.page,{});
 
+        for (var locale in payload.messages) 
+          Vue.set(state.pageMessages[payload.page],locale,payload.messages[locale]);
 
-
+}

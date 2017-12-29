@@ -1,15 +1,50 @@
 {
-  "component":{
-"HeaderBar": {
+  "about": "About",
+  "commitments": "Commitments",
+  "initiatives": "Initiatives",
+  "resources": "Resources",
+  "actions": "Actions",
+  "siteMap": "Site Map",
+  "contact": "Contact",
+  "nameCbdSecretariat": "CBD Secretariat",
+  "cbdAddressStreet": "413 Rue Saint Jacques",
+  "cbdAddressSuite": "Suite 800",
+  "cbdAddressCityProvPostal": "Montreal, QC, H2Y 1N9",
+  "cbdAddressCountry": "Canada",
+  "termsOfUse": "Terms of Use",
+  "privacyPolicy": "Privacy Policy",
+  "inAssociation":"In  Association",
+  "credits": "Credits",
+"reefs":"reefs",
+"coral":"coral",
+"REEFS":"REEFS",
+"CORAL":"CORAL",
+"dashboard":"Dashboard",
+"dashboardControl":"Dashboard Control",
+"coralReefs":"Coral Reefs",
+"yourEvents":"Your Events",
+"yourOrganizations":"Your Organizations",
+    "component": {
+        "HeaderBar": {
 
-},
-    "Me": {
-      "signin": "Sign In",
-      "logout": "Log Out",
-      "profile": "Profile"
-    },
-    "Locale": {
-      "languages": "Languages"
+        },
+        "Me": {
+            "signin": "Sign In",
+            "logout": "Log Out",
+            "profile": "Profile"
+        },
+        "Locale": {
+            "languages": "Languages"
+        },
+        "SCBD": {
+            "scbd": "Secretariat of the Convention on Biological Diversity (SCBD)",
+            "cbd": "Convention on Biological Diversity (CBD)",
+             "theConvention":"The Convention",
+             "cartagenaProtocol":"Cartagena Protocol",
+             "nagoyaProtocol":"Nagoya Protocol",
+             "programmes":"Programmes",
+             "information":"Information",
+             "secretariat":"Secretariat"
+        }
     }
-  }
 }

@@ -1,0 +1,28 @@
+// import Vue from 'vue'
+// import api      from '~/modules/api'
+
+var state: {
+      activeType: null,
+      itemsPerPage: 10,
+      documents: {/* [id: number]: Item */},
+      types: {
+        events: [/* number */],
+        news: [],
+        organizatoins: []
+      }
+    }
+
+// const actions = {
+//   setLocale: setLocale
+// }
+//
+// const mutations = {
+//   setLocale: setLocaleMutation
+// }
+
+export default {
+  namespaced: true,
+  state
+  // actions,
+  // mutations
+}
