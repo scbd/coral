@@ -52,10 +52,9 @@ module.exports = {
   // ============================================================
   plugins: [
     '~/modules/plugins/vuex-router-sync.js',
-    '~/modules/plugins/i18n.js',
-    {src: '~/modules/plugins/ga.js', ssr: false},
-    {src: '~/modules/plugins/gtm.js', ssr: false},
-    {src: '~/modules/plugins/fb-sdk.js', ssr: false}
+    '~/modules/plugins/i18n.js'
+    // {src: '~/modules/plugins/ga.js', ssr: false},
+    // {src: '~/modules/plugins/gtm.js', ssr: false}
   ],
 
   // ============================================================
@@ -85,19 +84,6 @@ module.exports = {
           vueLoader.options.preLoaders.i18n = 'json-loader'
           vueLoader.options.loaders.i18n = 'vue-i18n-loader'
         }
-
-    // Run ESLINT on save
-    // extend (config, ctx) {
-    //   if (ctx.dev && ctx.isClient) {
-    //     config.module.rules.push({
-    //       enforce: 'pre',
-    //       test: /\.(js|vue)$/,
-    //       loader: 'eslint-loader',
-    //       exclude: /(node_modules)/
-    //     })
-    //   }
-    // }
-
   }
 }
 
