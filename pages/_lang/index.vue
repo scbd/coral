@@ -55,7 +55,10 @@
       <div class="columns row-one">
         <div class="column">
 
-<a class="twitter-grid" href="https://twitter.com/TwitterDev/timelines/539487832448843776?ref_src=twsrc%5Etfw">National Park Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a class="twitter-grid" href="https://twitter.com/TwitterDev/timelines/539487832448843776?ref_src=twsrc%5Etfw">
+            National Park Tweets
+          </a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
   </section>
@@ -77,8 +80,22 @@ asyncData ({app}) {
       actionTitle:'test action titletest action titletest action title',
       actionDate: '25th, December 2017'
     }
+  },
+  head () {
+    return {
+      title: this.title,
+        meta: [
+          { hid: 'description', name: 'description', content: 'My custom description' }
+        ],
+      link: [
+        // We use $route.path since we don't use query parameters
+        {
+          rel: 'canonical',
+          href: `https://hn.nuxtjs.org${this.$route.path}`
+        }
+      ]
+    }
   }
-
 }
 
 </script>
