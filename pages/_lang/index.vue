@@ -1,7 +1,6 @@
 <template>
   <section >
       <div class="columns row-one">
-
         <div class="column is-one-half">
           <div >{{$t('description')}}</div>
         </div>
@@ -42,102 +41,70 @@
             </footer>
           </div>
         </div>
-
-
       </div>
+
       <div class="columns row-one">
         <div class="column has-text-centered is-2 is-offset-5">
-<img src="~/assets/images/footer-bar.svg"></img>
+          <img src="~/assets/images/footer-bar.svg"></img>
           <div class="title is-capitalized news">{{$t('news')}}</div>
           <img src="~/assets/images/footer-bar.svg"></img>
         </div>
       </div>
-      <div class="columns row-one">
-        <div class="column">
 
-          <a class="twitter-grid" href="https://twitter.com/TwitterDev/timelines/539487832448843776?ref_src=twsrc%5Etfw">
-            National Park Tweets
-          </a>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <!-- <div class="columns row-one" >
+        <div class="column">
+          <TwitterGrid/>
         </div>
-      </div>
+      </div> -->
   </section>
 </template>
 
 <script>
-import i18nMixin from '~/modules/mixins/LazyLoadi18n'
+  import pageMixin from '~/modules/mixins/page'
+  // import TwitterGrid from '~/components/home/TwitterGrid'
 
-export default {
-  layout: 'home',
-  name:'index',
-  scrollToTop: true,
-  components: {},
-  mixins: [i18nMixin],
-  // always use asyncData for better SSR
-asyncData ({app}) {
-    return {
-      actionsThisMonth: 5,
-      actionTitle:'test action titletest action titletest action title',
-      actionDate: '25th, December 2017'
-    }
-  },
-  head () {
-    return {
-      title: this.title,
-        meta: [
-          { hid: 'description', name: 'description', content: 'My custom description' }
-        ],
-      link: [
-        // We use $route.path since we don't use query parameters
-        {
-          rel: 'canonical',
-          href: `https://hn.nuxtjs.org${this.$route.path}`
-        }
-      ]
+  export default {
+    layout: 'home',
+    name:'index',
+    mixins: [pageMixin],
+    // always use asyncData for better SSR
+    asyncData ({app,isClient}) {
+      return {
+        actionsThisMonth: 5,
+        actionTitle:'test action titletest action titletest action title',
+        actionDate: '25th, December 2017',
+        title: 'Coral Reefs Portal'
+      }
     }
   }
-}
-
 </script>
 
-<style scoped>
-.news{
-  margin-bottom: 0 !important;
-}
-.grad-bar{
-  width:100%;
-
-}
-  .row-one{
-    margin:20px 20px 0 20px;
+<style>
+  .news{
+    margin-bottom: 0 !important;
   }
-.flex-center{
-  align-items: center;
-}
+  .grad-bar{
+    width:100%;
+  }
+  .row-one{
+    margin: 2em 2em 0 2em;
+  }
+  .flex-center{
+    align-items: center;
+  }
   .is-rounded {
-    border-radius: 50px;
+    border-radius: 7em;
     padding-left: 1em;
     padding-right: 1em;
   }
-
   .action-box {
     color: #000000;
-    border: 5px solid #e8768d;
-
-
-    /* font-weight: 600;
-    font-size: 1.25em;
-    text-align: center; */
+    border: .25em solid #e8768d;
   }
   .action-box .action-number{
     font-size: 3em;
   }
-  .action-box .action-title{
-    font-size: 2em;
-
-  }
   .action-box .button{
-
     background-color: #e8768d;
     color: #000000;
     font-weight: 800;

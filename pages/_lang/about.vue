@@ -12,13 +12,16 @@
 </template>
 
 <script>
-  import i18nMixin from '~/modules/mixins/LazyLoadi18n'
+  import pageMixin from '~/modules/mixins/page'
 
   export default {
-    layout: 'default',
     name:'about',
-    scrollToTop: true,
+    mixins: [pageMixin],
     components: {},
-    mixins: [i18nMixin]
+    asyncData({app}) {
+      return {
+        title: 'About Coral Reefs Portal'
+      }
+    },
   }
 </script>
