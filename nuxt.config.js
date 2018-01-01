@@ -2,9 +2,11 @@ require('dotenv').config()
 
 module.exports = {
   env: {
-    baseUrl: process.env.BASE_URL,
+    baseUrl: process.env.baseUrl,
     isLocalHost: process.env.isLocalHost || false,
-    apiUrl: process.env.apiUrl || 'https://api.cbddev.xyz'
+    apiUrl: process.env.apiUrl || 'https://api.cbddev.xyz',
+    analyzeBuild:process.env.analyzeBuild || false
+
   },
   // ============================================================
   // Headers of the page
@@ -16,27 +18,28 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'assets/images/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,400,500,900' }
+      { rel: 'icon', type: 'image/x-icon', href: 'assets/images/favicon.ico' }
     ]
   },
   css: [
-    { src: '@/assets/css/main.sass', lang: 'sass' },
+    { src: '@/assets/sass/roboto/roboto.sass', lang: 'sass' },
+    { src: '@/assets/sass/main.sass', lang: 'sass' },
     { src: '@/assets/css/fontello.css' },
     { src: '@/assets/css/main.css' }
   ],
   // ============================================================
   //  Customize the progress-bar color
   // ============================================================
-  loading: { color: '#0086b7' },
+  loading: { color: '#009B48' },
 
   // ============================================================
   //
   // ============================================================
   manifest: {
-    name: 'Coral Reefs | UN Biodiversity',
-    description: 'Coral Reefs ',
-    theme_color: '#0086b7'
+    name: 'CBD Coral',
+    short_name: 'CBD Coral',
+    description: 'Coral Reefs Portal',
+    theme_color: '#009B48'
   },
 
   // ============================================================
@@ -44,15 +47,19 @@ module.exports = {
   // ============================================================
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/component-cache'
+    '@nuxtjs/component-cache',
+    '@biodiversity/ssr-breakpoints',
+    'nuxt-device-detect'
   ],
 
   // ============================================================
   //
   // ============================================================
   plugins: [
+    '~/modules/plugins/ImageApi.js',
     '~/modules/plugins/vuex-router-sync.js',
-    '~/modules/plugins/i18n.js'
+    '~/modules/plugins/i18n.js',
+    '~/modules/plugins/vue-lazyload.js'
     // {src: '~/modules/plugins/ga.js', ssr: false},
     // {src: '~/modules/plugins/gtm.js', ssr: false}
   ],
@@ -67,25 +74,36 @@ module.exports = {
       const newRoutes = makeRoutes(routes)
       // Add our routes **in front** of the existing routes
       routes.unshift(...newRoutes)
-    }
+    },
+    linkActiveClass: 'is-active'
   },
 
   // ============================================================
   // Build configuration
   // ============================================================
   build: {
-    vendor: ['axios', 'vee-validate', 'vue-multiselect', 'vue-i18n', '@nuxtjs/pwa', '@nuxtjs/component-cache'],
-
+    analyze: process.env.analyzeBuild,
+    vendor: ['axios','bulma', 'vue-i18n','@nuxtjs/component-cache','vue-lazyload','nuxt-device-detect','@biodiversity/ssr-breakpoints'],
     extend (config) {
+
           const vueLoader = config.module.rules.find((r) => {
             return r.loader === 'vue-loader'
           })
           vueLoader.options.preLoaders = vueLoader.options.preLoaders || {}
           vueLoader.options.preLoaders.i18n = 'json-loader'
           vueLoader.options.loaders.i18n = 'vue-i18n-loader'
-        }
-  }
-}
+    },
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': false
+      }
+    },
+    watch: [
+    '~/node_modules/@biodiversity/ssr-breakpoints/module.js',
+    '~/node_modules/@biodiversity/ssr-breakpoints/plugin.js'
+]
+  }//build
+}//export
 
 // ============================================================
 //

@@ -1,21 +1,14 @@
-FROM node:8.9.1-alpine
-
-ENV HOST 0.0.0.0
-ARG COMMIT
-ENV COMMIT $COMMIT
+FROM mhart/alpine-node:8.9.3
 
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git
+    apk add --no-cache bash
 
-ARG COMMIT
-ENV COMMIT $COMMIT
-
-COPY . /usr/src/app/
-RUN npm install
+ONBUILD COPY . /usr/src/app/
+ONBUILD yarn
 
 
 # Build app

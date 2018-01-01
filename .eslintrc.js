@@ -40,6 +40,7 @@ module.exports = {
     'space-in-parens': 0,
     'space-unary-ops': 0,
     'spaced-comment': 0,
-    'unicode-bom': 0
+    'unicode-bom': 0,
+    'no-unexpected-multiline': 0
   }
 }

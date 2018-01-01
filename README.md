@@ -1,4 +1,4 @@
-# VUE-POC
+[![codebeat badge](https://codebeat.co/badges/bab12e30-7c85-4500-9b5a-28ef000a31a2)](https://codebeat.co/projects/github-com-scbd-coral-master)
 
 
 
@@ -6,14 +6,14 @@
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+$ yarn install # Or yarn install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn run dev
 
 # build for production and launch server
-$ npm run build
-$ npm start
+$ yarn run build
+$ yarn run start
 
 # generate static project
 $ npm run generate
