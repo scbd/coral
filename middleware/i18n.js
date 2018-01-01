@@ -30,8 +30,11 @@ export default async function ({ isHMR, app, store, route, params, error, req })
 
 }
 
+//============================================================
+//
+//============================================================
 async function lazyLoadPage(app,store,route) {
-
+  if(!route.name) return
   let locale = app.i18n.locale
   let pageName = route.name.replace(/lang-/gi,'')
   let pageLocales = store.state.locale.pageMessages[pageName] || {}
