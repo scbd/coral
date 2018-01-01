@@ -11,7 +11,7 @@
               <div class="title is-4 is-capitalized">{{$t('actionsAddedThisMonth')}}</div>
             </header>
             <div class="card-content has-text-centered">
-              <p class="title is-1">{{actionsThisMonth}} </p>
+              <p class="title action-number">{{actionsThisMonth}} </p>
             </div>
             <footer class="card-footer flex-center" >
               <p class="card-footer-item">
