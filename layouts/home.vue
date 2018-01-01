@@ -22,7 +22,9 @@
                 <MainNav class="main-nav"/>
           </div>
       </section>
-      <nuxt :class="{'rtl':isAr}"/>
+      <main>
+        <nuxt :class="{'rtl':isAr}"/>
+      </main>
       <CoralFooter/>
     </div>
 </template>
