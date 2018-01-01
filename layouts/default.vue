@@ -41,21 +41,6 @@
 
 <style scoped>
   .main-view{
-    margin: 42px 0 0 0;
-  }
-
-
-</style>
-
-<style lang="scss" >
-  @import '~assets/css/main';
-
-  .rtl{
-    direction:rtl;
-    font-family:"Droid Arabic Kufi", "Droid Sans", sans-serif;
-    font-size:14px;
-  }
-  body {
-    height:100vh;
+    margin: 3em 0 0 0;
   }
 </style>
