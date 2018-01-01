@@ -101,29 +101,12 @@ export default {
   }
 </style>
 
-<style lang="sass" scoped>
-  @import '~@/assets/css/main.sass'
+<style lang="sass" >
+  @import '~@/assets/sass/main.sass'
 
   .hero-home
     @extend .hero
-    background-image: url('~/assets/images/home.jpg')
     background-repeat: no-repeat
     background-size: cover
     background-position: center top
-    +mobile
-        background-size: cover
-
-</style>
-
-<style lang="scss" >
-  @import '~assets/css/main';
-
-  .rtl{
-    direction:rtl;
-    font-family:"Droid Arabic Kufi", "Droid Sans", sans-serif;
-    font-size:14px;
-  }
-  body {
-    height:100vh;
-  }
 </style>
