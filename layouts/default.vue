@@ -2,7 +2,9 @@
     <div >
       <GlobalBar  />
       <DefaultHeader />
-      <nuxt class="main-view" :class="{'rtl':isAr}"/>
+      <main>
+        <nuxt class="main-view" :class="{'rtl':isAr}"/>
+      </main>
       <CoralFooter/>
     </div>
 </template>
