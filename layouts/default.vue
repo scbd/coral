@@ -28,10 +28,10 @@
     head () {
       return {
         link: [
-          // We use $route.path since we don't use query parameters
+          // We use $route.path// must overwrite when using query parameters
           {
             rel: 'canonical',
-            href: `https://hn.nuxtjs.org${this.$route.path}`
+            href: `${process.env.baseUrl}${this.$route.path}`
           }
         ]
       }
