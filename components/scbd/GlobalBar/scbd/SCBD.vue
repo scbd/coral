@@ -1,12 +1,15 @@
 <template>
   <section>
     <div class="navbar-item has-dropdown is-hoverable" >
-      <a class="navbar-link is-uppercase cbd-size" v-on:click="showMobile()" v-if="!mobileOptionsOnly" >
-        <span v-show="!showMobileFlag"><img class="logo" src="~/assets/images/logo/cbd-leaf-green.svg"></img>  UN Biodiversity</span>
-        <span class="is-hidden-desktop" v-show="showMobileFlag"><i class="fontello icon-cancel" ></i></span>
+      <img class="logo" src="~/assets/images/logo/cbd-leaf-green.svg" :alt="$t('scbdLogoLeaf')" :title="$t('scbdLogoLeafTitle')" v-if="!mobileOptionsOnly && !showMobileFlag"/>
+      <a class="navbar-link is-uppercase" v-on:click="showMobile()" v-if="!mobileOptionsOnly" >
+        <span v-show="!showMobileFlag" >Biodiversity</span>
+        <span  v-show="showMobileFlag"><i class="fontello icon-cancel" ></i></span>
       </a>
-      <options class="is-hidden-desktop"  v-show="showMobileFlag && mobileOptionsOnly" />
+
+      <options class="is-hidden-desktop"  v-if="mobileOptionsOnly" />
       <options class="is-hidden-touch" />
+
     </div>
   </section>
 </template>
@@ -40,7 +43,18 @@ export default {
 }
 </script>
 <style scoped>
-
+.navbar-link{
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: .4em;
+  padding-right: 0;
+  font-size: 1em;
+  white-space: nowrap;
+  display:inline-block;
+}
+.navbar-link:after{
+  border: unset;
+}
 .gobal-menu{
   min-height: 30px;
   margin-bottom: 0;
@@ -61,8 +75,11 @@ export default {
   top: -35px;
 }
 .gobal-menu .logo{
-  max-height: 24px;
+  padding-top: .3em;
+  max-height: 1.3em;
+  padding-left: .5em;
 }
+
 .cbd-links:hover {
   color: #000000;
 }
@@ -77,17 +94,11 @@ export default {
 .cbd-links a:hover{
   color:#111;
 }
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translatey(-35px);
-  opacity: 0;
+
+
+@media (min-width:1024px){
+  .navbar-link{
+    padding-top: .2em;
+  }
 }
 </style>
