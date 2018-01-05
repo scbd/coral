@@ -35,8 +35,8 @@
         </div>
 
         <svg xmlns="http://www.w3.org/2000/svg" class="grad-bar " xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
-          <defs><style>.a{fill:url(#a);}</style>
-            <linearGradient id="a" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse">
+          <defs><style>.a{fill:url(#gradiaentHeader);}</style>
+            <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse">
               <stop offset="0" stop-color="#008095"/>
               <stop offset="0.22" stop-color="#008095"/>
               <stop offset="0.37" stop-color="#86abff"/>
@@ -53,9 +53,9 @@
       <nav class="level is-hidden-desktop is-mobile">
 
         <p class="level-item has-text-centered" v-on:click="toggleDash()">
-          <span class="icon">
-            <i class="fontello icon-gauge is-size-4" v-if="!showDashboard"></i>
-            <i class="fontello icon-cancel is-size-4" v-if="showDashboard"></i>
+          <span class="icon">&nbsp;
+            <!-- <i class="fontello icon-gauge is-size-4" v-if="!showDashboard"></i>
+            <i class="fontello icon-cancel is-size-4" v-if="showDashboard"></i> -->
           </span>
 
         </p>
@@ -72,12 +72,12 @@
         <p class="level-item has-text-centered">
           &nbsp;
         </p>
-        <p class="level-item has-text-centered" v-on:click="toggleMainNav()">
+        <div class="level-item has-text-centered" v-on:click="toggleMainNav()">
           <span class="icon">
             <i class="fontello icon-menu is-size-4" v-if="!showMainNav"></i>
             <i class="fontello icon-cancel is-size-4" v-if="showMainNav"></i>
           </span>
-        </p>
+        </div>
       </nav>
 </nav>
     </div>
@@ -110,21 +110,38 @@
                  <strong>{{ $t('coralReefs') }}</strong>
             </span>
             <hr class="dropdown-divider" style="margin:10px 0 0 0;">
-            <nuxt-link class="navbar-item" v-on:click="toggleMainNav()" :to="$i18n.path('about')">
-              {{ $t('about') }}
-            </nuxt-link>
-            <nuxt-link class="navbar-item" v-on:click="toggleMainNav()" :to="$i18n.path('commitments')">
-              {{ $t('commitments') }}
-            </nuxt-link>
-            <nuxt-link class="navbar-item" v-on:click="toggleMainNav()" :to="$i18n.path('initiatives')">
-              {{ $t('initiatives') }}
-            </nuxt-link>
-            <nuxt-link class="navbar-item" v-on:click="toggleMainNav()" :to="$i18n.path('actions')">
-              {{ $t('actions') }}
-            </nuxt-link>
-            <nuxt-link class="navbar-item" v-on:click="toggleMainNav()" :to="$i18n.path('resources')">
-              {{ $t('resources') }}
-            </nuxt-link>
+            <ul>
+              <li @click="toggleMainNav()">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('about')">
+                {{ $t('about') }}
+                </nuxt-link>
+              </li>
+              <li @click="toggleMainNav()">
+                <nuxt-link class="navbar-item"  :to="$i18n.path('commitments')">
+                {{ $t('commitments') }}
+                </nuxt-link>
+              </li>
+              <li @click="toggleMainNav()">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('initiatives')">
+                {{ $t('initiatives') }}
+                </nuxt-link>
+              </li>
+              <li @click="toggleMainNav()">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('actions')">
+                {{ $t('actions') }}
+                </nuxt-link>
+              </li>
+              <li @click="toggleMainNav()">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('resources')">
+                {{ $t('resources') }}
+                </nuxt-link>
+              </li>
+              <li @click="toggleMainNav()">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('')"  exact>
+                {{ $t('home') }}
+                </nuxt-link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -186,6 +203,7 @@ export default {
   width:75px;
   margin-top: 5px;
 }
+
 @media (min-width:1024px){
   .navbar-brand{
     align-self:flex-start;
@@ -218,9 +236,10 @@ export default {
   .main-nav:hover{
     color:#ff3e94;
   }
-  .nuxt-link-active{
-    color:#ff3e94;
-  }
+}
+
+.is-active {
+  color:#ff3e94;
 }
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
@@ -228,7 +247,7 @@ export default {
   transition: all .3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
