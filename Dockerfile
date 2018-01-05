@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 RUN apk update && apk upgrade && \
     apk add --no-cache bash
 
-ONBUILD COPY . /usr/src/app/
+COPY . /usr/src/app/
 ONBUILD yarn
 
 
