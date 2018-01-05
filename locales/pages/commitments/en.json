@@ -1,10 +1,21 @@
 {
+  "title":  "Commitments on Coral Reef Biodiversity",
   "titleShort":"Global Commitments",
   "description":"Governments have committed to better conserve and manage coral reef ecosystems. Within the CBD, countries adopted the Aichi Biodiversity Targets, including Aichi Target 10 which aims to reduce the different pressures on coral reefs. In 2015, the countries adopted the Sustainable Development Goals (SDGs), including SDG 14, which aims to conserve and sustainably use the oceans, seas, and marine resources for sustainable development.",
   "gboFourDescription":"The fourth edition of the Global Biodiversity Outlook (GBO-4), released in 2014, found that we have moved away from achieving Aichi Biodiversity Target 10. In order to address this, the Conference of the Parties (COP) to the Convention on Biological Diversity adopted the Priority Actions to Achieve Aichi Biodiversity Target 10 for Coral Reefs and Closely Associated Ecosystems in 2014.",
-  "gboFourTitleOne":"Priority Actions",
+  "gboFourTitleOne":"Priority Actions to Achieve",
   "gboFourTitleTwo":"AICHI BIODIVERSITY TARGET 10",
+  "gboFourTitleTwoA":"AICHI",
+  "gboFourTitleTwoB":"BIODIVERSITY",
+  "gboFourTitleTwoC":"TARGET",
+  "gboFourTitleTwoD":"10",
+
   "gboFourTitleThree":"for Coral Reefs and Closely Associated Ecosystems",
+
+  "gboFourTitleThreeA":"for Coral Reefs",
+  "gboFourTitleThreeB":"Closely Associated",
+  "gboFourTitleThreeC":"Ecosystems", 
+
   "subTitle":"Coral Reefs, Aichi Targets and Sustainable Development",
   "subDescription":"Coral reefs are related to many different Aichi Targets, and Sustainable Development Goals. Click on the linking statements to see which Aichi targets and SDGs relate to coral reefs.",
   "climateChangeTitle":"Climate Change",
