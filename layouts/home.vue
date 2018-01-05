@@ -1,11 +1,12 @@
 <template>
     <div >
       <GlobalBar  />
+      <DefaultHeader v-if="$breakpoints.isTouch()"/>
       <section class="hero hero-home " v-lazy:background-image="getHomeImg()">
           <div class="logo-container" >
-
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="logo" viewBox="0 0 535.95 128.19" >
                 <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
+                <desc > {{ $t('CORAL') }} {{ $t('REEFS') }} </desc>
                 <defs>
                   <style>.a{fill:none;}.b{clip-path:url(#a);}.c{clip-path:url(#b);}.d,.f,.g{fill:#fff;}.e{clip-path:url(#c);}.f,.g{font-size:63px;font-family:Roboto-Black, Roboto;}.f{letter-spacing:0.03em;}.g{letter-spacing:0.07em;}</style>
                   <clipPath id="a" transform="translate(-1 5.76)"><rect class="a" x="1.1" y="1.1" width="279.2" height="106.1"/></clipPath>
@@ -19,7 +20,7 @@
           </div>
 
           <div class="hero-body">
-                <MainNav class="main-nav"/>
+            <MainNav class="main-nav"/>
           </div>
       </section>
       <main>
@@ -30,20 +31,18 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import GlobalBar from '~/components/scbd/GlobalBar/GlobalBar.vue'
 import CoralFooter from '~/components/footer/CoralFooter.vue'
 import MainNav from '~/components/home/MainNav.vue'
-
+import DefaultHeader from '~/components/default/header/DefaultHeader.vue'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
 
 export default {
   scrollToTop: true,
+  components: {GlobalBar,MainNav,CoralFooter,DefaultHeader},
 
-  components: {GlobalBar,CoralFooter,MainNav},
-  data () {
-   return {
-     imgUrl: 'http://cbddocumentsimages-imagebucket-emyy2umszkrb.s3-website-us-east-1.amazonaws.com/1600x1600/coral-home.jpg' // String
-   }
- },
   computed: {
     isAr: function () {
       return !!(this.$store.state.locale.locale === 'ar')
@@ -62,13 +61,19 @@ export default {
   },
   methods:{
     getHomeImg: function () {
-        if(this.$device.isDesktop)
-          return this.$CBDImage.get('coral-home.jpg',1215)
+        if(this.$breakpoints.isDesktopHD)
+          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1600)
 
-        if(this.$device.isTablet)
-          return this.$CBDImage.get('coral-home.jpg',1023)
+        if(this.$breakpoints.isDesktopWS)
+          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1407)
 
-        return this.$CBDImage.get('coral-home.jpg',768)
+        if(this.$breakpoints.isDesktop)
+          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1215)
+
+        if(this.$breakpoints.isTablet)
+          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1023)
+
+        return this.$CBDImage.get('coral-reef-biodiversity.jpg',767)
       }
   }
 }
@@ -101,14 +106,4 @@ export default {
       margin: 300px 0 100px 0;
     }
   }
-</style>
-
-<style lang="sass" >
-  @import '~@/assets/sass/main.sass'
-
-  .hero-home
-    @extend .hero
-    background-repeat: no-repeat
-    background-size: cover
-    background-position: center top
 </style>
