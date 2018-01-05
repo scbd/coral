@@ -18,4 +18,3 @@ $ yarn run start
 # generate static project
 $ npm run generate
 ```
-TODO:
