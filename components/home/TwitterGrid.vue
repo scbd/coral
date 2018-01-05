@@ -1,8 +1,6 @@
 <template>
   <section ref="tgrid">
-    <a class="twitter-grid" href="https://twitter.com/TwitterDev/timelines/539487832448843776?ref_src=twsrc%5Etfw">
-      National Park Tweets
-    </a>
+    <a class="twitter-grid" href="https://twitter.com/CBDNews/timelines/947967151062900736?ref_src=twsrc%5Etfw">Coral Portal</a>
   </section>
 </template>
 

@@ -6,7 +6,7 @@
         <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('about')">
           <div class="main-menu about-style" >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.92 115"  preserveAspectRatio="xMinYMid meet" class="svg-content">
-              <title>About Icon</title>
+              <title>About Coral Reefs Icon</title>
                 <g  data-name="About Layer">
                   <path class="about-style" d="M10.31,106.51H154.62a3.44,3.44,0,0,0,3.44-3.44V13.74A13.76,13.76,0,0,0,144.31,0H20.62A13.76,13.76,0,0,0,6.87,13.74v89.33A3.43,3.43,0,0,0,10.31,106.51ZM20.62,13.74H144.31V89.33H20.62Z"/>
                   <path class="about-style" d="M161.49,113.38H99.64a3.43,3.43,0,0,0-3.44,3.44v3.44H68.72v-3.44a3.44,3.44,0,0,0-3.44-3.44H3.44A3.43,3.43,0,0,0,0,116.82v6.87A10.32,10.32,0,0,0,10.31,134H154.62a10.32,10.32,0,0,0,10.31-10.31v-6.87A3.44,3.44,0,0,0,161.49,113.38Z"/>
