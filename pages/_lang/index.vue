@@ -50,8 +50,8 @@
           <img :src="require('~/assets/images/footer-bar.svg')"></img>
         </div>
       </div>
-
-      <div class="columns row-one" v-if="!$breakpoints.isTouch()">
+<!-- v-if="!$breakpoints.isTouch()" -->
+      <div class="columns row-one" >
         <div class="column is-8 is-offset-2">
           <TwitterGrid/>
         </div>
