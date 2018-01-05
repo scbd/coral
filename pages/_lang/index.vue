@@ -75,8 +75,8 @@
       await store.dispatch('events/get')
 
       return {
-        actionsThisMonth: store.getters['events/getThisMonth'](app.i18n.locale),
-        action: store.getters['events/getHighlight'](app.i18n.locale)
+        actionsThisMonth: store.getters['events/getThisMonth'](app.i18n.locale) || 0,
+        action: store.getters['events/getHighlight'](app.i18n.locale) || {}
       }
     },
     methods:{
