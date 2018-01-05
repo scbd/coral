@@ -7,7 +7,8 @@ import scbd             from './modules/scbd'
 import footer           from './modules/footer'
 
 // schemas
-
+import events           from './modules/schemas/events'
+import resource         from './modules/schemas/resource'
 //components
 import lStringTranslation    from './modules/components/lStringTranslation'
 
@@ -23,7 +24,9 @@ export default () => {
         locale,
         lStringTranslation,
         footer,
-        scbd
+        scbd,
+        events,
+        resource
     }
   })
 }
