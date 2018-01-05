@@ -1,7 +1,7 @@
-// import Vue from 'vue'
-// import api      from '~/modules/api'
+import Vue from 'vue'
+import api      from '~/modules/api'
 
-var state: {
+const state= {
       activeType: null,
       itemsPerPage: 10,
       documents: {/* [id: number]: Item */},
