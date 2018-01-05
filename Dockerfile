@@ -1,5 +1,7 @@
 FROM mhart/alpine-node:8.9.3
 
+ENV HOST 0.0.0.0
+
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -8,7 +10,7 @@ RUN apk update && apk upgrade && \
     apk add --no-cache bash
 
 COPY . /usr/src/app/
-ONBUILD yarn
+RUN yarn
 
 
 # Build app
