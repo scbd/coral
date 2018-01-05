@@ -1,27 +1,23 @@
 <template>
-<section>
-    <transition name="slide-fade">
-
+  <section>
+      <transition name="slide-fade">
         <div v-if="show" class="gobal-menu" :style="{ 'background-color' : backgroundColor }">
-
-            <div class="level is-mobile" style="margin:0;">
-                <!-- Left side -->
-                <div class="level-left">
-                  <scbd />
-                </div>
-                <!-- Right side -->
-                <div class="level-right">
-                    <!-- <me/> -->
-                    <locale/>
-                </div>
-            </div>
-            <div class="is-hidden-desktop">
-              <locale :mobile-options-only="true" />
-              <scbd :mobile-options-only="true"/>
-            </div>
+          <div class="gobal-grid" >
+              <scbd />
+              <span>&nbsp;</span>
+              <locale/>
+          </div>
+          <div class="is-hidden-desktop" >
+            <transition name="slide-fade">
+              <scbd :mobile-options-only="true" v-show="showSCBD"/>
+            </transition>
+            <transition name="slide-fade">
+              <locale :mobile-options-only="true" v-show="showLocale" />
+            </transition>
+          </div>
         </div>
-    </transition>
-</section>
+      </transition>
+  </section>
 </template>
 
 <script>
@@ -47,6 +43,12 @@ export default {
     locale: function () {
       if (this.$store.state.locale.locale !== 'en') { return '/' + this.$store.state.locale.locale }
       return ''
+    },
+    showLocale: function () {
+      return this.$store.state.locale.showMobileFlag
+    },
+    showSCBD: function () {
+      return this.$store.state.scbd.showMobileFlag
     }
   },
   methods: {
@@ -82,55 +84,71 @@ export default {
   }
 }
 </script>
-<style scoped>
 
-.gobal-menu{
-  min-height: 30px;
-  margin-bottom: 0;
-  border: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgb(231, 231, 231);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
-  color: #bdbdbd;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  transition: top 0.2s ease-in-out;
-  position:fixed;
-  top:0px;
-  width:100%;
+<style scoped>
+.gobal-grid{
+  display: grid;
+  grid-template-columns: .8fr 1fr .02fr;
 }
-.nav-up {
-  top: -35px;
-}
-.gobal-menu .logo{
-  max-height: 24px;
-}
-.cbd-links:hover {
-  color: #000000;
-}
-.cbd-links a {
-  text-shadow: 0 1px 0 rgba(255,255,255,.25);
-  color: #4d4d4d;
-  font-family: "Helvetica Neue", Helvetica, sans-serif, Trebuchet MS;
-  text-rendering: optimizeLegibility;
-  font-size: 14px;
-  margin: 0 10px 0 10px;
-}
-.cbd-links a:hover{
-  color:#111;
-}
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translatey(-35px);
-  opacity: 0;
-}
+  .gobal-menu{
+    background-color: #fff;
+    min-height: 30px;
+    margin-bottom: 0;
+    border: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+    color: #bdbdbd;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    transition: top 0.2s ease-in-out;
+    position:fixed;
+    top:0px;
+    width:100%;
+  }
+  .nav-up {
+    top: -35px;
+  }
+  .gobal-menu .logo{
+    max-height: 24px;
+    display: inline;
+  }
+  .cbd-links:hover {
+    color: #000000;
+  }
+  .cbd-links a {
+    text-shadow: 0 1px 0 rgba(255,255,255,.25);
+    color: #4d4d4d;
+    font-family: "Helvetica Neue", Helvetica, sans-serif, Trebuchet MS;
+    text-rendering: optimizeLegibility;
+    font-size: 14px;
+    margin: 0 10px 0 10px;
+  }
+  .cbd-links a:hover{
+    color:#111;
+  }
+  /* Enter and leave animations can use different */
+  /* durations and timing functions.              */
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+ {
+    transform: translatey(-35px);
+    opacity: 0;
+  }
+  @media (min-width:1024px){
+    .gobal-grid{
+      grid-template-columns: .17fr 1fr .02fr;
+    }
+  }
+  @media (min-width:1024px){
+    .gobal-grid{
+      grid-template-columns: .17fr 1fr .02fr;
+    }
+  }
 </style>
