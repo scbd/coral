@@ -44,9 +44,8 @@ export default async function (ctx, inject) {
     if(!height) height = width
 
     if(supportsWebP  && !~name.indexOf('.webp')){
-      let fileExt = getFileExt()
-      let pattern = `/${fileExt}/gi`
-      name = name.replace(pattern, '.webp');
+
+      name = addWebP(name)
       return `http://cbddocumentsimages-imagebucket-emyy2umszkrb.s3-website-us-east-1.amazonaws.com/${width}x${height}/${name}`
     }
 
@@ -65,9 +64,7 @@ export default async function (ctx, inject) {
   }
 }
 
-
-
-function getFileExt(filename) {
-  var r = /.+\.(.+)$/.exec(filename);
-  return r ? r[1] : null;
+function addWebP(filename) {
+  let lastIndex = filename.lastIndexOf(".")
+  return filename.slice(0,lastIndex)+'.webp';
 }
