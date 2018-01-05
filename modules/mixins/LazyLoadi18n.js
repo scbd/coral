@@ -9,6 +9,8 @@ export default {
     let pageName = this.$store.state.route.name.replace(/lang-/gi,'')
     let pageLocales = this.$store.state.locale.pageMessages[pageName] || {}
 
+    if(pageName==='lang')pageName = 'index'
+
     if(!pageLocales['en'] || isLocalHost)
       pageLocales.en = await import(`~/locales/pages/${pageName}/en.json`)
 

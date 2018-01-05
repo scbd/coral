@@ -37,16 +37,19 @@ export default async function ({ isHMR, app, store, route, params, error, req })
 //
 //============================================================
 async function lazyLoadPage(app,store,route) {
+
   if(!route.name) return
   let locale = app.i18n.locale
   let pageName = route.name.replace(/lang-/gi,'')
   let pageLocales = store.state.locale.pageMessages[pageName] || {}
 
+  if(pageName==='lang')pageName = 'index'
+
   if(!pageLocales['en'] || isLocalHost)
     pageLocales.en = await import(`~/locales/pages/${pageName}/en.json`)
 
   if(locale !=='en' && (!pageLocales[locale] || isLocalHost))
-    pageLocales[locale] = await import(`~/locales/pages/${pageName}/${locale}.json`)
+      pageLocales[locale] = await import(`~/locales/pages/${pageName}/${locale}.json`)
 
   if(!isEmpty(pageLocales[locale]))
     store.commit('locale/setPageMessage', {page:pageName, messages:pageLocales})
