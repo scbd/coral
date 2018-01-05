@@ -29,8 +29,8 @@
               <div class="title is-4">{{$t('highlightedAction')}}</div>
             </header>
             <div class="card-content has-text-centered">
-              <p class="title is-5 is-capitalized">{{actionTitle}}  </p>
-              <p class="subTitle">{{actionDate}} </p>
+              <p class="title is-6 is-capitalized">{{action.title_t}}  </p>
+              <p class="subTitle">{{toLocaleString(action.startDate_dt)}} </p>
             </div>
             <footer class="card-footer flex-center" >
               <p class="card-footer-item">
@@ -43,39 +43,52 @@
         </div>
       </div>
 
-      <div class="columns row-one">
+      <div class="columns row-one" v-if="!$breakpoints.isTouch()">
         <div class="column has-text-centered is-2 is-offset-5">
-          <img src="~/assets/images/footer-bar.svg"></img>
+          <img :src="require('~/assets/images/footer-bar.svg')"></img>
           <div class="title is-capitalized news">{{$t('news')}}</div>
-          <img src="~/assets/images/footer-bar.svg"></img>
+          <img :src="require('~/assets/images/footer-bar.svg')"></img>
         </div>
       </div>
 
-      <!-- <div class="columns row-one" >
-        <div class="column">
+      <div class="columns row-one" v-if="!$breakpoints.isTouch()">
+        <div class="column is-8 is-offset-2">
           <TwitterGrid/>
         </div>
-      </div> -->
+      </div>
   </section>
 </template>
 
 <script>
   import pageMixin from '~/modules/mixins/page'
-  // import TwitterGrid from '~/components/home/TwitterGrid'
+  import TwitterGrid from '~/components/home/TwitterGrid'
+  import { DateTime }  from 'luxon'
 
   export default {
     layout: 'home',
     name:'index',
     mixins: [pageMixin],
+    components:{TwitterGrid},
     // always use asyncData for better SSR
-    asyncData ({app,isClient}) {
+    async asyncData ({app,store}) {
+
+      await store.dispatch('events/get')
+
       return {
-        actionsThisMonth: 5,
-        actionTitle:'test action titletest action titletest action title',
-        actionDate: '25th, December 2017',
-        title: 'Coral Reefs Portal'
+        actionsThisMonth: store.getters['events/getThisMonth'](app.i18n.locale),
+        action: store.getters['events/getHighlight'](app.i18n.locale)
       }
+    },
+    methods:{
+      toLocaleString:toLocaleString
     }
+  }
+
+  //============================================================
+  //
+  //============================================================
+  function  toLocaleString (isoDate, preset = 'DATETIME_MED')  {
+    return DateTime.fromISO(isoDate).setLocale(this.$i18n.locale).toLocaleString(DateTime[preset])
   }
 </script>
 
