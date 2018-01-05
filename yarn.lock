@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@biodiversity/ssr-breakpoints@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@biodiversity/ssr-breakpoints/-/ssr-breakpoints-0.0.8.tgz#1868029a1988b62b2e5d440bd0ecee2c40172fdb"
+
 "@nuxtjs/component-cache@^0.1.3":
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/@nuxtjs/component-cache/-/component-cache-0.1.5.tgz#f551a67f66d9ee3f572aa52cef8a4d85683a5a89"
@@ -1056,11 +1060,11 @@ browserslist@^1.3.6, browserslist@^1.5.2, browserslist@^1.7.6:
     electron-to-chromium "^1.2.7"
 
 browserslist@^2.0.0, browserslist@^2.1.2, browserslist@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-2.10.0.tgz#bac5ee1cc69ca9d96403ffb8a3abdc5b6aed6346"
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-2.10.1.tgz#f9dc692b79004a78ec9ba0d012c54de44cc6d7e4"
   dependencies:
-    caniuse-lite "^1.0.30000780"
-    electron-to-chromium "^1.3.28"
+    caniuse-lite "^1.0.30000784"
+    electron-to-chromium "^1.3.30"
 
 buffer-equal@0.0.1:
   version "0.0.1"
@@ -1156,7 +1160,7 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000784"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000784.tgz#1be95012d9489c7719074f81aee57dbdffe6361b"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000780, caniuse-lite@^1.0.30000783:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000783, caniuse-lite@^1.0.30000784:
   version "1.0.30000784"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000784.tgz#129ced74e9a1280a441880b6cd2bce30ef59e6c0"
 
@@ -1863,7 +1867,7 @@ electron-releases@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/electron-releases/-/electron-releases-2.1.0.tgz#c5614bf811f176ce3c836e368a0625782341fd4e"
 
-electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.28:
+electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.30:
   version "1.3.30"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.30.tgz#9666f532a64586651fc56a72513692e820d06a80"
   dependencies:
@@ -3508,6 +3512,10 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+luxon@^0.2.11:
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-0.2.11.tgz#ac3a3d39e2d169ec1e894b73c595264cbfb45671"
+
 macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
@@ -3867,10 +3875,6 @@ num2fraction@^1.2.2:
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
-
-nuxt-device-detect@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/nuxt-device-detect/-/nuxt-device-detect-1.0.0.tgz#253d1282d23ec41ac6fa2a494415e6c1bbb0adeb"
 
 nuxt@^1.0.0-rc11:
   version "1.0.0-rc11"
@@ -5818,8 +5822,8 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
 uglify-js@3.3.x:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.3.tgz#66f9b57f7dda913ad9f48a21b12e4e7377fdaf40"
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.4.tgz#d8ebb76f201a3798ac2f0b6519642fcca4a99834"
   dependencies:
     commander "~2.12.1"
     source-map "~0.6.1"
@@ -5970,8 +5974,8 @@ vm2@^3.5.0:
   resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.5.2.tgz#6ae7c75a867775946e1d4a66623374e0245150e0"
 
 vue-eslint-parser@^2.0.1-beta.1:
-  version "2.0.1-beta.3"
-  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.1-beta.3.tgz#cf1391d9c277dd72ee7faa2a2171d71aa1b85f70"
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.1.tgz#30135771c4fad00fdbac4542a2d59f3b1d776834"
   dependencies:
     debug "^3.1.0"
     eslint-scope "^3.7.1"
@@ -5999,8 +6003,8 @@ vue-lazyload@^1.1.4:
   resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.1.4.tgz#94dbb3fcb047f147f37900c0e22ad4fd478e31c4"
 
 vue-loader@^13.0.4:
-  version "13.6.1"
-  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-13.6.1.tgz#3ad365271b3db382722ab2eb0d6936d8d52ec2ce"
+  version "13.6.2"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-13.6.2.tgz#43d9688f2c80400916104d1138941aacd7e389cb"
   dependencies:
     consolidate "^0.14.0"
     hash-sum "^1.0.2"
@@ -6058,6 +6062,10 @@ vue-template-compiler@~2.4.2:
 vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+vue-truncate-filter@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/vue-truncate-filter/-/vue-truncate-filter-1.1.7.tgz#e365fd2d4520c017293308e0ecbb1dd6176c3af2"
 
 vue@~2.4.2:
   version "2.4.4"
