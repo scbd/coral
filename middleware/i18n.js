@@ -1,5 +1,6 @@
 import cookie from '~/modules/cookie'
 import {isEmpty} from '~/modules/helpers'
+
 let isLocalHost = process.env.isLocalHost
 
 export default async function ({ isHMR, app, store, route, params, error, req }) {
@@ -7,11 +8,13 @@ export default async function ({ isHMR, app, store, route, params, error, req })
   if (isHMR) return
 
   let cookieLocale = cookie.getItem('locale', req);
+
+  if(params.lang === 'sw.js') return // hack until determine how this is set to sw.js
   // Get locale from params
   const locale = params.lang || cookieLocale || store.state.locale.locale || 'en'
 
   if (store.state.locale.locales.indexOf(locale) === -1) {
-    return error({ message: 'Middleware i18n: This page could not be found.', statusCode: 404 })
+    return error({ message: `Middleware i18n: This locale could not be found =>  locale:${locale} `, statusCode: 404 })
   }
 
   // lazy load root language if not loaded on locale change
