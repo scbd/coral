@@ -48,8 +48,7 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/component-cache',
-    '@biodiversity/ssr-breakpoints',
-    'nuxt-device-detect'
+    '@biodiversity/ssr-breakpoints'
   ],
 
   // ============================================================
@@ -58,8 +57,7 @@ module.exports = {
   plugins: [
     '~/modules/plugins/ImageApi.js',
     '~/modules/plugins/vuex-router-sync.js',
-    '~/modules/plugins/i18n.js',
-    '~/modules/plugins/vue-lazyload.js'
+    '~/modules/plugins/i18n.js'
     // {src: '~/modules/plugins/ga.js', ssr: false},
     // {src: '~/modules/plugins/gtm.js', ssr: false}
   ],
@@ -83,7 +81,8 @@ module.exports = {
   // ============================================================
   build: {
     analyze: process.env.analyzeBuild,
-    vendor: ['axios','bulma', 'vue-i18n','@nuxtjs/component-cache','vue-lazyload','nuxt-device-detect','@biodiversity/ssr-breakpoints'],
+  //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon'//
+    vendor: ['axios','vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints','~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'],
     extend (config) {
 
           const vueLoader = config.module.rules.find((r) => {
@@ -97,11 +96,11 @@ module.exports = {
       plugins: {
         'postcss-custom-properties': false
       }
-    },
-    watch: [
-    '~/node_modules/@biodiversity/ssr-breakpoints/module.js',
-    '~/node_modules/@biodiversity/ssr-breakpoints/plugin.js'
-]
+    }
+//     watch: [
+//     '~/node_modules/@biodiversity/ssr-breakpoints/module.js',
+//     '~/node_modules/@biodiversity/ssr-breakpoints/plugin.js'
+// ]
   }//build
 }//export
 
