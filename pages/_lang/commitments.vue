@@ -7,15 +7,10 @@
         color="#aacfff">
         <CommitmentIcon width="100%" color="#aacfff"/>
       </TitleDescription>
-      <!-- <a href="https://www.cbd.int/doc/publications/cbd-aichi-target-10-en.pdf" target="_blank" rel="noopener" > -->
         <div class="grid-gbo">
-
           <div class="item-left" v-lazy:background-image="getBGImg()">
-
               <div class="target" >
-
               </div>
-
           </div>
 
           <div class="item-right">
@@ -148,8 +143,10 @@ a .grid-gbo{
 .desc{
   color:#0086b7;
 }
+
   .item-left {
     grid-area: left;
+    background-color: #0086b7;
   }
   .item-right {
     grid-area: right;
