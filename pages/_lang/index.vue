@@ -45,9 +45,9 @@
 
       <div class="columns row-one" v-if="!$breakpoints.isTouch()">
         <div class="column has-text-centered is-2 is-offset-5">
-          <img :src="require('~/assets/images/footer-bar.svg')"></img>
+          <img :title="$t('dividerImg')" :alt="$t('dividerImg')" :src="require('~/assets/images/footer-bar.svg')"></img>
           <div class="title is-capitalized news">{{$t('news')}}</div>
-          <img :src="require('~/assets/images/footer-bar.svg')"></img>
+          <img :title="$t('dividerImg')"  :alt="$t('dividerImg')" :src="require('~/assets/images/footer-bar.svg')"></img>
         </div>
       </div>
 <!-- v-if="!$breakpoints.isTouch()" -->
