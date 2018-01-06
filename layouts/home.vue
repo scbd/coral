@@ -8,7 +8,7 @@
                 <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
                 <desc > {{ $t('CORAL') }} {{ $t('REEFS') }} </desc>
                 <defs>
-                  <style>.a{fill:none;}.b{clip-path:url(#a);}.c{clip-path:url(#b);}.d,.f,.g{fill:#fff;}.e{clip-path:url(#c);}.f,.g{font-size:63px;font-family:Roboto-Black, Roboto;}.f{letter-spacing:0.03em;}.g{letter-spacing:0.07em;}</style>
+                  <style>.a{fill:none;}.b{clip-path:url(#a);}.c{clip-path:url(#b);}.d,.f,.g{fill:#fff;}.e{clip-path:url(#c);}.f,.g{font-size:63px;font-family:Roboto-Black, , sans-serif;font-weight: 900;}.f{letter-spacing:0.03em;}.g{letter-spacing:0.07em;}</style>
                   <clipPath id="a" transform="translate(-1 5.76)"><rect class="a" x="1.1" y="1.1" width="279.2" height="106.1"/></clipPath>
                   <clipPath id="b" transform="translate(-1 5.76)"><rect class="a" x="1" y="1" width="280" height="106.2"/></clipPath>
                   <clipPath id="c" transform="translate(-1 5.76)"><rect class="a" x="-16.8" y="-4.8" width="297.9" height="113"/></clipPath>
@@ -47,6 +47,10 @@ export default {
     isAr: function () {
       return !!(this.$store.state.locale.locale === 'ar')
     }
+  },
+  mounted (){
+
+    if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)) { console.log = function(){}; }
   },
   head () {
     return {
