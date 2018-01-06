@@ -3,7 +3,7 @@
     <a :href="url" target="_blank" rel="noopener">
       <div class="card-image is-text-centered" >
         <figure class="grid-org-figure has-text-centered" >
-          <img class="figure-img" :src="image" :alt="title" :title="title">
+          <img class="figure-img" v-lazy="image" :alt="title" :title="title">
         </figure>
       </div>
       <div class="card-content grid-org-content">
@@ -16,6 +16,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
 
 export default {
   name: 'OrganizationGridItem',
