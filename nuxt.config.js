@@ -50,7 +50,7 @@ module.exports = {
   // ============================================================
   modules: [
     ['@nuxtjs/pwa', { mobileAppIOS: true }],
-    '@nuxtjs/component-cache',
+    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],  // cache rendered componenents server side for 15 mins
     '@biodiversity/ssr-breakpoints'
   ],
 
