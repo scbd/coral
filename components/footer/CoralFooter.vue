@@ -1,8 +1,7 @@
 <template>
   <section>
       <div class="reef-divider">
-          &nbsp;
-          <img data-sizes="auto" :src="require('~/assets/images/coral-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+          <img data-sizes="auto" v-lazy="require('~/assets/images/coral-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
       </div>
       <footer class="footer coral-footer">
         <div class="f-grid">
@@ -23,13 +22,13 @@
                 <span class="is-hidden-touch">&nbsp;</span>
                 <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener">
 
-                    <img class="eu-img" :src="require('~/assets/images/euflag.svg')" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')"></img>
+                    <img class="eu-img" v-lazy="require('~/assets/images/euflag.svg')" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')"></img>
                 </a>
                 <a href="https://www.unenvironment.org/" target="_blank" rel="noopener">
-                    <img  :src="require('~/assets/images/UNEP_Logo_en.png')" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
+                    <img  v-lazy="require('~/assets/images/UNEP_Logo_en.png')" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
                 </a>
                 <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
-                    <img width="100%" :src="require('~/assets/images/logo/cbd-logo-green-en.svg')" :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                    <img width="100%" v-lazy="require('~/assets/images/logo/cbd-logo-green-en.svg')"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
                 </a>
                 <span class="is-hidden-touch">&nbsp;</span>
             </div>
@@ -84,6 +83,9 @@
 
 <script>
 
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
 
 export default {
   name: 'CoralFooter',
