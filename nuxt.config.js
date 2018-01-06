@@ -24,7 +24,7 @@ module.exports = {
     ]
   },
   css: [
-    { src: '@/assets/sass/roboto/roboto.sass', lang: 'sass' },
+    // { src: '@/assets/sass/roboto/roboto.sass', lang: 'sass' },
     { src: '@/assets/sass/main.sass', lang: 'sass' },
     { src: '@/assets/css/fontello.css' },
     { src: '@/assets/css/main.css' }
