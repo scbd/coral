@@ -101,6 +101,14 @@ export default {
   .resources{
     margin-top: 20px;
     display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: 20px;
+  }
+}
+@media screen and (min-width: 1024px){
+  .resources{
+    margin-top: 20px;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
   }
