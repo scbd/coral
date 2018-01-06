@@ -135,7 +135,7 @@ export default {
 
     .reef-divider img{
       width:100%;
-      object-fit: fill;
+      object-fit: cover;
     }
 
     .f-grid{
