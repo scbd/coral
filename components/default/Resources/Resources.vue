@@ -81,7 +81,7 @@ export default {
 .resources{
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 20px;
 }
 .list-complete-item {
@@ -97,5 +97,12 @@ export default {
 .list-complete-leave-active {
   position: absolute;
 }
-
+@media screen and (min-width: 768px){
+  .resources{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
 </style>
