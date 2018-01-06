@@ -5,7 +5,7 @@
         <div class="content">
 
           <span class="title is-size-6"  >{{title}}</span><br><br>
-          <p >{{trunc}}</p>
+          <!-- <p >{{trunc}}</p> -->
           <span class="tag is-pulled-right">{{index}} of {{total}}</span>
           <br>
         </div>
