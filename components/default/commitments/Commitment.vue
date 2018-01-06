@@ -4,7 +4,7 @@
       <div class="card-image" >
         <figure class="image" >
           <svg  width="100%" height="1.2em"  :style="{fill:color}"  xmlns="http://www.w3.org/2000/svg">
-            <title>Commitment Under Line Illustration</title>
+            <title>Commitment Under Line Illustration {{title}}</title>
             <rect x="0" y="0" width="100%" height="1.2em"/>
           </svg>
         </figure>
@@ -16,11 +16,11 @@
           <transition name="slide-fade">
             <div v-if="show">
               <div class="target" v-for="item in abt"  style="">
-                <a :href="`https://www.cbd.int/aichi-targets/target/${Number(item)}`" target="_blank" rel="noopener"><img  :src="require(`~/assets/images/biodiversity-targets/biodiversity-target-${item}.svg`)" /></a>
+                <a :href="`https://www.cbd.int/aichi-targets/target/${Number(item)}`" target="_blank" rel="noopener"><img :alt="$t('aBT')+' '+item" :title="$t('aBT')+' '+item" v-lazy="require(`~/assets/images/biodiversity-targets/biodiversity-target-${item}.svg`)" /></a>
               </div>
               <br>
               <div class="target" v-for="item in sdg"  style="width:40px;display:inline-block;">
-                <a :href="`https://sustainabledevelopment.un.org/sdg${Number(item)}`" target="_blank" rel="noopener"><img  :src="require(`~/assets/images/sustainable-development-goals/sustainable-development-goals-${item}.svg`)" /></a>
+                <a :href="`https://sustainabledevelopment.un.org/sdg${Number(item)}`" target="_blank" rel="noopener"><img  :alt="$t('sDG')+' '+item" :title="$t('sDG')+' '+item" v-lazy="require(`~/assets/images/sustainable-development-goals/sustainable-development-goals-${item}.svg`)" /></a>
               </div>
             </div>
           </transition>
@@ -31,7 +31,9 @@
 </template>
 
 <script>
-
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
 export default {
   name: 'Commitment',
   data: () => {return {show:false}},
