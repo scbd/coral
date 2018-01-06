@@ -11,11 +11,11 @@
         <div class="grid-gbo">
 
           <div class="item-left" v-lazy:background-image="getBGImg()">
-            <a href="https://www.cbd.int/doc/publications/cbd-aichi-target-10-en.pdf" target="_blank" rel="noopener">
+
               <div class="target" >
 
               </div>
-            </a>
+
           </div>
 
           <div class="item-right">
@@ -26,6 +26,7 @@
           </div>
 
           <div class="target-inner">
+            <a href="https://www.cbd.int/doc/publications/cbd-aichi-target-10-en.pdf" download>
             <div class="grid-gbo">
                 <div>
 
@@ -49,7 +50,7 @@
                     </span>
                 </div>
                 <div class="item-right" v-if="!$breakpoints.isMobile()">
-                  <img class="is-pulled-right" style="margin:5px 5px 5px 5px;" width="40px" :src="require('~/assets/images/biodiversity-targets/biodiversity-target-10.svg')" />
+                  <img :alt="$t('aBT')+' 10'" :title="$t('aBT')+' 10'" class="is-pulled-right" style="margin:5px 5px 5px 5px;" width="40px" v-lazy="require('~/assets/images/biodiversity-targets/biodiversity-target-10.svg')" />
                     <div class="target" >
                       <span></span>
                       <div class="target-inner">
@@ -58,6 +59,7 @@
                     </div>
                 </div>
             </div>
+          </a>
           </div>
         </div>
 
@@ -131,13 +133,16 @@
 </script>
 
 <style scoped>
+a .grid-gbo{
+  color:#ffffff;
+}
 .linkages-title{
   margin-top:20px;
 }
 .linkages{
   margin-top:20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap:20px;
 }
 .desc{
@@ -200,6 +205,9 @@
   }
 
   @media screen and (min-width: 768px) {
+    .linkages{
+      grid-template-columns: 1fr 1fr;
+    }
     .grid-gbo{
       display: grid;
       grid-template-columns: 1fr 1fr;

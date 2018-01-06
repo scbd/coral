@@ -45,26 +45,12 @@
 
       <div class="columns row-one" v-if="!$breakpoints.isTouch()">
         <div class="column has-text-centered is-2 is-offset-5">
-          <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1265 23" preserveAspectRatio="xMinYMax meet" >
-            <defs><style>.cls-1{opacity:0.67;isolation:isolate;fill:url(#linear-gradient);}</style>
-              <linearGradient id="linear-gradient" y1="12.5" x2="1265" y2="12.5" gradientTransform="matrix(1, 0, 0, -1, 0, 24)" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#008095"/>
-                <stop offset="0.22" stop-color="#008095"/>
-                <stop offset="0.37" stop-color="#86abff"/>
-                <stop offset="0.56" stop-color="#d79eff"/>
-                <stop offset="0.77" stop-color="#c67680"/>
-                <stop offset="1" stop-color="#ff3e80"/>
-              </linearGradient>
-            </defs>
-            <title>{{$t('dividerImg')}}</title>
-            <rect class="cls-1" width="1265" height="23"/>
-          </svg>
+          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
           <div class="title is-capitalized news">{{$t('news')}}</div>
-
-          <img width="100%" height="auto" :title="$t('dividerImg')"  :alt="$t('dividerImg')" :src="require('~/assets/images/footer-bar.svg')"></img>
+          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
         </div>
       </div>
-<!-- v-if="!$breakpoints.isTouch()" -->
+
       <div class="columns row-one" >
         <div class="column is-8 is-offset-2">
           <TwitterGrid/>
@@ -77,6 +63,9 @@
   import pageMixin from '~/modules/mixins/page'
   import TwitterGrid from '~/components/home/TwitterGrid'
   import { DateTime }  from 'luxon'
+  import Vue from 'vue'
+  import VueLazyload from 'vue-lazyload'
+  Vue.use(VueLazyload)
 
   export default {
     layout: 'home',
@@ -107,6 +96,9 @@
 </script>
 
 <style>
+.grad-bar{
+  object-fit: scale-down;
+}
   .news{
     margin-bottom: 0 !important;
   }

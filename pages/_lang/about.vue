@@ -40,9 +40,9 @@
     </div>
     <div class="title-grid">
       <div class="title-item has-text-centered ">
-        <img  :src="require('~/assets/images/footer-bar.svg')"></img>
+        <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
         <div class="title is-capitalized">{{$t('otherMarineWork')}}</div>
-        <img :src="require('~/assets/images/footer-bar.svg')"></img>
+        <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
       </div>
     </div>
 
@@ -68,8 +68,11 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  import VueLazyload from 'vue-lazyload'
   import pageMixin from '~/modules/mixins/page'
   import AboutIcon from '~/components/icons/AboutIcon'
+  Vue.use(VueLazyload)
   export default {
     name:'about',
     mixins: [pageMixin],
