@@ -132,8 +132,10 @@ export default {
 </script>
 
 <style scoped>
+
     .reef-divider img{
       width:100%;
+      object-fit: fill;
     }
 
     .f-grid{
