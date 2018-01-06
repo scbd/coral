@@ -34,20 +34,20 @@
           </div>
         </div>
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="grad-bar " xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
-          <defs><style>.a{fill:url(#gradiaentHeader);}</style>
-            <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#008095"/>
-              <stop offset="0.22" stop-color="#008095"/>
-              <stop offset="0.37" stop-color="#86abff"/>
-              <stop offset="0.56" stop-color="#d79eff"/>
-              <stop offset="0.77" stop-color="#c67680"/>
-              <stop offset="1" stop-color="#ff3e80"/>
-            </linearGradient>
-          </defs>
-          <title>Header Gradient Bar</title>
-          <rect class="a" width="2000" height="12"/>
-        </svg>
+          <svg  width="100%" xmlns="http://www.w3.org/2000/svg" class="grad-bar " xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
+            <defs><style>.a{fill:url(#gradiaentHeader);}</style>
+              <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#008095"/>
+                <stop offset="0.22" stop-color="#008095"/>
+                <stop offset="0.37" stop-color="#86abff"/>
+                <stop offset="0.56" stop-color="#d79eff"/>
+                <stop offset="0.77" stop-color="#c67680"/>
+                <stop offset="1" stop-color="#ff3e80"/>
+              </linearGradient>
+            </defs>
+            <title>Header Gradient Bar</title>
+            <rect class="a" width="2000" height="12"/>
+          </svg>
 
 
       <nav class="level is-hidden-desktop is-mobile">
