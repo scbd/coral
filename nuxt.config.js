@@ -15,8 +15,7 @@ module.exports = {
     titleTemplate: '%s | UN Biodiversity',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name:'apple-mobile-web-app-capable',content:'yes'}
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
 
     ],
     link: [
@@ -50,7 +49,7 @@ module.exports = {
   //
   // ============================================================
   modules: [
-    '@nuxtjs/pwa',
+    ['@nuxtjs/pwa', { mobileAppIOS: true }],
     '@nuxtjs/component-cache',
     '@biodiversity/ssr-breakpoints'
   ],
