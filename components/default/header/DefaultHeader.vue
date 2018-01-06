@@ -183,7 +183,7 @@ export default {
   align-self:center;
 }
 .top{font-size:54px;}
-.top,.bottom{fill:#0086b7;font-family:Roboto-Black, Roboto, sans-serif, Trebuchet MS;}
+.top,.bottom{fill:#0086b7;font-family:Roboto-Black, Roboto, sans-serif, Trebuchet MS; font-weight: 900;}
 .bottom{font-size:55px;letter-spacing:0.06em;}
 
 .header-nav{
