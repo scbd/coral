@@ -41,6 +41,6 @@
 
 <style scoped>
   .main-view{
-    margin: 3em 0 0 0;
+    margin: .5em 0 0 0;
   }
 </style>
