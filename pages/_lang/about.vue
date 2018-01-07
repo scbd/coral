@@ -17,7 +17,7 @@
         </div>
         <div id="selection">
           <ul class="selection">
-            <li  v-on:mouseover="importance=true" v-on:mouseout="importance=false"><span v-on:click="importance=true" ><span v-if="!$breakpoints.isMobile">{{$t('importanceTitle')}}</span> <a v-if="$breakpoints.isMobile" class="selection-link" href="#selection">{{$t('importanceTitle')}}</a></span></li>
+            <li  v-on:mouseover="importance=true" v-on:mouseout="importance=false"><span v-on:click="importance=true" ><span v-if="!$breakpoints.isMobile()">{{$t('importanceTitle')}}</span> <a v-if="$breakpoints.isMobile()" class="selection-link" href="#selection">{{$t('importanceTitle')}}</a></span></li>
             <li  v-on:mouseover="target=true" v-on:mouseout="target=false"><span v-on:click="target=true" >{{$t('targetTenTitle')}}</span></li>
             <li v-on:mouseover="priority=true" v-on:mouseout="priority=false"><span  v-on:click="priority=true" >{{$t('priorityActionsTitle')}}</span></li>
             <li v-on:mouseover="tca=true" v-on:mouseout="tca=false" ><span v-on:click="tca=true" >{{$t('tcaTitle')}}</span></li>
