@@ -95,7 +95,7 @@ export default {
     min-height: 30px;
     margin-bottom: 0;
     border: 0;
-    z-index: 100;
+    z-index: 500;
     border-bottom: 1px solid rgb(231, 231, 231);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
     color: #bdbdbd;
