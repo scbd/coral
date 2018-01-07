@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const webpack = require('webpack')
 module.exports = {
   env: {
     baseUrl: process.env.baseUrl,
@@ -85,7 +85,7 @@ module.exports = {
   build: {
     analyze: process.env.analyzeBuild,
   //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon'//
-    vendor: ['axios','vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints','~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'],
+    vendor: ['axios','vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints','~/modules/plugins/ImageApi.js','~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'],
     extend (config) {
 
           const vueLoader = config.module.rules.find((r) => {
@@ -100,6 +100,11 @@ module.exports = {
         'postcss-custom-properties': false
       }
     }
+    // plugins: [
+    //   new webpack.ProvidePlugin({
+    //     'worldLow': require('./node_modules/ammap3/ammap/maps/worldLow')
+    //   })
+    // ]
 //     watch: [
 //     '~/node_modules/@biodiversity/ssr-breakpoints/module.js',
 //     '~/node_modules/@biodiversity/ssr-breakpoints/plugin.js'
