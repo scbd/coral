@@ -1,87 +1,100 @@
 <template>
   <section>
-    <div class="header-nav">
-      <nav class="navbar is-transparent default-header">
-        <div class="navbar-brand is-hidden-touch">
-          <nuxt-link class="navbar-item"  to="/">
-            <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
-              <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
-              <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
-              <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
-            </svg>
-          </nuxt-link>
-        </div>
-
-        <div class="navbar-item is-hidden-touch" style="flex-grow: 1;">
-          <div class="level is-mobile" style="width:100%;">
-            <div class="level-item" >
-              <nuxt-link class="main-nav is-size-4"  :to="$i18n.path('about')">
-                {{ $t('about') }}
-              </nuxt-link>
-            </div>
-            <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('commitments')">
-              {{ $t('commitments') }}
-            </nuxt-link>
-            <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('initiatives')">
-              {{ $t('initiatives') }}
-            </nuxt-link>
-            <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('actions')">
-              {{ $t('actions') }}
-            </nuxt-link>
-            <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('resources')">
-              {{ $t('resources') }}
-            </nuxt-link>
-          </div>
-        </div>
-
-          <svg  width="100%" xmlns="http://www.w3.org/2000/svg" class="grad-bar " xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
-            <defs><style>.a{fill:url(#gradiaentHeader);}</style>
-              <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#008095"/>
-                <stop offset="0.22" stop-color="#008095"/>
-                <stop offset="0.37" stop-color="#86abff"/>
-                <stop offset="0.56" stop-color="#d79eff"/>
-                <stop offset="0.77" stop-color="#c67680"/>
-                <stop offset="1" stop-color="#ff3e80"/>
-              </linearGradient>
-            </defs>
-            <title>Header Gradient Bar</title>
-            <rect class="a" width="2000" height="12"/>
-          </svg>
 
 
-      <nav class="level is-hidden-desktop is-mobile">
 
-        <p class="level-item has-text-centered" v-on:click="toggleDash()">
-          <span class="icon">&nbsp;
-            <!-- <i class="fontello icon-gauge is-size-4" v-if="!showDashboard"></i>
-            <i class="fontello icon-cancel is-size-4" v-if="showDashboard"></i> -->
-          </span>
+<nav class="navbar is-transparent default-header debug">
 
-        </p>
-        <p class="level-item has-text-centered">
-          &nbsp;
-        </p>
-        <p class="level-item has-text-centered">
-          <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
-            <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
-            <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
-            <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
-          </svg>
-        </p>
-        <p class="level-item has-text-centered">
-          &nbsp;
-        </p>
-        <div class="level-item has-text-centered" v-on:click="toggleMainNav()">
-          <span class="icon">
-            <i class="fontello icon-menu is-size-4" v-if="!showMainNav"></i>
-            <i class="fontello icon-cancel is-size-4" v-if="showMainNav"></i>
-          </span>
-        </div>
-      </nav>
-</nav>
+  <div class="navbar-brand is-hidden-touch">
+    <nuxt-link class="navbar-item debug"  to="/">
+      <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
+        <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
+        <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
+        <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
+      </svg>
+    </nuxt-link>
+  </div>
+
+  <div class="navbar-item is-hidden-touch" style="flex-grow: 1;">
+    <div class="level is-mobile" style="width:100%;">
+      <div class="level-item" >
+        <nuxt-link class="main-nav is-size-4"  :to="$i18n.path('about')">
+          {{ $t('about') }}
+        </nuxt-link>
+      </div>
+      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('commitments')">
+        {{ $t('commitments') }}
+      </nuxt-link>
+      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('initiatives')">
+        {{ $t('initiatives') }}
+      </nuxt-link>
+      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('actions')">
+        {{ $t('actions') }}
+      </nuxt-link>
+      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('resources')">
+        {{ $t('resources') }}
+      </nuxt-link>
     </div>
+  </div>
 
+
+
+
+  <nav class="level is-hidden-desktop is-mobile">
+
+    <p class="level-item has-text-centered" v-on:click="toggleDash()">
+      <span class="icon">&nbsp;
+        <!-- <i class="fontello icon-gauge is-size-4" v-if="!showDashboard"></i>
+        <i class="fontello icon-cancel is-size-4" v-if="showDashboard"></i> -->
+      </span>
+
+    </p>
+    <p class="level-item has-text-centered">
+      &nbsp;
+    </p>
+    <p class="level-item has-text-centered">
+      <nuxt-link   to="/">
+        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
+          <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
+          <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
+          <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
+        </svg>
+      </nuxt-link>
+    </p>
+    <p class="level-item has-text-centered">
+      &nbsp;
+    </p>
+    <div class="level-item has-text-centered" v-on:click="toggleMainNav()">
+      <span class="icon">
+        <i class="fontello icon-menu is-size-4" v-if="!showMainNav"></i>
+        <i class="fontello icon-cancel is-size-4" v-if="showMainNav"></i>
+      </span>
+    </div>
+  </nav>
+  <svg class="nav-bar-img" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
+    <defs >
+      <style >.filler{fill:url(#gradiaentHeader);}</style>
+      <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse" >
+        <stop offset="0" stop-color="#008095" ></stop>
+        <stop offset="0.22" stop-color="#008095" ></stop>
+        <stop offset="0.37" stop-color="#86abff" ></stop>
+        <stop offset="0.56" stop-color="#d79eff" ></stop>
+        <stop offset="0.77" stop-color="#c67680" ></stop>
+        <stop offset="1" stop-color="#ff3e80" ></stop>
+      </linearGradient>
+      </defs>
+      <title >Header Gradient Bar</title>
+      <rect width="2000" height="12" class="filler" ></rect>
+    </svg>
+
+</nav>
+
+
+
+
+    <div class="top-bar" v-if="$breakpoints.isTouch()">
+      <img   v-lazy="require('~/assets/images/footer-bar-thin.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+    </div>
     <transition name="slide-fade">
       <div class="box main-nav-mobi" v-if="showDashboard">
         <div class="navbar-item has-dropdown" >
@@ -150,6 +163,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
 let showDashboard = false
 let showMainNav = false
 export default {
@@ -177,7 +194,7 @@ export default {
   bottom:52px;
   background-color: #ffffff;
   width: 100%;
-  z-index:  50;
+  z-index:  500;
 }
 .navbar-brand{
   align-self:center;
@@ -186,31 +203,45 @@ export default {
 .top,.bottom{fill:#0086b7;font-family:Roboto-Black, Roboto, sans-serif, Trebuchet MS; font-weight: 900;}
 .bottom{font-size:55px;letter-spacing:0.06em;}
 
-.header-nav{
+.default-header{
   position:fixed;
   bottom:0px;
   max-height: 52px;
-  z-index: 5;
+  z-index: 200;
   background-color: #ffffff;
   width:100%;
 }
 .grad-bar{
   width:100%;
-  position:absolute;
-  top: 0px;
+  z-index: 1000;
+}
+.top-bar img{
+  width:100%;
+}
+.top-bar{
+  position:fixed;
+  bottom:52px;
+  z-index: 200;
+  width:100%;
+  line-height: 5px;
 }
 .logo{
   width:75px;
   margin-top: 5px;
+  margin-left: 20px;
 }
 
 @media (min-width:1024px){
-  .navbar-brand{
-    align-self:flex-start;
+  .nav-bar-img{
+    position:absolute;
+    bottom:3px;
+    width: 100%;
   }
-  .header-nav{
-    position:relative;
-    background-color: unset;
+  .navbar-brand{
+    align-self:flex-end;
+  }
+  .navbar-brand a{
+    padding-left: 0;
   }
   .grad-bar{
     width:100%;
@@ -222,9 +253,12 @@ export default {
     margin-bottom:5px;
     width:125px;
     margin-top: unset;
+    margin-left: unset;
   }
   .default-header{
-    margin-top:30px;
+    position:relative;
+    background-color: unset;
+    margin-top:65px;
   }
   .navbar-item{
     align-self: flex-end;
@@ -241,17 +275,5 @@ export default {
 .is-active {
   color:#ff3e94;
 }
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translatey(35px);
-  opacity: 0;
-}
+
 </style>
