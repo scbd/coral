@@ -23,6 +23,7 @@ export default {
   name: 'ResourcesContainer',
   components:{Resource},
   data: function(){
+    if(this.$breakpoints.isMobile()) this.total =1
     return {
       isClient: false,
       start: 0,
@@ -37,10 +38,10 @@ export default {
     length: function(){return this.$store.state.resource.docs[this.$i18n.locale].length}
   },
   methods:{
-    prev: function() {
+    prev: async function() {
         if(!this.start)return
-        this.start--
         this.end--
+        await setTimeout(()=>{ this.start--}, 250);
      },
      next: async function() {
          if(this.end >= this.$store.state.resource.docs[this.$i18n.locale].length) return
@@ -84,16 +85,20 @@ export default {
   grid-template-columns: 1fr;
   grid-gap: 20px;
 }
+.list-complete-leave-to{
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.list-complete-enter{
+  opacity: 0;
+
+}
 .list-complete-item {
   transition: all 250ms;
-  display: inline-block;
-  margin-right: 10px;
+  /* display: inline-block;
+  margin-right: 10px; */
 }
-.list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(30px);
-}
+
 .list-complete-leave-active {
   position: absolute;
 }
@@ -104,6 +109,10 @@ export default {
     grid-template-columns: 1fr 1fr ;
     grid-gap: 20px;
   }
+  .list-complete-enter, .list-complete-leave-to{
+    opacity: 0;
+    transform: translateY(30px);
+  }
 }
 @media screen and (min-width: 1024px){
   .resources{
@@ -111,6 +120,10 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
+  }
+  .list-complete-enter, .list-complete-leave-to{
+    opacity: 0;
+    transform: translateY(30px);
   }
 }
 </style>
