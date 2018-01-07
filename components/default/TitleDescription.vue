@@ -45,6 +45,8 @@ export default {
   .title-holder h1{
     position: absolute;
     bottom: 0;
+    font-size: 1.7em;
+    padding: 10px 10px 10px 10px;
   }
   .svg-holder{
     position: relative;
@@ -65,29 +67,19 @@ export default {
     max-width: 100%;
     position: relative;
     font-size: 1em;
-    margin: 10px 10px 10px 10px;
+    margin: 0px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
   }
   .grid{
     display: grid;
     grid-template-columns: 1fr ;
   }
-  /* .page{
-    padding: 15px 15px 15px 20px;
-  } */
 
-
-    .title-holder h1{
-      font-size: 2em;
-      padding: 10px 10px 10px 10px;
-    }
 
 
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .title-holder h1{
-      font-size: 2.5em;
-    }
+
     .description{
       font-size: 1.3em;
     }
@@ -97,9 +89,7 @@ export default {
     .description{
       font-size: 1.3em;
     }
-    .title-holder h1{
-      font-size: 2em
-    }
+
     .svg-holder{
       position: relative;
       max-height: 134px;
@@ -120,7 +110,7 @@ export default {
 
   @media screen and (min-width: 1216px) and (max-width: 1407px) {
     .title-holder h1{
-      font-size: 2.3em
+      font-size: 2em
     }
 
   }
@@ -129,7 +119,7 @@ export default {
     .title-holder h1{
       position: absolute;
       bottom: 0;
-      font-size: 2.3em
+      font-size: 2em
     }
   }
 </style>
