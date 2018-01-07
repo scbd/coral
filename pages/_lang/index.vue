@@ -51,7 +51,7 @@
         </div>
       </div>
 
-      <div class="columns row-one" >
+      <div class="columns row-one" v-if="!$breakpoints.isTouch()">
         <div class="column is-8 is-offset-2">
           <TwitterGrid/>
         </div>
