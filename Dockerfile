@@ -17,6 +17,7 @@ RUN yarn
 
 # Build app
 RUN yarn run build
+RUN yarn run build
 
 EXPOSE 3333
 
