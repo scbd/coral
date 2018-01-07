@@ -1,7 +1,8 @@
 <template>
   <section>
       <div class="reef-divider">
-          <img data-sizes="auto" v-lazy="require('~/assets/images/coral-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+          <img v-if="!$breakpoints.isTouch()" data-sizes="auto" v-lazy="require('~/assets/images/coral-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+          <img v-if="$breakpoints.isTouch()"  v-lazy="require('~/assets/images/footer-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
       </div>
       <footer class="footer coral-footer">
         <div class="f-grid">
@@ -135,7 +136,7 @@ export default {
 
     .reef-divider img{
       width:100%;
-      object-fit: cover;
+      object-fit: fill;
     }
 
     .f-grid{
