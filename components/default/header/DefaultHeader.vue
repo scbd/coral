@@ -3,10 +3,10 @@
 
 
 
-<nav class="navbar is-transparent default-header debug">
+<nav class="navbar is-transparent default-header ">
 
   <div class="navbar-brand is-hidden-touch">
-    <nuxt-link class="navbar-item debug"  to="/">
+    <nuxt-link class="navbar-item "  to="/">
       <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
         <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
         <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
