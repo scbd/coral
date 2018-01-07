@@ -65,16 +65,16 @@ export default {
   },
   methods:{
     getHomeImg: function () {
-        if(this.$breakpoints.isDesktopHD)
+        if(this.$breakpoints.isDesktopHD())
           return this.$CBDImage.get('coral-reef-biodiversity.jpg',1600)
 
-        if(this.$breakpoints.isDesktopWS)
+        if(this.$breakpoints.isDesktopWS())
           return this.$CBDImage.get('coral-reef-biodiversity.jpg',1407)
 
-        if(this.$breakpoints.isDesktop)
+        if(this.$breakpoints.isDesktop())
           return this.$CBDImage.get('coral-reef-biodiversity.jpg',1215)
 
-        if(this.$breakpoints.isTablet)
+        if(this.$breakpoints.isTablet())
           return this.$CBDImage.get('coral-reef-biodiversity.jpg',1023)
 
         return this.$CBDImage.get('coral-reef-biodiversity.jpg',767)
