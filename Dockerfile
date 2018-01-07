@@ -12,9 +12,11 @@ RUN apk update && apk upgrade && \
     apk add --no-cache bash
 
 COPY . /usr/src/app/
+RUN yarn
+
 
 # Build app
-RUN yarn run build
+# RUN yarn build
 
 EXPOSE 3333
 
