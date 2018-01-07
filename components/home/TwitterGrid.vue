@@ -7,11 +7,6 @@
 <script>
   export default {
     name: 'TwitterGrid',
-    asyncData ({app,isClient}) {
-      return {
-        isClient: isClient
-      }
-    },
     mounted() {
         const script = document.createElement('script')
         script.setAttribute('type', 'text/javascript')
