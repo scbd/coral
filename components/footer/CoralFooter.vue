@@ -153,7 +153,7 @@ export default {
       text-transform: uppercase;
       white-space: nowrap;
       font-weight: 900;
-      font-family: "Roboto";
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
     }
 
     .f-content{
@@ -168,13 +168,13 @@ export default {
     }
     .bottom-links {
       text-align: center;
-      font-family: "Roboto";
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
       font-weight: 500;
       color:#363636;
     }
     .bottom-links:hover {
       text-align: center;
-      font-family: "Roboto";
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
       font-weight: 500;
       color:#a7a5a5;
     }
@@ -240,15 +240,15 @@ export default {
       grid-gap: 10px;
     }
     .footer-links {
-      font-family: "Roboto";
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
       font-weight: 100;
     }
     .footer-links:hover {
-      font-family: "Roboto";
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
       font-weight: 400;
     }
     .menu-list a.is-active  {
-      font-family: "Roboto";
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
       font-weight: 400;
       background-color: #f5f5f5;
       color:#363636;

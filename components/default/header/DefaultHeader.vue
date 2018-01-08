@@ -200,7 +200,7 @@ export default {
   align-self:center;
 }
 .top{font-size:54px;}
-.top,.bottom{fill:#00405c;font-family:Roboto-Black, Roboto, sans-serif, Trebuchet MS; font-weight: 900;}
+.top,.bottom{fill:#00405c;font-family:Roboto-Black, Roboto, Arial, Helvetica, sans-serif, Trebuchet MS; font-weight: 900;}
 .bottom{font-size:55px;letter-spacing:0.06em;}
 
 .default-header{
