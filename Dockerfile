@@ -17,7 +17,7 @@ RUN yarn
 
 # Build app
 
-RUN yarn build
+RUN npm build
 
 EXPOSE 3333
 
