@@ -5,11 +5,13 @@
 </template>
 
 <script>
+  import worldEUHigh  from '~/components/default/worldEUHigh'
   export default {
     name: 'SVGMap',
     mounted() {
       require('ammap3')
-      require('~/components/default/worldEuHigh')
+      AmCharts.maps.worldEUHigh = worldEUHigh
+      // require('~/components/default/worldEuHigh')
         // this.loadJs('https://www.amcharts.com/lib/3/maps/js/worldLow.js').then(function(AmCharts){
         AmCharts.themes.light = {
 
