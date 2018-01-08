@@ -74,7 +74,7 @@ export default {
 <style scoped>
   .card{
     cursor: pointer;
-    background-color: #0086b7;
+    background-color: #00405c;
     color: #ffffff;
     border-radius: 20px 20px 20px 20px;
     position:relative;

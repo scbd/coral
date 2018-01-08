@@ -40,7 +40,7 @@ module.exports = {
     name: 'CBD Coral',
     short_name: 'CBD Coral',
     description: 'Coral Reefs Portal',
-    theme_color: '#0086b7',
+    theme_color: '#00405c',
     display: 'standalone',
     background_color: "#ffffff"
   },

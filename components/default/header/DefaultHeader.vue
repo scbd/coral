@@ -6,7 +6,7 @@
 <nav class="navbar is-transparent default-header ">
 
   <div class="navbar-brand is-hidden-touch">
-    <nuxt-link class="navbar-item "  to="/">
+    <nuxt-link class="navbar-item"  to="/">
       <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
         <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
         <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
@@ -200,7 +200,7 @@ export default {
   align-self:center;
 }
 .top{font-size:54px;}
-.top,.bottom{fill:;font-family:Roboto-Black, Roboto, sans-serif, Trebuchet MS; font-weight: 900;}
+.top,.bottom{fill:#00405c;font-family:Roboto-Black, Roboto, sans-serif, Trebuchet MS; font-weight: 900;}
 .bottom{font-size:55px;letter-spacing:0.06em;}
 
 .default-header{
@@ -228,7 +228,8 @@ export default {
 .logo{
   width:75px;
   margin-top: 5px;
-  margin-left: 20px;
+  margin-left: 7px;
+
 }
 
 @media (min-width:1024px){
@@ -265,7 +266,7 @@ export default {
   }
   .main-nav{
     font-weight: 500;
-    color:#0086b7;
+    color:#00405c;
   }
   .main-nav:hover{
     color:#ff3e94;

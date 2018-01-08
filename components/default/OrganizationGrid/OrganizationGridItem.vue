@@ -47,7 +47,7 @@ export default {
         height:100%;
   }
   .card{
-    border: 1px solid #0086b7;
+    border: 1px solid #00405c;
   }
   .card-image{
     margin: 5px 5px 5px 5px;
@@ -63,7 +63,7 @@ export default {
     max-width: 90%;
   }
   .grid-org-content{
-    background-color: #0086b7;
+    background-color: #00405c;
     color: #ffffff;
   }
 </style>

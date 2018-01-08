@@ -65,7 +65,7 @@
 
         <div class="linkages">
 
-          <Commitment :title="$t('climateChangeTitle')" :description="$t('climateChangeDescription')" color="#0086b7"
+          <Commitment :title="$t('climateChangeTitle')" :description="$t('climateChangeDescription')" color="#00405c"
           :abt="['05','10','15']"
           :sdg="['13','11','15']"/>
 
@@ -141,12 +141,12 @@ a .grid-gbo{
   grid-gap:20px;
 }
 .desc{
-  color:#0086b7;
+  color:#00405c;
 }
 
   .item-left {
     grid-area: left;
-    background-color: #0086b7;
+    background-color: #00405c;
   }
   .item-right {
     grid-area: right;
@@ -158,7 +158,7 @@ a .grid-gbo{
 
     z-index: 20;
     margin: 25% 0 25% 0;
-    background-color: #0086b7;
+    background-color: #00405c;
     color: #fff;
     font-weight: 500;
     width:100%;
@@ -187,13 +187,13 @@ a .grid-gbo{
   }
   .gbo-description{
 
-    background-color: #0086b7;
+    background-color: #00405c;
     color: #fff;
     padding: 10px 10px 10px 10px;
   }
   .target-inner {
     /* margin: 20% 0 20% 0; */
-    background-color: #0086b7;
+    background-color: #00405c;
     color: #fff;
     font-weight: 500;
   }
@@ -225,7 +225,7 @@ a .grid-gbo{
       grid-row: left-start / left-end;
       z-index: 20;
       margin: 5% 0 5% 0;
-      background-color: #0086b7;
+      background-color: #00405c;
       color: #fff;
       font-weight: 500;
       width:100%;

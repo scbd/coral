@@ -4,8 +4,8 @@
     <TitleDescription
       :title="$t('titleShort')"
       :description="$t('description')"
-      color="#0086b7">
-      <AboutIcon width="90%"   color="#0086b7"/>
+      color="#00405c">
+      <AboutIcon width="90%"   color="#00405c"/>
     </TitleDescription>
 
     <div class="grid">
@@ -114,7 +114,7 @@
   }
   .left{
     background-image: url('~/assets/images/left-background.svg');
-    background-color: #0086b7;
+    background-color: #00405c;
   }
   .right{
     background-image: url('~/assets/images/right-background.svg');
