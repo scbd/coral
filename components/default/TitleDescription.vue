@@ -7,7 +7,7 @@
           <div class="svg-holder">
             <slot ></slot>
           </div>
-          <svg  width="100%" height="2em" class="bar" :style="{fill:color}"  xmlns="http://www.w3.org/2000/svg">
+          <svg   width="100%"  class="bar" :style="{fill:color}"  xmlns="http://www.w3.org/2000/svg">
             <title>Title Under Line Illustration</title>
             <rect x="0" y="0" width="100%" height="2em"/>
           </svg>
@@ -59,6 +59,7 @@ export default {
   .bar{
     grid-column: 1 /3;
     grid-row: 2;
+    height: 1em;
   }
   .description{
     background-color: #fff;
@@ -67,12 +68,13 @@ export default {
     max-width: 100%;
     position: relative;
     font-size: 1em;
-    margin: 0px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
   }
   .grid{
     display: grid;
     grid-template-columns: 1fr ;
+    margin-top: 35px;
   }
 
 
@@ -83,11 +85,15 @@ export default {
     .description{
       font-size: 1.3em;
     }
+    .bar{
+      height: 1em;
+    }
   }
 
   @media (min-width:1024px){
     .description{
       font-size: 1.3em;
+      margin-top: 0;
     }
 
     .svg-holder{
@@ -97,6 +103,7 @@ export default {
     .grid{
       display: grid;
       grid-template-columns: 1fr 3fr;
+      margin-top: 0;
     }
     .title-grid{
       display: grid;
@@ -105,12 +112,23 @@ export default {
     .bar{
       grid-column: 1 /3;
       grid-row: 2;
+      height: 2em;
     }
   }
 
   @media screen and (min-width: 1216px) and (max-width: 1407px) {
     .title-holder h1{
       font-size: 2em
+    }
+    .bar{
+      height: 2em;
+    }
+    .grid{
+      margin-top: 0;
+    }
+    .description{
+      font-size: 1.3em;
+      margin-top: 0;
     }
 
   }
@@ -121,5 +139,16 @@ export default {
       bottom: 0;
       font-size: 2em
     }
+    .bar{
+      height: 2em;
+    }
+    .grid{
+      margin-top: 0;
+    }
+    .description{
+      font-size: 1.3em;
+      margin-top: 0;
+    }
+
   }
 </style>
