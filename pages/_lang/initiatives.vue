@@ -31,12 +31,12 @@
         <OrganizatoinGridItem
           :title="$t('icri')"
           url="http://www.icriforum.org/"
-          image="https://www.icriforum.org//sites/all/themes/icriforum/logo.png"
+          image="//www.icriforum.org//sites/all/themes/icriforum/logo.png"
         />
         <OrganizatoinGridItem
           :title="$t('rrn')"
           url="http://www.reefresilience.org/"
-          image="http://www.reefresilience.org/wp-content/uploads/Reef-Resilience-Network.png"
+          image="//www.reefresilience.org/wp-content/uploads/Reef-Resilience-Network.png"
         />
         <OrganizatoinGridItem
           :title="$t('GCRMN')"
@@ -46,12 +46,12 @@
         <OrganizatoinGridItem
           :title="$t('obis')"
           url="http://www.iobis.org/"
-          image="http://iobis.org/images/obis_4.png"
+          image="//iobis.org/images/obis_4.png"
         />
         <OrganizatoinGridItem
           :title="$t('goaon')"
           url="http://www.goa-on.org/GOA-ON.php"
-          image="http://www.goa-on.org/images/GOA-ON_logo.jpg"
+          image="//www.goa-on.org/images/GOA-ON_logo.jpg"
         />
       </OrganizatoinGrid>
 
@@ -60,22 +60,22 @@
         <OrganizatoinGridItem
           :title="$t('cti')"
           url="http://www.coraltriangleinitiative.org"
-          image="http://www.coraltriangleinitiative.org/sites/all/themes/new_ctiff/images/header/cti-logo.png"
+          image="//www.coraltriangleinitiative.org/sites/all/themes/new_ctiff/images/header/cti-logo.png"
         />
         <OrganizatoinGridItem
           :title="$t('po')"
           url="https://www.conservation.org/where/Pages/pacific-oceanscape.aspx"
-          image="https://www.conservation.org/SiteCollectionImages/ci_63002536.jpg?RenditionID=7"
+          image="//www.conservation.org/SiteCollectionImages/ci_63002536.jpg?RenditionID=7"
         />
         <OrganizatoinGridItem
         :title="$t('cc')"
           url="http://www.caribbeanchallengeinitiative.org/"
-          image="http://www.caribbeanchallengeinitiative.org/images/bg_logo.png"
+          image="//www.caribbeanchallengeinitiative.org/images/bg_logo.png"
         />
         <OrganizatoinGridItem
         :title="$t('mc')"
           url="http://themicronesiachallenge.blogspot.ca/"
-          image="http://1.bp.blogspot.com/-Y9IntaqWUGI/UsokVqh2YxI/AAAAAAAADUk/PoGfo1HZFWs/s1600/WEBSITE%2BHEADER.png"
+          image="//1.bp.blogspot.com/-Y9IntaqWUGI/UsokVqh2YxI/AAAAAAAADUk/PoGfo1HZFWs/s1600/WEBSITE%2BHEADER.png"
         />
 
       </OrganizatoinGrid>
