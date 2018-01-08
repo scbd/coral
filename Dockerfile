@@ -11,13 +11,13 @@ WORKDIR /usr/src/app
 RUN apk update && apk upgrade && \
     apk add --no-cache bash
 
-ONBUILD COPY . /usr/src/app/
-ONBUILD RUN yarn
+COPY . /usr/src/app/
+RUN yarn
 
 
 # Build app
 
-ONBUILD RUN yarn build
+RUN yarn build
 
 EXPOSE 3333
 
