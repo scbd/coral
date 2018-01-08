@@ -15,7 +15,8 @@ module.exports = {
     titleTemplate: '%s | UN Biodiversity',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'nativeUI', content:true },
+      // { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: '#00405c' }
     ],
@@ -49,7 +50,7 @@ module.exports = {
   //
   // ============================================================
   modules: [
-    ['@nuxtjs/pwa', { mobileAppIOS: true }],
+    ['@nuxtjs/pwa'],
     ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],  // cache rendered componenents server side for 15 mins
     '@biodiversity/ssr-breakpoints'
   ],
