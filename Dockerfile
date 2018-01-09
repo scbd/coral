@@ -22,4 +22,5 @@ RUN yarn build
 EXPOSE 3333
 
 # start command
+CMD [ "yarn", "build" ]
 CMD [ "yarn", "start" ]
