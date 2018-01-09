@@ -18,7 +18,6 @@ RUN apk update && apk upgrade && \
 COPY . /usr/src/app/
 RUN yarn
 RUN yarn build
-RUN npm prune --production
 
 EXPOSE 3333
 
