@@ -54,7 +54,7 @@
     </p>
     <p class="level-item has-text-centered">
       <nuxt-link   to="/">
-        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 200 100">
           <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
           <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
           <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
@@ -71,22 +71,22 @@
       </span>
     </div>
   </nav>
-  <svg class="nav-bar-img" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
-    <defs >
-      <style >.filler{fill:url(#gradiaentHeader);}</style>
-      <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse" >
-        <stop offset="0" stop-color="#008095" ></stop>
-        <stop offset="0.22" stop-color="#008095" ></stop>
-        <stop offset="0.37" stop-color="#86abff" ></stop>
-        <stop offset="0.56" stop-color="#d79eff" ></stop>
-        <stop offset="0.77" stop-color="#c67680" ></stop>
-        <stop offset="1" stop-color="#ff3e80" ></stop>
-      </linearGradient>
-      </defs>
-      <title >Header Gradient Bar</title>
-      <rect width="2000" height="12" class="filler" ></rect>
-    </svg>
 
+    <svg class="nav-bar-img" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
+      <defs>
+        <style>.filler{fill:url(#gradiaentHeader);}</style>
+        <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#00405c"/>
+          <stop offset="0.22" stop-color="#00405c"/>
+          <stop offset="0.37" stop-color="#86abff"/>
+          <stop offset="0.56" stop-color="#d79eff"/>
+          <stop offset="0.77" stop-color="#c67680"/>
+          <stop offset="1" stop-color="#ff3e80"/>
+        </linearGradient>
+      </defs>
+      <title>Header Divider Gradient</title>
+      <rect class="filler" width="2000" height="12"/>
+    </svg>
 </nav>
 
 
