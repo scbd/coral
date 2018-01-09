@@ -1,5 +1,5 @@
 require('dotenv').config()
-const webpack = require('webpack')
+//const webpack = require('webpack')
 module.exports = {
   env: {
     baseUrl: process.env.baseUrl,
@@ -86,7 +86,7 @@ module.exports = {
   build: {
     analyze: process.env.analyzeBuild,
   //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon'//
-    vendor: ['axios','vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints','~/modules/plugins/ImageApi.js','~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'],
+    vendor: ['vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints','~/modules/plugins/ImageApi.js','~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'],
     extend (config) {
 
           const vueLoader = config.module.rules.find((r) => {
