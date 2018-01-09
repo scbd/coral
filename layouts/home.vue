@@ -4,7 +4,7 @@
       <DefaultHeader v-if="$breakpoints.isTouch()"/>
       <section class="hero hero-home " v-lazy:background-image="getHomeImg()">
           <div class="logo-container" >
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="logo" viewBox="0 0 535.95 128.19" >
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="logo" viewBox="0 0 550 128.19" >
                 <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
                 <desc > {{ $t('CORAL') }} {{ $t('REEFS') }} </desc>
                 <defs>
@@ -42,7 +42,6 @@ Vue.use(VueLazyload)
 export default {
   scrollToTop: true,
   components: {GlobalBar,MainNav,CoralFooter,DefaultHeader},
-
   computed: {
     isAr: function () {
       return !!(this.$store.state.locale.locale === 'ar')
@@ -57,9 +56,17 @@ export default {
       link: [
         // We use $route.path since we don't use query parameters
         {
+          hid:'canonical',
           rel: 'canonical',
-          href: `https://hn.nuxtjs.org${this.$route.path}`
+          href: `${process.env.baseUrl}${this.$route.path}`
         }
+      ],
+      meta: [
+        // We use $route.path since we don't use query parameters
+        { hid:'lang', name: 'lang', content: this.$i18n.locale },
+        { hid:'og:title', name: 'og:title', content: this.$i18n.t('title') },
+        { hid:'og:description', name: 'og:description', content: this.$i18n.t('description') }
+        // { hid:'og:image', name: 'og:image', content: 'some image') }
       ]
     }
   },
