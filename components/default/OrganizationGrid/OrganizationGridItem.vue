@@ -7,8 +7,10 @@
         </figure>
       </div>
       <div class="card-content grid-org-content">
-        <div class="content">
+        <div class="content has-text-centered">
           {{title}}
+          <br v-if="title.length<47 && padding">
+          <span v-if="title.length<47 && padding">&nbsp;</span>
         </div>
       </div>
     </a>
@@ -37,6 +39,10 @@ export default {
       },
       backImage: {
           type: String
+      },
+      padding: {
+          type: Boolean,
+          default: true
       }
   }
 }

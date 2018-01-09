@@ -1,41 +1,39 @@
 <template>
   <section>
 
+    <nav class="navbar is-transparent default-header ">
 
-
-<nav class="navbar is-transparent default-header ">
-
-  <div class="navbar-brand is-hidden-touch">
-    <nuxt-link class="navbar-item"  to="/">
-      <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
-        <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
-        <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
-        <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
-      </svg>
-    </nuxt-link>
-  </div>
-
-  <div class="navbar-item is-hidden-touch" style="flex-grow: 1;">
-    <div class="level is-mobile" style="width:100%;">
-      <div class="level-item" >
-        <nuxt-link class="main-nav is-size-4"  :to="$i18n.path('about')">
-          {{ $t('about') }}
+      <div class="navbar-brand is-hidden-touch">
+        <nuxt-link class="navbar-item"  to="/">
+          <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
+            <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
+            <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
+            <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
+          </svg>
         </nuxt-link>
       </div>
-      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('commitments')">
-        {{ $t('commitments') }}
-      </nuxt-link>
-      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('initiatives')">
-        {{ $t('initiatives') }}
-      </nuxt-link>
-      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('actions')">
-        {{ $t('actions') }}
-      </nuxt-link>
-      <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('resources')">
-        {{ $t('resources') }}
-      </nuxt-link>
-    </div>
-  </div>
+
+      <div class="navbar-item is-hidden-touch" style="flex-grow: 1;">
+        <div class="level is-mobile" style="width:100%;">
+          <div class="level-item" >
+            <nuxt-link class="main-nav is-size-4"  :to="$i18n.path('about')">
+              {{ $t('about') }}
+            </nuxt-link>
+          </div>
+          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('commitments')">
+            {{ $t('commitments') }}
+          </nuxt-link>
+          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('initiatives')">
+            {{ $t('initiatives') }}
+          </nuxt-link>
+          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('actions')">
+            {{ $t('actions') }}
+          </nuxt-link>
+          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('resources')">
+            {{ $t('resources') }}
+          </nuxt-link>
+        </div>
+      </div>
 
 
 
@@ -198,6 +196,7 @@ export default {
 }
 .navbar-brand{
   align-self:center;
+  padding-left: 1.5em;
 }
 .top{font-size:54px;}
 .top,.bottom{fill:#00405c;font-family:Roboto-Black, Roboto, Arial, Helvetica, sans-serif, Trebuchet MS; font-weight: 900;}

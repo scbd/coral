@@ -58,7 +58,7 @@ export default {
       },
       total: {
           type: Number,
-          default: 7
+          default: 3
       }
   }
 }

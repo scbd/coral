@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="title-grid">
-      <div class="title-item has-text-centered ">
+      <div class="title-item has-text-centered">
         <img class="grad-bar"  :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
         <div class="title is-capitalized">{{$t('otherMarineWork')}}</div>
         <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
@@ -47,21 +47,24 @@
     </div>
 
 
-    <OrganizatoinGrid>
+    <OrganizatoinGrid :grid-style="Boolean(true)" >
       <OrganizatoinGridItem
         :title="$t('cbdPOWMCB')"
         url="https://www.cbd.int"
         :image="require('~/assets/images/logo/cbd-logo-green-en.svg')"
+        :padding="Boolean(false)"
       />
       <OrganizatoinGridItem
         :title="$t('ebsa')"
         url="https://www.cbd.int/ebsa/"
         :image="require('~/assets/images/logo/EBSA_Logo.svg')"
+        :padding="Boolean(false)"
       />
       <OrganizatoinGridItem
       :title="$t('soi')"
         url="https://www.cbd.int/soi/"
         :image="require('~/assets/images/logo/SOI_Logo.svg')"
+        :padding="Boolean(false)"
       />
     </OrganizatoinGrid>
   </section>
@@ -91,6 +94,10 @@
   width:100%;
   object-fit: fill;
 }
+.title-grid {
+  margin-bottom: 1.5em;
+}
+.title{padding-top: .25em;}
   .logo-holder{
     text-align: center;
   }

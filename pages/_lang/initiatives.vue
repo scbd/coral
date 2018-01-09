@@ -31,12 +31,12 @@
         <OrganizatoinGridItem
           :title="$t('icri')"
           url="http://www.icriforum.org/"
-          image="//www.icriforum.org//sites/all/themes/icriforum/logo.png"
+          image="http://www.icriforum.org//sites/all/themes/icriforum/logo.png"
         />
         <OrganizatoinGridItem
           :title="$t('rrn')"
           url="http://www.reefresilience.org/"
-          image="//www.reefresilience.org/wp-content/uploads/Reef-Resilience-Network.png"
+          image="http://www.reefresilience.org/wp-content/uploads/Reef-Resilience-Network.png"
         />
         <OrganizatoinGridItem
           :title="$t('GCRMN')"
@@ -46,12 +46,12 @@
         <OrganizatoinGridItem
           :title="$t('obis')"
           url="http://www.iobis.org/"
-          image="//iobis.org/images/obis_4.png"
+          image="http://iobis.org/images/obis_4.png"
         />
         <OrganizatoinGridItem
           :title="$t('goaon')"
           url="http://www.goa-on.org/GOA-ON.php"
-          image="//www.goa-on.org/images/GOA-ON_logo.jpg"
+          image="http://www.goa-on.org/images/GOA-ON_logo.jpg"
         />
       </OrganizatoinGrid>
 
@@ -89,6 +89,7 @@
   export default {
     name:'about',
     mixins: [pageMixin],
+
     components: {
       InitiativeIcon,
       TitleDescription:()=> import('~/components/default/TitleDescription'),
