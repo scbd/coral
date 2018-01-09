@@ -1,33 +1,14 @@
 
-.slide-enter-active {
-  animation: slide-in 4s;
+.page-enter-active, .page-leave-active {
+  transition: all .25s ease-out;
 }
-.slide-leave-active {
-  animation: slide-out 4s;
+.page-enter, .page-leave-active {
+  opacity: 0;
+  transform-origin: 50% 50%;
 }
-@keyframes slide-in {
-  0% { transform: translate3d(-100%, 0, 0);}
-  50% { transform: translate3d(-50%, 0, 0); }
-  100% { transform: translate3d(0, 0, 0); }
-}
-
-@keyframes slide-out {
-  0% { transform: translate3d(0, 0, 0);}
-  50% { transform: translate3d(+50%, 0, 0); }
-  100% { transform: translate3d(+100%, 0, 0); }
-}
-
-
 .debug {
   border: 1px solid red;
 }
-.debug2 {
-  border: 2px solid red;
-}
-.debug3 {
-  border: 3px solid red;
-}
-
 .rtl{
   direction:rtl;
   font-family:"Droid Arabic Kufi", "Droid Sans", sans-serif;
@@ -48,4 +29,11 @@ body {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translatey(35px);
   opacity: 0;
+}
+.subtitles{
+  margin: 1.5em 0 1.5em 0;
+}
+
+.subtitles .title{
+  font-size: 1.5em
 }
