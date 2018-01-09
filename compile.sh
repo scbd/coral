@@ -14,6 +14,6 @@ then
 fi
 
 echo "Sucessfull build for environment: ${CIRCLE_BRANCH}"
-echo "apiUrl: ${apiUrl}"
-echo "baseUrl: ${baseUrl}"
+echo "api: ${apiUrl}"
+echo "url: ${baseUrl}"
 exit 0
