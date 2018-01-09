@@ -32,8 +32,14 @@ body {
 }
 .subtitles{
   margin: 1.5em 0 1.5em 0;
+  padding: 0 1.5em 0 1.5em;
 }
 
 .subtitles .title{
   font-size: 1.5em
+}
+@media screen and (min-width: 1024px) {
+  .subtitles{
+    padding: 0 0 0 0;
+  }
 }

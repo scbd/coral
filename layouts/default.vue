@@ -54,7 +54,9 @@
 </script>
 
 <style scoped>
-  .main-view{
-    margin: .5em 0 0 0;
+  @media screen and (min-width: 1024px)  {
+    .main-view{
+      margin: .5em 1.5em 0 1.5em;
+    }
   }
 </style>
