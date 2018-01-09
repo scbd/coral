@@ -14,14 +14,6 @@ export default {
       title: this.$i18n.t('title'),
       meta: [
         { hid: 'description', name: 'description', content: this.$i18n.t('description') }
-      ],
-      link: [
-        // We use $route.path// must overwrite when using query parameters
-        {
-          hid: 'canonical',
-          rel: 'canonical',
-          href: `${process.env.baseUrl}${this.$route.path}`
-        }
       ]
     }
   }
