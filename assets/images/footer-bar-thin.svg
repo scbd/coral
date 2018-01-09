@@ -1,1 +1,15 @@
-<svg id="635739ac-1619-4745-93ab-d7ed3efeb6dc" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 5"><defs><style>.d7ead538-d7aa-4c27-a1c4-732cb7fc14de{fill:url(#2597e039-112d-4207-9d45-dc7cdc49624d);}</style><linearGradient id="2597e039-112d-4207-9d45-dc7cdc49624d" y1="2.5" x2="2000" y2="2.5" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#008095"/><stop offset="0.22" stop-color="#008095"/><stop offset="0.37" stop-color="#86abff"/><stop offset="0.56" stop-color="#d79eff"/><stop offset="0.77" stop-color="#c67680"/><stop offset="1" stop-color="#ff3e80"/></linearGradient></defs><title>footer-bar-thin</title><rect class="d7ead538-d7aa-4c27-a1c4-732cb7fc14de" width="2000" height="5"/></svg>
+<svg  width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 5">
+  <defs>
+    <style>.filler{fill:url(#gradiaentHeader);}</style>
+    <linearGradient id="gradiaentHeader" y1="2.5" x2="2000" y2="2.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00405c"/>
+      <stop offset="0.22" stop-color="#00405c"/>
+      <stop offset="0.37" stop-color="#86abff"/>
+      <stop offset="0.56" stop-color="#d79eff"/>
+      <stop offset="0.77" stop-color="#c67680"/>
+      <stop offset="1" stop-color="#ff3e80"/>
+    </linearGradient>
+  </defs>
+  <title>Header Divider Gradient</title>
+  <rect class="filler" width="2000" height="5"/>
+</svg>
