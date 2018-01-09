@@ -14,13 +14,7 @@ RUN apk update && apk upgrade && \
 COPY . /usr/src/app/
 RUN yarn
 
-
-# Build app
-
-RUN yarn build
-
 EXPOSE 3333
 
 # start command
-CMD [ "yarn", "build" ]
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "production" ]
