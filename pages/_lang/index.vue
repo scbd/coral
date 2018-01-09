@@ -15,9 +15,9 @@
             </div>
             <footer class="card-footer flex-center" >
               <p class="card-footer-item">
-                <a class="button is-rounded">
+                <nuxt-link to="/actions" class="button is-rounded">
                   {{$t('viewActions')}}
-                </a>
+                </nuxt-link >
               </p>
             </footer>
           </div>
@@ -34,7 +34,7 @@
             </div>
             <footer class="card-footer flex-center" >
               <p class="card-footer-item">
-                <a class="button is-rounded">
+                <a class="button is-rounded" :href="action.url_ss[0]" target="_blank" rel="noopener" >
                   {{$t('viewAction')}}
                 </a>
               </p>
