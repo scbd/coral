@@ -42,10 +42,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .subtitles{
-    margin-top: 20px;
-  }
-
-</style>
