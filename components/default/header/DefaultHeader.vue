@@ -54,7 +54,7 @@
     </p>
     <p class="level-item has-text-centered">
       <nuxt-link   to="/">
-        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 200 100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 220 100">
           <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
           <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
           <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
