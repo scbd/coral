@@ -73,7 +73,11 @@ export default {
         { hid:'twitter:description', name: 'twitter:description', content: this.$i18n.t('description') },
         { hid:'twitter:image', name: 'twitter:image', content: 'http://cbddocumentsimages-imagebucket-emyy2umszkrb.s3-website-us-east-1.amazonaws.com/1200x675/coral-reef-biodiversity.jpg' },
         { hid:'twitter:image:alt', name: 'twitter:image:alt', content: 'CBD Coral Reefs Portal' }
-      ]
+      ],
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        dir:  this.$i18n.getDirection(this.$i18n.locale)
+      }
     }
   },
   methods:{

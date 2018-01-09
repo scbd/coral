@@ -64,4 +64,18 @@ export default ({ app, isClient, store, serverStore }) => {
   app.i18n.isLangLoaded = (lang) => {
      return ~loadedLanguages.indexOf(lang)
   }
+  //============================================================
+  //
+  //============================================================
+  app.i18n.getDirection = (lang) => {
+     if(lang==='ar') return 'rtl'
+     return 'ltr'
+  }
+  //============================================================
+  //
+  //============================================================
+  app.i18n.isRtl = (lang) => {
+     if(lang==='ar') return true
+     return false
+  }
 }

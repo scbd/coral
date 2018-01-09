@@ -1,7 +1,7 @@
 <template>
     <transition name="slide-fade">
     <div class="navbar-item has-dropdown is-hoverable">
-      <div class="navbar-dropdown is-right is-boxed" >
+      <div class="navbar-dropdown  is-boxed" :class="{'is-right':!$i18n.isRtl($i18n.locale)}">
         <span class="navbar-item cbd-size">
              <strong>{{ $t('component.Locale.languages') }}</strong>
         </span>
