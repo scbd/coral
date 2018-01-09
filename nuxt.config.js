@@ -51,7 +51,7 @@ module.exports = {
   // ============================================================
   modules: [
     ['@nuxtjs/pwa'],
-    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],  // cache rendered componenents server side for 15 mins
+    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 4 }],  // cache rendered componenents server side for 1 hour
     '@biodiversity/ssr-breakpoints'
   ],
 
