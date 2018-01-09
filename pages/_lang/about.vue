@@ -40,7 +40,7 @@
     </div>
     <div class="title-grid">
       <div class="title-item has-text-centered ">
-        <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
+        <img class="grad-bar"  :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
         <div class="title is-capitalized">{{$t('otherMarineWork')}}</div>
         <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
       </div>
@@ -87,6 +87,10 @@
 </script>
 
 <style scoped>
+.grad-bar{
+  width:100%;
+  object-fit: fill;
+}
   .logo-holder{
     text-align: center;
   }
@@ -125,6 +129,7 @@
   }
   .title-item .title{
     margin: 0 0 0 0;
+    font-size: 1.5em;
   }
   .sliders{
     position:absolute;
