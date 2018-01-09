@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section >
       <div class="reef-divider">
           <img v-if="!$breakpoints.isTouch()" data-sizes="auto" v-lazy="require('~/assets/images/coral-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
           <img v-if="$breakpoints.isTouch()"  v-lazy="require('~/assets/images/footer-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
@@ -8,18 +8,18 @@
         <div class="f-grid">
           <span class="is-hidden-touch">&nbsp;</span>
           <div class="f-title">
-              <span v-on:click="toggleAssotiation()" class="footer-title is-size-5-desktop is-size-7-touch">{{ $t('inAssociation') }}</span>
+              <span v-on:click="toggleAssotiation()" class="footer-title is-size-5-desktop is-size-7-touch"><a href="#inAss">{{ $t('inAssociation') }}</a></span>
           </div>
           <div class="f-title">
-              <span class="footer-title is-size-5-desktop is-size-7-touch" v-on:click="toggleSitemap()">{{ $t('siteMap') }}</span><br>
+              <span class="footer-title is-size-5-desktop is-size-7-touch" v-on:click="toggleSitemap()"><a href="#siteMap">{{ $t('siteMap') }}</a></span><br>
           </div>
           <div class="f-title">
-              <span class="footer-title is-size-5-desktop is-size-7-touch" v-on:click="toggleContact()">{{ $t('contact') }}</span><br>
+              <span class="footer-title is-size-5-desktop is-size-7-touch" v-on:click="toggleContact()"><a href="#contact">{{ $t('contact') }}</a></span><br>
           </div>
           <span class="is-hidden-touch">&nbsp;</span>
           <span class="is-hidden-touch">&nbsp;</span>
           <transition name="slide-fade">
-            <div class="f-content img-grid" v-if="!$breakpoints.isTouch() || (!isHiddenAssotiation && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenAssotiation }">
+            <div  id="inAss" class="f-content img-grid" v-if="!$breakpoints.isTouch() || (!isHiddenAssotiation && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenAssotiation }">
                 <span class="is-hidden-touch">&nbsp;</span>
                 <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener">
 
@@ -35,7 +35,7 @@
             </div>
           </transition>
           <transition name="slide-fade">
-            <div class="f-content"  v-if="!$breakpoints.isTouch() || (!isHiddenSitemap && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenSitemap}">
+            <div id="siteMap" class="f-content"  v-if="!$breakpoints.isTouch() || (!isHiddenSitemap && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenSitemap}">
                 <ul class="menu-list" style="list-style-type: none; margin-left:0;">
                     <li>
                         <nuxt-link class="footer-links is-size-5-desktop" :to="$i18n.path('about')">{{ $t('about') }} </nuxt-link>
@@ -56,7 +56,7 @@
             </div>
           </transition>
           <transition name="slide-fade">
-            <div class="f-content" isHiddenContact v-if="!$breakpoints.isTouch() || (!isHiddenContact && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenContact}">
+            <div id="contact" class="f-content" isHiddenContact v-if="!$breakpoints.isTouch() || (!isHiddenContact && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenContact}">
                 <div class="address is-size-5-desktop">{{ $t('nameCbdSecretariat') }} </div>
                 <div class="address is-size-5-desktop">{{ $t('cbdAddressStreet') }} </div>
                 <div class="address is-size-5-desktop">{{ $t('cbdAddressSuite') }} </div>
@@ -149,11 +149,12 @@ export default {
     .f-title{
       text-align: center;
     }
-    .f-title span{
+    .f-title span a{
       text-transform: uppercase;
       white-space: nowrap;
       font-weight: 900;
       font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
+      color:#000000;
     }
 
     .f-content{
