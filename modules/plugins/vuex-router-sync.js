@@ -1,4 +1,3 @@
-import Vue from 'vue'
 
 export default function ({ app, store }) {
   sync(store, app.router)
