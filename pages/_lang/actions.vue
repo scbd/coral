@@ -8,7 +8,7 @@
         <ActionIcon width="100%" color="#e8768d"/>
       </TitleDescription>
 
-      <div class="help">
+      <div class="subtitles">
         <span class="title">{{$t('help')}}</span>
       </div>
 
@@ -36,9 +36,3 @@
     }
   }
 </script>
-
-<style scoped>
-  .subtitles{
-    margin-top: 20px;
-  }
-</style>

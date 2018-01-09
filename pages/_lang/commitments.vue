@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <div class="linkages-title">
+        <div class="subtitles">
           <span class="title">{{$t('subTitle')}}</span>
           <p class="desc">{{$t('subDescription')}}</p>
         </div>
@@ -128,21 +128,19 @@
 </script>
 
 <style scoped>
-a .grid-gbo{
-  color:#ffffff;
-}
-.linkages-title{
-  margin-top:20px;
-}
-.linkages{
-  margin-top:20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap:20px;
-}
-.desc{
-  color:#00405c;
-}
+  a .grid-gbo{
+    color:#ffffff;
+  }
+
+  .linkages{
+    margin-top:20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap:20px;
+  }
+  .desc{
+    color:#00405c;
+  }
 
   .item-left {
     grid-area: left;

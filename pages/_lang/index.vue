@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <div class="columns row-one" v-if="!$breakpoints.isTouch()">
+      <div class="columns row-one" >
         <div class="column has-text-centered is-2 is-offset-5">
           <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
           <div class="title is-capitalized news">{{$t('news')}}</div>
@@ -51,7 +51,7 @@
         </div>
       </div>
 
-      <div class="columns row-one" v-if="!$breakpoints.isTouch()">
+      <div class="columns row-one" >
         <div class="column is-8 is-offset-2">
           <TwitterGrid/>
         </div>

@@ -8,7 +8,7 @@
         <InitiativeIcon width="100%" color="#fac1ff"/>
       </TitleDescription>
 
-      <div class="title"><span >{{$t('globalInitiatives')}}</span></div>
+      <div class="subtitles"><span class="title">{{$t('globalInitiatives')}}</span></div>
 
       <OrganizatoinGrid>
 
@@ -18,12 +18,12 @@
           :image="require('~/assets/images/logo/EBSA_Logo.svg')"
         />
         <OrganizatoinGridItem
-        :title="$t('soi')"
+          :title="$t('soi')"
           url="https://www.cbd.int/soi/"
           :image="require('~/assets/images/logo/SOI_Logo.svg')"
         />
         <OrganizatoinGridItem
-        :title="$t('unepGCRP')"
+          :title="$t('unepGCRP')"
           url="http://coral.unep.ch/CRU_Home.html"
           :image="require('~/assets/images/UNEP_Logo_en.png')"
         />
@@ -55,7 +55,7 @@
         />
       </OrganizatoinGrid>
 
-      <div class="title"><span >{{$t('regionalInitiatives')}}</span></div>
+      <div class="subtitles"><span class="title">{{$t('regionalInitiatives')}}</span></div>
       <OrganizatoinGrid>
         <OrganizatoinGridItem
           :title="$t('cti')"
@@ -68,12 +68,12 @@
           image="//www.conservation.org/SiteCollectionImages/ci_63002536.jpg?RenditionID=7"
         />
         <OrganizatoinGridItem
-        :title="$t('cc')"
+          :title="$t('cc')"
           url="http://www.caribbeanchallengeinitiative.org/"
           image="//www.caribbeanchallengeinitiative.org/images/bg_logo.png"
         />
         <OrganizatoinGridItem
-        :title="$t('mc')"
+          :title="$t('mc')"
           url="http://themicronesiachallenge.blogspot.ca/"
           image="//1.bp.blogspot.com/-Y9IntaqWUGI/UsokVqh2YxI/AAAAAAAADUk/PoGfo1HZFWs/s1600/WEBSITE%2BHEADER.png"
         />
@@ -97,12 +97,3 @@
     }
   }
 </script>
-
-<style scoped>
-.grid{
-  grid-gap: 1em;
-}
-  .title{
-    margin: 20px 0 20px 0;
-  }
-</style>
