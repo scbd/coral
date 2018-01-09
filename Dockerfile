@@ -12,7 +12,7 @@ RUN apk update && apk upgrade && \
     apk add --no-cache bash
 
 COPY . /usr/src/app/
-RUN yarn
+RUN yarn --production
 
 
 # Build app
