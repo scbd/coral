@@ -7,7 +7,7 @@
 
   <div class="navbar-brand is-hidden-touch">
     <nuxt-link class="navbar-item"  to="/">
-      <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
+      <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
         <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
         <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
         <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
@@ -54,7 +54,7 @@
     </p>
     <p class="level-item has-text-centered">
       <nuxt-link   to="/">
-        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 178.89 100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
           <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
           <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
           <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
@@ -228,8 +228,7 @@ export default {
 .logo{
   width:75px;
   margin-top: 5px;
-  margin-left: 7px;
-
+  margin-left: 9px;
 }
 
 @media (min-width:1024px){
