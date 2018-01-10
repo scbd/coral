@@ -31,6 +31,11 @@
       TitleDescription:() => import('~/components/default/TitleDescription')
 
     },
+    async asyncData ({app,store}) {
+
+      await store.dispatch('events/get')
+      
+    },
     created(){
 
     }
