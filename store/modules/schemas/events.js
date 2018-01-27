@@ -54,24 +54,6 @@ async function getAction ({state,dispatch,commit,rootState},data){
                 payload.docs = response.data.response.docs
                 commit('set',payload)
             break;
-            case 401:
-                commit('feedback/warn',{
-                    title:'Not Authorized',
-                    description:'Your email and/or password are incorrect.'
-                },{ root: true })
-            break;
-            case 404:
-                commit('feedback/danger',{
-                    title:'Not Found',
-                    description:'The authentication service is not found'
-                },{ root: true })
-            break;
-            case 400:
-                commit('feedback/danger',{
-                    title:'Bad Request',
-                    description:'The request to the authentication service is incorrect.'
-                },{ root: true })
-            break;
             default:
                 commit('feedback/danger',{
                     title:'Unkown Error Occured default',
@@ -81,11 +63,33 @@ async function getAction ({state,dispatch,commit,rootState},data){
         }
 
     } catch (e){
-        commit('feedback/danger',{
-            title:'Unkown Error Occured in catch',
-            description:'An unkown error occured.',
-            e:e
-        },{ root: true })
+      switch(e.status){
+
+          case 401:
+              commit('feedback/warn',{
+                  title:'Not Authorized',
+                  description:'Your email and/or password are incorrect.'
+              },{ root: true })
+          break;
+          case 404:
+              commit('feedback/danger',{
+                  title:'Not Found',
+                  description:'The authentication service is not found'
+              },{ root: true })
+          break;
+          case 400:
+              commit('feedback/danger',{
+                  title:'Bad Request',
+                  description:'The request to the authentication service is incorrect.'
+              },{ root: true })
+          break;
+          default:
+              commit('feedback/danger',{
+                  title:'Unkown Error Occured default',
+                  description:'An unkown error occured.'
+              },{ root: true })
+          break
+      }
         console.log(e)
     }
 }
