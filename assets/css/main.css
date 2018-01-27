@@ -8,6 +8,8 @@
 }
 .debug {
   border: 1px solid red;
+  min-width: 50px;
+  min-height: 50px;
 }
 .rtl{
   direction:rtl;
@@ -36,10 +38,28 @@ body {
 }
 
 .subtitles .title{
-  font-size: 1.5em
+  font-size: 2em
 }
+.title{
+  font-size: 2em
+}
+.pointer{
+  cursor:pointer;
+}
+
 @media screen and (min-width: 1024px) {
+  body{
+    font-size: 1.3em;
+  }
   .subtitles{
     padding: 0 0 0 0;
   }
+}
+
+.navbar-item:hover,.navbar-link:hover, .is-active {
+    color: #979797  !important;
+}
+.grad-bar{
+  width:200px;
+  height:5px;
 }
