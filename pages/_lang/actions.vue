@@ -12,7 +12,7 @@
         <span class="title">{{$t('help')}}</span>
       </div>
 
-      <!-- <SVGMap/> -->
+      <SVGMap/>
   </section>
 </template>
 
