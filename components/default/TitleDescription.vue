@@ -1,9 +1,9 @@
 <template>
-  <section>
+  <section class="comp-main">
     <div class="grid">
       <div class="title-grid">
 
-          <div class="title-holder"><h1 class="title">{{title}}</h1></div>
+          <div class="title-holder"><h1 class="title is-paddingless">{{title}}</h1></div>
           <div class="svg-holder">
             <slot ></slot>
           </div>
@@ -39,22 +39,33 @@ export default {
 }
 </script>
 <style scoped>
+  .comp-main{
+    margin-top:20px;
+  }
   .title-holder {
     position: relative;
   }
   .title-holder h1{
     position: absolute;
     bottom: 0;
-    font-size: 1.7em;
+    font-size: 2em;
     padding: 10px 10px 10px 10px;
   }
   .svg-holder{
     position: relative;
     max-height: 134px;
   }
+  .svg-holder svg{
+    position: absolute;
+    bottom: 5px;
+  }
   .title-grid{
     display: grid;
-    grid-template-columns: 1fr .3fr;
+    grid-template-columns: .7fr .3fr;
+    grid-template-rows: 2fr;
+    grid-template-rows: minmax(105px, auto);
+    overflow: none;
+    min-height: 120px;
   }
   .bar{
     grid-column: 1 /3;
@@ -68,8 +79,8 @@ export default {
     max-width: 100%;
     position: relative;
     font-size: 1em;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
+    /* margin: 10px 10px 10px 10px; */
+    padding: 0 1em 0 1em;
   }
   .grid{
     display: grid;
@@ -77,57 +88,68 @@ export default {
     margin-top: 35px;
   }
 
-
-
-
   @media screen and (min-width: 768px) and (max-width: 1023px) {
 
     .description{
-      font-size: 1.3em;
+      box-shadow: unset;
     }
     .bar{
       height: 1em;
+    }
+    .title-grid{
+      display: grid;
+      grid-template-columns: 1fr .3fr;
+      min-height: 145px;
     }
   }
 
   @media (min-width:1024px){
     .description{
-      font-size: 1.3em;
+      box-shadow: unset;
       margin-top: 0;
     }
+    .title-holder h1{
+      position: absolute;
+      bottom: 0;
 
+    }
     .svg-holder{
       position: relative;
       max-height: 134px;
     }
     .grid{
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 1.8fr 3.2fr;
       margin-top: 0;
     }
     .title-grid{
       display: grid;
       grid-template-columns: 1fr .3fr;
+
     }
     .bar{
       grid-column: 1 /3;
       grid-row: 2;
-      height: 2em;
+
     }
   }
 
   @media screen and (min-width: 1216px) and (max-width: 1407px) {
     .title-holder h1{
-      font-size: 2em
-    }
-    .bar{
-      height: 2em;
+      position: absolute;
+      bottom: 0;
+
     }
     .grid{
       margin-top: 0;
     }
+    .title-grid{
+      display: grid;
+      grid-template-columns: 1fr .3fr;
+
+    }
     .description{
-      font-size: 1.3em;
+      box-shadow: unset;
       margin-top: 0;
     }
 
@@ -137,16 +159,18 @@ export default {
     .title-holder h1{
       position: absolute;
       bottom: 0;
-      font-size: 2em
-    }
-    .bar{
-      height: 2em;
+
     }
     .grid{
       margin-top: 0;
     }
+    .title-grid{
+      display: grid;
+      grid-template-columns: 1fr .3fr;
+
+    }
     .description{
-      font-size: 1.3em;
+      box-shadow: unset;
       margin-top: 0;
     }
 

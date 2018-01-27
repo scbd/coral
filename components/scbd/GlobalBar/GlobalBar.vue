@@ -86,6 +86,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .gobal-grid{
   display: grid;
   grid-template-columns: .8fr 1fr .02fr;

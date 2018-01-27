@@ -11,47 +11,56 @@
       <div class="subtitles"><span class="title">{{$t('globalInitiatives')}}</span></div>
 
       <OrganizatoinGrid>
-
+        <OrganizatoinGridItem
+          :title="$t('iyor')"
+          url="https://www.iyor2018.org/"
+          :image="this.$CBDImage.get('iyor.jpg',355)"
+        />
         <OrganizatoinGridItem
           :title="$t('ebsas')"
           url="https://www.cbd.int/ebsa/"
-          :image="require('~/assets/images/logo/EBSA_Logo.svg')"
+          :image="$CBDImage.get('EBSA_Logo.jpg',100)"
         />
         <OrganizatoinGridItem
           :title="$t('soi')"
           url="https://www.cbd.int/soi/"
-          :image="require('~/assets/images/logo/SOI_Logo.svg')"
+          :image="$CBDImage.get('SOI_Logo.jpg',153)"
         />
         <OrganizatoinGridItem
           :title="$t('unepGCRP')"
           url="http://coral.unep.ch/CRU_Home.html"
-          :image="require('~/assets/images/UNEP_Logo_en.png')"
+          :image="$CBDImage.get('unep.jpg',150)"
         />
 
         <OrganizatoinGridItem
           :title="$t('icri')"
           url="http://www.icriforum.org/"
-          image="http://www.icriforum.org//sites/all/themes/icriforum/logo.png"
+          :image="$CBDImage.get('icri.jpg',160)"
         />
         <OrganizatoinGridItem
           :title="$t('rrn')"
           url="http://www.reefresilience.org/"
-          image="http://www.reefresilience.org/wp-content/uploads/Reef-Resilience-Network.png"
+          :image="$CBDImage.get('Reef-Resilience-Network.jpg',230)"
         />
         <OrganizatoinGridItem
           :title="$t('GCRMN')"
           url="https://www.icriforum.org/gcrmn"
-          :image="require('~/assets/images/GCRMN_0.jpeg')"
+          :image="$CBDImage.get('GCRMN.jpg',120)"
         />
         <OrganizatoinGridItem
           :title="$t('obis')"
           url="http://www.iobis.org/"
-          image="http://iobis.org/images/obis_4.png"
+          :image="$CBDImage.get('obis.jpg',355)"
         />
         <OrganizatoinGridItem
           :title="$t('goaon')"
           url="http://www.goa-on.org/GOA-ON.php"
-          image="http://www.goa-on.org/images/GOA-ON_logo.jpg"
+          :image="$CBDImage.get('GOA-ON_logo.jpg',185)"
+        />
+        <OrganizatoinGridItem
+          :title="$t('rc')"
+          url="https://www.ramsar.org/"
+          :image="$CBDImage.get('ramsar-logo.jpg',100)"
         />
       </OrganizatoinGrid>
 
@@ -60,22 +69,23 @@
         <OrganizatoinGridItem
           :title="$t('cti')"
           url="http://www.coraltriangleinitiative.org"
-          image="//www.coraltriangleinitiative.org/sites/all/themes/new_ctiff/images/header/cti-logo.png"
+          :image="$CBDImage.get('cti-logo.jpg',355)"
         />
         <OrganizatoinGridItem
           :title="$t('po')"
           url="https://www.conservation.org/where/Pages/pacific-oceanscape.aspx"
-          image="//www.conservation.org/SiteCollectionImages/ci_63002536.jpg?RenditionID=7"
+          :image="$CBDImage.get('pacific-oceanscape.jpg',355)"
         />
         <OrganizatoinGridItem
           :title="$t('cc')"
           url="http://www.caribbeanchallengeinitiative.org/"
-          image="//www.caribbeanchallengeinitiative.org/images/bg_logo.png"
+          :image="$CBDImage.get('caribbean-challenge.jpg',100)"
         />
         <OrganizatoinGridItem
           :title="$t('mc')"
           url="http://themicronesiachallenge.blogspot.ca/"
-          image="//1.bp.blogspot.com/-Y9IntaqWUGI/UsokVqh2YxI/AAAAAAAADUk/PoGfo1HZFWs/s1600/WEBSITE%2BHEADER.png"
+
+          :image="$CBDImage.get('the-micronesia-challenge-logo.jpg',400)"
         />
 
       </OrganizatoinGrid>

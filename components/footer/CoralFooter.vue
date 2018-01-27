@@ -1,8 +1,7 @@
 <template>
   <section >
       <div class="reef-divider">
-          <img v-if="!$breakpoints.isTouch()" data-sizes="auto" v-lazy="require('~/assets/images/coral-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
-          <img v-if="$breakpoints.isTouch()"  v-lazy="require('~/assets/images/footer-bar.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+          <img  data-sizes="auto" v-lazy="getFooterImg()"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
       </div>
       <footer class="footer coral-footer">
         <div class="f-grid">
@@ -19,23 +18,23 @@
           <span class="is-hidden-touch">&nbsp;</span>
           <span class="is-hidden-touch">&nbsp;</span>
           <transition name="slide-fade">
-            <div  id="inAss" class="f-content img-grid" v-if="!$breakpoints.isTouch() || (!isHiddenAssotiation && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenAssotiation }">
+            <div  id="inAss" class="f-content img-grid" v-if="!$breakpoints.isTouch || (!isHiddenAssotiation && $breakpoints.isTouch)" :class="{ 'card' : !isHiddenAssotiation }">
                 <span class="is-hidden-touch">&nbsp;</span>
-                <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener">
+                <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener" style="align-self: center;">
 
-                    <img class="eu-img" v-lazy="require('~/assets/images/euflag.svg')" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')"></img>
+                    <img class="eu-img" v-lazy="getEu()" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')" ></img>
                 </a>
-                <a href="https://www.unenvironment.org/" target="_blank" rel="noopener">
-                    <img  v-lazy="require('~/assets/images/UNEP_Logo_en.png')" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
+                <a href="https://www.unenvironment.org/" target="_blank" rel="noopener" style="align-self: center;">
+                    <img  v-lazy="getUnep()" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
                 </a>
                 <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
-                    <img width="100%" v-lazy="require('~/assets/images/logo/cbd-logo-green-en.svg')"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                    <img width="100%" v-lazy="getCbd()"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
                 </a>
                 <span class="is-hidden-touch">&nbsp;</span>
             </div>
           </transition>
           <transition name="slide-fade">
-            <div id="siteMap" class="f-content"  v-if="!$breakpoints.isTouch() || (!isHiddenSitemap && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenSitemap}">
+            <div id="siteMap" class="f-content"  v-if="!$breakpoints.isTouch || (!isHiddenSitemap && $breakpoints.isTouch)" :class="{ 'card' : !isHiddenSitemap}">
                 <ul class="menu-list" style="list-style-type: none; margin-left:0;">
                     <li>
                         <nuxt-link class="footer-links is-size-5-desktop" :to="$i18n.path('about')">{{ $t('about') }} </nuxt-link>
@@ -56,14 +55,14 @@
             </div>
           </transition>
           <transition name="slide-fade">
-            <div id="contact" class="f-content" isHiddenContact v-if="!$breakpoints.isTouch() || (!isHiddenContact && $breakpoints.isTouch())" :class="{ 'card' : !isHiddenContact}">
+            <div id="contact" class="f-content" isHiddenContact v-if="!$breakpoints.isTouch || (!isHiddenContact && $breakpoints.isTouch)" :class="{ 'card' : !isHiddenContact}">
                 <div class="address is-size-5-desktop">{{ $t('nameCbdSecretariat') }} </div>
                 <div class="address is-size-5-desktop">{{ $t('cbdAddressStreet') }} </div>
                 <div class="address is-size-5-desktop">{{ $t('cbdAddressSuite') }} </div>
                 <div class="address is-size-5-desktop">{{ $t('cbdAddressCityProvPostal') }} </div>
                 <div class="address is-size-5-desktop">{{ $t('cbdAddressCountry') }} </div>
-                <div class="is-size-5-desktop bottom-links"><a href="mailto:secretariate@cbd.int">secretariate@cbd.int</a> </div>
-                <div class="is-size-5-desktop bottom-links"><a href="https://www.cbd.int" target="_blank" rel="noopener">www.cbd.int</a></div>
+                <div class="is-size-5-desktop bottom-links"><a href="mailto:secretariat@cbd.int">secretariat@cbd.int</a> </div>
+                <div class="is-size-5-desktop bottom-links"><a href="tel:+1-514-288-2220" target="_blank" rel="noopener">1 514 288 2220 </a></div>
             </div>
           </transition>
           <span class="is-hidden-touch">&nbsp;</span>
@@ -126,7 +125,37 @@ export default {
         this.$store.commit('footer/setSitemap', true)
       if(except !==  'setContact')
         this.$store.commit('footer/setContact', true)
+    },
+    getFooterImg: function () {
+          return this.$CBDImage.get('coral-bar.jpg')
+    },
+    getEu: function () {
+        if(this.$breakpoints.isMobile)
+          return this.$CBDImage.get('Flag_of_Europe_bw_with_border.svg.jpg',160)
+
+        if(this.$breakpoints.isTablet)
+          return this.$CBDImage.get('Flag_of_Europe_bw_with_border.svg.jpg',337)
+
+        return this.$CBDImage.get('Flag_of_Europe_bw_with_border.svg.jpg',85)
+    },
+    getUnep: function () {
+      if(this.$breakpoints.isMobile)
+          return this.$CBDImage.get('unep-black.jpg',160)
+      if(this.$breakpoints.isTablet)
+          return this.$CBDImage.get('unep-black.jpg',337)
+
+      return this.$CBDImage.get('unep-black.jpg',85)
+    },
+    getCbd: function () {
+      if(this.$breakpoints.isMobile)
+        return this.$CBDImage.get('cbd-logo-black-en.jpg',350)
+
+      if(this.$breakpoints.isTablet)
+        return this.$CBDImage.get('cbd-logo-black-en.jpg',700)
+
+      return this.$CBDImage.get('cbd-logo-black-en.jpg',179)
     }
+
   }
 }
 
@@ -137,6 +166,7 @@ export default {
     .reef-divider img{
       width:100%;
       object-fit: fill;
+      margin-top: 1em;
     }
 
     .f-grid{
@@ -167,11 +197,14 @@ export default {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-gap: 10px;
     }
-    .bottom-links {
+    .bottom-links, .bottom-links a {
       text-align: center;
       font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
       font-weight: 500;
       color:#363636;
+    }
+    .bottom-links a {
+      font-weight: 100;
     }
     .bottom-links:hover {
       text-align: center;

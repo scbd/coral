@@ -58,7 +58,5 @@ function create (token) {
       domain: 'https://api.cbddev.int'
     }
   }
-
-  ax = axios.create(options)
-  return ax
+  return axios.create(options)
 }

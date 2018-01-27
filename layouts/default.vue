@@ -2,7 +2,7 @@
     <div >
       <GlobalBar  />
       <DefaultHeader />
-      <main>
+      <main class="container is-fullhd">
         <nuxt class="main-view" :class="{'rtl':isAr}"/>
       </main>
       <CoralFooter/>

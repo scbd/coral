@@ -13,6 +13,8 @@
           <a class="navbar-item" v-on:click="showMobile()" href="https://www.cbd.int/programmes/" target="_blank" rel="noopener"> {{ $t('component.SCBD.programmes') }}</a>
           <a class="navbar-item" v-on:click="showMobile()" href="https://www.cbd.int/information/" target="_blank" rel="noopener"> {{ $t('component.SCBD.information') }}</a>
           <a class="navbar-item" v-on:click="showMobile()" href="https://www.cbd.int/secretariat/" target="_blank" rel="noopener"> {{ $t('component.SCBD.secretariat') }}</a>
+
+
         </div>
 
     </transition>
@@ -35,20 +37,7 @@ export default {
 
   .is-active {
       background-color: #f5f5f5 !important;
-      color: #0a0a0a !important;
+      color: #979797 !important;
   }
-}
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translatey(-5px);
-  opacity: 0;
 }
 </style>

@@ -3,13 +3,13 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
-export default ({ app, isClient, store, serverStore }) => {
-  if (isClient) serverStore = window.__NUXT__.state
+export default ({ app, store, serverStore }) => {
+  if (process.client) serverStore = window.__NUXT__.state
 
   const loadedLanguages = ['en'] // our default language that is prelaoded
 
   let options = {
-    locale: (isClient ? serverStore.locale.locale : store.state.locale.locale) || 'en',
+    locale: (process.client ? serverStore.locale.locale : store.state.locale.locale) || 'en',
     fallbackLocale: 'en',
     silentTranslationWarn: true,
     sync:true,

@@ -69,7 +69,6 @@
       </span>
     </div>
   </nav>
-
     <svg class="nav-bar-img" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
       <defs>
         <style>.filler{fill:url(#gradiaentHeader);}</style>
@@ -90,8 +89,10 @@
 
 
 
-    <div class="top-bar" v-if="$breakpoints.isTouch()">
-      <img   v-lazy="require('~/assets/images/footer-bar-thin.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+    <div class="top-bar" v-if="$breakpoints.isTouch">
+      <img  data-sizes="auto" v-lazy="getImg('footer-bar.jpg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+
+      <!-- <img   v-lazy="require('~/assets/images/footer-bar-thin.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" /> -->
     </div>
     <transition name="slide-fade">
       <div class="box main-nav-mobi" v-if="showDashboard">
@@ -181,12 +182,19 @@ export default {
     },
     toggleDash: function () {
       this.showDashboard = !this.showDashboard
+    },
+    getImg: function (name) {
+          return this.$CBDImage.get(name)
+
     }
   }
 
 }
 </script>
 <style scoped>
+.navbar-item:hover,.navbar-link:hover, .is-active {
+    color: #ff5690  !important;
+}
 .main-nav-mobi{
   position: fixed;
   bottom:52px;

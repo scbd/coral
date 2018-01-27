@@ -1,20 +1,18 @@
 <template>
-  <div class="card grid-org">
-    <a :href="url" target="_blank" rel="noopener">
-      <div class="card-image is-text-centered" >
-        <figure class="grid-org-figure has-text-centered" >
-          <img class="figure-img" v-lazy="image" :alt="title" :title="title">
-        </figure>
-      </div>
-      <div class="card-content grid-org-content">
-        <div class="content has-text-centered">
-          {{title}}
-          <br v-if="title.length<47 && padding">
-          <span v-if="title.length<47 && padding">&nbsp;</span>
+  <a :href="url" target="_blank" rel="noopener">
+    <div class="card">
+        <div class="card-image is-text-centered" >
+          <figure class="grid-org-figure has-text-centered" >
+            <img class="figure-img" v-lazy="image" :alt="title" :title="title">
+          </figure>
         </div>
-      </div>
-    </a>
-  </div>
+        <div class="card-content">
+          <div class="content has-text-centered">
+            {{title}}
+          </div>
+        </div>
+    </div>
+  </a>
 </template>
 
 <script>
@@ -50,13 +48,20 @@ export default {
 <style scoped>
   .content{
     font-weight: 500;
-        height:100%;
+    height:100%;
+    background-color: #00405c;
+    color: #ffffff;
+
   }
+
   .card{
+    position:relative;
     border: 1px solid #00405c;
+    background-color: #00405c;
   }
   .card-image{
-    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    background-color: #ffffff;
   }
   .grid-org-figure{
 
@@ -68,8 +73,5 @@ export default {
     max-height: 100px;
     max-width: 90%;
   }
-  .grid-org-content{
-    background-color: #00405c;
-    color: #ffffff;
-  }
+
 </style>

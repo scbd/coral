@@ -23,7 +23,7 @@ export default {
   name: 'ResourcesContainer',
   components:{Resource},
   data: function(){
-    if(this.$breakpoints.isMobile()) this.total =1
+    if(this.$breakpoints.isMobile) this.total =1
     return {
       isClient: false,
       start: 0,

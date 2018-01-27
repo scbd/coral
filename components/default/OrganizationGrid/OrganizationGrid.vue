@@ -37,20 +37,20 @@ export default {
   }
   @media (min-width:1216px){
     .grid{
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr ;
     }
     .gridTwo{
       grid-template-columns: 1fr 1fr 1fr  ;
-      grid-gap: 5em;
+    
     }
   }
   @media (min-width:1408px){
     .grid{
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr ;
     }
     .gridTwo{
       grid-template-columns: 1fr 1fr 1fr  ;
-      grid-gap: 10em;
+
     }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div >
       <GlobalBar  />
-      <DefaultHeader v-if="$breakpoints.isTouch()"/>
+      <DefaultHeader v-if="$breakpoints.isTouch"/>
       <section class="hero hero-home " v-lazy:background-image="getHomeImg()">
           <div class="logo-container" >
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="logo" viewBox="0 0 550 128.19" >
@@ -19,11 +19,11 @@
             </svg>
           </div>
 
-          <div class="hero-body">
+          <div class=" hero-body">
             <MainNav class="main-nav"/>
           </div>
       </section>
-      <main>
+      <main class="container is-fullhd">
         <nuxt :class="{'rtl':isAr}"/>
       </main>
       <CoralFooter/>
@@ -37,7 +37,7 @@ import CoralFooter from '~/components/footer/CoralFooter.vue'
 import MainNav from '~/components/home/MainNav.vue'
 import DefaultHeader from '~/components/default/header/DefaultHeader.vue'
 import VueLazyload from 'vue-lazyload'
-Vue.use(VueLazyload)
+Vue.use(VueLazyload,{preload:10})
 
 export default {
   scrollToTop: true,
@@ -82,20 +82,9 @@ export default {
   },
   methods:{
     getHomeImg: function () {
-        if(this.$breakpoints.isDesktopHD())
-          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1600)
+          return this.$CBDImage.get('coral-reef-biodiversity.jpg')
 
-        if(this.$breakpoints.isDesktopWS())
-          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1407)
-
-        if(this.$breakpoints.isDesktop())
-          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1215)
-
-        if(this.$breakpoints.isTablet())
-          return this.$CBDImage.get('coral-reef-biodiversity.jpg',1023)
-
-        return this.$CBDImage.get('coral-reef-biodiversity.jpg',767)
-      }
+    }
   }
 }
 

@@ -25,7 +25,7 @@
 
         <div class="column is-one-quarter">
           <div class="card action-box">
-            <header class=" has-text-centered">
+            <header class="has-text-centered">
               <div class="title is-4">{{$t('highlightedAction')}}</div>
             </header>
             <div class="card-content has-text-centered">
@@ -45,9 +45,9 @@
 
       <div class="columns row-one" >
         <div class="column has-text-centered is-2 is-offset-5">
-          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
+          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="$CBDImage.get('title-divider.jpg',200)"/>
           <div class="title is-capitalized news">{{$t('news')}}</div>
-          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
+          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="$CBDImage.get('title-divider.jpg',200)"/>
         </div>
       </div>
 
@@ -95,15 +95,12 @@
   }
 </script>
 
-<style>
-.grad-bar{
-  object-fit: scale-down;
-}
+<style scopped>
+  .card-footer{
+    border-top: unset;
+  }
   .news{
     margin-bottom: 0 !important;
-  }
-  .grad-bar{
-    width:100%;
   }
   .row-one{
     margin: 2em 2em 0 2em;
@@ -120,16 +117,42 @@
     color: #000000;
     border: .25em solid #e8768d;
   }
+  .action-box header {
+    padding: 1em 1em 0 1em;
+  }
   .action-box .action-number{
-    font-size: 3em;
+    font-size: 5em;
   }
   .action-box .button{
     background-color: #e8768d;
     color: #000000;
     font-weight: 800;
-    font-size: 1.25em;
+    font-size: .75em;
   }
   .action-box .button:hover{
     background-color: #ff3e94;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .action-box .button{
+      background-color: #e8768d;
+      color: #000000;
+      font-weight: 800;
+      font-size: .75em;
+    }
+  }
+  @media (min-width:1024px){
+    .action-box .button{
+      font-size: 1em;
+    }
+  }
+  @media (min-width:1216px){
+    .action-box .button{
+      font-size: 1.1em;
+    }
+  }
+  @media (min-width:1408px){
+    .action-box .button{
+      font-size: 1.3em;
+    }
   }
 </style>

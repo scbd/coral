@@ -1,13 +1,14 @@
 <template>
   <section>
 
-      <TitleDescription
-        :title="$t('titleShort')"
-        :description="$t('description')"
-        color="#aacfff">
-        <CommitmentIcon width="100%" color="#aacfff"/>
-      </TitleDescription>
-        <div class="grid-gbo">
+        <TitleDescription
+          :title="$t('titleShort')"
+          :description="$t('description')"
+          color="#aacfff">
+          <CommitmentIcon width="100%" color="#aacfff"/>
+        </TitleDescription>
+
+        <div class="grid-gbo ">
           <div class="item-left" v-lazy:background-image="getBGImg()">
               <div class="target" >
               </div>
@@ -15,7 +16,7 @@
 
           <div class="item-right">
             &nbsp;
-            <div class="gbo-description"  v-if="$breakpoints.isMobile()">
+            <div class="gbo-description"  v-if="$breakpoints.isMobile">
               {{$t('gboFourDescription')}}
             </div>
           </div>
@@ -23,28 +24,29 @@
           <div class="target-inner">
             <a href="https://www.cbd.int/doc/publications/cbd-aichi-target-10-en.pdf" download>
             <div class="grid-gbo">
-                <div>
+                <div class="grid-gbo-title">
+                  <div >
+                      <div class="title-gbo-sub">{{$t('gboFourTitleOne')}}</div>
 
-                    <span >{{$t('gboFourTitleOne')}}</span><br><br>
-                    <span class="title is-capitalized">
-                      <span v-if="$breakpoints.isTouch()">
-                        {{$t('gboFourTitleTwo')}} <br>
-                      </span>
-                      <span v-if="!$breakpoints.isTouch()">
+                      <div class="title is-capitalized" v-if="$breakpoints.isTouch">
+                        {{$t('gboFourTitleTwo')}}
+                      </div>
+                      <div class="title title-gbo is-capitalized" v-if="!$breakpoints.isTouch">
                         {{$t('gboFourTitleTwoA')}}<br>
                         {{$t('gboFourTitleTwoB')}}<br>
                         {{$t('gboFourTitleTwoC')}}
-                        {{$t('gboFourTitleTwoD')}}<br><br>
-                      </span>
-                    </span>
-                    <span v-if="$breakpoints.isTouch()">{{$t('gboFourTitleThree')}}</span>
-                    <span v-if="!$breakpoints.isTouch()">
-                      {{$t('gboFourTitleThreeA')}}<br>
-                      {{$t('gboFourTitleThreeB')}}<br>
-                      {{$t('gboFourTitleThreeC')}}<br>
-                    </span>
+                        {{$t('gboFourTitleTwoD')}}
+                      </div>
+
+                      <div  v-if="$breakpoints.isTouch">{{$t('gboFourTitleThree')}}</div>
+                      <div class="title-gbo-sub" v-if="!$breakpoints.isTouch">
+                        {{$t('gboFourTitleThreeA')}}<br>
+                        {{$t('gboFourTitleThreeB')}}<br>
+                        {{$t('gboFourTitleThreeC')}}<br>
+                      </div>
+                  </div>
                 </div>
-                <div class="item-right" v-if="!$breakpoints.isMobile()">
+                <div class="item-right" v-if="!$breakpoints.isMobile">
                   <img :alt="$t('aBT')+' 10'" :title="$t('aBT')+' 10'" class="is-pulled-right" style="margin:5px 5px 5px 5px;" width="40px" v-lazy="require('~/assets/images/biodiversity-targets/biodiversity-target-10.svg')" />
                     <div class="target" >
                       <span></span>
@@ -110,28 +112,38 @@
     methods:{
       getBGImg: function () {
           if(this.$breakpoints.isDesktopHD)
-            return this.$CBDImage.get('red-coral-blue-back.jpg',1100)
+            return this.$CBDImage.get('red-coral-blue-back.jpg',950)
 
           if(this.$breakpoints.isDesktopWS)
-            return this.$CBDImage.get('red-coral-blue-back.jpg',700)
+            return this.$CBDImage.get('red-coral-blue-back.jpg',750)
 
           if(this.$breakpoints.isDesktop)
-            return this.$CBDImage.get('red-coral-blue-back.jpg',600)
+            return this.$CBDImage.get('red-coral-blue-back.jpg',700)
 
           if(this.$breakpoints.isTablet)
-            return this.$CBDImage.get('coral-reef-biodiversity.jpg',500)
+            return this.$CBDImage.get('red-coral-blue-back.jpg',1024)
 
-          return this.$CBDImage.get('coral-reef-biodiversity.jpg',250)
+          return this.$CBDImage.get('red-coral-blue-back.jpg',400)
       }
     }
   }
 </script>
 
 <style scoped>
+  .title-gbo{
+    margin: .5em 0 .5em 0;
+  }
+  .title-gbo-sub{
+    font-size: 1.5em;
+    font-weight: 500;
+  }
   a .grid-gbo{
     color:#ffffff;
   }
-
+  .grid-gbo-title{
+    display: flex;
+    align-items: center;
+  }
   .linkages{
     margin-top:20px;
     display: grid;
@@ -144,7 +156,9 @@
 
   .item-left {
     grid-area: left;
-    background-color: #00405c;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: #00405c; */
   }
   .item-right {
     grid-area: right;
@@ -155,7 +169,7 @@
     grid-row: left-start / left-end;
 
     z-index: 20;
-    margin: 25% 0 25% 0;
+    margin: 18% 0 18% 0;
     background-color: #00405c;
     color: #fff;
     font-weight: 500;
@@ -222,10 +236,10 @@
       grid-column: left-start / right-end;
       grid-row: left-start / left-end;
       z-index: 20;
-      margin: 5% 0 5% 0;
+      margin: 10% 0 10% 0;
       background-color: #00405c;
       color: #fff;
-      font-weight: 500;
+      font-weight: 400;
       width:100%;
       padding: 20px 20px 20px 20px;
     }

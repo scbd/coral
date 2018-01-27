@@ -5,34 +5,38 @@
       :title="$t('titleShort')"
       :description="$t('description')"
       color="#00405c">
-      <AboutIcon width="90%"   color="#00405c"/>
+      <AboutIcon width="100%"   color="#00405c"/>
     </TitleDescription>
 
     <div class="grid">
-      <div class="ingog left " >
+      <div class="ingog left" >
         <div class="logo-holder">
-          <span class="title-cr">{{ $t('CORAL') }}</span>
-
+          <span class="title-cr">{{ $t('CORAL') }}</span> <br v-if="!$breakpoints.isTouch">
           <span class="title-cr"> {{ $t('REEFS') }}</span>
         </div>
         <div id="selection">
           <ul class="selection">
-            <li  v-on:mouseover="importance=true" v-on:mouseout="importance=false"><span v-on:click="importance=true" ><span v-if="!$breakpoints.isMobile()">{{$t('importanceTitle')}}</span> <a v-if="$breakpoints.isMobile()" class="selection-link" href="#selection">{{$t('importanceTitle')}}</a></span></li>
-            <li  v-on:mouseover="target=true" v-on:mouseout="target=false"><span v-on:click="target=true" >{{$t('targetTenTitle')}}</span></li>
-            <li v-on:mouseover="priority=true" v-on:mouseout="priority=false"><span  v-on:click="priority=true" >{{$t('priorityActionsTitle')}}</span></li>
-            <li v-on:mouseover="tca=true" v-on:mouseout="tca=false" ><span v-on:click="tca=true" >{{$t('tcaTitle')}}</span></li>
+            <li   ><span v-on:click="closeAll(),flags.importance=true" ><span v-if="!$breakpoints.isMobile">{{$t('importanceTitle')}}</span> <a v-if="$breakpoints.isMobile" class="selection-link" href="#selection">{{$t('importanceTitle')}}</a></span></li>
+            <li  ><span v-on:click="closeAll(),flags.target=true" >{{$t('targetTenTitle')}}</span></li>
+            <li ><span  v-on:click="closeAll(),flags.priority=true" >{{$t('priorityActionsTitle')}}</span></li>
+            <li ><span v-on:click="closeAll(),flags.tca=true" >{{$t('tcaTitle')}}</span></li>
           </ul>
-
         </div>
       </div>
 
       <div class="ingog right" >
         <div >
           <transition name="slide-fade">
-            <span class="sliders" v-if="importance"><span class="title-slider">{{$t('importanceTitle')}}</span> <br> {{$t('importanceDescription')}}</span>
-            <span class="sliders" v-if="target"><span class="title-slider">{{$t('targetTenTitle')}}</span> <br>{{$t('targetTenDescription')}}</span>
-            <span class="sliders" v-if="priority"><span class="title-slider">{{$t('priorityActionsTitle')}}</span> <br>{{$t('priorityActionsDescription')}}</span>
-            <span class="sliders" v-if="tca"><span class="title-slider">{{$t('tcaTitle')}}</span> <br>{{$t('tcaDescription')}}</span>
+            <span class="sliders" v-show="flags.importance"><span class="title-slider">{{$t('importanceTitle')}}</span> <br> {{$t('importanceDescription')}}</span>
+          </transition>
+          <transition name="slide-fade">
+            <span class="sliders" v-show="flags.target"><span class="title-slider">{{$t('targetTenTitle')}}</span> <br>{{$t('targetTenDescription')}}</span>
+          </transition>
+          <transition name="slide-fade">
+            <span class="sliders" v-show="flags.priority"><span class="title-slider">{{$t('priorityActionsTitle')}}</span> <br>{{$t('priorityActionsDescription')}}</span>
+          </transition>
+          <transition name="slide-fade">
+            <span class="sliders" v-show="flags.tca"><span class="title-slider">{{$t('tcaTitle')}}</span> <br>{{$t('tcaDescription')}}</span>
           </transition>
         </div>
 
@@ -40,9 +44,9 @@
     </div>
     <div class="title-grid">
       <div class="title-item has-text-centered">
-        <img class="grad-bar"  :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
-        <div class="title is-capitalized">{{$t('otherMarineWork')}}</div>
-        <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="require('~/assets/images/footer-bar.svg')"/>
+        <img class="grad-bar"  width="110%" :title="$t('dividerImg')"  :alt="$t('dividerImg')"  v-lazy="$CBDImage.get('title-divider.jpg',210)"/>
+        <div class="title ">{{$t('otherMarineWork')}}</div>
+        <img class="grad-bar" width="110%" :title="$t('dividerImg')"  :alt="$t('dividerImg')"  v-lazy="$CBDImage.get('title-divider.jpg',210)"/>
       </div>
     </div>
 
@@ -50,20 +54,20 @@
     <OrganizatoinGrid :grid-style="Boolean(true)" >
       <OrganizatoinGridItem
         :title="$t('cbdPOWMCB')"
-        url="https://www.cbd.int"
-        :image="require('~/assets/images/logo/cbd-logo-green-en.svg')"
+        url="https://www.cbd.int/marine/"
+        :image="$CBDImage.get('cbd-logo-green.jpg',265)"
         :padding="Boolean(false)"
       />
       <OrganizatoinGridItem
         :title="$t('ebsa')"
         url="https://www.cbd.int/ebsa/"
-        :image="require('~/assets/images/logo/EBSA_Logo.svg')"
+        :image="$CBDImage.get('EBSA_Logo.jpg',100)"
         :padding="Boolean(false)"
       />
       <OrganizatoinGridItem
       :title="$t('soi')"
         url="https://www.cbd.int/soi/"
-        :image="require('~/assets/images/logo/SOI_Logo.svg')"
+        :image="$CBDImage.get('SOI_Logo.jpg',153)"
         :padding="Boolean(false)"
       />
     </OrganizatoinGrid>
@@ -76,6 +80,7 @@
   import pageMixin from '~/modules/mixins/page'
   import AboutIcon from '~/components/icons/AboutIcon'
   Vue.use(VueLazyload)
+  let flags = {importance:true,target:false,priority:false,tca:false}
   export default {
     name:'about',
     mixins: [pageMixin],
@@ -85,21 +90,30 @@
       OrganizatoinGrid:() => import('~/components/default/OrganizationGrid/OrganizationGrid'),
       OrganizatoinGridItem:() => import('~/components/default/OrganizationGrid/OrganizationGridItem')
     },
-    data:() => {return{importance:false,target:false,priority:false,tca:false}}
+    data:() => {return{flags:flags}},
+    methods:{
+      closeAll:()=>{
+         Vue.set(flags, 'importance', false)
+         Vue.set(flags, 'target', false)
+         Vue.set(flags, 'priority', false)
+         Vue.set(flags, 'tca', false)
+      }
+    }
   }
 </script>
 
 <style scoped>
-.grad-bar{
-  width:100%;
-  object-fit: fill;
-}
-.title-grid {
-  margin-bottom: 1.5em;
-}
-.title{padding-top: .25em;}
+  .grad-bar{
+    width:100%;
+    object-fit: fill;
+  }
+  .title-grid {
+    margin-bottom: 1.5em;
+  }
+  .title{padding-top: .25em;}
+
   .logo-holder{
-    text-align: center;
+    width:100%;
   }
   .title-cr{
     color:white;
@@ -119,20 +133,23 @@
     background-repeat: no-repeat;
     background-size: 6em;
     background-position: right bottom;
-    border-bottom-left-radius: 50px;
-    border-top-right-radius: 50px;
-    padding: 20px 20px 20px 20px;
+
+    padding: 1.2em 1.2em 1.2em 1.2em;
   }
   .left{
     background-image: url('~/assets/images/left-background.svg');
     background-color: #00405c;
+    border-bottom-left-radius: 2em;
+    border-top-right-radius: 2em;
   }
   .right{
     background-image: url('~/assets/images/right-background.svg');
     background-color: #ff5690;
-    background-size: 3em;
+
     min-height: 280px;
     padding-left: 20px;
+    border-bottom-right-radius: 2em;
+    border-top-left-radius: 2em;
   }
   .title-item .title{
     margin: 0 0 0 0;
@@ -142,6 +159,7 @@
     position:absolute;
     color:white;
     font-size: 1em;
+    padding-right: 2em;
   }
   .title-slider{
     color:white;
@@ -156,6 +174,10 @@
     line-height: 3em;
     font-size: 1em;
     cursor: pointer;
+  }
+  .selection li {
+    text-decoration: underline;
+    margin: 1em 0;
   }
   .selection-link  {
     color: white; /* blue colors for links too */
@@ -194,18 +216,18 @@
     margin: 0 0 0 0;
   }
   .sliders{
-    font-size: 1.3em;
+    font-size: 1em;
   }
   .selection {
     margin-top: 5%;
-    line-height: 2em;
+    line-height: 1em;
     font-size: 1.5em;
   }
   .grid{
     padding: 20px 0 20px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2em;
+    grid-gap: 5em;
   }
   .logo{
     width:125px;
@@ -220,12 +242,12 @@
     font-size: 2em;
     line-height: 1em
   }
-  .logo-holder{
+  /* .logo-holder{
     position: absolute;
     top: 15px;
     left: 20px;
 
-  }
+  } */
 
 }
 
