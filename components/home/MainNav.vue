@@ -104,7 +104,7 @@
 
     <div class="column is-hidden-mobile" >
       <nuxt-link class="home-links" :to="$i18n.path('actions')">
-        <div class="main-menu main-menu-test action-style">
+        <div class="main-menu action-style">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 130"preserveAspectRatio="xMidYMin meet" class="svg-content">
             <title>Action Asset</title>
               <path class="action-style" d="M44.67,0A44.72,44.72,0,0,0,0,44.67c0,23.7,40.6,85.46,42.34,88.08a2.79,2.79,0,0,0,4.66,0c1.73-2.62,42.34-64.38,42.34-88.08A44.72,44.72,0,0,0,44.67,0Zm0,64.21A19.54,19.54,0,1,1,64.21,44.67,19.57,19.57,0,0,1,44.67,64.21Z"/>
@@ -117,7 +117,7 @@
 
     <div class="column" >
       <nuxt-link class="home-links" :to="$i18n.path('resources')">
-        <div class="main-menu main-menu-test resources-fill">
+        <div class="main-menu resources-fill">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 130" preserveAspectRatio="xMidYMin meet" class="svg-content">
             <title>Resources</title>
               <path class="resources-fill" d="M47.46,97.71a41.8,41.8,0,0,1,64.21-35.36V25.13a2.8,2.8,0,0,0-2.79-2.79H14A8.37,8.37,0,0,1,14,5.58h94.92a2.79,2.79,0,1,0,0-5.58H14A14,14,0,0,0,0,14V120a14,14,0,0,0,14,14H68.53A41.86,41.86,0,0,1,47.46,97.71Z"/>
@@ -142,7 +142,7 @@ export default {
 }
 </script>
 <style scoped>
-.about-style{fill:#00405c; border: 5px solid #00405c;}
+.about-style{fill:#00809a; border: 5px solid #00809a;}
 .comm-style{fill:#aacfff; border: 5px solid #aacfff;}
 .initistives-style{fill:#dca3ff; border: 5px solid #dca3ff;}
 .action-style{fill:#ca7680; border: 5px solid #ca7680;}
