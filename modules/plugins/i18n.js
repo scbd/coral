@@ -45,7 +45,7 @@ export default ({ app, store, serverStore }) => {
     if (app.i18n.locale !== lang) {
       if (!app.i18n.isLangLoaded(lang)) {
         try {
-            return import(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}`).then(msgs => {
+            return require(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}`).then(msgs => {
               app.i18n.setLocaleMessage(lang, msgs)
               loadedLanguages.push(lang)
             })

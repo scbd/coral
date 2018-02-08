@@ -1,7 +1,10 @@
-import worldEUHigh  from '~/components/default/worldEUHigh'
+
 import Vue from 'vue'
+import worldEUHigh  from '~/static/worldEUHigh'
+
 
 let AmChart
+let updateInProgress = false
 export default {
   data () {
     return {
@@ -14,15 +17,26 @@ export default {
     require('ammap3')
     this.initMap()
     this.createPinImages()
-
     this.map.validateData()
-    this.propPins()
+    this.dropPins()
     this.map.validateData()
+    // this.map.addListener("homeButtonClicked", this.updateCustomMarkers);
+    // this.map.addListener("positionChanged", this.updateCustomMarkers);
+    this.map.addListener('positionChanged',()=>{
+        // console.log('updateInProgress:',updateInProgress);
+      setTimeout(()=>{updateInProgress=false
+        // setTimeout(()=>{if(!updateInProgress) this.map.validateData()}, 1500);
+      }, 1000);
+      if(!updateInProgress)
+        this.updateCustomMarkers();
+      updateInProgress=true
+    });
   },
   methods:{
-    propPins:dropPins,
+    dropPins:dropPins,
     createPinImages:createPinImages,
-    initMap:initMap
+    initMap:initMap,
+    updateCustomMarkers:updateCustomMarkers
   }
 }
 
@@ -55,7 +69,7 @@ function createPinImages() {
     images[i].id = `pin-${i}`
     images[i].longitude = events[i].lng_d
     images[i].latitude =  events[i].lat_d
-    images[i].label = ' XXX '
+    images[i].label = ' '
     //images[i].imageURL = require('~/assets/images/action.svg')
     // images[i].svgPath ='M44.67,0A44.72,44.72,0,0,0,0,44.67c0,23.7,40.6,85.46,42.34,88.08a2.79,2.79,0,0,0,4.66,0c1.73-2.62,42.34-64.38,42.34-88.08A44.72,44.72,0,0,0,44.67,0Zm0,64.21A19.54,19.54,0,1,1,64.21,44.67,19.57,19.57,0,0,1,44.67,64.21Z'
     // images[i].scale = 0.2
@@ -71,32 +85,50 @@ function createPinImages() {
 //=======================================================================
 function dropPins() {
   let images = this.map.dataProvider.images
+  let test =0
   for (let image of images ) {
+
     let holder = document.createElement('div')
     holder.style.position = 'absolute'
-    holder.className='debug'
+    holder.className='holder'
     let pin = document.createElement('img')
-
+// if(test==4){
     pin.setAttribute('src', require('~/assets/images/action.svg'))
+    pin.className = 'pin'
     holder.appendChild(pin)
-    holder.style.top = this.map.latitudeToY(image.latitude) + 'px'
-    holder.style.left = this.map.longitudeToX(image.longitude) + 'px'
 
-      console.log(document.getElementById('mapdiv'))
-      console.log(holder);
+    let px =this.map.coordinatesToStageXY(image.longitude,image.latitude)
+    // holder.style.top = this.map.latitudeToY(image.latitude) + 'px'
+    // holder.style.left = this.map.longitudeToX(image.longitude) + 'px'
+    //
+    // console.log('holder.style.top ',holder.style.top )
+    // console.log('holder.style.left ',holder.style.left )
+
+    holder.style.top = Number(px.y-21)+ 'px'
+    holder.style.left = Number(px.x-2)+ 'px'
+
+//     console.log('holder.style.left - x - long',px.x)
+//     console.log('holder.style.top - y - lat',px.y)
+//     console.log('holder.style.top ',holder.style.top )
+//     console.log('holder.style.left ',holder.style.left )
+// console.log(image.latitude)
+// console.log(image.longitude)
+// console.log(image)
+
+// }
+      // console.log(document.getElementById('mapdiv'))
+      // console.log(holder);
       document.getElementById('mapdiv').appendChild(holder)
       image.externalElement = holder
       image.validate()
-
-
-
+//test++
   }
 //  console.log(this.$refs)
 }
 //=======================================================================
 //
 //=======================================================================
-function createPins() {
+function createPin() {
   let images = this.map.dataProvider.images
   for (let i in images ) {
     images[i]={}
@@ -147,7 +179,7 @@ function initMap() {
     this.map=AmChart.makeChart( 'mapdiv', {
           'type': 'map',
           'theme': 'light',
-          'projection': 'eckert6',
+          // 'projection': 'eckert6',
           'responsive': {
                'enabled': true
              },
@@ -163,4 +195,46 @@ function initMap() {
             "selectable": true
           }
         } )
+        this.map.addListener("click", function(event) {
+          let info = event.chart.getDevInfo();
+
+            console.log({
+              "latitude": info.latitude,
+              "longitude": info.longitude
+            });
+
+        })
 }
+
+//=======================================================================
+//
+//=======================================================================
+function updateCustomMarkers() {
+    let images = this.map.dataProvider.images
+
+console.log('updateCustomMarkersupdateCustomMarkersupdateCustomMarkersupdateCustomMarkers')
+    for (var x in images) {
+        var image = images[x];
+        //
+        // if (typeof image.externalElement == 'undefined') {// create pin is it does not exist
+        //     image.externalElement = generateMarker(x);
+        //   }
+
+        if (typeof image.externalElement !== 'undefined') { //update xy based on movement of map
+          let px =this.map.coordinatesToStageXY(image.longitude,image.latitude)
+          // holder.style.top = this.map.latitudeToY(image.latitude) + 'px'
+          // holder.style.left = this.map.longitudeToX(image.longitude) + 'px'
+          //
+          // console.log('holder.style.top ',holder.style.top )
+          // console.log('holder.style.left ',holder.style.left )
+
+          image.externalElement.style.top = Number(px.y-21)+ 'px'
+          image.externalElement.left = Number(px.x-2)+ 'px'
+            // image.externalElement.style.top = map.latitudeToY(image.latitude) + 'px';
+            // image.externalElement.style.left = map.longitudeToX(image.longitude) + 'px';
+        }
+
+    } //for
+//this.map.validateData()
+// this.map.validateNow(true,false)
+} //updateCustomMarkers

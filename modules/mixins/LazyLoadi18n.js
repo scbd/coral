@@ -12,10 +12,10 @@ export default {
     if(pageName==='lang')pageName = 'index'
 
     if(!pageLocales['en'] || isLocalHost)
-      pageLocales.en = await import(`~/locales/pages/${pageName}/en.json`)
+      pageLocales.en = await import(/* webpackChunkName: "`${pageName}/en.json`" */ `~/locales/pages/${pageName}/en.json`)
 
     if(locale !=='en' && (!pageLocales[locale] || isLocalHost))
-      pageLocales[locale] = await import(`~/locales/pages/${pageName}/${locale}.json`)
+      pageLocales[locale] = await import(/* webpackChunkName: "`${pageName}/${locale}.json`" */ `~/locales/pages/${pageName}/${locale}.json`)
 
     if(!isEmpty(pageLocales[locale]))
       this.$store.commit('locale/setPageMessage', {page:pageName, messages:pageLocales})
