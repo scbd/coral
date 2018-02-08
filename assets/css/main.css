@@ -33,12 +33,12 @@ body {
   opacity: 0;
 }
 .subtitles{
-  margin: 1.5em 0 1.5em 0;
+  margin: 1em 0 1em 0;
   padding: 0 1.5em 0 1.5em;
 }
 
 .subtitles .title{
-  font-size: 2em
+  font-size: 1.5em
 }
 .title{
   font-size: 2em
