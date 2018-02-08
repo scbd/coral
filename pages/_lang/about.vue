@@ -108,7 +108,7 @@
     object-fit: fill;
   }
   .title-grid {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
   .title{padding-top: .25em;}
 
@@ -158,7 +158,7 @@
   .sliders{
     position:absolute;
     color:white;
-    font-size: 1em;
+    font-size: 1.3em;
     padding-right: 2em;
   }
   .title-slider{

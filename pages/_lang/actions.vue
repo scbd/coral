@@ -12,6 +12,7 @@
         <span class="title">{{$t('help')}}</span>
       </div>
 
+
       <SVGMap/>
   </section>
 </template>
@@ -19,7 +20,7 @@
 <script>
 
   import pageMixin from '~/modules/mixins/page'
-
+  import TitleDescription from '~/components/default/TitleDescription'
 
   export default {
     name:'actions',
@@ -27,7 +28,7 @@
     components: {
       ActionIcon:() => import('~/components/icons/ActionIcon'),
       SVGMap:() => import('~/components/default/SVGMap'),
-      TitleDescription:() => import('~/components/default/TitleDescription')
+      TitleDescription
 
     },
     async asyncData ({app,store}) {
@@ -35,8 +36,6 @@
       await store.dispatch('events/get')
 
     },
-    created(){
 
-    }
   }
 </script>
