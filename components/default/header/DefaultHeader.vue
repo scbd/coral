@@ -90,7 +90,7 @@
 
 
     <div class="top-bar" v-if="$breakpoints.isTouch">
-      <img  data-sizes="auto" v-lazy="getImg('footer-bar.jpg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
+      <img  data-sizes="auto" :src="getImg('footer-bar.jpg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
 
       <!-- <img   v-lazy="require('~/assets/images/footer-bar-thin.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" /> -->
     </div>

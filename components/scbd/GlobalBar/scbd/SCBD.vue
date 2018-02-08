@@ -4,7 +4,7 @@
 
       <a class="navbar-link name" v-on:click="toggle()" v-if="!mobileOptionsOnly" >
 
-        <img class="logo is-hidden-desktop" v-lazy="getImg('cbd-leaf-green.jpg',83,106)" :alt="$t('scbdLogoLeaf')" :title="$t('scbdLogoLeafTitle')" v-if="!mobileOptionsOnly && !showMobileFlag"/>
+        <img class="logo is-hidden-desktop" :src="getImg('cbd-leaf-green.jpg',83,106)" :alt="$t('scbdLogoLeaf')" :title="$t('scbdLogoLeafTitle')" v-if="!mobileOptionsOnly && !showMobileFlag"/>
         <i v-if="!showDesktopFlag" class="fontello icon-menu is-size-6 is-hidden-touch" ></i>
         <span  v-if="showMobileFlag || showDesktopFlag"><i class="fontello icon-cancel" ></i></span>
         <span v-show="!$breakpoints.isTouch">Convention on Biological Diversity</span>
