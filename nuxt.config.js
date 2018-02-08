@@ -1,6 +1,7 @@
 require('dotenv').config()
 //const webpack = require('webpack')
 module.exports = {
+  render:{resourceHints:false},
   env: {
     baseUrl: process.env.baseUrl,
     isLocalHost: process.env.isLocalHost || false,
@@ -83,29 +84,25 @@ module.exports = {
   // ============================================================
   // Build configuration
   // ============================================================
-  build: {
+  build: {  resourceHints:false,
     analyze: process.env.analyzeBuild,
   //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon'//
     vendor: ['vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints','~/modules/plugins/ImageApi.js','~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'],
-    extend (config) {
-
-          const vueLoader = config.module.rules.find((r) => {
-            return r.loader === 'vue-loader'
-          })
-          vueLoader.options.preLoaders = vueLoader.options.preLoaders || {}
-          vueLoader.options.preLoaders.i18n = 'json-loader'
-          vueLoader.options.loaders.i18n = 'vue-i18n-loader'
-    },
+    // extend (config) {
+    //
+    //       const vueLoader = config.module.rules.find((r) => {
+    //         return r.loader === 'vue-loader'
+    //       })
+    //       vueLoader.options.preLoaders = vueLoader.options.preLoaders || {}
+    //       // vueLoader.options.preLoaders.i18n = 'json-loader'
+    //       // vueLoader.options.loaders.i18n = 'vue-i18n-loader'
+    // },
     postcss: {
       plugins: {
         'postcss-custom-properties': false
       }
     }
-    // plugins: [
-    //   new webpack.ProvidePlugin({
-    //     'worldLow': require('./node_modules/ammap3/ammap/maps/worldLow')
-    //   })
-    // ]
+
 //     watch: [
 //     '~/node_modules/@biodiversity/ssr-breakpoints/module.js',
 //     '~/node_modules/@biodiversity/ssr-breakpoints/plugin.js'
