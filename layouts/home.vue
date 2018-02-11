@@ -3,6 +3,12 @@
       <GlobalBar  />
       <DefaultHeader v-if="$breakpoints.isTouch"/>
       <section class="hero hero-home " v-lazy:background-image="getHomeImg()">
+        <div class="hero-video">
+          <video :poster="getHomeImg()" id="bgvid" playsinline autoplay muted loop>
+            <!-- <source src="vid/BGvid.webm" type="video/webm"> -->
+            <source :src="require('~/assets/coral.mp4')" type="video/mp4">
+          </video>
+        </div>
           <div class="logo-container" >
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="logo" viewBox="0 0 550 128.19" >
                 <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
@@ -91,6 +97,16 @@ export default {
 </script>
 
 <style scoped>
+  .hero-body{
+    z-index: 100;
+  }
+  #myVideo {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+  }
   .logo{
     direction:ltr;
     margin: 50px 0 0 0;
@@ -101,6 +117,7 @@ export default {
     display:flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
+        z-index: 100;
   }
 
   @media (min-width:1024px){
