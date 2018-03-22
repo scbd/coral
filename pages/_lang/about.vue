@@ -50,8 +50,28 @@
       </div>
     </div>
 
+    <div class="other-work-grid debug2">
+      <div class="square-box debug">
+        <div class="square-content debug" >
+          <div class="top debug"><div><img :src="$CBDImage.get('cbd-logo-green.jpg',265)"/></div></div>
+          <div class="bottom debug2"><div> sss</div></div>
+        </div>
+      </div>
+      <div class="square-box debug">
+        <div class="square-content debug" >
+          <div class="top debug"><div><img :src="$CBDImage.get('EBSA_Logo.jpg',140)"/></div></div>
+          <div class="bottom debug2"><div> sss</div></div>
+        </div>
+      </div>
+      <div class="square-box debug">
+        <div class="square-content debug" >
+          <div class="top debug"><div><img :src="$CBDImage.get('SOI_Logo.jpg',153)"/></div></div>
+          <div class="bottom debug2"><div> sss </div></div>
+        </div>
+      </div>
+    </div>
 
-    <OrganizatoinGrid :grid-style="Boolean(true)" >
+    <!-- <OrganizatoinGrid :grid-style="Boolean(true)" >
       <OrganizatoinGridItem
         :title="$t('cbdPOWMCB')"
         url="https://www.cbd.int/marine/"
@@ -70,7 +90,7 @@
         :image="$CBDImage.get('SOI_Logo.jpg',153)"
         :padding="Boolean(false)"
       />
-    </OrganizatoinGrid>
+    </OrganizatoinGrid> -->
   </section>
 </template>
 
@@ -103,6 +123,57 @@
 </script>
 
 <style scoped>
+.square-box{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.square-box:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.square-content{
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.square-content .top {
+   display: table;
+   width: 100%;
+   height: 70%;
+}
+.square-content .bottom {
+   display: table;
+   width: 100%;
+   height: 30%;
+}
+.square-content div div {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+  .other-work-grid {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 60px;
+  }
+  .other-work{
+    width:100%;
+  }
+  .other-work-img{
+    height:;
+  }
+  .other-work:after {
+    content: "";
+    display: block;
+    padding-bottom: 61%;
+  }
   .grad-bar{
     width:100%;
     object-fit: fill;
