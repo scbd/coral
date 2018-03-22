@@ -3,6 +3,9 @@
   "aBT":"Aichi Biodiversity Target",
   "about": "About",
   "commitments": "Commitments",
+  "gCFCR":"Global Commitments for Coral Reefs",
+  "global&RegionalIniatives":"Global & Regional Initiatives",
+  "nationalActions":"National Actions",
   "initiatives": "Initiatives",
   "resources": "Resources",
   "actions": "Actions",
@@ -36,6 +39,8 @@
 "scbdLogo":"Secretariat of the Convention on Biological Diversity Logo",
 "scbdLogoTitle":"In Association with the Secretariat of the Convention on Biological Diversity",
 "scbdLogoLeaf":" Leaf Logo Secretariat of the Convention on Biological Diversity",
+"homeImage":"Coral reefs with man and boy in boat",
+"coralGradientBarDivider":"Coral Gradient Bar Divider",
 "scbdLogoLeafTitle":" Leaf Logo for the Secretariat of the Convention on Biological Diversity",
     "component": {
         "HeaderBar": {

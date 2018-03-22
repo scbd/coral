@@ -2,24 +2,29 @@
     <div >
       <GlobalBar  />
       <DefaultHeader />
+      <DividerGradBar />
       <main class="container is-fullhd">
         <nuxt class="main-view" :class="{'rtl':isAr}"/>
       </main>
+      <CoralDivider/>
+      <DividerGradBar :size="Number(24)" />
       <CoralFooter/>
     </div>
 </template>
 
 <script>
-  import DefaultHeader from '~/components/default/header/DefaultHeader.vue'
-  import GlobalBar from '~/components/scbd/GlobalBar/GlobalBar.vue'
-  import CoralFooter from '~/components/footer/CoralFooter.vue'
-  import i18nMixin from '~/modules/mixins/LazyLoadi18n'
+  import DefaultHeader  from '~/components/default/header/DefaultHeader.vue'
+  import GlobalBar      from '~/components/scbd/GlobalBar/GlobalBar.vue'
+  import DividerGradBar from '~/components/DividerGradBar.vue'
+  import CoralDivider   from '~/components/CoralDivider.vue'
+  import CoralFooter    from '~/components/footer/CoralFooter.vue'
+  import i18nMixin      from '~/modules/mixins/LazyLoadi18n'
 
   export default {
     scrollToTop: true,
     transition:'page',
     mixins: [i18nMixin],
-    components: {GlobalBar,CoralFooter,DefaultHeader},
+    components: {GlobalBar,CoralFooter,DefaultHeader,DividerGradBar,CoralDivider},
     computed: {
       isAr: function () {
         return !!(this.$store.state.locale.locale === 'ar')

@@ -1,5 +1,5 @@
 require('dotenv').config()
-//const webpack = require('webpack')
+const webpack = require('webpack')
 module.exports = {
   render:{resourceHints:false},
   env: {
@@ -86,8 +86,8 @@ module.exports = {
   // ============================================================
   build: {  resourceHints:false,
     analyze: process.env.analyzeBuild,
-  //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon'//
-    vendor: ['vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints','~/modules/plugins/ImageApi.js','~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'],
+  //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon''~/modules/plugins/ImageApi.js',,'~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'//
+    vendor: ['vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints'],
     // extend (config) {
     //
     //       const vueLoader = config.module.rules.find((r) => {
@@ -101,12 +101,15 @@ module.exports = {
       plugins: {
         'postcss-custom-properties': false
       }
-    }
+    },
 
-//     watch: [
-//     '~/node_modules/@biodiversity/ssr-breakpoints/module.js',
-//     '~/node_modules/@biodiversity/ssr-breakpoints/plugin.js'
-// ]
+    // plugins: [
+    //   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    // ]
+
+    watch: [
+    '~/node_modules/@biodiversity/ssr-breakpoints/dist/main.js'
+]
   }//build
 }//export
 

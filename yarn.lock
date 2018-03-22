@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@biodiversity/ssr-breakpoints@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@biodiversity/ssr-breakpoints/-/ssr-breakpoints-0.0.8.tgz#1868029a1988b62b2e5d440bd0ecee2c40172fdb"
+"@biodiversity/ssr-breakpoints@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@biodiversity/ssr-breakpoints/-/ssr-breakpoints-0.1.0.tgz#4399a4bf3151ae0929881e8b625655b7eb60eb7f"
 
 "@nuxtjs/component-cache@^0.1.3":
   version "0.1.5"

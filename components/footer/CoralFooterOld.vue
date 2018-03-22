@@ -1,0 +1,291 @@
+<template>
+  <section >
+
+      <div class="container is-fullhd">
+      <footer class="footer coral-footer">
+        <div class="f-grid">
+          <span class="is-hidden-touch">&nbsp;</span>
+          <div class="f-title">
+              <span v-on:click="toggleAssotiation()" class="footer-title is-size-5-desktop is-size-7-touch"><a href="#inAss">{{ $t('inAssociation') }}</a></span>
+          </div>
+          <div class="f-title">
+              <span class="footer-title is-size-5-desktop is-size-7-touch" v-on:click="toggleSitemap()"><a href="#siteMap">{{ $t('siteMap') }}</a></span><br>
+          </div>
+          <div class="f-title">
+              <span class="footer-title is-size-5-desktop is-size-7-touch" v-on:click="toggleContact()"><a href="#contact">{{ $t('contact') }}</a></span><br>
+          </div>
+          <span class="is-hidden-touch">&nbsp;</span>
+          <span class="is-hidden-touch">&nbsp;</span>
+          <transition name="slide-fade">
+            <div  id="inAss" class="f-content img-grid" v-if="!$breakpoints.isTouch || (!isHiddenAssotiation && $breakpoints.isTouch)" :class="{ 'card' : !isHiddenAssotiation }">
+                <span class="is-hidden-touch">&nbsp;</span>
+                <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener" style="align-self: center;">
+
+                    <img class="eu-img" v-lazy="getEu()" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')" ></img>
+                </a>
+                <a href="https://www.unenvironment.org/" target="_blank" rel="noopener" style="align-self: center;">
+                    <img  v-lazy="getUnep()" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
+                </a>
+                <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
+                    <img width="100%" v-lazy="getCbd()"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                </a>
+                <span class="is-hidden-touch">&nbsp;</span>
+            </div>
+          </transition>
+          <transition name="slide-fade">
+            <div id="siteMap" class="f-content"  v-if="!$breakpoints.isTouch || (!isHiddenSitemap && $breakpoints.isTouch)" :class="{ 'card' : !isHiddenSitemap}">
+                <ul class="menu-list" style="list-style-type: none; margin-left:0;">
+                    <li>
+                        <nuxt-link class="footer-links is-size-5-desktop" :to="$i18n.path('about')">{{ $t('about') }} </nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link class="footer-links is-size-5-desktop" :to="$i18n.path('commitments')">{{ $t('commitments') }} </nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link class="footer-links is-size-5-desktop" :to="$i18n.path('initiatives')">{{ $t('initiatives') }} </nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link class="footer-links is-size-5-desktop" :to="$i18n.path('actions')">{{ $t('actions') }} </nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link class="footer-links is-size-5-desktop" :to="$i18n.path('resources')">{{ $t('resources') }} </nuxt-link>
+                    </li>
+                </ul>
+            </div>
+          </transition>
+          <transition name="slide-fade">
+            <div id="contact" class="f-content" isHiddenContact v-if="!$breakpoints.isTouch || (!isHiddenContact && $breakpoints.isTouch)" :class="{ 'card' : !isHiddenContact}">
+                <div class="address is-size-5-desktop">{{ $t('nameCbdSecretariat') }} </div>
+                <div class="address is-size-5-desktop">{{ $t('cbdAddressStreet') }} </div>
+                <div class="address is-size-5-desktop">{{ $t('cbdAddressSuite') }} </div>
+                <div class="address is-size-5-desktop">{{ $t('cbdAddressCityProvPostal') }} </div>
+                <div class="address is-size-5-desktop">{{ $t('cbdAddressCountry') }} </div>
+                <div class="is-size-5-desktop bottom-links"><a href="mailto:secretariat@cbd.int">secretariat@cbd.int</a> </div>
+                <div class="is-size-5-desktop bottom-links"><a href="tel:+1-514-288-2220" target="_blank" rel="noopener">1 514 288 2220 </a></div>
+            </div>
+          </transition>
+          <span class="is-hidden-touch">&nbsp;</span>
+        </div>
+
+        <div class="bottom-grid"  :class="{ 'is-hidden-touch' : isAnyHidden }">
+            <span class="is-hidden-touch">&nbsp;</span>
+            <a class="bottom-links is-size-7-touch" href="https://www.cbd.int/terms/" target="_blank" rel="noopener"> {{ $t('termsOfUse') }} </a>
+            <a class="bottom-links is-size-7-touch" href="https://www.cbd.int/privacy/" target="_blank" rel="noopener"> {{ $t('privacyPolicy') }}</a>
+            <a class="bottom-links is-size-7-touch" href="https://www.cbd.int/credits/" target="_blank" rel="noopener"> {{ $t('credits') }}  </a>
+            <a class="bottom-links is-size-7-touch" href="https://www.cbd.int/secretariat/" target="_blank" rel="noopener"> {{$t('secretariat')}} </a>
+            <span class="is-hidden-touch">&nbsp;</span>
+        </div>
+
+      </footer>
+    </div>
+  </section>
+</template>
+
+<script>
+
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
+export default {
+  name: 'CoralFooter',
+
+  computed: {
+    isHiddenAssotiation: function () {
+      return this.$store.state.footer.isHiddenAssotiation
+    },
+    isHiddenContact: function () {
+      return this.$store.state.footer.isHiddenContact
+    },
+    isHiddenSitemap: function () {
+      return this.$store.state.footer.isHiddenSitemap
+    },
+    isAnyHidden: function () {
+      return this.$store.state.footer.isHiddenAssotiation || this.$store.state.footer.isHiddenContact || this.$store.state.footer.isHiddenSitemap
+    }
+  },
+  // define methods under the `methods` object
+  methods: {
+    toggleContact: function () {
+      this.hideAll('setContact')
+      this.$store.commit('footer/setContact', !this.$store.state.footer.isHiddenContact)
+    },
+    toggleSitemap: function () {
+      this.hideAll('setSitemap')
+      this.$store.commit('footer/setSitemap', !this.$store.state.footer.isHiddenSitemap)
+    },
+    toggleAssotiation: function () {
+      this.hideAll('setAssotiation')
+      this.$store.commit('footer/setAssotiation', !this.$store.state.footer.isHiddenAssotiation)
+    },
+    hideAll: function (except) {
+      if(except !==  'setAssotiation')
+        this.$store.commit('footer/setAssotiation', true)
+      if(except !==  'setSitemap')
+        this.$store.commit('footer/setSitemap', true)
+      if(except !==  'setContact')
+        this.$store.commit('footer/setContact', true)
+    },
+    getFooterImg: function () {
+          return this.$CBDImage.get('coral-bar.jpg')
+    },
+    getEu: function () {
+        if(this.$breakpoints.isMobile)
+          return this.$CBDImage.get('Flag_of_Europe_bw_with_border.svg.jpg',160)
+
+        if(this.$breakpoints.isTablet)
+          return this.$CBDImage.get('Flag_of_Europe_bw_with_border.svg.jpg',337)
+
+        return this.$CBDImage.get('Flag_of_Europe_bw_with_border.svg.jpg',85)
+    },
+    getUnep: function () {
+      if(this.$breakpoints.isMobile)
+          return this.$CBDImage.get('unep-black.jpg',160)
+      if(this.$breakpoints.isTablet)
+          return this.$CBDImage.get('unep-black.jpg',337)
+
+      return this.$CBDImage.get('unep-black.jpg',85)
+    },
+    getCbd: function () {
+      if(this.$breakpoints.isMobile)
+        return this.$CBDImage.get('cbd-logo-black-en.jpg',350)
+
+      if(this.$breakpoints.isTablet)
+        return this.$CBDImage.get('cbd-logo-black-en.jpg',700)
+
+      return this.$CBDImage.get('cbd-logo-black-en.jpg',179)
+    }
+
+  }
+}
+
+</script>
+
+<style scoped>
+
+    .reef-divider img{
+      width:100%;
+      object-fit: fill;
+      margin-top: 1em;
+    }
+
+    .f-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr ;
+      grid-gap: 10px;
+      background-color: #fff;
+    }
+
+    .f-title{
+      text-align: center;
+    }
+    .f-title span a{
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 900;
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
+      color:#000000;
+    }
+
+    .f-content{
+      text-align: center;
+      grid-column: 1 / 5;
+      padding: 10px 10px 10px 10px;
+    }
+    .bottom-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+    .bottom-links, .bottom-links a {
+      text-align: center;
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
+      font-weight: 500;
+      color:#363636;
+    }
+    .bottom-links a {
+      font-weight: 100;
+    }
+    .bottom-links:hover {
+      text-align: center;
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
+      font-weight: 500;
+      color:#a7a5a5;
+    }
+    .img-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 80px;
+      grid-gap: 25px;
+    }
+    .bottom-row{
+      grid-column: 1 /3;
+      grid-row: 2;
+    }
+    .eu-img{
+      width: 100%;
+    }
+
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .img-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, [row] auto  );
+      grid-gap: 25px;
+    }
+    .bottom-row{
+      grid-column: 1 /3;
+      grid-row: 2;
+    }
+  }
+
+  @media (min-width:1024px){
+    .f-grid{
+      display: grid;
+      grid-template-columns: .25fr 1fr 1fr 1fr .25fr;
+      grid-gap: 10px;
+      background-color: #fff;
+    }
+
+    .f-content{
+      grid-column: unset;
+    }
+    .address {
+      font-weight: 100;
+    }
+
+    .img-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 80px;
+      grid-gap: 10px;
+    }
+    .bottom-row{
+      grid-column: 2 / 4;
+      grid-row: 2;
+    }
+    .eu-img{
+      width: 100%;
+    }
+    .bottom-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+    .footer-links {
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
+      font-weight: 100;
+    }
+    .footer-links:hover {
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
+      font-weight: 400;
+    }
+    .menu-list a.is-active  {
+      font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
+      font-weight: 400;
+      background-color: #f5f5f5;
+      color:#363636;
+    }
+  }
+</style>

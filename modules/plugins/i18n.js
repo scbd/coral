@@ -3,7 +3,7 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
-export default ({ app, store, serverStore }) => {
+export default async ({ app, store, serverStore }) => {
   if (process.client) serverStore = window.__NUXT__.state
 
   const loadedLanguages = ['en'] // our default language that is prelaoded
@@ -15,16 +15,11 @@ export default ({ app, store, serverStore }) => {
     sync:true,
     messages: {
       'en': require('~/locales/en.json')
-      // 'fr': require('~/locales/fr.json'),
-      // 'es': require('~/locales/es.json'),
-      // 'ru': require('~/locales/ru.json'),
-      // 'zh': require('~/locales/zh.json'),
-      // 'ar': require('~/locales/ar.json')
     }
   }
 
   if(options.locale !== 'en')
-    options.messages[options.locale] = require(`~/locales/${options.locale}.json`)
+    options.messages[options.locale] = await import(/* webpackChunkName: "locale-[request]" */ `~/locales/${options.locale}.json`)
 
   app.i18n = new VueI18n(options)
 
@@ -45,7 +40,7 @@ export default ({ app, store, serverStore }) => {
     if (app.i18n.locale !== lang) {
       if (!app.i18n.isLangLoaded(lang)) {
         try {
-            return require(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}`).then(msgs => {
+            return import(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}`).then(msgs => {
               app.i18n.setLocaleMessage(lang, msgs)
               loadedLanguages.push(lang)
             })

@@ -1,6 +1,6 @@
 <template>
   <section >
-      <div class="columns row-one">
+      <!-- <div class="columns row-one">
         <div class="column is-one-half">
           <div >{{$t('description')}}</div>
         </div>
@@ -41,44 +41,53 @@
             </footer>
           </div>
         </div>
-      </div>
+      </div> -->
+      <Subtitle>{{$t('news')}}</Subtitle>
 
-      <div class="columns row-one" >
-        <div class="column has-text-centered is-2 is-offset-5">
-          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="$CBDImage.get('title-divider.jpg',200)"/>
-          <div class="title is-capitalized news">{{$t('news')}}</div>
-          <img class="grad-bar" width="100%" :title="$t('dividerImg')"  :alt="$t('dividerImg')" v-lazy="$CBDImage.get('title-divider.jpg',200)"/>
+      <BubblesSection>
+        Coral reefs are related to many different Aichi Targets, and Sustainable Development Goals. Click on the linking statements to see which Aichi targets and SDGs relate to coral reefs.
+      </BubblesSection>
+
+      <CoralSection>
+        2018 will mark the third annual Year of the Reef. Visit the website to learn more about the International Year of the Reef (IYOR).
+        <div class="center-div">
+          <br/>
+          <button class="button is-rounded is-primary dark-blue">
+            <h2 style="margin-top:-12px;">Visit Website</h2>
+          </button>
         </div>
-      </div>
+      </CoralSection>
 
-      <div class="columns row-one" >
-        <div class="column is-8 is-offset-2">
+      <div class="row-one" >
           <TwitterGrid/>
-        </div>
       </div>
+
   </section>
 </template>
 
 <script>
   import pageMixin from '~/modules/mixins/page'
   import TwitterGrid from '~/components/home/TwitterGrid'
+  import Subtitle from '~/components/Subtitle'
+  import BubblesSection from '~/components/BubblesSection'
+  import CoralSection from '~/components/CoralSection'
   import { DateTime }  from 'luxon'
   import Vue from 'vue'
-  import VueLazyload from 'vue-lazyload'
-  Vue.use(VueLazyload)
+  // import VueLazyload from 'vue-lazyload'
+  // Vue.use(VueLazyload)
 
   export default {
     layout: 'home',
     name:'index',
     mixins: [pageMixin],
-    components:{TwitterGrid},
+    components:{TwitterGrid,Subtitle,BubblesSection,CoralSection},
     // always use asyncData for better SSR
     async asyncData ({app,store}) {
 
       await store.dispatch('events/get')
 
       return {
-        actionsThisMonth: store.getters['events/getThisMonth'](app.i18n.locale) || 0,
+        actionsThisMonth: store.getters['events/getThisMonth'](app.i18n.locale) || {},
         action: store.getters['events/getHighlight'](app.i18n.locale) || {}
       }
     },
@@ -96,63 +105,16 @@
 </script>
 
 <style scopped>
-  .card-footer{
-    border-top: unset;
-  }
-  .news{
-    margin-bottom: 0 !important;
-  }
   .row-one{
-    margin: 2em 2em 0 2em;
-  }
-  .flex-center{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
-  .is-rounded {
-    border-radius: 7em;
-    padding-left: 1em;
-    padding-right: 1em;
+  .center-div{
+    text-align: center;
   }
-  .action-box {
-    color: #000000;
-    border: .25em solid #e8768d;
-  }
-  .action-box header {
-    padding: 1em 1em 0 1em;
-  }
-  .action-box .action-number{
-    font-size: 5em;
-  }
-  .action-box .button{
-    background-color: #e8768d;
-    color: #000000;
-    font-weight: 800;
-    font-size: .75em;
-  }
-  .action-box .button:hover{
-    background-color: #ff3e94;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .action-box .button{
-      background-color: #e8768d;
-      color: #000000;
-      font-weight: 800;
-      font-size: .75em;
-    }
-  }
-  @media (min-width:1024px){
-    .action-box .button{
-      font-size: 1em;
-    }
-  }
-  @media (min-width:1216px){
-    .action-box .button{
-      font-size: 1.1em;
-    }
-  }
-  @media (min-width:1408px){
-    .action-box .button{
-      font-size: 1.3em;
-    }
+  .dark-blue{
+    background-color: #00405c !important;
   }
 </style>

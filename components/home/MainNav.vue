@@ -25,7 +25,7 @@
                 <path class="comm-style" d="M2 42h24v4H2zm8.49-25.858l5.658-5.657L44.432 38.77l-5.657 5.656zM24.627 2.006L35.94 13.32l-5.656 5.656L18.97 7.663zm-16.97 16.97L18.97 30.29l-5.656 5.657L2 24.633z"/>
               </svg>
               <br  />
-              {{ $t('commitments') }}
+              {{ $t('gCFCR') }}
           </div>
         </nuxt-link>
       </div>
@@ -41,7 +41,7 @@
                   <path class="initistives-style" d="M95.63,95.63A64.27,64.27,0,0,0,97.5,6.84l2.08-2.08a2.79,2.79,0,1,0-4-3.95l-7.9,7.9a2.79,2.79,0,0,0,3.95,4l1.87-1.88A58.58,58.58,0,0,1,10.79,93.56l1.88-1.88a2.79,2.79,0,0,0-3.95-4L.82,95.63a2.79,2.79,0,1,0,4,3.95L6.84,97.5a63.91,63.91,0,0,0,37.77,16.65v3.38A58.15,58.15,0,0,0,15.1,129a2.79,2.79,0,0,0,1.67,5H83.62a2.79,2.79,0,0,0,1.67-5,58.17,58.17,0,0,0-29.51-11.44v-3.38A64,64,0,0,0,95.63,95.63Z"/>
               </svg>
               <br  />
-              {{ $t('initiatives') }}
+              {{ $t('global&RegionalIniatives') }}
             </div>
           </nuxt-link>
         </div>
@@ -53,7 +53,7 @@
                   <path class="action-style" d="M44.67,0A44.72,44.72,0,0,0,0,44.67c0,23.7,40.6,85.46,42.34,88.08a2.79,2.79,0,0,0,4.66,0c1.73-2.62,42.34-64.38,42.34-88.08A44.72,44.72,0,0,0,44.67,0Zm0,64.21A19.54,19.54,0,1,1,64.21,44.67,19.57,19.57,0,0,1,44.67,64.21Z"/>
               </svg>
               <br  />
-              {{ $t('actions') }}
+              {{ $t('nationalActions') }}
             </div>
           </nuxt-link>
         </div>
@@ -83,7 +83,7 @@
             <path class="comm-style" d="M2 42h24v4H2zm8.49-25.858l5.658-5.657L44.432 38.77l-5.657 5.656zM24.627 2.006L35.94 13.32l-5.656 5.656L18.97 7.663zm-16.97 16.97L18.97 30.29l-5.656 5.657L2 24.633z"/>
           </svg>
           <br  />
-          {{ $t('commitments') }}
+          {{ $t('gCFCR') }}
         </div>
       </nuxt-link>
     </div>
@@ -97,7 +97,7 @@
               <path class="initistives-style" d="M95.63,95.63A64.27,64.27,0,0,0,97.5,6.84l2.08-2.08a2.79,2.79,0,1,0-4-3.95l-7.9,7.9a2.79,2.79,0,0,0,3.95,4l1.87-1.88A58.58,58.58,0,0,1,10.79,93.56l1.88-1.88a2.79,2.79,0,0,0-3.95-4L.82,95.63a2.79,2.79,0,1,0,4,3.95L6.84,97.5a63.91,63.91,0,0,0,37.77,16.65v3.38A58.15,58.15,0,0,0,15.1,129a2.79,2.79,0,0,0,1.67,5H83.62a2.79,2.79,0,0,0,1.67-5,58.17,58.17,0,0,0-29.51-11.44v-3.38A64,64,0,0,0,95.63,95.63Z"/>
           </svg>
           <br  />
-          {{ $t('initiatives') }}
+          {{ $t('global&RegionalIniatives') }}
         </div>
       </nuxt-link>
     </div>
@@ -110,7 +110,7 @@
               <path class="action-style" d="M44.67,0A44.72,44.72,0,0,0,0,44.67c0,23.7,40.6,85.46,42.34,88.08a2.79,2.79,0,0,0,4.66,0c1.73-2.62,42.34-64.38,42.34-88.08A44.72,44.72,0,0,0,44.67,0Zm0,64.21A19.54,19.54,0,1,1,64.21,44.67,19.57,19.57,0,0,1,44.67,64.21Z"/>
           </svg>
           <br  />
-          {{ $t('actions') }}
+          {{ $t('nationalActions') }}
         </div>
       </nuxt-link>
     </div>
@@ -142,6 +142,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .about-style{fill:#00809a; border: 5px solid #00809a;}
 .comm-style{fill:#aacfff; border: 5px solid #aacfff;}
 .initistives-style{fill:#dca3ff; border: 5px solid #dca3ff;}
@@ -180,7 +181,7 @@ export default {
   padding: 10px;
   text-align: center;
   width:100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
 }
 .main-menu-test{
   background-color: unset;
@@ -188,23 +189,24 @@ export default {
 .home-links{
   color: #fff;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 1em;
 }
 .home-links a {
-  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+  text-shadow: 0 1px 0 rgba(255,255,255,0);
   color: #bdbdbd;
   font-family: "Helvetica Neue", Helvetica, sans-serif, Trebuchet MS;
   text-rendering: optimizeLegibility;
   font-size: 14px;
   margin: 0 10px 0 10px;
 }
-@media (min-width:1024px){
+
+@media (min-width:1120px){
   .svg-content {
   	width:150px;
     height:150px
   }
-  .main-level{
-    padding-top:40px;
+  .home-links{
+    font-size: 1.1em;
   }
 }
 </style>

@@ -1,19 +1,19 @@
 <template>
   <section>
 
-    <nav class="navbar is-transparent default-header ">
-
-      <div class="navbar-brand is-hidden-touch">
+    <nav class="navbar is-transparent default-header is-hidden-touch" v-lazy:background-image="$CBDImage.get('coral-urban-camo-background.jpg')">
+      <div class="navbar-brand">
         <nuxt-link class="navbar-item"  to="/">
-          <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
             <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
             <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
             <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
-          </svg>
+          </svg> -->
+          <CoralLogo class="logo"/>
         </nuxt-link>
       </div>
 
-      <div class="navbar-item is-hidden-touch" style="flex-grow: 1;">
+      <div class="navbar-item" style="flex-grow: 1;">
         <div class="level is-mobile" style="width:100%;">
           <div class="level-item" >
             <nuxt-link class="main-nav is-size-4"  :to="$i18n.path('about')">
@@ -34,67 +34,44 @@
           </nuxt-link>
         </div>
       </div>
+    </nav>
 
-
-
-
-  <nav class="level is-hidden-desktop is-mobile">
-
-    <p class="level-item has-text-centered" v-on:click="toggleDash()">
-      <span class="icon">&nbsp;
-        <!-- <i class="fontello icon-gauge is-size-4" v-if="!showDashboard"></i>
-        <i class="fontello icon-cancel is-size-4" v-if="showDashboard"></i> -->
-      </span>
-
-    </p>
-    <p class="level-item has-text-centered">
-      &nbsp;
-    </p>
-    <p class="level-item has-text-centered">
-      <nuxt-link   to="/">
-        <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 220 100">
-          <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
-          <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
-          <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
-        </svg>
-      </nuxt-link>
-    </p>
-    <p class="level-item has-text-centered">
-      &nbsp;
-    </p>
-    <div class="level-item has-text-centered" v-on:click="toggleMainNav()">
-      <span class="icon">
-        <i class="fontello icon-menu is-size-4" v-if="!showMainNav"></i>
-        <i class="fontello icon-cancel is-size-4" v-if="showMainNav"></i>
-      </span>
+    <div class="mobi-header is-hidden-desktop is-mobile">
+      <DividerGradBar :size="Number(3)"/>
+      <nav class="level is-hidden-desktop is-mobile">
+        <p class="level-item has-text-centered" v-on:click="toggleDash()">
+          <span class="icon">&nbsp;
+            <!-- <i class="fontello icon-gauge is-size-4" v-if="!showDashboard"></i>
+            <i class="fontello icon-cancel is-size-4" v-if="showDashboard"></i> -->
+          </span>
+        </p>
+        <p class="level-item has-text-centered">
+          &nbsp;
+        </p>
+        <p class="level-item has-text-centered">
+          <nuxt-link   to="/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 220 100">
+              <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
+              <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
+              <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
+            </svg>
+          </nuxt-link>
+        </p>
+        <p class="level-item has-text-centered">
+          &nbsp;
+        </p>
+        <div class="level-item has-text-centered" v-on:click="toggleMainNav()">
+          <span class="icon">
+            <i class="fontello icon-menu is-size-4" v-if="!showMainNav"></i>
+            <i class="fontello icon-cancel is-size-4" v-if="showMainNav"></i>
+          </span>
+        </div>
+      </nav>
     </div>
-  </nav>
-    <svg class="nav-bar-img" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 12">
-      <defs>
-        <style>.filler{fill:url(#gradiaentHeader);}</style>
-        <linearGradient id="gradiaentHeader" y1="6" x2="2000" y2="6" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#00405c"/>
-          <stop offset="0.22" stop-color="#00405c"/>
-          <stop offset="0.37" stop-color="#86abff"/>
-          <stop offset="0.56" stop-color="#d79eff"/>
-          <stop offset="0.77" stop-color="#c67680"/>
-          <stop offset="1" stop-color="#ff3e80"/>
-        </linearGradient>
-      </defs>
-      <title>Header Divider Gradient</title>
-      <rect class="filler" width="2000" height="12"/>
-    </svg>
-</nav>
 
 
-
-
-    <div class="top-bar" v-if="$breakpoints.isTouch">
-      <img  data-sizes="auto" :src="getImg('footer-bar.jpg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" />
-
-      <!-- <img   v-lazy="require('~/assets/images/footer-bar-thin.svg')"  title="Coral Gradient Bar Divider" alt="Coral Gradient Bar Illustration" /> -->
-    </div>
     <transition name="slide-fade">
+      <!-- dashboard menu mobile -->
       <div class="box main-nav-mobi" v-if="showDashboard">
         <div class="navbar-item has-dropdown" >
           <div class="navbar-dropdown  is-boxed" >
@@ -115,6 +92,7 @@
           </div>
         </div>
       </div>
+      <!-- main menu mobile -->
       <div class="box main-nav-mobi" v-if="showMainNav">
         <div class="navbar-item has-dropdown" >
           <div class="navbar-dropdown  is-boxed" >
@@ -158,19 +136,23 @@
         </div>
       </div>
     </transition>
+
   </section>
 </template>
 
 <script>
-import Vue from 'vue'
-import VueLazyload from 'vue-lazyload'
+import Vue            from 'vue'
+import VueLazyload    from 'vue-lazyload'
+import DividerGradBar from '~/components/DividerGradBar.vue'
+import CoralLogo      from '~/components/CoralLogo'
+
 Vue.use(VueLazyload)
 
 let showDashboard = false
 let showMainNav = false
 export default {
   name: 'DefaultHeader',
-  components: {},
+  components: {DividerGradBar,CoralLogo},
   data: function () {
       return {showMainNav:showMainNav, showDashboard:showDashboard}
 
@@ -182,10 +164,6 @@ export default {
     },
     toggleDash: function () {
       this.showDashboard = !this.showDashboard
-    },
-    getImg: function (name) {
-          return this.$CBDImage.get(name)
-
     }
   }
 
@@ -210,7 +188,7 @@ export default {
 .top,.bottom{fill:#00405c;font-family:Roboto-Black, Roboto, Arial, Helvetica, sans-serif, Trebuchet MS; font-weight: 900;}
 .bottom{font-size:55px;letter-spacing:0.06em;}
 
-.default-header{
+.mobi-header{
   position:fixed;
   bottom:0px;
   max-height: 52px;
@@ -239,6 +217,7 @@ export default {
 }
 
 @media (min-width:1024px){
+  .top,.bottom{fill:#ffffff;}
   .nav-bar-img{
     position:absolute;
     bottom:3px;
@@ -257,22 +236,20 @@ export default {
     top:  unset;
   }
   .logo{
-    margin-bottom:5px;
-    width:125px;
-    margin-top: unset;
-    margin-left: unset;
+    width:100%;
   }
   .default-header{
     position:relative;
     background-color: unset;
-    margin-top:65px;
+    /* margin-top:65px; */
+    min-height:120px;
   }
   .navbar-item{
     align-self: flex-end;
   }
   .main-nav{
     font-weight: 500;
-    color:#00405c;
+    color:#ffffff;
   }
   .main-nav:hover{
     color:#ff3e94;
