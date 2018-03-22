@@ -68,7 +68,7 @@ export default async function (ctx, inject) {
 
     if(!height) height = width
 
-    if(supportsWebP  && !~name.indexOf('.webp')){
+    if(supportsWebP  && !~name.indexOf('.webp') && !~name.indexOf('.png')){
 
       name = addWebP(name)
       return `https://attachments.cbd.int/${width}x${height}/${name}`
