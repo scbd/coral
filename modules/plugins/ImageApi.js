@@ -56,7 +56,7 @@ export default async function (ctx, inject) {
 
     if(!height) height = width
 
-    return `http://cbddocumentsimages-imagebucket-emyy2umszkrb.s3-website-us-east-1.amazonaws.com/${width}x${height}/${name}`
+    return `https://attachments.cbd.int/${width}x${height}/${name}`
   }
 
   //============================================================
@@ -71,10 +71,10 @@ export default async function (ctx, inject) {
     if(supportsWebP  && !~name.indexOf('.webp')){
 
       name = addWebP(name)
-      return `http://cbddocumentsimages-imagebucket-emyy2umszkrb.s3-website-us-east-1.amazonaws.com/${width}x${height}/${name}`
+      return `https://attachments.cbd.int/${width}x${height}/${name}`
     }
 
-    return `http://cbddocumentsimages-imagebucket-emyy2umszkrb.s3-website-us-east-1.amazonaws.com/${width}x${height}/${name}`
+    return `https://attachments.cbd.int/${width}x${height}/${name}`
   }
 
   //============================================================
