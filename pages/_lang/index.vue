@@ -1,52 +1,14 @@
 <template>
   <section >
-      <!-- <div class="columns row-one">
-        <div class="column is-one-half">
-          <div >{{$t('description')}}</div>
-        </div>
+      <CoralSectionTwo>
+        {{$t('p1')}}
+      </CoralSectionTwo>
 
-        <div class="column is-one-quarter">
-          <div class="card action-box">
-            <header class=" has-text-centered">
-              <div class="title is-4 is-capitalized">{{$t('actionsAddedThisMonth')}}</div>
-            </header>
-            <div class="card-content has-text-centered">
-              <p class="title action-number">{{actionsThisMonth}} </p>
-            </div>
-            <footer class="card-footer flex-center" >
-              <p class="card-footer-item">
-                <nuxt-link to="/actions" class="button is-rounded">
-                  {{$t('viewActions')}}
-                </nuxt-link >
-              </p>
-            </footer>
-          </div>
-        </div>
+      <Subtitle>{{$t('highlightedActions')}}</Subtitle>
 
-        <div class="column is-one-quarter">
-          <div class="card action-box">
-            <header class="has-text-centered">
-              <div class="title is-4">{{$t('highlightedAction')}}</div>
-            </header>
-            <div class="card-content has-text-centered">
-              <p class="title is-6 is-capitalized">{{action.title_t}}  </p>
-              <p class="subTitle">{{toLocaleString(action.startDate_dt)}} </p>
-            </div>
-            <footer class="card-footer flex-center" >
-              <p class="card-footer-item">
-                <a class="button is-rounded" :href="action.url_ss[0]" target="_blank" rel="noopener" >
-                  {{$t('viewAction')}}
-                </a>
-              </p>
-            </footer>
-          </div>
-        </div>
-      </div> -->
-      <Subtitle>{{$t('news')}}</Subtitle>
+      <CoralCardManager :docs="actions"/>
 
-      <BubblesSection>
-        Coral reefs are related to many different Aichi Targets, and Sustainable Development Goals. Click on the linking statements to see which Aichi targets and SDGs relate to coral reefs.
-      </BubblesSection>
+      <Subtitle>{{$t('IYOR2018')}}</Subtitle>
 
       <CoralSection>
         2018 will mark the third annual Year of the Reef. Visit the website to learn more about the International Year of the Reef (IYOR).
@@ -58,10 +20,11 @@
         </div>
       </CoralSection>
 
+      <Subtitle>{{$t('news')}}</Subtitle>
+
       <div class="row-one" >
           <TwitterGrid/>
       </div>
-
   </section>
 </template>
 
@@ -69,10 +32,11 @@
   import pageMixin from '~/modules/mixins/page'
   import TwitterGrid from '~/components/home/TwitterGrid'
   import Subtitle from '~/components/Subtitle'
-  import BubblesSection from '~/components/BubblesSection'
+  import CoralSectionTwo from '~/components/CoralSectionTwo'
   import CoralSection from '~/components/CoralSection'
+  import CoralCardManager from '~/components/CoralCardManager'
   import { DateTime }  from 'luxon'
-  import Vue from 'vue'
+
   // import VueLazyload from 'vue-lazyload'
   // Vue.use(VueLazyload)
 
@@ -80,7 +44,7 @@
     layout: 'home',
     name:'index',
     mixins: [pageMixin],
-    components:{TwitterGrid,Subtitle,BubblesSection,CoralSection},
+    components:{TwitterGrid,Subtitle,CoralSectionTwo,CoralSection,CoralCardManager},
     // always use asyncData for better SSR
     async asyncData ({app,store}) {
 
@@ -88,7 +52,7 @@
 
       return {
         actionsThisMonth: store.getters['events/getThisMonth'](app.i18n.locale) || {},
-        action: store.getters['events/getHighlight'](app.i18n.locale) || {}
+        actions: store.getters['events/getHighlights'](app.i18n.locale) || {}
       }
     },
     methods:{
