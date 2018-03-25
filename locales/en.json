@@ -21,6 +21,9 @@
   "inAssociation":"In  Association",
   "credits": "Credits",
   "home": "Home",
+  "pinkCamo": "Pink camo coral background",
+  "highlightedActions":"Highlighted Actions and Events",
+  "IYOR2018":"IYOR 2018",
 "reefs":"reefs",
 "coral":"coral",
 "REEFS":"REEFS",
@@ -42,6 +45,7 @@
 "homeImage":"Coral reefs with man and boy in boat",
 "coralGradientBarDivider":"Coral Gradient Bar Divider",
 "scbdLogoLeafTitle":" Leaf Logo for the Secretariat of the Convention on Biological Diversity",
+"p1":"This portal provides a window to various sources of information on the status of coral reefs and the range of commitments, initiatives, and actions at different scales to protect and sustainably manage coral reefs and closely associated ecosystems in support of the achievement of the Aichi Biodiversity Targets and the Sustainable Development Goals.",
     "component": {
         "HeaderBar": {
 
