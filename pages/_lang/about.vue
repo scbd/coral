@@ -16,10 +16,10 @@
         </div>
         <div id="selection">
           <ul class="selection">
-            <li   ><span v-on:click="closeAll(),flags.importance=true" ><span v-if="!$breakpoints.isMobile">{{$t('importanceTitle')}}</span> <a v-if="$breakpoints.isMobile" class="selection-link" href="#selection">{{$t('importanceTitle')}}</a></span></li>
-            <li  ><span v-on:click="closeAll(),flags.target=true" >{{$t('targetTenTitle')}}</span></li>
-            <li ><span  v-on:click="closeAll(),flags.priority=true" >{{$t('priorityActionsTitle')}}</span></li>
-            <li ><span v-on:click="closeAll(),flags.tca=true" >{{$t('tcaTitle')}}</span></li>
+            <li   ><span  v-on:click="closeAll(),flags.importance=true" ><span v-if="!$breakpoints.isMobile">{{$t('importanceTitle')}}</span> <a v-if="$breakpoints.isMobile" class="selection-link" href="#selection">{{$t('importanceTitle')}}</a></span></li>
+            <li  ><span   v-on:click="closeAll(),flags.target=true" >{{$t('targetTenTitle')}}</span></li>
+            <li ><span    v-on:click="closeAll(),flags.priority=true" >{{$t('priorityActionsTitle')}}</span></li>
+            <li ><span   v-on:click="closeAll(),flags.tca=true" >{{$t('tcaTitle')}}</span></li>
           </ul>
         </div>
       </div>
@@ -27,78 +27,70 @@
       <div class="ingog right" >
         <div >
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.importance"><span class="title-slider">{{$t('importanceTitle')}}</span> <br> {{$t('importanceDescription')}}</span>
+            <span class="sliders" v-show="flags.importance"><span class="title-slider">{{$t('importanceTitle')}}</span> <br><br class="is-hidden-touch"> {{$t('importanceDescription')}}</span>
           </transition>
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.target"><span class="title-slider">{{$t('targetTenTitle')}}</span> <br>{{$t('targetTenDescription')}}</span>
+            <span class="sliders" v-show="flags.target"><span class="title-slider">{{$t('targetTenTitle')}}</span> <br><br class="is-hidden-touch">{{$t('targetTenDescription')}}</span>
           </transition>
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.priority"><span class="title-slider">{{$t('priorityActionsTitle')}}</span> <br>{{$t('priorityActionsDescription')}}</span>
+            <span class="sliders" v-show="flags.priority"><span class="title-slider">{{$t('priorityActionsTitle')}}</span><br> <br class="is-hidden-touch">{{$t('priorityActionsDescription')}}</span>
           </transition>
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.tca"><span class="title-slider">{{$t('tcaTitle')}}</span> <br>{{$t('tcaDescription')}}</span>
+            <span class="sliders" v-show="flags.tca"><span class="title-slider">{{$t('tcaTitle')}}</span> <br><br class="is-hidden-touch">{{$t('tcaDescription')}}</span>
           </transition>
         </div>
 
       </div>
     </div>
-    <div class="title-grid">
-      <div class="title-item has-text-centered">
-        <img class="grad-bar"  width="110%" :title="$t('dividerImg')"  :alt="$t('dividerImg')"  v-lazy="$CBDImage.get('title-divider.jpg',210)"/>
-        <div class="title ">{{$t('otherMarineWork')}}</div>
-        <img class="grad-bar" width="110%" :title="$t('dividerImg')"  :alt="$t('dividerImg')"  v-lazy="$CBDImage.get('title-divider.jpg',210)"/>
+
+    <Subtitle>{{$t('otherMarineWork')}}</Subtitle>
+
+    <div class="other-work-grid">
+      <div class="square-box">
+        <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener">
+        <div class="square-content" >
+          <div class="top"><div>
+            <img :src="$CBDImage.get('cbd-logo-green.jpg',295)" v-if="!$breakpoints.isTouch"/>
+            <img :src="$CBDImage.get('cbd-logo-green.jpg',147)" v-if="$breakpoints.isTouch"/>
+          </div></div>
+          <div class="bottom"><div> {{$t('cbdPOWMCB')}}</div></div>
+        </div>
+        </a>
+      </div>
+      <div class="square-box">
+        <div class="square-content" >
+          <a href="https://www.cbd.int/ebsa/" target="_blank" rel="noopen">
+            <div class="top"><div>
+              <img :src="$CBDImage.get('EBSA_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
+              <img :src="$CBDImage.get('EBSA_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
+            </div></div>
+            <div class="bottom"><div>{{$t('ebsa')}}</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="square-box">
+        <div class="square-content" >
+          <a href="https://www.cbd.int/soi/" target="_blank" rel="noopen">
+            <div class="top"><div>
+              <img :src="$CBDImage.get('SOI_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
+              <img :src="$CBDImage.get('SOI_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
+            </div></div>
+            <div class="bottom"><div>{{$t('soi')}}</div></div>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="other-work-grid debug2">
-      <div class="square-box debug">
-        <div class="square-content debug" >
-          <div class="top debug"><div><img :src="$CBDImage.get('cbd-logo-green.jpg',265)"/></div></div>
-          <div class="bottom debug2"><div> sss</div></div>
-        </div>
-      </div>
-      <div class="square-box debug">
-        <div class="square-content debug" >
-          <div class="top debug"><div><img :src="$CBDImage.get('EBSA_Logo.jpg',140)"/></div></div>
-          <div class="bottom debug2"><div> sss</div></div>
-        </div>
-      </div>
-      <div class="square-box debug">
-        <div class="square-content debug" >
-          <div class="top debug"><div><img :src="$CBDImage.get('SOI_Logo.jpg',153)"/></div></div>
-          <div class="bottom debug2"><div> sss </div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- <OrganizatoinGrid :grid-style="Boolean(true)" >
-      <OrganizatoinGridItem
-        :title="$t('cbdPOWMCB')"
-        url="https://www.cbd.int/marine/"
-        :image="$CBDImage.get('cbd-logo-green.jpg',265)"
-        :padding="Boolean(false)"
-      />
-      <OrganizatoinGridItem
-        :title="$t('ebsa')"
-        url="https://www.cbd.int/ebsa/"
-        :image="$CBDImage.get('EBSA_Logo.jpg',100)"
-        :padding="Boolean(false)"
-      />
-      <OrganizatoinGridItem
-      :title="$t('soi')"
-        url="https://www.cbd.int/soi/"
-        :image="$CBDImage.get('SOI_Logo.jpg',153)"
-        :padding="Boolean(false)"
-      />
-    </OrganizatoinGrid> -->
   </section>
 </template>
 
 <script>
-  import Vue from 'vue'
-  import VueLazyload from 'vue-lazyload'
-  import pageMixin from '~/modules/mixins/page'
-  import AboutIcon from '~/components/icons/AboutIcon'
+  import Vue          from 'vue'
+  import VueLazyload  from 'vue-lazyload'
+  import pageMixin    from '~/modules/mixins/page'
+  import AboutIcon    from '~/components/icons/AboutIcon'
+  import Subtitle     from '~/components/Subtitle'
+
   Vue.use(VueLazyload)
   let flags = {importance:true,target:false,priority:false,tca:false}
   export default {
@@ -106,6 +98,7 @@
     mixins: [pageMixin],
     components: {
       AboutIcon,
+      Subtitle,
       TitleDescription:()=> import('~/components/default/TitleDescription'),
       OrganizatoinGrid:() => import('~/components/default/OrganizationGrid/OrganizationGrid'),
       OrganizatoinGridItem:() => import('~/components/default/OrganizationGrid/OrganizationGridItem')
@@ -123,45 +116,52 @@
 </script>
 
 <style scoped>
-.square-box{
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-.square-box:before{
-    content: "";
-    display: block;
-    padding-top: 100%;
-}
-.square-content{
-    position:  absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-.square-content .top {
-   display: table;
-   width: 100%;
-   height: 70%;
-}
-.square-content .bottom {
-   display: table;
-   width: 100%;
-   height: 30%;
-}
-.square-content div div {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
+  .square-box{
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+  }
+  .square-box:before{
+      content: "";
+      display: block;
+      padding-top: 100%;
+  }
+  .square-content{
+      position:  absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+  }
+  .square-content .top {
+     display: table;
+     width: 100%;
+     height: 70%;
+     border:  1px solid #00405c;
+  }
+  .square-content .bottom {
+     display: table;
+     width: 100%;
+     height: 30%;
+     background-color: #00405c;
+     color:#ffffff;
+     padding: 1em 1em 1em 1em;
+     font-weight: 600;
+     font-size: .8em;
+  }
+  .square-content div div {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+  }
 
 
   .other-work-grid {
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 60px;
+    margin-bottom: 1.5em;
   }
   .other-work{
     width:100%;
@@ -178,9 +178,7 @@
     width:100%;
     object-fit: fill;
   }
-  .title-grid {
-    margin-bottom: 1em;
-  }
+
   .title{padding-top: .25em;}
 
   .logo-holder{
@@ -190,8 +188,8 @@
     color:white;
     font-weight: 900;
     font-size: 1.4em;
-
   }
+
   .grid{
     padding: 20px 0 20px 0;
     display: grid;
@@ -229,14 +227,13 @@
   .sliders{
     position:absolute;
     color:white;
-    font-size: 1.3em;
-    padding-right: 2em;
+    font-size: 1em;
+    padding-right: 1em;
   }
   .title-slider{
     color:white;
     font-weight: 900;
-    font-size: 1.4em;
-    line-height: 1em
+    font-size: 1em;
   }
   .selection {
     color:white;
@@ -265,26 +262,13 @@
     .right{
       background-size: 4em;
     }
+    .other-work-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 @media screen and (min-width: 1024px)  {
-  .title-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    grid-template-areas:
-      ". a a ."
-      ". a a .";
-  }
-  .title-item {
-    grid-area: a;
-    align-self: center;
-    justify-self: center;
-  }
-  .title-item img{
-    width:100%;
-  }
-  .title-item .title{
-    margin: 0 0 0 0;
+  .other-work-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .sliders{
     font-size: 1em;
@@ -310,16 +294,16 @@
     line-height: 1em;
   }
   .title-slider{
-    font-size: 2em;
-    line-height: 1em
+    color:white;
+    font-weight: 900;
+    font-size: 1.4em;
   }
-  /* .logo-holder{
-    position: absolute;
-    top: 15px;
-    left: 20px;
-
-  } */
-
+  .sliders{
+    position:absolute;
+    color:white;
+    font-size: 1.3em;
+    padding-right: 2em;
+  }
 }
 
 
