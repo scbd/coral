@@ -1,6 +1,6 @@
 <template>
-  <div class="holder"  v-lazy:background-image="'https://s3.amazonaws.com/cbddocumentsimages-imagebucket-emyy2umszkrb/coral-background-bg.jpg'">
-    <div class="text-holder">
+  <div class="holder"  v-lazy:background-image="$CBDImage.get('coral-bk.jpg')">
+    <div class="text-holder ">
       <slot/>
     </div>
   </div>
@@ -22,6 +22,7 @@
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
+        margin-bottom: 1.5em;
   }
   .text-holder{
     max-width:400px;
