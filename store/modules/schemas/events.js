@@ -13,7 +13,8 @@ const actions = {
 const getters = {
   getBiIdentifier: getByIdentifier,
   getThisMonth:getThisMonth,
-  getHighlight:getHighlight
+  getHighlight:getHighlight,
+  getHighlights:getHighlights
 }
 const mutations = {
   set: eventsMutation
@@ -120,6 +121,20 @@ function getHighlight (state) {
     let index = Math.floor(Math.random() * (length - 0 + 1));
 
     return normalize (state.docs[locale][index], locale)
+  }
+}
+//============================================================
+//
+//============================================================
+function getHighlights (state) {
+  return (locale) => {
+
+    let slice = state.docs[locale].slice(0,4)
+    for (var i = 0; i < slice.length; i++) {
+      slice[i] = normalize (slice[i], locale)
+    }
+
+    return slice
   }
 }
 
