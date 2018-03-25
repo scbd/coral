@@ -1,15 +1,15 @@
 <template>
-  <div class="container outer">
-      <div class="inner">
-          <div class="img-div" v-lazy:background-image="'https://s3.amazonaws.com/cbddocumentsimages-imagebucket-emyy2umszkrb/coral-title-gradient-bar.png'">
-          </div>
-          <h2>
-            <slot></slot>
-          </h2>
-          <div class="img-div" v-lazy:background-image="'https://s3.amazonaws.com/cbddocumentsimages-imagebucket-emyy2umszkrb/coral-title-gradient-bar.png'">
-          </div>
-      </div>
-  </div>
+    <div class="container outer">
+        <div class="inner">
+            <div class="img-div" v-lazy:background-image="$CBDImage.get('coral-title-gradient-bar.png')">
+            </div>
+            <h2>
+              <slot></slot>
+            </h2>
+            <div class="img-div" v-lazy:background-image="$CBDImage.get('coral-title-gradient-bar.png')">
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -20,8 +20,9 @@
 
 <style scopped>
   H2{
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 600;
+    padding: 0 1em 0 1em ;
   }
   .img-div{
     background-repeat: no-repeat;
@@ -29,7 +30,7 @@
     background-size:100% 100%;
     backdrop-filter: alpha(opacity=70);
     height:4px;
-    width:150%
+    width:100%
   }
   .inner{
     display:flex;
@@ -43,5 +44,12 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1.5em;
+  }
+  @media (min-width:1120px){
+    H2{
+      font-size: 2em;
+      font-weight: 600;
+      padding: 0 1em 0 1em;
+    }
   }
 </style>
