@@ -28,7 +28,8 @@ module.exports = {
   css: [
     { src: '@/assets/sass/main.sass', lang: 'sass' },
     { src: '@/assets/css/fontello.css' },
-    { src: '@/assets/css/main.css' }
+    { src: '@/assets/css/main.css' },
+    { src: 'swiper/dist/css/swiper.css' }
   ],
   // ============================================================
   //  Customize the progress-bar color
@@ -63,6 +64,7 @@ module.exports = {
     '~/modules/plugins/ImageApi.js',
     '~/modules/plugins/vuex-router-sync.js',
     '~/modules/plugins/i18n.js'
+    // { src: '~/modules/plugins/swiper.js', ssr: false }
     // {src: '~/modules/plugins/ga.js', ssr: false},
     // {src: '~/modules/plugins/gtm.js', ssr: false}
   ],
