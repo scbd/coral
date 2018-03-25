@@ -1,21 +1,31 @@
 <template>
-  <section class="is-hidden-touch">
-    <div  class="coral-footer" v-lazy:background-image="$CBDImage.get('coral-blue-camo-background-footer.jpg')">
+  <section >
+    <div class="spacer is-hidden-desktop">&nbsp;</div>
+    <div  class="coral-footer is-hidden-touch" v-lazy:background-image="$CBDImage.get('coral-blue-camo-background-footer.jpg')">
       <footer class="container is-fullhd ">
         <div class="f-grid ">
           <div class="centered">
             <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener" >
-                <img  v-lazy="$CBDImage.get('european-union-icon.png',83)" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')" ></img>
+              <div class="hover ">
+                <img  v-on:mouseover="mouseOver('euActive')" v-lazy="$CBDImage.get('european-union-icon.png',83)" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')" ></img>
+                <div class="overlay overlay-logo"  v-if="euActive" v-on:mouseleave="mouseOver('euActive')">&nbsp;</div>
+              </div>
             </a>
           </div>
           <div class="centered">
             <a href="https://www.unenvironment.org/" target="_blank" rel="noopener" >
-                <img  v-lazy="$CBDImage.get('un-environment-icon.png',100)" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
+              <div class="hover ">
+                <img   v-on:mouseover="mouseOver('unepActive')" v-lazy="$CBDImage.get('un-environment-icon.png',100)" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
+                <div class="overlay overlay-logo"  v-if="unepActive" v-on:mouseleave="mouseOver('unepActive')">&nbsp;</div>
+              </div>
             </a>
           </div>
           <div class="centered">
             <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
-                <img  v-lazy="$CBDImage.get('CBD-logo.png',133)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                <div class="hover ">
+                  <img  v-on:mouseover="mouseOver('cbdActive')" v-lazy="$CBDImage.get('CBD-logo.png',133)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                  <div class="overlay"  v-if="cbdActive" v-on:mouseleave="mouseOver('cbdActive')">&nbsp;</div>
+                </div>
             </a>
           </div>
           <div >
@@ -52,20 +62,27 @@
           </div>
           <div class="centered">
               <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
-                  <img  v-lazy="$CBDImage.get('facebook-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                  <div class="hover ">
+                    <img    v-on:mouseover="mouseOver('fbActive')" v-lazy="$CBDImage.get('facebook-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                    <div class="overlay"  v-if="fbActive" v-on:mouseleave="mouseOver('fbActive')">&nbsp;</div>
+                  </div>
               </a>
           </div>
           <div class="centered">
             <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
-                <img  v-lazy="$CBDImage.get('linkedin-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+               <div class="hover ">
+                <img   v-on:mouseover="mouseOver('liActive')" v-lazy="$CBDImage.get('linkedin-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                <div class="overlay"  v-if="liActive" v-on:mouseleave="mouseOver('liActive')">&nbsp;</div>
+              </div>
             </a>
           </div>
           <div class="centered" v-on:mouseover="twActive=true;" v-on:mouseout="twActive=false;">
-
               <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
-                  <img   v-lazy="$CBDImage.get('twitter-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                <div class="hover">
+                  <img   v-on:mouseover="mouseOver('twActive')"  v-lazy="$CBDImage.get('twitter-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+                  <div class="overlay"  v-if="twActive" v-on:mouseleave="mouseOver('twActive')">&nbsp;</div>
+                </div>
               </a>
-
           </div>
         </div>
         <div class="bottom-grid is-hidden-touch ">
@@ -95,11 +112,49 @@
         liActive:false,
         twActive:false
       }
+    },
+methods: {
+        mouseOver: function(flagName){
+            this[flagName] = !this[flagName];
+        }
     }
   }
 </script>
 
 <style scoped>
+.spacer{
+  margin-bottom: 50px;
+}
+.hover {
+
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  margin: 0 auto;
+}
+
+.hover .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 62, 148, .5 );
+  transition: all 0.4s  cubic-bezier(0.88,-0.99, 0, 1.81);
+  cursor: pointer;
+  border-radius: 7px;
+}
+.hover .overlay-logo {
+  border-radius: unset;
+}
+.hover img {
+  display: block;
+  position: relative;
+}
+
   .address{
     font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
     font-weight: 400;
