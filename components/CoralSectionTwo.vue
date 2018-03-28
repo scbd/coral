@@ -22,12 +22,12 @@
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-        margin-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    min-height:450px;
   }
   .text-holder-two{
-    max-width:400px;
-    min-width:200px;
+    max-width:700px;
     color:white;
-    text-align: justify;
+    font-size: 1.4em;
   }
 </style>

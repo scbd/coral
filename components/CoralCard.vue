@@ -8,13 +8,14 @@
       <div class="card-content">
 
           <div class="content">
-              {{doc.title || doc.title_t}}
+              {{(doc.title || doc.title_t) | trunc}}
           </div>
-          <div class="card-bottom">
+          <div class="card-bottom" :class="{'card-bottom-paginated':this.paginated}">
             <p><time :datetime="doc.startDate  || doc.startDate_dt" v-if="doc.startDate || doc.startDate_dt">{{toLocaleString(doc.startDate || doc.startDate_dt)}}</time></p>
             <a class="button is-primary pink" :href="doc.url_ss[0]" target="_blank" rel="noopener">
               View
             </a>
+
           </div>
       </div>
   </div>
@@ -27,10 +28,21 @@
     props: {
         doc: {
           type: Object
+        },
+        paginated: {
+          type: Boolean,
+          default: true
         }
     },
     methods:{
       toLocaleString:toLocaleString
+    },
+    filters:{
+      trunc(text,length=110,tail='...'){
+        if(text.length>length)
+          return text.substring(0,110)+' ...'
+        return text
+      }
     }
   }
 
@@ -59,6 +71,7 @@
   }
   .card {
     max-width: 100%;
+    max-height: 476px;
     background-color: #ffffff;
   }
   .content{
@@ -70,6 +83,9 @@
     position: absolute;
     bottom: 0px;
     padding: 1em 0 1em 0;
+  }
+  .card-bottom-paginated{
+    padding: 1em 0 2.5em 0;
   }
   @media (min-width:767px){
     .card {

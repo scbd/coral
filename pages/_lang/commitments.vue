@@ -8,7 +8,7 @@
           <CommitmentIcon width="100%" color="#aacfff"/>
         </TitleDescription>
 
-        <div class="grid-gbo ">
+        <div class="container is-fullhd grid-gbo ">
           <div class="item-left" v-lazy:background-image="getBGImg()">
               <div class="target" >
               </div>
@@ -24,18 +24,20 @@
           <div class="target-inner">
             <a href="https://www.cbd.int/doc/publications/cbd-aichi-target-10-en.pdf" download>
             <div class="grid-gbo">
-                <div class="grid-gbo-title">
-                  <div >
+                <div >
+
                       <div class="title-gbo-sub">{{$t('gboFourTitleOne')}}</div>
 
                       <div class="title is-capitalized" v-if="$breakpoints.isTouch">
                         {{$t('gboFourTitleTwo')}}
                       </div>
                       <div class="title title-gbo is-capitalized" v-if="!$breakpoints.isTouch">
+
                         {{$t('gboFourTitleTwoA')}}<br>
                         {{$t('gboFourTitleTwoB')}}<br>
                         {{$t('gboFourTitleTwoC')}}
                         {{$t('gboFourTitleTwoD')}}
+
                       </div>
 
                       <div  v-if="$breakpoints.isTouch">{{$t('gboFourTitleThree')}}</div>
@@ -44,14 +46,16 @@
                         {{$t('gboFourTitleThreeB')}}<br>
                         {{$t('gboFourTitleThreeC')}}<br>
                       </div>
-                  </div>
+
                 </div>
                 <div class="item-right" v-if="!$breakpoints.isMobile">
-                  <img :alt="$t('aBT')+' 10'" :title="$t('aBT')+' 10'" class="is-pulled-right" style="margin:5px 5px 5px 5px;" width="40px" v-lazy="require('~/assets/images/biodiversity-targets/biodiversity-target-10.svg')" />
+                  <!-- <img :alt="$t('aBT')+' 10'" :title="$t('aBT')+' 10'" class="is-pulled-right" style="margin:5px 5px 5px 5px;" width="40px" v-lazy="require('~/assets/images/biodiversity-targets/biodiversity-target-10.svg')" /> -->
                     <div class="target" >
-                      <span></span>
+
                       <div class="target-inner">
-                        {{$t('gboFourDescription')}}
+
+                          {{$t('gboFourDescription')}}
+
                       </div>
                     </div>
                 </div>
@@ -60,12 +64,10 @@
           </div>
         </div>
 
-        <div class="subtitles">
-          <span class="title">{{$t('subTitle')}}</span>
-          <p class="desc">{{$t('subDescription')}}</p>
-        </div>
-
-        <div class="linkages">
+        <Subtitle>{{$t('subTitle')}}</Subtitle>
+        <CoralSectionTwo><div >{{$t('subDescription')}}</div></CoralSectionTwo>
+        
+        <div class="container is-fullhd linkages">
 
           <Commitment :title="$t('climateChangeTitle')" :description="$t('climateChangeDescription')" color="#00405c"
           :abt="['05','10','15']"
@@ -88,9 +90,6 @@
           :sdg="['03','06']"/>
 
         </div>
-
-
-      <!-- </a> -->
   </section>
 </template>
 
@@ -101,13 +100,16 @@
   import TitleDescription from '~/components/default/TitleDescription'
   import Commitment from '~/components/default/commitments/Commitment'
   import VueLazyload from 'vue-lazyload'
+  import Subtitle     from '~/components/Subtitle'
+  import CoralSectionTwo from '~/components/CoralSectionTwo'
+
   Vue.use(VueLazyload)
 
   export default {
     name:'commitments',
     mixins: [pageMixin],
     components: {
-      CommitmentIcon,TitleDescription,Commitment
+      CommitmentIcon,TitleDescription,Commitment,Subtitle,CoralSectionTwo
     },
     methods:{
       getBGImg: function () {
@@ -130,20 +132,20 @@
 </script>
 
 <style scoped>
+
   .title-gbo{
-    margin: .5em 0 .5em 0;
+    font-size: 2.5em;
+    line-height: .8em;
   }
   .title-gbo-sub{
     font-size: 1.5em;
-    font-weight: 500;
+    font-weight: 900;
+    line-height: .85em;
   }
   a .grid-gbo{
     color:#ffffff;
   }
-  .grid-gbo-title{
-    display: flex;
-    align-items: center;
-  }
+
   .linkages{
     margin-top:20px;
     display: grid;
@@ -157,7 +159,8 @@
   .item-left {
     grid-area: left;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: left center;
+    background-size: auto 70%;
     /* background-color: #00405c; */
   }
   .item-right {
@@ -169,24 +172,30 @@
     grid-row: left-start / left-end;
 
     z-index: 20;
-    margin: 18% 0 18% 0;
+    margin: 20% 0 20% 0;
+    padding: 1em 1em 0 1em;
     background-color: #00405c;
     color: #fff;
     font-weight: 500;
     width:100%;
-    padding: 20px 20px 20px 20px;
+  }
+
+  .target-inner div{
+    margin: 0 0 10px 0;
+    padding: 0 .5em 0 0;
   }
 
   .grid-gbo{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto .1fr;
-    grid-gap: 10px;
+
     grid-template-areas:
     "left"
     "right"
     "target-inner";
-    margin-top: 20px;
+    margin-top:-40px;
+    margin-bottom:1.5em;
   }
 
   .target {
@@ -201,14 +210,9 @@
 
     background-color: #00405c;
     color: #fff;
-    padding: 10px 10px 10px 10px;
+
   }
-  .target-inner {
-    /* margin: 20% 0 20% 0; */
-    background-color: #00405c;
-    color: #fff;
-    font-weight: 500;
-  }
+
   .target-inner .title {
     color: #fff;
   }
@@ -223,7 +227,8 @@
       grid-template-areas:
       "left right" ;
       grid-template-rows: auto;
-      margin-top: 20px;
+      margin-top:-120px;
+      margin-bottom:-95px;
     }
     .target {
       background-repeat: no-repeat;
@@ -236,12 +241,12 @@
       grid-column: left-start / right-end;
       grid-row: left-start / left-end;
       z-index: 20;
-      margin: 10% 0 10% 0;
+      /* margin: 100px 0 10% 0; */
       background-color: #00405c;
       color: #fff;
       font-weight: 400;
       width:100%;
-      padding: 20px 20px 20px 20px;
+      padding: 1.5em 1em 0 1em;
     }
   }
 </style>

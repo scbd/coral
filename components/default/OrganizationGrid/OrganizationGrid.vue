@@ -20,6 +20,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr ;
     grid-gap: 1.5em;
+    margin-bottom: 1.5em;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -41,7 +42,7 @@ export default {
     }
     .gridTwo{
       grid-template-columns: 1fr 1fr 1fr  ;
-    
+
     }
   }
   @media (min-width:1408px){

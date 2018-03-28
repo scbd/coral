@@ -8,9 +8,9 @@
         <InitiativeIcon width="100%" color="#fac1ff"/>
       </TitleDescription>
 
-      <div class="subtitles"><span class="title">{{$t('globalInitiatives')}}</span></div>
+      <Subtitle>{{$t('globalInitiatives')}}</Subtitle>
 
-      <OrganizatoinGrid>
+      <OrganizatoinGrid class="container is-fullhd">
         <OrganizatoinGridItem
           :title="$t('iyor')"
           url="https://www.iyor2018.org/"
@@ -64,8 +64,8 @@
         />
       </OrganizatoinGrid>
 
-      <div class="subtitles"><span class="title">{{$t('regionalInitiatives')}}</span></div>
-      <OrganizatoinGrid>
+      <Subtitle>{{$t('regionalInitiatives')}}</Subtitle>
+      <OrganizatoinGrid class="container is-fullhd">
         <OrganizatoinGridItem
           :title="$t('cti')"
           url="http://www.coraltriangleinitiative.org"
@@ -93,8 +93,9 @@
 </template>
 
 <script>
-  import pageMixin from '~/modules/mixins/page'
+  import pageMixin      from '~/modules/mixins/page'
   import InitiativeIcon from '~/components/icons/InitiativeIcon'
+  import Subtitle       from '~/components/Subtitle'
 
   export default {
     name:'about',
@@ -102,6 +103,7 @@
 
     components: {
       InitiativeIcon,
+      Subtitle,
       TitleDescription:()=> import('~/components/default/TitleDescription'),
       OrganizatoinGrid:() => import('~/components/default/OrganizationGrid/OrganizationGrid'), // lazy load component
       OrganizatoinGridItem:() => import('~/components/default/OrganizationGrid/OrganizationGridItem') // lazy load component

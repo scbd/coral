@@ -6,7 +6,7 @@
 
       <Subtitle>{{$t('highlightedActions')}}</Subtitle>
 
-      <CoralCardManager :docs="actions"/>
+      <CoralCardManager :paginated="Boolean(false)" :docs="actions"/>
 
       <Subtitle>{{$t('IYOR2018')}}</Subtitle>
 

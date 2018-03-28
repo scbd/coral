@@ -8,12 +8,12 @@
       <AboutIcon width="100%"   color="#00405c"/>
     </TitleDescription>
 
-    <div class="grid">
+    <div class="container is-fullhd grid">
       <div class="ingog left" >
-        <div class="logo-holder">
+        <!-- <div class="logo-holder">
           <span class="title-cr">{{ $t('CORAL') }}</span> <br v-if="!$breakpoints.isTouch">
           <span class="title-cr"> {{ $t('REEFS') }}</span>
-        </div>
+        </div> -->
         <div id="selection">
           <ul class="selection">
             <li   ><span  v-on:click="closeAll(),flags.importance=true" ><span v-if="!$breakpoints.isMobile">{{$t('importanceTitle')}}</span> <a v-if="$breakpoints.isMobile" class="selection-link" href="#selection">{{$t('importanceTitle')}}</a></span></li>
@@ -27,16 +27,16 @@
       <div class="ingog right" >
         <div >
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.importance"><span class="title-slider">{{$t('importanceTitle')}}</span> <br><br class="is-hidden-touch"> {{$t('importanceDescription')}}</span>
+            <span class="sliders" v-show="flags.importance"> {{$t('importanceDescription')}}</span>
           </transition>
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.target"><span class="title-slider">{{$t('targetTenTitle')}}</span> <br><br class="is-hidden-touch">{{$t('targetTenDescription')}}</span>
+            <span class="sliders" v-show="flags.target"> {{$t('targetTenDescription')}}</span>
           </transition>
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.priority"><span class="title-slider">{{$t('priorityActionsTitle')}}</span><br> <br class="is-hidden-touch">{{$t('priorityActionsDescription')}}</span>
+            <span class="sliders" v-show="flags.priority">{{$t('priorityActionsDescription')}}</span>
           </transition>
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.tca"><span class="title-slider">{{$t('tcaTitle')}}</span> <br><br class="is-hidden-touch">{{$t('tcaDescription')}}</span>
+            <span class="sliders" v-show="flags.tca">{{$t('tcaDescription')}}</span>
           </transition>
         </div>
 
@@ -45,7 +45,7 @@
 
     <Subtitle>{{$t('otherMarineWork')}}</Subtitle>
 
-    <div class="other-work-grid">
+    <div class="container is-fullhd other-work-grid">
       <div class="square-box">
         <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener">
         <div class="square-content" >
@@ -191,11 +191,12 @@
   }
 
   .grid{
-    padding: 20px 0 20px 0;
+    padding: 0 0 0 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 1em;
+    margin-bottom: 1.3em;
   }
   .ingog{
     position: relative;
@@ -227,13 +228,13 @@
   .sliders{
     position:absolute;
     color:white;
-    font-size: 1em;
+    /* font-size: 1em; */
     padding-right: 1em;
   }
   .title-slider{
     color:white;
     font-weight: 900;
-    font-size: 1em;
+    /* font-size: 1em; */
   }
   .selection {
     color:white;
@@ -254,7 +255,7 @@
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     .grid{
-      padding: 20px 0 20px 0;
+      padding: 0 0 0 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 2em;
@@ -279,7 +280,7 @@
     font-size: 1.5em;
   }
   .grid{
-    padding: 20px 0 20px 0;
+    padding: 0 0 0 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5em;
@@ -290,18 +291,18 @@
   .title-cr{
     color:white;
     font-weight: 900;
-    font-size: 3em;
+    /* font-size: 3em; */
     line-height: 1em;
   }
   .title-slider{
     color:white;
     font-weight: 900;
-    font-size: 1.4em;
+    /* font-size: 1.4em; */
   }
   .sliders{
     position:absolute;
     color:white;
-    font-size: 1.3em;
+    /* font-size: 1.3em; */
     padding-right: 2em;
   }
 }

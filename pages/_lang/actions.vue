@@ -8,10 +8,7 @@
         <ActionIcon width="100%" color="#e8768d"/>
       </TitleDescription>
 
-      <div class="subtitles">
-        <span class="title">{{$t('help')}}</span>
-      </div>
-
+      <Subtitle >{{$t('help')}}</Subtitle>
 
       <SVGMap/>
   </section>
@@ -19,8 +16,9 @@
 
 <script>
 
-  import pageMixin from '~/modules/mixins/page'
+  import pageMixin        from '~/modules/mixins/page'
   import TitleDescription from '~/components/default/TitleDescription'
+  import Subtitle         from '~/components/Subtitle'
 
   export default {
     name:'actions',
@@ -28,14 +26,15 @@
     components: {
       ActionIcon:() => import('~/components/icons/ActionIcon'),
       SVGMap:() => import('~/components/default/SVGMap'),
-      TitleDescription
+      TitleDescription,
+      Subtitle
 
     },
     async asyncData ({app,store}) {
 
       await store.dispatch('events/get')
 
-    },
+    }
 
   }
 </script>
