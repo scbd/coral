@@ -55,8 +55,10 @@
     computed:{
       docs: function(){return this.$store.state.resource.docs[this.$i18n.locale]},
       length: function(){return this.$store.state.resource.docs[this.$i18n.locale].length}
+    },
+    mounted(){
+      console.log('test')
     }
-    mounted:
   }
 </script>
 <style>
