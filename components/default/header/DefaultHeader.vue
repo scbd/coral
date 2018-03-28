@@ -2,38 +2,35 @@
   <section>
 
     <nav class="navbar is-transparent default-header is-hidden-touch" v-lazy:background-image="$CBDImage.get('coral-urban-camo-background.jpg')">
-      <div class="navbar-brand">
-        <nuxt-link class="navbar-item"  to="/">
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 185 100">
-            <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
-            <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
-            <text class="bottom" transform="translate(1 92.2)">{{ $t('REEFS') }}</text>
-          </svg> -->
-          <CoralLogo class="logo"/>
-        </nuxt-link>
-      </div>
-
-      <div class="navbar-item" style="flex-grow: 1;">
-        <div class="level is-mobile" style="width:100%;">
-          <div class="level-item" >
-            <nuxt-link class="main-nav is-size-4"  :to="$i18n.path('about')">
-              {{ $t('about') }}
+      <div class="container">
+          <div class="navbar-brand is-paddingless">
+            <nuxt-link class="navbar-item"  to="/">
+              <CoralLogo class="logo"/>
             </nuxt-link>
           </div>
-          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('commitments')">
-            {{ $t('commitments') }}
-          </nuxt-link>
-          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('initiatives')">
-            {{ $t('initiatives') }}
-          </nuxt-link>
-          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('actions')">
-            {{ $t('actions') }}
-          </nuxt-link>
-          <nuxt-link class="level-item main-nav is-size-4"  :to="$i18n.path('resources')">
-            {{ $t('resources') }}
-          </nuxt-link>
+
+          <div class="navbar-item" style="flex-grow: 1;">
+            <div class="level is-mobile" style="width:100%;">
+              <div class="level-item" >
+                <nuxt-link class="main-nav"  :to="$i18n.path('about')">
+                  {{ $t('about') }}
+                </nuxt-link>
+              </div>
+              <nuxt-link class="level-item main-nav"  :to="$i18n.path('commitments')">
+                {{ $t('commitments') }}
+              </nuxt-link>
+              <nuxt-link class="level-item main-nav"  :to="$i18n.path('initiatives')">
+                {{ $t('initiatives') }}
+              </nuxt-link>
+              <nuxt-link class="level-item main-nav"  :to="$i18n.path('actions')">
+                {{ $t('actions') }}
+              </nuxt-link>
+              <nuxt-link class="level-item main-nav"  :to="$i18n.path('resources')">
+                {{ $t('resources') }}
+              </nuxt-link>
+            </div>
+          </div>
         </div>
-      </div>
     </nav>
 
     <div class="mobi-header is-hidden-desktop is-mobile">
@@ -237,6 +234,8 @@ export default {
   }
   .logo{
     width:100%;
+    /* margin-right:1em; */
+    margin-left:.7em;
   }
   .default-header{
     position:relative;
@@ -248,7 +247,8 @@ export default {
     align-self: flex-end;
   }
   .main-nav{
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.2em;
     color:#ffffff;
   }
   .main-nav:hover{
