@@ -19,10 +19,12 @@
 </script>
 
 <style scopped>
+
   H2{
     font-size: 1.5em;
     font-weight: 600;
     padding: 0 1em 0 1em ;
+    text-align: center;
   }
   .img-div{
     background-repeat: no-repeat;
@@ -45,11 +47,5 @@
     align-items: center;
     margin-bottom: 1.5em;
   }
-  @media (min-width:1120px){
-    H2{
-      font-size: 2em;
-      font-weight: 600;
-      padding: 0 1em 0 1em;
-    }
-  }
+
 </style>

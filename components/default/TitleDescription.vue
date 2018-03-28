@@ -1,6 +1,6 @@
 <template>
   <section class="comp-main">
-    <div class="grid">
+    <div class="container is-fullhd  grid ">
       <div class="title-grid">
 
           <div class="title-holder"><h1 class="title is-paddingless">{{title}}</h1></div>
@@ -14,6 +14,7 @@
       </div>
       <div  >
         <p class="description">{{description}}</p>
+        <slot name="description"></slot>
       </div>
     </div>
   </section>
@@ -39,8 +40,12 @@ export default {
 }
 </script>
 <style scoped>
+  .title-holder .title{
+     word-wrap: normal;
+  }
   .comp-main{
-    margin-top:20px;
+    margin:1.3em 0 1.3em 0;
+
   }
   .title-holder {
     position: relative;
@@ -48,7 +53,7 @@ export default {
   .title-holder h1{
     position: absolute;
     bottom: 0;
-    font-size: 2em;
+    font-size: 1.7em;
     padding: 10px 10px 10px 10px;
   }
   .svg-holder{
@@ -78,14 +83,14 @@ export default {
     color: #4a4a4a;
     max-width: 100%;
     position: relative;
-    font-size: 1em;
+    /* font-size: 1em; */
     /* margin: 10px 10px 10px 10px; */
     padding: 0 1em 0 1em;
   }
   .grid{
     display: grid;
     grid-template-columns: 1fr ;
-    margin-top: 35px;
+    margin-top: 1em;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -111,7 +116,7 @@ export default {
     .title-holder h1{
       position: absolute;
       bottom: 0;
-
+      font-size: 1.6em;
     }
     .svg-holder{
       position: relative;
@@ -119,7 +124,7 @@ export default {
     }
     .grid{
       display: grid;
-      grid-template-columns: 1.8fr 3.2fr;
+      grid-template-columns: 1.1fr 3.2fr;
       margin-top: 0;
     }
     .title-grid{

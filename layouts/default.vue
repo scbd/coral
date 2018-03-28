@@ -1,15 +1,15 @@
 <template>
-    <div >
+    <section>
       <GlobalBar  />
       <DefaultHeader />
       <DividerGradBar />
-      <main class="container is-fullhd">
-        <nuxt class="main-view" :class="{'rtl':isAr}"/>
+      <main >
+        <nuxt :class="{'rtl':isAr}"/>
       </main>
       <CoralDivider/>
       <DividerGradBar :size="Number(24)" />
       <CoralFooter/>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -61,11 +61,3 @@
     }
   }
 </script>
-
-<style scoped>
-  @media screen and (min-width: 1024px)  {
-    .main-view{
-      margin: .5em 1.5em 0 1.5em;
-    }
-  }
-</style>

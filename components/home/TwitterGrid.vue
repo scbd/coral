@@ -1,6 +1,6 @@
 <template>
   <div class="tw-grid" ref="tgrid">
-      <a class="twitter-grid"  data-chrome="noborders" data-link-color="%2300405c" data-border-color="%ff3e80" data-maxheight="600" data-width="1200" href="https://twitter.com/CBDNews/timelines/947967151062900736?ref_src=twsrc%5Etfw">Coral Portal</a>
+      <a class="twitter-grid"  data-chrome="noborders" data-link-color="%2300405c" data-border-color="%ff3e80" data-maxheight="600" data-width="700" href="https://twitter.com/CBDNews/timelines/947967151062900736?ref_src=twsrc%5Etfw">Coral Portal</a>
   </div>
 </template>
 
