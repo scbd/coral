@@ -6,5 +6,11 @@
   "educationOutreachMaterials" : "Education Materials",
   "forReefManagers":"Training/Capacity Building Materials for Reef Managers",
   "next":"next",
-  "prev":"previous"
+  "prev":"previous",
+  "filterByKeyword":"Filter by Keyword",
+  "filterByType":"Filter By Type",
+  "education":"Education",
+  "cBDMaterials":"CBD Materials",
+  "filterByDate":"Filter by Date",
+  "Key Word Phrase":"keyWordPhrase"
 }
