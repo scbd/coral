@@ -29,30 +29,18 @@
 body {
   min-height:100vh;
 }
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
+
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
 .slide-fade-leave-active {
   transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter, .slide-fade-leave-to{
   transform: translatey(35px);
   opacity: 0;
 }
-.subtitles{
-  margin: 1em 0 1em 0;
-  padding: 0 1.5em 0 1.5em;
-}
 
-.subtitles .title{
-  font-size: 1.5em
-}
-.title{
-  font-size: 1.5em
-}
 .pointer{
   cursor:pointer;
 }
@@ -60,9 +48,6 @@ body {
 @media screen and (min-width: 1024px) {
   body{
     font-size: 1.3em;
-  }
-  .subtitles{
-    padding: 0 0 0 0;
   }
 }
 
