@@ -3,21 +3,24 @@ import api    from '~/modules/api'
 import { DateTime }  from 'luxon'
 
 var state = {
-  docs: {en:[],fr:[],ru:[],ar:[],zh:[],es:[]}
+  docs: {en:[],fr:[],ru:[],ar:[],zh:[],es:[]},
+  pin: false
 }
 
 const actions = {
-  get: getAction
+  get: getActions,
+  getAction: getAction
 }
 
 const getters = {
-  getBiIdentifier: getByIdentifier,
+  getByIdentifier: getByIdentifier,
   getThisMonth:getThisMonth,
   getHighlight:getHighlight,
   getHighlights:getHighlights
 }
 const mutations = {
-  set: eventsMutation
+  set: eventsMutation,
+  setPin: pinMutation
 }
 
 export default {
@@ -28,18 +31,26 @@ export default {
   getters
 }
 
-
 //============================================================
 //
 //============================================================
-async function getAction ({state,dispatch,commit,rootState},data){
+function getAction ({state, commit},data){
+  let action = getByIdentifier(state,data)
+  console.log('action ',data )
+  if(action)
+    commit('setPin',action)
+}
+//============================================================
+//
+//============================================================
+async function getActions ({state,dispatch,commit,rootState},data){
     let response='';
     let locale = rootState.locale.locale
 
     let queryParameters = {
         'q': 'realm_ss:chm AND (schema_s:event) AND (aichiTarget_ss:AICHI-TARGET-10)',
         'sort': 'createdDate_dt desc',
-        'fl': `identifier_s,title_${locale.toUpperCase()}_t,description_${locale.toUpperCase()}_t,url_ss,schema_${locale.toUpperCase()}_t,logo_s,createdDate_dt,startDate_dt,lat_d,lng_d`,
+        // 'fl': `identifier_s,title_${locale.toUpperCase()}_t,description_${locale.toUpperCase()}_t,url_ss,schema_${locale.toUpperCase()}_t,logo_s,createdDate_dt,startDate_dt,lat_d,lng_d`,
         'wt': 'json',
         'rows':10000
     }
@@ -101,15 +112,33 @@ async function getAction ({state,dispatch,commit,rootState},data){
 function eventsMutation (state,payLoad){
     let locale = payLoad.locale
     let docs = payLoad.docs
-    state.docs[locale] = state.docs[locale].concat(docs)
+    state.docs[locale] = docs
+
+    for (let index in state.docs[locale])
+      state.docs[locale][index] = normalize(state.docs[locale][index], locale)
+
+console.log(state.docs[locale])
     Vue.set(state.docs,locale,removeDuplicates(state.docs[locale], 'identifier_s'))
 }
 
 //============================================================
 //
 //============================================================
-function getByIdentifier (state) {
-  return (identifier) => { return state.docs.find(doc => doc.identifier_s === identifier) }
+function pinMutation (state,payLoad){
+    Vue.set(state,'pin',payLoad)
+}
+
+//============================================================
+//
+//============================================================
+function getByIdentifier (state,identifier) {
+
+  let found
+  for (let locale in state.docs) {
+    found = state.docs[locale].find(doc => doc.identifier_s === identifier)
+    if(found) return found
+  }
+  return false
 }
 
 //============================================================
@@ -145,15 +174,15 @@ function normalize (doc, locale) {
 
     for (let prop in doc) {
       let propCopy = prop
-      let locPattern = '_'+locale.toUpperCase()+'_'
+      // let locPattern = '_'+locale.toUpperCase()+'_'
 
-      if(~prop.indexOf(locPattern)) {
-        propCopy = propCopy.replace(locPattern,'_')
+      if(~prop.indexOf('_')) {
+        propCopy = propCopy.substring(0,prop.indexOf('_'))
         doc[propCopy] = doc[prop]
-        delete(doc[prop])
+
       }
     }
-
+    if(doc.cover)doc.cover = JSON.parse(doc.cover)
     return doc
 }
 

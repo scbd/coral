@@ -3,6 +3,9 @@ import api    from '~/modules/api'
 
 var state = {
   docs: {en:[],fr:[],ru:[],ar:[],zh:[],es:[]},
+  // edDocs:{en:[],fr:[],ru:[],ar:[],zh:[],es:[]},
+  // cbdDocs:{en:[],fr:[],ru:[],ar:[],zh:[],es:[]},
+  locale:'en',
   edMaterials:[
     '0CA88602-7281-0EBC-CF92-B6E085145173',
     '11C1EC87-ACCB-8B8A-9AEE-F1D63510FDB5',
@@ -24,16 +27,20 @@ var state = {
 }
 
 const actions = {
-  get: getResource,
-  getEd:getEdMaterials
+  get: getResource
 }
 
 const getters = {
-  getByIdentifier: getByIdentifier
-  // getFirstYear: getFirstYear
+  getYears: getYears,
+  getEd:getEdMaterials,
+  getCBD:getCBDMaterials
 }
+
 const mutations = {
-  set: setMutation
+  set: setMutation,
+  setLocale: setLocaleMutation,
+  setEd: setEdMutation,
+  setCBD: setCBDMutation
 }
 
 export default {
@@ -44,133 +51,150 @@ export default {
   getters
 }
 
-
 //============================================================
 //
 //============================================================
 async function getResource({state,dispatch,commit,rootState},data){
 
     let response='';
+
     let locale = rootState.locale.locale
 
+    commit('setLocale', locale)
+
     let queryParameters = {
-        'q': 'realm_ss:chm AND (schema_s:resource) AND (aichiTarget_ss:AICHI-TARGET-10)',
+        'q': generateQuery(state,locale,data || {}),
         'sort': 'createdDate_dt desc',
-        'fl': `identifier_s,title_${locale.toUpperCase()}_t,summary_${locale.toUpperCase()}_t,description_${locale.toUpperCase()}_t,url_ss,createdDate_dt,startDate_dt`,
+        'fl': `identifier_s,title_${locale.toUpperCase()}_t,summary_${locale.toUpperCase()}_t,description_${locale.toUpperCase()}_t,url_ss,publicationYear_i,createdDate_dt`,
         'wt': 'json',
         'rows':10000
     }
 
-    try {
+    response = await api.ax.get('https://api.cbd.int/api/v2013/index/select', {'params': queryParameters})
 
-        response = await api.ax.get('https://api.cbd.int/api/v2013/index/select', {'params': queryParameters})
+    if(response.status != 200)
+      responseHandeler (commit, response)
 
-        switch(response.status){
-            case 200:
-                let payload = {}
-                payload.locale = locale
-                payload.docs = response.data.response.docs
-                commit('set',payload)
-            break;
-            case 401:
-                commit('feedback/warn',{
-                    title:'Not Authorized',
-                    description:'Your email and/or password are incorrect.'
-                },{ root: true })
-            break;
-            case 404:
-                commit('feedback/danger',{
-                    title:'Not Found',
-                    description:'The authentication service is not found'
-                },{ root: true })
-            break;
-            case 400:
-                commit('feedback/danger',{
-                    title:'Bad Request',
-                    description:'The request to the authentication service is incorrect.'
-                },{ root: true })
-            break;
-            default:
-                commit('feedback/danger',{
-                    title:'Unkown Error Occured default',
-                    description:'An unkown error occured.'
-                },{ root: true })
-            break
-        }
+    let payload = {}
+    payload.locale = locale
+    payload.docs = response.data.response.docs
+    commit('set',payload)
+}
 
-    } catch (e){
-        commit('feedback/danger',{
-            title:'Unkown Error Occured in catch',
-            description:'An unkown error occured.',
-            e:e
-        },{ root: true })
-        console.log(e)
+//============================================================
+//
+//============================================================
+function generateQuery(state,locale,payload){
+  return generateIdQuery(state,payload) + generateTextQuery(locale, payload) + generateYearQuery(payload)
+}
+//endDate_dt:[2017-01-01T05:00:00.000Z TO * ]
+//publicationYear_i
+
+//============================================================
+//
+//============================================================
+function generateYearQuery(payload){
+  if(payload.year)
+    return ` AND (publicationYear_i:${payload.year})`
+  return ''
+}
+
+//============================================================
+//
+//============================================================
+function generateTextQuery(locale, payload){
+  if(payload.search)
+    return ` AND (title_${locale.toUpperCase()}_t:"${payload.search}*" OR description_${locale.toUpperCase()}__t:"${payload.search}*" OR text_${locale.toUpperCase()}_txt:"${payload.search}*")`
+  return ''
+}
+
+//============================================================
+//
+//============================================================
+function generateIdQuery(state,payload){
+  let ids = []
+  if((payload.isEd && payload.isCBD) || (!payload.isEd && !payload.isCBD))
+    ids = state.edMaterials.concat(state.scdbMaterials)
+  else if (payload.isEd && !payload.isCBD)
+    ids = state.edMaterials
+  else ids = state.scdbMaterials
+
+  return idQuery(ids)
+}
+
+//============================================================
+//
+//============================================================
+function idQuery(edIds){
+    return '(identifier_s:'+edIds.join(' OR identifier_s:')+')'
+}
+
+//============================================================
+//
+//============================================================
+function getEdMaterials(state, getters, rootState){
+
+    let locale = rootState.locale.locale
+
+    return state.docs[locale].filter((obj)=>{ if(isEd(obj)) return obj})
+
+    function isEd(obj){
+      if(!state.edMaterials) return false
+      return state.edMaterials.find((value)=>{return value === obj.identifier_s}) || false
     }
 }
-function edQuery(edIds){
-    return '('+edIds.join(' OR ')+')'
+
+//============================================================
+//
+//============================================================
+function getCBDMaterials(state, getters, rootState){
+
+    let locale = rootState.locale.locale
+    return state.docs[locale].filter((obj)=>{ if(isCBD(obj)) return obj})
+
+    function isCBD(obj){
+      if(!state.scdbMaterials) return false
+
+      return state.scdbMaterials.find((value)=>{return value === obj.identifier_s}) || false
+    }
+}
+
+//============================================================
+//
+//============================================================
+function responseHandeler (commit, response){
+  try {
+
+      switch(response.status){
+          case 400:
+              commit('feedback/danger',{
+                  title:'Bad Request',
+                  description:'The request to the index service is incorrect.'
+              },{ root: true })
+          break;
+          default:
+              commit('feedback/danger',{
+                  title:'Unkown Error Occured default',
+                  description:'An unkown error occured.'
+              },{ root: true })
+          break
+      }
+
+  } catch (e){
+      commit('feedback/danger',{
+          title:'Unkown Error Occured in catch',
+          description:'An unkown error occured.',
+          e:e
+      },{ root: true })
+      console.log(e)
+  }
 }
 //============================================================
 //
 //============================================================
-async function getEdMaterials({state,dispatch,commit,rootState},data){
+function setLocaleMutation (state,payLoad){
 
-    let response='';
-    let locale = rootState.locale.locale
-    console.log(edQuery(state.edMaterials))
-    let queryParameters = {
-        'q': 'realm_ss:chm AND (schema_s:resource)',
-        'sort': 'createdDate_dt desc',
-        'fl': `identifier_s,title_${locale.toUpperCase()}_t,summary_${locale.toUpperCase()}_t,description_${locale.toUpperCase()}_t,url_ss,createdDate_dt,startDate_dt`,
-        'wt': 'json',
-        'rows':10000
-    }
-
-    try {
-
-        response = await api.ax.get('https://api.cbd.int/api/v2013/index/select', {'params': queryParameters})
-
-        switch(response.status){
-            case 200:
-                let payload = {}
-                payload.locale = locale
-                payload.docs = response.data.response.docs
-                commit('set',payload)
-            break;
-            case 401:
-                commit('feedback/warn',{
-                    title:'Not Authorized',
-                    description:'Your email and/or password are incorrect.'
-                },{ root: true })
-            break;
-            case 404:
-                commit('feedback/danger',{
-                    title:'Not Found',
-                    description:'The authentication service is not found'
-                },{ root: true })
-            break;
-            case 400:
-                commit('feedback/danger',{
-                    title:'Bad Request',
-                    description:'The request to the authentication service is incorrect.'
-                },{ root: true })
-            break;
-            default:
-                commit('feedback/danger',{
-                    title:'Unkown Error Occured default',
-                    description:'An unkown error occured.'
-                },{ root: true })
-            break
-        }
-
-    } catch (e){
-        commit('feedback/danger',{
-            title:'Unkown Error Occured in catch',
-            description:'An unkown error occured.',
-            e:e
-        },{ root: true })
-        console.log(e)
-    }
+    state.locale = payLoad
 }
 //============================================================
 //
@@ -178,13 +202,36 @@ async function getEdMaterials({state,dispatch,commit,rootState},data){
 function setMutation (state,payLoad){
     let locale = payLoad.locale
     let docs = payLoad.docs
-    state.docs[locale] = state.docs[locale].concat(docs)
+    state.docs[locale] = docs
     for (let variable of state.docs[locale]) {
         variable = normalize(variable, locale)
     }
     Vue.set(state.docs,locale,removeDuplicates(state.docs[locale], 'identifier_s'))
 }
-
+//============================================================
+//
+//============================================================
+function setEdMutation (state,payLoad){
+    let locale = payLoad.locale
+    let docs = payLoad.docs
+    state.edDocs[locale] = state.edDocs[locale].concat(docs)
+    for (let variable of state.edDocs[locale]) {
+        variable = normalize(variable, locale)
+    }
+    Vue.set(state.edDocs,locale,removeDuplicates(state.edDocs[locale], 'identifier_s'))
+}
+//============================================================
+//
+//============================================================
+function setCBDMutation (state,payLoad){
+    let locale = payLoad.locale
+    let docs = payLoad.docs
+    state.cbdDocs[locale] = state.cbdDocs[locale].concat(docs)
+    for (let variable of state.cbdDocs[locale]) {
+        variable = normalize(variable, locale)
+    }
+    Vue.set(state.cbdDocs,locale,removeDuplicates(state.cbdDocs[locale], 'identifier_s'))
+}
 //============================================================
 //
 //============================================================
@@ -195,9 +242,14 @@ function getByIdentifier (state) {
 //============================================================
 //
 //============================================================
-function getFirstYear (state) {
-  return (identifier) => { return state.docs.find(doc => doc.identifier_s === identifier) }
+function getYears (state) {
+  let years = []
+  for (let doc of state.docs[state.locale])
+    years.push(doc.publicationYear_i)
+
+  return [...new Set(years)]
 }
+
 //============================================================
 //
 //============================================================
@@ -216,6 +268,7 @@ function normalize (doc, locale) {
 
     return doc
 }
+
 
 
 function removeDuplicates(arr, key) {
