@@ -1,6 +1,7 @@
 {
-    "title":"Coral Reef Resources",
+  "title":"Coral Reef Resources",
   "titleShort":"Resources",
+  "search":"Search Results",
   "description":"",
   "cbdMaterials" : "SCBD Materials",
   "educationOutreachMaterials" : "Education Materials",
@@ -8,9 +9,14 @@
   "next":"next",
   "prev":"previous",
   "filterByKeyword":"Filter by Keyword",
-  "filterByType":"Filter By Type",
+  "filterByType":"Filter by Type",
   "education":"Education",
   "cBDMaterials":"CBD Materials",
   "filterByDate":"Filter by Date",
-  "Key Word Phrase":"keyWordPhrase"
+  "Key Word Phrase":"keyWordPhrase",
+  "noRecords":"No records found with search results:",
+  "publicatoinYear":"Publicatoin Year",
+  "ofType":"Of Type",
+  "keyword":"Keyword"
+
 }
