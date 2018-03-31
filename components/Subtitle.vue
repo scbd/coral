@@ -20,7 +20,7 @@
 
 <style scopped>
 
-  H2{
+  .inner H2{
     font-size: 1.5em;
     font-weight: 600;
     padding: 0 1em 0 1em ;

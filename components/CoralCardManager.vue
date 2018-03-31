@@ -2,15 +2,12 @@
   <section>
     <div class="card-manager">
       <div class="container is-fullhd" v-swiper:mySwiper="swiperOption" >
-
           <div class="swiper-wrapper">
               <CoralCard class="swiper-slide" v-for="doc in docs" :key="doc.identifier" :doc="doc" :paginated="isPaginated"/>
           </div>
-          <div class="swiper-pagination" v-if="isPaginated"></div>
-        </div>
-
+          <div class="swiper-pagination" v-show="isPaginated"></div>
+      </div>
     </div>
-
   </section>
 </template>
 
@@ -28,6 +25,7 @@
         slidesPerView: 4,
         spaceBetween: 40,
         slidesPerGroup: 4,
+        slidesPerColumn: this.slidesPerColum,
         grabCursor:true,
         pagination:{
           el: '.swiper-pagination',
@@ -49,11 +47,13 @@
           640: {
             slidesPerView: 1,
             slidesPerGroup: 1,
+            slidesPerColumn:1,
             spaceBetween: 20
           },
           320: {
             slidesPerView: 1,
             slidesPerGroup: 1,
+            slidesPerColumn:1,
             spaceBetween: 10
           }
         }
@@ -68,18 +68,15 @@
         paginated:{
           type: Boolean,
           default: true
+        },
+        slidesPerColum:{
+          type: Number,
+          default: 1
         }
-    },
-    mounted() {
-        const VueAwesomeSwiper = require('vue-awesome-swiper/dist/ssr')
-        Vue.use(VueAwesomeSwiper)
     },
     computed: {
       isPaginated: function () {
         if(!this.paginated) return false
-        // console.log(this._uid);
-        // console.log(this.$options.name);
-
         if(!this.$breakpoints.isTouch && this.docs.length>4)
           return true
         if(this.$breakpoints.isTablet && this.docs.length>3)
@@ -144,25 +141,21 @@
 </script>
 
 <style scopped>
-.swiper-slide{
-  height: unset;
-}
-.swiper-pagination{
-  background-color: #00405c;
-  bottom:-4px;
+  .swiper-slide{
+    height: unset;
+  }
+  .swiper-pagination{
+    background-color: #00405c;
+    bottom:-4px;
 
-}
-.swiper-scrollbar{
-  bottom:45px !important;
+  }
+  .swiper-scrollbar{
+    bottom:45px !important;
 
-}
+  }
   .card-manager{
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-    grid-gap: 1em; */
     background-color: #00405c;
     padding: 1.4em 1.4em 1.4em 1.4em;
     margin-bottom: 1.5em;
   }
-
 </style>
