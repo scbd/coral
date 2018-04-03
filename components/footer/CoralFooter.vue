@@ -213,6 +213,7 @@ methods: {
     background-position: center bottom;
     background-size: cover;
     padding: 0 0 0 0;
+    background-color: #00405c;
   }
   footer{
     min-height: 275px;
