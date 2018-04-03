@@ -1,5 +1,8 @@
 require('dotenv').config()
-const webpack = require('webpack')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const glob = require('glob-all')
+const path = require('path')
+
 module.exports = {
   render:{resourceHints:false},
   env: {
@@ -87,31 +90,38 @@ module.exports = {
   // Build configuration
   // ============================================================
   build: {  resourceHints:false,
-    analyze: process.env.analyzeBuild,
+    extractCSS:true,
+    analyze: false, //process.env.analyzeBuild,
   //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon''~/modules/plugins/ImageApi.js',,'~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'//
     vendor: ['vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints'],
-    // extend (config) {
-    //
-    //       const vueLoader = config.module.rules.find((r) => {
-    //         return r.loader === 'vue-loader'
-    //       })
-    //       vueLoader.options.preLoaders = vueLoader.options.preLoaders || {}
-    //       // vueLoader.options.preLoaders.i18n = 'json-loader'
-    //       // vueLoader.options.loaders.i18n = 'vue-i18n-loader'
-    // },
+    extend (config, { isDev, isClient }) {
+
+      if (!isDev) {
+        // Remove unused CSS using purgecss. See https://github.com/FullHuman/purgecss
+        // for more information about purgecss.
+        config.plugins.push(
+          new PurgecssPlugin({
+            paths: glob.sync([
+              path.join(__dirname, './pages/**/*.vue'),
+              path.join(__dirname, './layouts/**/*.vue'),
+              path.join(__dirname, './components/**/*.vue')
+            ]),
+            whitelist: ['html', 'body']
+          })
+        )
+      }
+    },
     postcss: {
       plugins: {
         'postcss-custom-properties': false
       }
-    },
+    }
 
     // plugins: [
     //   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
     // ]
 
-    watch: [
-    '~/node_modules/@biodiversity/ssr-breakpoints/dist/main.js'
-]
+    // watch: ['~/node_modules/@biodiversity/ssr-breakpoints/dist/main.js']
   }//build
 }//export
 
