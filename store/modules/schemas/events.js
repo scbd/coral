@@ -50,7 +50,7 @@ async function getActions ({state,dispatch,commit,rootState},data){
     let queryParameters = {
         'q': '(schema_s:event) AND (aichiTarget_ss:AICHI-TARGET-10) AND onlineEvent_b:false',
         'sort': 'createdDate_dt desc',
-        'fl': `identifier_s,title_${locale.toUpperCase()}_t,description_${locale.toUpperCase()}_t,country_${locale.toUpperCase()}_t,city_${locale.toUpperCase()}_t,url_ss,logo_s,createdDate_dt,startDate_dt,lat_d,lng_d,logo, cover`,
+        'fl': `identifier_s,title_${locale.toUpperCase()}_t,description_${locale.toUpperCase()}_t,country_${locale.toUpperCase()}_t,city_${locale.toUpperCase()}_t,url_ss,logo_s,createdDate_dt,startDate_dt,lat_d,lng_d, cover_C_s`,
         'wt': 'json',
         'rows':10000
     }
