@@ -24,7 +24,7 @@
               <div><strong>Sustainable Development Goals:</strong></div>
               <div class="target" v-for="item in sdg"  style="width:40px;display:inline-block;">
 
-                <a :href="`https://sustainabledevelopment.un.org/sdg${Number(item)}`" target="_blank" rel="noopener"><img  :alt="$t('sDG')+' '+item" :title="$t('sDG')+' '+item" v-lazy="require(`~/assets/images/sustainable-development-goals/sustainable-development-goals-${item}.svg`)" /></a>
+                <a :href="`https://sustainabledevelopment.un.org/sdg${Number(item)}`" target="_blank" rel="noopener nofollow"><img  :alt="$t('sDG')+' '+item" :title="$t('sDG')+' '+item" v-lazy="require(`~/assets/images/sustainable-development-goals/sustainable-development-goals-${item}.svg`)" /></a>
               </div>
             </div>
           </transition>
