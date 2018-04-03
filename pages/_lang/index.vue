@@ -11,7 +11,7 @@
       <Subtitle>{{$t('IYOR2018')}}</Subtitle>
 
       <CoralSection>
-        {{$t('iyor')}}
+        {{$t('iyorDesc')}}
         <div class="center-div">
           <br/>
           <a href="https://www.iyor2018.org/" target="_blank" rel="noopener nofollow" class="button is-rounded is-primary dark-blue msg-button">
