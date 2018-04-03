@@ -142,7 +142,7 @@ export default {
 }
 </script>
 <style scoped>
-
+.column{padding: .5em 1.9em 1.8em 1.9em;}
 .about-style{fill:#00809a; border: 5px solid #00809a;}
 .comm-style{fill:#aacfff; border: 5px solid #aacfff;}
 .initistives-style{fill:#dca3ff; border: 5px solid #dca3ff;}
