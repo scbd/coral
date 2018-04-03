@@ -1,11 +1,11 @@
 <template>
   <section ref="ammap">
-
+    <a class="button map-button" href="https://www.cbd.int/2011-2020/dashboard/submit/event/new" target="_blank" rel="nofollow noopener" v-if="map">{{$t('rya')}}</a>
     <div id="mapdiv" ref="mapdiv" >&nbsp;
       <div class="v-spinner" v-if="!map">
           <div class="v-clip-center">
             <img  :src="require('~/assets/images/logo/cbd-leaf-green.svg')" :alt="$t('scbdLogoLeaf')" :title="$t('scbdLogoLeafTitle')"/>
-            <div>Loading ... </div>
+            <div>{{$t('loading')}}</div>
           </div>
           <div class="v-clip" v-bind:style="spinnerStyle"></div>
       </div>
@@ -50,6 +50,27 @@ import MapMixin     from '~/modules/mixins/map'
 
 </script>
 <style>
+    .map-button{
+      position: absolute;
+      right:20%;
+      background-color: #00405c;
+      border-color: #00405c;
+      color:#ffffff;
+      z-index: 9999999999999;
+      margin-top: .6em;
+    }
+    .map-button:hover {
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px);
+      color:#ffffff;
+      border-color: #00405c;
+
+    }
+    .map-button:focus {
+      color:#ffffff;
+      border-color: #00405c;
+
+    }
   .holder{
     position:absolute;
     top: 1px;
@@ -80,17 +101,26 @@ import MapMixin     from '~/modules/mixins/map'
     #mapdiv {
       height: 250px;
     }
+    .map-button{
+      right:1%;
+    }
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     #mapdiv {
       height: 400px;
     }
+    .map-button{
+      right:1%;
+    }
   }
 
   @media screen and (min-width: 1024px) and (max-width: 1215px) {
     #mapdiv {
       height: 500px;
+    }
+    .map-button{
+      right:1%;
     }
   }
 

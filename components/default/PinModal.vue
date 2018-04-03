@@ -2,59 +2,41 @@
     <transition name="modal">
       <div class="modal-mask" >
         <div class="modal-wrapper" v-on:click.stop="close($event)">
-          <div class="modal-container" v-on:click.stop="test($event)">
+          <!-- v-on:click.stop="test($event)"  allow click on modal-->
+          <div class="modal-container" >
 
-            <div class="modal-header" :class="{'has-cover':hasCover}" v-lazy:background-image="getCover()">
+            <div class="modal-header" :class="{'modal-header-height':hasCover}"  v-lazy:background-image="getCover()">
               <section class="hero">
-                <div class="hero-body" :class="{'has-cover':hasCover}">
-                    <h1 class="title">
-                      {{doc.title}}
+                <div class="hero-body" >
+                    <h1 class="title" :class="{'has-cover':hasCover}" >
+                    {{doc.title}}
                     </h1>
                 </div>
               </section>
             </div>
 
             <div class="modal-body ">
-              <article class="media">
-                <figure class="media-left">
-                  <p class="image is-128x128">
-                    <img v-lazy="getLogo()">
-                  </p>
-                </figure>
+              <article class="media" >
+
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                      <strong>{{doc.city}}<span v-if="doc.country && doc.city">,</span> {{doc.country}}</strong>
+                    </p>
+                    <p>
+                      <small>{{doc.startDate | lux($i18n.locale)}}</small>
                     </p>
                     <p class="content">
                       {{doc.description}}
                     </p>
                   </div>
-                  <nav class="level is-mobile">
-                    <div class="level-left">
-                      <a class="level-item">
-                        <span class="icon is-small"><i class="fas fa-reply"></i></span>
-                      </a>
-                      <a class="level-item">
-                        <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-                      </a>
-                      <a class="level-item">
-                        <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                      </a>
-                    </div>
-                  </nav>
                 </div>
-
+                <figure class="media-right">
+                  <p class="image is-128x128">
+                    <img v-lazy="getLogo()">
+                  </p>
+                </figure>
               </article>
-            </div>
-
-            <div class="modal-footer">
-              <slot name="footer">
-                default footer
-                <button class="modal-default-button" @click="$emit('close')">
-                  OK
-                </button>
-              </slot>
             </div>
           </div>
         </div>
@@ -63,6 +45,7 @@
 </template>
 
 <script>
+import { DateTime }  from 'luxon'
 export default {
   name: 'Modal',
   computed:{
@@ -76,8 +59,8 @@ export default {
 
   },
   methods:{
-    test: function($event){ console.log($event); $event.preventDefault()},
-    close: function($event){ console.log($event); this.$store.commit('events/setPin', false); $event.preventDefault()},
+    // test: function($event){ console.log($event); $event.preventDefault()},
+    close: function($event){  this.$store.commit('events/setPin', false); $event.preventDefault()},
     getCover:function(){
       let doc = this.$store.state.events.pin
       if(doc.cover){
@@ -91,19 +74,37 @@ export default {
       if(doc.logo) return `https://api.cbd.int/`+doc.logo
       else return this.$CBDImage.get('red-coral-blue-back.jpg',100)
     }
+  },
+  filters:{
+    lux: toLocaleString
   }
+}
 
+//============================================================
+//
+//============================================================
+function  toLocaleString (isoDate,locale, preset = 'DATETIME_MED')  {
+  return DateTime.fromISO(isoDate).setLocale(locale).toLocaleString(DateTime[preset])
 }
 </script>
 <style lang="sass" scoped>
   @import "~assets/sass/main.sass"
 </style>
 <style scoped>
+.media{
+  overflow: hidden;
+}
 .hero-body .has-cover{
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
+  width:100%;
+  left:0px;
   padding: unset;
 }
+.media {
+  padding: .5em .5em 1em .5em;
+}
+
 .media-content .content{
   font-size: .8em;
 }
@@ -137,7 +138,7 @@ export default {
 
 .modal-container {
   z-index: 99998;
-  width: 800px;
+  width: 50vw;
   margin: 0px auto;
   /* padding: 20px 30px; */
   background-color: #fff;
@@ -146,9 +147,7 @@ export default {
   transition: all .3s ease;
 }
 
-.modal-header .has-cover{
-  min-height: 250px;
-}
+
 
 .modal-header{
     background-repeat: no-repeat;
@@ -158,7 +157,7 @@ export default {
     min-height: 150px;
 }
 
-.modal-container .has-cover{
+.modal-header-height{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -185,5 +184,35 @@ export default {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 767px) {
+  .modal-container {
+    width: 100vw;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .modal-container {
+    width: 80vw;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  .modal-container {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1216px) and (max-width: 1407px) {
+  .modal-container {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  .modal-container {
+    width: 50vw;
+  }
 }
 </style>
