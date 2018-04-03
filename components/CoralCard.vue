@@ -12,7 +12,7 @@
           </div>
           <div class="card-bottom" :class="{'card-bottom-paginated':this.paginated}">
             <p><time :datetime="doc.startDate  || doc.startDate_dt" v-if="doc.startDate || doc.startDate_dt">{{toLocaleString(doc.startDate || doc.startDate_dt)}}</time></p>
-            <a class="button is-primary pink" :href="doc.url_ss[0]" target="_blank" rel="noopener">
+            <a class="button is-primary pink" :href="doc.url_ss[0]" target="_blank" rel="noopener nofollow">
               View
             </a>
 

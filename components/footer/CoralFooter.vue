@@ -5,7 +5,7 @@
       <footer class="container is-fullhd ">
         <div class="f-grid ">
           <div class="centered">
-            <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener" >
+            <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener nofollow" >
               <div class="hover ">
                 <img  v-on:mouseover="mouseOver('euActive')" v-lazy="$CBDImage.get('european-union-icon.png',83)" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')" ></img>
                 <div class="overlay overlay-logo"  v-if="euActive" v-on:mouseleave="mouseOver('euActive')">&nbsp;</div>
@@ -13,7 +13,7 @@
             </a>
           </div>
           <div class="centered">
-            <a href="https://www.unenvironment.org/" target="_blank" rel="noopener" >
+            <a href="https://www.unenvironment.org/" target="_blank" rel="noopener nofollow" >
               <div class="hover ">
                 <img   v-on:mouseover="mouseOver('unepActive')" v-lazy="$CBDImage.get('un-environment-icon.png',100)" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
                 <div class="overlay overlay-logo"  v-if="unepActive" v-on:mouseleave="mouseOver('unepActive')">&nbsp;</div>

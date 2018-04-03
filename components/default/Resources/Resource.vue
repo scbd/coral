@@ -1,6 +1,6 @@
 <template>
   <div class="card" >
-    <a :href="url" target="_blank" rel="noopener">
+    <a :href="url" target="_blank" rel="noopener nofollow">
       <div class="card-content" >
         <div class="content">
 
