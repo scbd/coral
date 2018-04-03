@@ -87,9 +87,7 @@ function  toLocaleString (isoDate,locale, preset = 'DATETIME_MED')  {
   return DateTime.fromISO(isoDate).setLocale(locale).toLocaleString(DateTime[preset])
 }
 </script>
-<style lang="sass" scoped>
-  @import "~assets/sass/main.sass"
-</style>
+
 <style scoped>
 .media{
   overflow: hidden;
