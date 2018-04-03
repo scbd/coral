@@ -1,13 +1,13 @@
 <template>
   <a :href="url" target="_blank" rel="noopener nofollow">
-    <div class="card">
-        <div class="card-image is-text-centered" >
+    <div class="card org-card">
+        <div class="org-card-image is-text-centered" >
           <figure class="grid-org-figure has-text-centered" >
             <img class="figure-img" v-lazy="image" :alt="title" :title="title">
           </figure>
         </div>
         <div class="card-content">
-          <div class="content has-text-centered">
+          <div class="org-content has-text-centered">
             {{title}}
           </div>
         </div>
@@ -51,20 +51,19 @@ export default {
   @import "~bulma/sass/components/card.sass"
 </style>
 <style scoped>
-  .content{
+  .org-content{
     font-weight: 500;
     height:100%;
     background-color: #00405c;
     color: #ffffff;
-
   }
 
-  .card{
+  .org-card{
     position:relative;
     border: 1px solid #00405c;
     background-color: #00405c;
   }
-  .card-image{
+  .org-card-image{
     padding: 5px 5px 5px 5px;
     background-color: #ffffff;
   }

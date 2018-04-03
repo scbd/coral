@@ -1,6 +1,6 @@
 <template>
-  <div class="holder"  v-lazy:background-image="$CBDImage.get('coral-bk.jpg')">
-    <div class="text-holder ">
+  <div class="coral-section-holder"  v-lazy:background-image="$CBDImage.get('coral-bk.jpg')">
+    <div class="coral-section-text-holder">
       <slot/>
     </div>
   </div>
@@ -13,7 +13,7 @@
 </script>
 
 <style scopped>
-  .holder{
+  .coral-section-holder{
     display:flex;
     flex-direction:row;
     justify-content: center;
@@ -24,7 +24,7 @@
     background-repeat: no-repeat;
         margin-bottom: 1.5em;
   }
-  .text-holder{
+  .coral-section-text-holder{
     max-width:400px;
     min-width:200px;
     color:white;

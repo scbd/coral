@@ -63,6 +63,10 @@ export default {
   }
 }
 </script>
+  <style lang="sass" scopped>
+    @import '~assets/sass/vars.sass'
+    @import "~bulma/sass/components/card.sass"
+  </style>
 <style scoped>
   .card{
     cursor: pointer;

@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card coral-card">
       <div class="card-image">
           <figure class="image">
               <img v-lazy="$CBDImage.get('card-bg.jpg',320)" :alt="$t('pinkCamo')">
@@ -7,7 +7,7 @@
       </div>
       <div class="card-content">
 
-          <div class="content">
+          <div class="content coral-card-content">
               {{(doc.title || doc.title_t) | trunc}}
           </div>
           <div class="card-bottom" :class="{'card-bottom-paginated':this.paginated}">
@@ -69,12 +69,12 @@
     transform: translateY(-4px);
 
   }
-  .card {
+  .coral-card {
     max-width: 100%;
     max-height: 476px;
     background-color: #ffffff;
   }
-  .content{
+  .coral-card-content{
     margin-bottom: 110px;
     line-height: 1.3em;
 
@@ -88,7 +88,7 @@
     padding: 1em 0 2.5em 0;
   }
   @media (min-width:767px){
-    .card {
+    .coral-card {
       max-width: 320px;
     }
   }
