@@ -2,23 +2,24 @@
 <section  >
       <GlobalBar  />
       <DefaultHeader v-if="$breakpoints.isTouch"/>
-
+      <div class="hero">
         <div class="hero-header tint" >
 
-          <img class="home-img" v-lazy="getHomeImg()"  :title="$t('homeImage')" :alt="$t('homeImage')">
+              <img class="home-img" v-lazy="getHomeImg()"  :title="$t('homeImage')" :alt="$t('homeImage')">
+              <div class="filler debug" >&nbsp;</div>
 
-          <div class="logo-container" >
-            <CoralLogo class="logo"/>
-          </div>
-
-          <div class="hero-body">
-            <div class="container is-fullhd">
-              <MainNav class="main-nav"/>
+            <div class="logo-container" >
+              <CoralLogo class="logo"/>
             </div>
-          </div>
-      </div>
 
-      <main >
+            <div class="hero-body">
+              <div class="container is-fullhd">
+                <MainNav class="main-nav"/>
+              </div>
+            </div>
+        </div>
+      </div>
+      <main>
         <nuxt :class="{'rtl':isAr}"/>
       </main>
       <CoralDivider/>
@@ -91,7 +92,16 @@ export default {
 </script>
 
 <style scoped>
-main{padding-top:1.1em;}
+main{padding-top:1.3em;}
+.hero{
+    background-color: #00405c;
+}
+.filler{
+  margin-top:-.7em;
+  background-color:#ffffff;
+  height:1px;
+  line-height: .1em;
+}
 .tint:before {
   content: "";
   display: block;
@@ -111,12 +121,14 @@ main{padding-top:1.1em;}
   position:relative;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 .hero-body{
   z-index: 100;
   position:absolute;
   top:20%;
   width:100%;
+
 }
 
 .logo{
@@ -138,7 +150,6 @@ main{padding-top:1.1em;}
 .home-img{
   min-height: 800px;
   object-fit: cover;
-  width:100%;
 }
 
   @media (min-width:769px){
