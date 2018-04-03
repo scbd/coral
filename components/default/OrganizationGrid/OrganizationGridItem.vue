@@ -45,6 +45,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+  @import '~assets/sass/vars.sass'
+  @import "~bulma/sass/components/card.sass"
+</style>
 <style scoped>
   .content{
     font-weight: 500;

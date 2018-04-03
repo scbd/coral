@@ -91,6 +91,18 @@ export default {
 
 </script>
 
+<style lang="sass" scopped>
+  @import '~assets/sass/vars.sass'
+  @import "~bulma/sass/elements/button.sass"
+  @import "~bulma/sass/layout/hero.sass"
+  .hero-home
+    @extend .hero
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center top
+    background-color: #00405c
+</style>
+
 <style scoped>
 main{padding-top:1.3em;}
 .hero{

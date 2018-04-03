@@ -49,6 +49,10 @@ import MapMixin     from '~/modules/mixins/map'
   }
 
 </script>
+<style lang="sass" scopped>
+  @import '~assets/sass/vars.sass'
+  @import "~bulma/sass/elements/button.sass"
+</style>
 <style>
     .map-button{
       position: absolute;

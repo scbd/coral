@@ -16,6 +16,7 @@
             </div>
 
             <div class="modal-body ">
+              <div class="box">
               <article class="media" >
 
                 <div class="media-content">
@@ -38,6 +39,7 @@
                 </figure>
               </article>
             </div>
+            </div>
           </div>
         </div>
       </div>
@@ -45,53 +47,62 @@
 </template>
 
 <script>
-import { DateTime }  from 'luxon'
-export default {
-  name: 'Modal',
-  computed:{
-    doc: function(){  return this.$store.state.events.pin },
-    hasCover: function(){
-      let doc = this.$store.state.events.pin
-      if(doc.cover)
-        return true
-      return false
-    }
-
-  },
-  methods:{
-    // test: function($event){ console.log($event); $event.preventDefault()},
-    close: function($event){  this.$store.commit('events/setPin', false); $event.preventDefault()},
-    getCover:function(){
-      let doc = this.$store.state.events.pin
-      if(doc.cover){
-
-        return `https://api.cbd.int/`+doc.cover.url
+  import { DateTime }  from 'luxon'
+  export default {
+    name: 'Modal',
+    computed:{
+      doc: function(){  return this.$store.state.events.pin },
+      hasCover: function(){
+        let doc = this.$store.state.events.pin
+        if(doc.cover)
+          return true
+        return false
       }
-      else return this.$CBDImage.get('coral-title-gradient-bar.png')
-    },
-    getLogo:function(){
-      let doc = this.$store.state.events.pin
-      if(doc.logo) return `https://api.cbd.int/`+doc.logo
-      else return this.$CBDImage.get('red-coral-blue-back.jpg',100)
-    }
-  },
-  filters:{
-    lux: toLocaleString
-  }
-}
 
-//============================================================
-//
-//============================================================
-function  toLocaleString (isoDate,locale, preset = 'DATETIME_MED')  {
-  return DateTime.fromISO(isoDate).setLocale(locale).toLocaleString(DateTime[preset])
-}
+    },
+    methods:{
+      // test: function($event){ console.log($event); $event.preventDefault()},
+      close: function($event){  this.$store.commit('events/setPin', false); $event.preventDefault()},
+      getCover:function(){
+        let doc = this.$store.state.events.pin
+        if(doc.cover){
+
+          return `https://api.cbd.int/`+doc.cover.url
+        }
+        else return this.$CBDImage.get('coral-title-gradient-bar.png')
+      },
+      getLogo:function(){
+        let doc = this.$store.state.events.pin
+        if(doc.logo) return `https://api.cbd.int/`+doc.logo
+        else return this.$CBDImage.get('red-coral-blue-back.jpg',100)
+      }
+    },
+    filters:{
+      lux: toLocaleString
+    }
+  }
+
+  //============================================================
+  //
+  //============================================================
+  function  toLocaleString (isoDate,locale, preset = 'DATETIME_MED')  {
+    return DateTime.fromISO(isoDate).setLocale(locale).toLocaleString(DateTime[preset])
+  }
 </script>
 
+<style lang="sass">
+  @import '~assets/sass/vars.sass'
+  @import "~bulma/sass/elements/box.sass"
+  @import '~bulma/sass/components/media.sass'
+  @import "~bulma/sass/elements/image.sass"
+</style>
+
 <style scoped>
-.media{
+
+/* .media{
   overflow: hidden;
-}
+  padding: .5em .5em 1em .5em;
+} */
 .hero-body .has-cover{
   position: absolute;
   bottom: 0px;
@@ -99,10 +110,6 @@ function  toLocaleString (isoDate,locale, preset = 'DATETIME_MED')  {
   left:0px;
   padding: unset;
 }
-.media {
-  padding: .5em .5em 1em .5em;
-}
-
 .media-content .content{
   font-size: .8em;
 }
@@ -163,7 +170,8 @@ function  toLocaleString (isoDate,locale, preset = 'DATETIME_MED')  {
 }
 
 .modal-body {
-  margin: 1em 1em 1em 1em;
+  /* margin: 1em 1em 1em 1em; */
+  padding: 1em 1em 1em 1em;
 }
 
 .modal-default-button {

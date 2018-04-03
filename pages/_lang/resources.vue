@@ -132,6 +132,13 @@
     }
   }
 </script>
+
+<style lang="sass">
+  @import '~assets/sass/vars.sass'
+  @import "~bulma/sass/elements/form.sass"
+  @import "~bulma/sass/elements/notification.sass"
+</style>
+
 <style>
   .notification{
     margin-bottom: 1.5em;
@@ -148,8 +155,8 @@
   .search-title{
     font-weight: 900;
   }
-input[type=checkbox]{
-    vertical-align: middle !important;
-    margin-bottom: .3em;
-}
+  input[type=checkbox]{
+      vertical-align: middle !important;
+      margin-bottom: .3em;
+  }
 </style>

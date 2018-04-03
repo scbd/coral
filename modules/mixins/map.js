@@ -2,7 +2,7 @@
 import Vue          from 'vue'
 import worldEUHigh  from '~/static/worldEUHigh'
 import Pin          from '~/components/default/MapPin'
-import PinModal     from '~/components/default/PinModal'
+// import PinModal     from '~/components/default/PinModal'
 
 let AmChart
 
@@ -11,7 +11,9 @@ export default {
     return {
     map:null
   } },
-  components:{Pin, PinModal},
+  components:{
+    PinModal:()=> import('~/components/default/PinModal')
+  },
   computed: {
     events: function(){return this.$store.state.events.docs[this.$i18n.locale] || []}
   },

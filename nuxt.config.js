@@ -20,7 +20,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'nativeUI', content:true },
-      // { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: '#00405c' }
     ],
@@ -31,8 +31,7 @@ module.exports = {
   css: [
     { src: '@/assets/sass/main.sass', lang: 'sass' },
     { src: '@/assets/css/fontello.css' },
-    { src: '@/assets/css/main.css' },
-    { src: 'swiper/dist/css/swiper.css' }
+    { src: '@/assets/css/main.css' }
   ],
   // ============================================================
   //  Customize the progress-bar color

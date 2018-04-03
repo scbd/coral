@@ -22,7 +22,7 @@
 
       <Subtitle>{{$t('news')}}</Subtitle>
 
-      <div class="row-one is-hidden-touch" >
+      <div class="row-one is-hidden-touch" v-if="!$breakpoints.isTouch">
           <TwitterGrid/>
       </div>
   </section>
