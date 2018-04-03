@@ -18,6 +18,7 @@ export default {
   mounted() {
     require('ammap3')
     this.initMap()
+    this.hideEu()
     this.createPinImages()
     this.map.validateData()
     this.dropPins()
@@ -28,17 +29,16 @@ export default {
 
     this.map.addListener("click", function(event) {
       let info = event.chart.getDevInfo();
-        console.log({
-          "latitude": info.latitude,
-          "longitude": info.longitude
-        });
+        console.log(info);
     })
+
   },
   methods:{
     dropPins:dropPins,
     createPinImages:createPinImages,
     initMap:initMap,
-    updateCustomMarkers:updateCustomMarkers
+    updateCustomMarkers:updateCustomMarkers,
+    hideEu:hideEu
   }
 }// export
 
@@ -58,6 +58,18 @@ function createPinImages() {
     images[i].label = ' '
   }
 }//createPinImages
+
+//=======================================================================
+//
+//=======================================================================
+function hideEu() {
+
+  if(this.map && this.map.dataProvider)
+  for (let map of this.map.dataProvider.areas) {
+      if(map.id==='divider1' || map.id==='EU')
+        map.colorReal = '#3fa9f5'
+  }
+}
 
 //=======================================================================
 //
