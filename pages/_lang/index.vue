@@ -71,13 +71,12 @@
 <style scopped>
   .msg-button span{
     font-size: 1.5em;
-    margin-top: -.3em;
+    margin-top: 0;
     font-weight:900;
   }
   .msg-button:hover {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
     transform: translateY(-4px);
-
   }
   .row-one{
     display:flex;
