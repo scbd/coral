@@ -56,7 +56,7 @@ import MapMixin     from '~/modules/mixins/map'
       background-color: #00405c;
       border-color: #00405c;
       color:#ffffff;
-      z-index: 9999999999999;
+      z-index: 100;
       margin-top: .6em;
     }
     .map-button:hover {
