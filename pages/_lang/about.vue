@@ -50,8 +50,8 @@
         <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener">
         <div class="square-content" >
           <div class="top"><div>
-            <img :src="$CBDImage.get('cbd-logo-green.jpg',295)" v-if="!$breakpoints.isTouch"/>
-            <img :src="$CBDImage.get('cbd-logo-green.jpg',147)" v-if="$breakpoints.isTouch"/>
+            <img v-lazy="$CBDImage.get('cbd-logo-green.jpg',295)" v-if="!$breakpoints.isTouch"/>
+            <img v-lazy="$CBDImage.get('cbd-logo-green.jpg',147)" v-if="$breakpoints.isTouch"/>
           </div></div>
           <div class="bottom"><div> {{$t('cbdPOWMCB')}}</div></div>
         </div>
@@ -61,8 +61,8 @@
         <div class="square-content" >
           <a href="https://www.cbd.int/ebsa/" target="_blank" rel="noopen">
             <div class="top"><div>
-              <img :src="$CBDImage.get('EBSA_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
-              <img :src="$CBDImage.get('EBSA_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
+              <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
+              <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
             </div></div>
             <div class="bottom"><div>{{$t('ebsa')}}</div></div>
           </a>
@@ -72,8 +72,8 @@
         <div class="square-content" >
           <a href="https://www.cbd.int/soi/" target="_blank" rel="noopen">
             <div class="top"><div>
-              <img :src="$CBDImage.get('SOI_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
-              <img :src="$CBDImage.get('SOI_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
+              <img v-lazy="$CBDImage.get('SOI_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
+              <img v-lazy="$CBDImage.get('SOI_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
             </div></div>
             <div class="bottom"><div>{{$t('soi')}}</div></div>
           </a>

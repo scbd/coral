@@ -28,6 +28,5 @@
   .text-holder-two{
     max-width:700px;
     color:white;
-    font-size: 1.4em;
   }
 </style>

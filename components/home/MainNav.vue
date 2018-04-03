@@ -19,7 +19,7 @@
       </div>
       <div class="column is-one-half-mobile" >
         <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('commitments')" >
-          <div class="main-menu comm-style">
+          <div class="main-menu comm-style ">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" preserveAspectRatio="xMinYMid meet" class="svg-content">
                 <title>Commitments Icon</title>
                 <path class="comm-style" d="M2 42h24v4H2zm8.49-25.858l5.658-5.657L44.432 38.77l-5.657 5.656zM24.627 2.006L35.94 13.32l-5.656 5.656L18.97 7.663zm-16.97 16.97L18.97 30.29l-5.656 5.657L2 24.633z"/>
@@ -176,7 +176,7 @@ export default {
 }
 
 .main-menu{
-  /*margin: 0 1px 0 10px 0;*/
+
   border-radius: 25px;
   padding: 10px;
   text-align: center;

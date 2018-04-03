@@ -36,7 +36,7 @@ export default {
 //============================================================
 function getAction ({state, commit},data){
   let action = getByIdentifier(state,data)
-  console.log('action ',data )
+
   if(action)
     commit('setPin',action)
 }
@@ -117,7 +117,6 @@ function eventsMutation (state,payLoad){
     for (let index in state.docs[locale])
       state.docs[locale][index] = normalize(state.docs[locale][index], locale)
 
-console.log(state.docs[locale])
     Vue.set(state.docs,locale,removeDuplicates(state.docs[locale], 'identifier_s'))
 }
 
