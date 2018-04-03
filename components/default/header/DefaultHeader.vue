@@ -167,8 +167,12 @@ export default {
 }
 </script>
 <style scoped>
+.default-header{
+  background-color: #00405c;
+}
 .navbar-item:hover,.navbar-link:hover, .is-active {
     color: #ff5690  !important;
+
 }
 .main-nav-mobi{
   position: fixed;
@@ -239,7 +243,7 @@ export default {
   }
   .default-header{
     position:relative;
-    background-color: unset;
+    background-color: #00405c;
     /* margin-top:65px; */
     min-height:120px;
   }
