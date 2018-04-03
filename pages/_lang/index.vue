@@ -11,18 +11,18 @@
       <Subtitle>{{$t('IYOR2018')}}</Subtitle>
 
       <CoralSection>
-        2018 will mark the third annual Year of the Reef. Visit the website to learn more about the International Year of the Reef (IYOR).
+        {{$t('iyor')}}
         <div class="center-div">
           <br/>
-          <button class="button is-rounded is-primary dark-blue">
-            <h2 style="margin-top:-12px;">Visit Website</h2>
-          </button>
+          <a href="https://www.iyor2018.org/" target="_blank" rel="noopener nofollow" class="button is-rounded is-primary dark-blue msg-button">
+            <span>{{$t('visitWebsite')}}</span>
+          </a>
         </div>
       </CoralSection>
 
       <Subtitle>{{$t('news')}}</Subtitle>
 
-      <div class="row-one" >
+      <div class="row-one is-hidden-touch" >
           <TwitterGrid/>
       </div>
   </section>
@@ -69,6 +69,16 @@
 </script>
 
 <style scopped>
+  .msg-button span{
+    font-size: 1.5em;
+    margin-top: -.3em;
+    font-weight:900;
+  }
+  .msg-button:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+
+  }
   .row-one{
     display:flex;
     flex-direction: column;
