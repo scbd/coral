@@ -122,9 +122,7 @@ methods: {
 </script>
 
 <style scoped>
-.spacer{
-  margin-bottom: 50px;
-}
+
 .hover {
 
   display: inline-block;
@@ -159,9 +157,9 @@ methods: {
     font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
     font-weight: 400;
     color:#ffffff;
-    font-size: .75em;
+    font-size: 1em;
     padding: 0 0 0 0;
-    line-height: normal;
+    line-height: 1.3;
     white-space: nowrap;
   }
   .address a{
@@ -175,7 +173,7 @@ methods: {
     font-weight: 400;
     background-color: unset;
     color:#ffffff;
-    font-size: .75em;
+    font-size: 1em;
     padding: 0 0 0 0;
   }
   .menu-list a.is-active  {
@@ -190,9 +188,10 @@ methods: {
   .f-title{
     text-transform: uppercase;
     font-weight: 900;
+    font-size:1.2em;
   }
   .bottom-grid{
-    margin-top: 80px;
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
@@ -205,7 +204,7 @@ methods: {
   }
   .f-grid div {color:#ffffff;}
   .f-grid .centered {text-align: center;}
-  .bottom-grid a{  font-size: .75em;font-weight: 500;color:white;}
+  .bottom-grid a{  font-size: 1em;font-weight: 500;color:white;}
   .bottom-grid a:hover{color:#ff3e94;}
   .bottom-grid div{text-align: center;}
   .coral-footer {

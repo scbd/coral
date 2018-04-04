@@ -47,7 +47,7 @@
 
     <div class="container is-fullhd other-work-grid">
       <div class="square-box">
-        <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener">
+        <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener" :title="$t('scbdLogo')" :alt="$t('scbdLogo')">
         <div class="square-content" >
           <div class="top"><div>
             <img v-lazy="$CBDImage.get('cbd-logo-green.jpg',295)" v-if="!$breakpoints.isTouch"/>
@@ -59,7 +59,7 @@
       </div>
       <div class="square-box">
         <div class="square-content" >
-          <a href="https://www.cbd.int/ebsa/" target="_blank" rel="noopen">
+          <a href="https://www.cbd.int/ebsa/" target="_blank" rel="noopener" :title="$t('ebsaLogo')" :alt="$t('ebsaLogo')">
             <div class="top"><div>
               <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
               <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
@@ -70,7 +70,7 @@
       </div>
       <div class="square-box">
         <div class="square-content" >
-          <a href="https://www.cbd.int/soi/" target="_blank" rel="noopen">
+          <a href="https://www.cbd.int/soi/" target="_blank" rel="noopener" :title="$t('soiLogo')" :alt="$t('soiLogo')">
             <div class="top"><div>
               <img v-lazy="$CBDImage.get('SOI_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
               <img v-lazy="$CBDImage.get('SOI_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
