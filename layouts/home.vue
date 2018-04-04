@@ -117,13 +117,13 @@ main{padding-top:1.3em;}
 .tint:before {
   content: "";
   display: block;
-  height:99.3%;
+  height:100%;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,139, 0.4);
+  background: rgba(0,64,92, 0.7);
   -moz-transition: background .3s linear;
   -webkit-transition: background .3s linear;
   -o-transition: background .3s linear;
@@ -138,7 +138,7 @@ main{padding-top:1.3em;}
 .hero-body{
   z-index: 100;
   position:absolute;
-  top:20%;
+  top:15%;
   width:100%;
 
 }
