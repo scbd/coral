@@ -2,7 +2,7 @@
   <div class="card coral-card">
       <div class="card-image">
           <figure class="image">
-              <img v-lazy="$CBDImage.get('card-bg.jpg',320)" :alt="$t('pinkCamo')">
+              <img v-lazy="getImage" :alt="$t('pinkCamo')">
           </figure>
       </div>
       <div class="card-content">
@@ -36,6 +36,18 @@
     },
     methods:{
       toLocaleString:toLocaleString
+    },
+    computed:{
+      getImage:function(){
+
+        if(this.doc.resourceType==='ed')
+          return this.$CBDImage.get('education-resource.jpg',320)
+
+        if(this.doc.schema==='event')
+          return this.$CBDImage.get('action-card-cover.jpg',320)
+          
+        return this.$CBDImage.get('scbd-resource.jpg',320)
+      }
     },
     filters:{
       trunc(text,length=110,tail='...'){
