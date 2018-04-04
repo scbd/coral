@@ -205,6 +205,7 @@ function setMutation (state,payLoad){
     state.docs[locale] = docs
     for (let variable of state.docs[locale]) {
         variable = normalize(variable, locale)
+        variable = setResourceType(variable, state)
     }
     Vue.set(state.docs,locale,removeDuplicates(state.docs[locale], 'identifier_s'))
 }
@@ -268,7 +269,17 @@ function normalize (doc, locale) {
 
     return doc
 }
+//============================================================
+//
+//============================================================
+function setResourceType(doc, state) {
 
+    if(~state.scdbMaterials.indexOf(doc.identifier_s))
+      doc.resourceType='scbd'
+
+    if(~state.edMaterials.indexOf(doc.identifier_s))
+      doc.resourceType='ed'
+}
 
 
 function removeDuplicates(arr, key) {
