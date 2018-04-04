@@ -33,7 +33,7 @@
 
     <div class="columns main-level is-mobile is-hidden-desktop is-hidden-tablet" >
         <div class="column is-half-mobile" >
-          <nuxt-link class="home-links" :to="$i18n.path('initiatives')">
+          <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('initiatives')">
             <div class="main-menu initistives-style">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 130" preserveAspectRatio="xMidYMin meet" class="svg-content">
                 <title>Initiatives Icon</title>
@@ -46,7 +46,7 @@
           </nuxt-link>
         </div>
         <div class="column is-one-half-mobile" >
-          <nuxt-link class="home-links" :to="$i18n.path('actions')">
+          <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('actions')">
             <div class="main-menu action-style">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 130"preserveAspectRatio="xMidYMin meet" class="svg-content">
                 <title>Action Asset</title>
@@ -116,7 +116,7 @@
     </div>
 
     <div class="column" >
-      <nuxt-link class="home-links" :to="$i18n.path('resources')">
+      <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('resources')">
         <div class="main-menu resources-fill">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 130" preserveAspectRatio="xMidYMin meet" class="svg-content">
             <title>Resources</title>
@@ -142,18 +142,18 @@ export default {
 }
 </script>
 <style scoped>
-.column{padding: .5em 1.9em 1.8em 1.9em;}
-.about-style{fill:#00809a; border: 5px solid #00809a;}
-.comm-style{fill:#aacfff; border: 5px solid #aacfff;}
-.initistives-style{fill:#dca3ff; border: 5px solid #dca3ff;}
-.action-style{fill:#ca7680; border: 5px solid #ca7680;}
-.resources-fill{fill:#ff3e80; border: 5px solid #ff3e80;}
 
-.about-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
-.comm-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
-.initistives-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
-.action-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
-.resources-fill:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
+.about-style{fill:#00809a; }
+.comm-style{fill:#aacfff; }
+.initistives-style{fill:#dca3ff; }
+.action-style{fill:#ca7680; }
+.resources-fill{fill:#ff3e80; }
+
+.about-style:hover{fill:#ffffff; }
+.comm-style:hover{fill:#ffffff; }
+.initistives-style:hover{fill:#ffffff;}
+.action-style:hover{fill:#ffffff; }
+.resources-fill:hover{fill:#ffffff;}
 
 .about-style:hover svg path {fill:#ffffff; }
 .comm-style:hover svg path  {fill:#ffffff; }
@@ -170,8 +170,8 @@ export default {
 
 }
 .svg-content {
-	width: 50px;
-  height:50px
+	width: 80px;
+  height: 80px;
   /*float: left;*/
 }
 
@@ -199,14 +199,48 @@ export default {
   font-size: 14px;
   margin: 0 10px 0 10px;
 }
+@media (min-width: 768px){
+  .column{padding: .5em 1em 1em 1em;}
+  .about-style{fill:#00809a; border: 5px solid #00809a;}
+  .comm-style{fill:#aacfff; border: 5px solid #aacfff;}
+  .initistives-style{fill:#dca3ff; border: 5px solid #dca3ff;}
+  .action-style{fill:#ca7680; border: 5px solid #ca7680;}
+  .resources-fill{fill:#ff3e80; border: 5px solid #ff3e80;}
 
-@media (min-width:1120px){
+  .about-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
+  .comm-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
+  .initistives-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
+  .action-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
+  .resources-fill:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
+
   .svg-content {
-  	width:150px;
-    height:150px
+    width:50px;
+    height:50px
   }
   .home-links{
     font-size: 1.1em;
+  }
+}
+@media (min-width:1120px){
+  .column{padding: .5em 1.9em 1.8em 1.9em;}
+  .svg-content {
+  	width:110px;
+    height:110px
+  }
+
+}
+@media (min-width:1216px){
+
+  .svg-content {
+  	width:125px;
+    height:125px
+  }
+}
+@media (min-width:1408px){
+
+  .svg-content {
+  	width:150px;
+    height:150px
   }
 }
 </style>
