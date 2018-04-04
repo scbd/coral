@@ -179,7 +179,7 @@ export default {
   bottom:52px;
   background-color: #ffffff;
   width: 100%;
-  z-index:  500;
+  z-index:  99999;
 }
 .navbar-brand{
   align-self:center;
