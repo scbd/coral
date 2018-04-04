@@ -110,7 +110,7 @@ export default {
   font-size: 1em;
   white-space: nowrap;
   display:inline-block;
-  color:#bdbdbd;
+  color:	#666666	;
   font-family: "Helvetica Neue", Helvetica, sans-serif, "Trebuchet MS";
   text-shadow: 0 1px 0 rgba(255,255,255,.25);
   font-size: 16px;
