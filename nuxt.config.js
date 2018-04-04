@@ -2,7 +2,7 @@ require('dotenv').config()
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 const path = require('path')
-
+console.log(process.env.baseUrl)
 module.exports = {
   render:{resourceHints:false},
   env: {

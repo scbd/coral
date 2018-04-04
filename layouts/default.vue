@@ -27,6 +27,7 @@
     components: {GlobalBar,CoralFooter,DefaultHeader,DividerGradBar,CoralDivider},
     computed: {
       isAr: function () {
+        console.log(process.env)
         return !!(this.$store.state.locale.locale === 'ar')
       }
     },
