@@ -61,7 +61,7 @@
             <div class="address"><a href="tel:+1-514-288-2220" target="_blank" rel="noopener">1 514 288 2220 </a></div>
           </div>
           <div class="centered">
-              <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
+              <a class="bottom-row" href="https://www.facebook.com/UNBiodiversity/" target="_blank" rel="noopener nofollow">
                   <div class="hover ">
                     <img    v-on:mouseover="mouseOver('fbActive')" v-lazy="$CBDImage.get('facebook-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
                     <div class="overlay"  v-if="fbActive" v-on:mouseleave="mouseOver('fbActive')">&nbsp;</div>
@@ -69,7 +69,7 @@
               </a>
           </div>
           <div class="centered">
-            <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
+            <a class="bottom-row" href="https://www.linkedin.com/company/secretariat-of-the-convention-on-biological-diversity/" target="_blank" rel="noopener nofollow">
                <div class="hover ">
                 <img   v-on:mouseover="mouseOver('liActive')" v-lazy="$CBDImage.get('linkedin-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
                 <div class="overlay"  v-if="liActive" v-on:mouseleave="mouseOver('liActive')">&nbsp;</div>
@@ -77,7 +77,7 @@
             </a>
           </div>
           <div class="centered" v-on:mouseover="twActive=true;" v-on:mouseout="twActive=false;">
-              <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
+              <a class="bottom-row" href="https://twitter.com/cbdnews" target="_blank" rel="noopener nofollow">
                 <div class="hover">
                   <img   v-on:mouseover="mouseOver('twActive')"  v-lazy="$CBDImage.get('twitter-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
                   <div class="overlay"  v-if="twActive" v-on:mouseleave="mouseOver('twActive')">&nbsp;</div>
