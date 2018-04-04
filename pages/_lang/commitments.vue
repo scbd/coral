@@ -66,7 +66,7 @@
 
         <Subtitle>{{$t('subTitle')}}</Subtitle>
         <CoralSectionTwo><div >{{$t('subDescription')}}</div></CoralSectionTwo>
-        
+
         <div class="container is-fullhd linkages">
 
           <Commitment :title="$t('climateChangeTitle')" :description="$t('climateChangeDescription')" color="#00405c"
@@ -147,7 +147,7 @@
   }
 
   .linkages{
-    margin-top:20px;
+    margin-bottom:1.5em;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap:20px;
