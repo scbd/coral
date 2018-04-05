@@ -4,7 +4,7 @@
       <DefaultHeader />
       <DividerGradBar />
       <main >
-        <nuxt :class="{'rtl':isAr}"/>
+        <nuxt class="margins" :class="{'rtl':isAr}"/>
       </main>
       <CoralDivider/>
       <DividerGradBar :size="Number(24)" />
@@ -27,7 +27,6 @@
     components: {GlobalBar,CoralFooter,DefaultHeader,DividerGradBar,CoralDivider},
     computed: {
       isAr: function () {
-        console.log(process.env)
         return !!(this.$store.state.locale.locale === 'ar')
       }
     },
@@ -60,3 +59,8 @@
     }
   }
 </script>
+<style>
+  main .margins{
+    margin: 4em 0 2em 0;
+  }
+</style>

@@ -20,9 +20,9 @@
         </div>
       </CoralSection>
 
-      <Subtitle>{{$t('news')}}</Subtitle>
+      <Subtitle v-if="!$breakpoints.isMobile">{{$t('news')}}</Subtitle>
 
-      <div class="row-one is-hidden-touch" v-if="!$breakpoints.isTouch">
+      <div class="row-one" v-if="!$breakpoints.isMobile">
           <TwitterGrid/>
       </div>
   </section>

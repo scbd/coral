@@ -3,18 +3,18 @@
 
       <TitleDescription
         :title="$t('titleShort')"
-        :description="$t('description')"
+        :description="' '"
         color="#ff3e94">
         <ResourceIcon width="100%" color="#ff3e94"/>
         <div class="search" slot="description">
           <div >
             <div class="columns">
               <div class="column">
-                <div class="search-title">{{$t('filterByKeyword')}}</div>
+                <div class="search-title"><label for="resource-search">{{$t('filterByKeyword')}}</label></div>
                 <div>
                    <div class="field">
                     <p class="control has-icons-left has-icons-right">
-                      <input class="input"  v-model.trim="search" type="text" :placeholder="$t('keyWordPhrase')">
+                      <input id="resource-search" :aria-label="$t('filterByKeyword')" class="input"  v-model.trim="search" type="text" :placeholder="$t('keyWordPhrase')">
 
                       <span class="icon is-small is-right" v-if="!search">
                         <i class="fontello icon-search" ></i>

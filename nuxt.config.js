@@ -2,7 +2,7 @@
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 const path = require('path')
-console.log(process.env.baseUrl)
+
 module.exports = {
   render:{resourceHints:false},
   env: {
@@ -17,6 +17,10 @@ module.exports = {
   // ============================================================
   head: {
     titleTemplate: '%s | UN Biodiversity',
+     __dangerouslyDisableSanitizers: ['script'],
+    script: [
+      { innerHTML:  'if(typeof navigator !== \'undefined\' )if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)) { console.log = function(){}; }; if(typeof Object.assign!=\'function\'){Object.defineProperty(Object,"assign",{value:function assign(target,varArgs){\'use strict\';if(target==null){throw new TypeError(\'Cannot convert undefined or null to object\');}var to=Object(target);for(var index=1;index<arguments.length;index++){var nextSource=arguments[index];if(nextSource!=null){for(var nextKey in nextSource){if(Object.prototype.hasOwnProperty.call(nextSource,nextKey)){to[nextKey]=nextSource[nextKey]}}}}return to},writable:true,configurable:true})}' }
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'nativeUI', content:true },
@@ -66,7 +70,8 @@ module.exports = {
     '~/modules/plugins/ImageApi.js',
     '~/modules/plugins/vuex-router-sync.js',
     '~/modules/plugins/i18n.js',
-    { src: '~/modules/plugins/swiper.js', ssr: false }
+    { src: '~/modules/plugins/swiper.js', ssr: false },
+     { src: '~/modules/plugins/polyfill.js', ssr: false }
     // {src: '~/modules/plugins/ga.js', ssr: false},
     // {src: '~/modules/plugins/gtm.js', ssr: false}
   ],
@@ -88,11 +93,26 @@ module.exports = {
   // ============================================================
   // Build configuration
   // ============================================================
-  build: {  resourceHints:false,
+  build: {  resourceHints:true,
     extractCSS:true,
     analyze: false, //process.env.analyzeBuild,
   //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon''~/modules/plugins/ImageApi.js',,'~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'//
-    vendor: ['vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints'],
+    vendor: ['babel-polyfill','vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints'],
+
+
+    	babel: {
+        presets({isServer}) {
+            return [
+                [
+                    'vue-app',
+                    {
+                         useBuiltIns: true,
+                        targets: isServer ? { node: 'current' } : {ie: 11, uglify: true}
+                    }]
+            ];
+        }
+    	},
+
     extend (config, { isDev, isClient }) {
 
       if (!isDev) {
@@ -111,9 +131,19 @@ module.exports = {
       }
     },
     postcss: {
+
       plugins: {
-        'postcss-custom-properties': false
-      }
+         'postcss-custom-properties': false,
+         'postcss-cssnext': {
+           browsers: ['last 2 versions', 'ie >= 10'],
+           features: {
+              customProperties: false
+            }
+         },
+         'autoprefixer':{grid: true, flexbox:true, browsers:['last 2 versions', 'ie >= 10']},
+         'postcss-flexbugs-fixes':{}
+       }
+
     }
 
     // plugins: [

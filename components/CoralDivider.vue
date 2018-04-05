@@ -16,7 +16,7 @@
     background-position: center bottom;
     background-size: 70%;
     height:35px;
-    margin-bottom:-2px;
+    margin-bottom: 10px;
   }
   @media (min-width:500px){
     .coral-div{
@@ -47,6 +47,7 @@
     .coral-div{
       background-size: auto;
       height:108px;
+      margin-bottom: -2px;
     }
   }
 </style>

@@ -2,10 +2,10 @@
   <section>
       <transition name="slide-fade">
         <div v-if="show" class="gobal-menu" :style="{ 'background-color' : backgroundColor }">
-          <div class="gobal-grid" >
-              <scbd />
+          <div class="level is-mobile is-marginless" >
+              <scbd class="level-left"/>
               <span>&nbsp;</span>
-              <locale/>
+              <locale class="level-right"/>
           </div>
           <div class="is-hidden-desktop" >
             <transition name="slide-fade">
@@ -89,8 +89,10 @@ export default {
 
 
 .gobal-grid{
+  display: -ms-grid;
   display: grid;
   grid-template-columns: .8fr 1fr .02fr;
+  -ms-grid-columns: .8fr 1fr .02fr;
 }
   .gobal-menu{
     background-color: #fff;
@@ -146,11 +148,13 @@ export default {
   @media (min-width:1024px){
     .gobal-grid{
       grid-template-columns: .17fr 1fr .02fr;
+      -ms-grid-template-columns:.8fr 1fr .02fr;
     }
   }
   @media (min-width:1024px){
     .gobal-grid{
       grid-template-columns: .17fr 1fr .02fr;
+      -ms-grid-template-columns:.17fr 1fr .02fr;
     }
   }
 </style>

@@ -118,6 +118,7 @@ export default {
 }
 .navbar-link:after{
   border: unset;
+  border: 0px;
 }
 
 /* Enter and leave animations can use different */

@@ -2,7 +2,7 @@
   <div class="card coral-card">
       <div class="card-image">
           <figure class="image">
-              <img v-lazy="getImage" :alt="$t('pinkCamo')">
+              <img class="header-img" v-lazy="getImage" :alt="$t('pinkCamo')">
           </figure>
       </div>
       <div class="card-content">
@@ -12,10 +12,9 @@
           </div>
           <div class="card-bottom" :class="{'card-bottom-paginated':this.paginated}">
             <p><time :datetime="doc.startDate  || doc.startDate_dt" v-if="doc.startDate || doc.startDate_dt">{{toLocaleString(doc.startDate || doc.startDate_dt)}}</time></p>
-            <a class="button is-primary pink" :href="doc.url_ss[0]" target="_blank" rel="noopener nofollow">
+            <a class="button  is-primary" :class="{'pink':!isEvent,'pink-event':isEvent}" :href="doc.url_ss[0]" target="_blank" rel="noopener nofollow">
               View
             </a>
-
           </div>
       </div>
   </div>
@@ -44,9 +43,15 @@
           return this.$CBDImage.get('education-resource.jpg',320)
 
         if(this.doc.schema==='event')
-          return this.$CBDImage.get('action-card-cover.jpg',320)
-          
+          return this.$CBDImage.get('Actions_.svg')
+
         return this.$CBDImage.get('scbd-resource.jpg',320)
+      },
+      isEvent:function(){
+        if(this.doc.schema==='event')
+          return true
+
+        return false
       }
     },
     filters:{
@@ -68,13 +73,20 @@
 </script>
 
 <style scopped>
+.header-img{
+  width:100%;
+}
+
   .pink {
     font-size: 1em;
-    background-color: #e8768d !important;
+    background-color: #ff3e94 !important;
     font-weight: 900;
     margin-top: .5em;
     transition: all 0.3s ease 0s;
     border-radius: 10px;
+  }
+  .pink-event{
+    background-color: #C37680 !important;
   }
   .pink:hover {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);

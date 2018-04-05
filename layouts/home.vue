@@ -3,10 +3,10 @@
       <GlobalBar  />
       <DefaultHeader v-if="$breakpoints.isTouch"/>
       <div class="hero">
-        <div class="hero-header tint" >
+        <div class="hero-header" :class="{tint:$breakpoints.isMobile}">
 
               <img class="home-img" v-lazy="getHomeImg()"  :title="$t('homeImage')" :alt="$t('homeImage')">
-              <div class="filler debug" >&nbsp;</div>
+              <div class="filler" >&nbsp;</div>
 
             <div class="logo-container" >
               <CoralLogo class="logo"/>
@@ -19,7 +19,7 @@
             </div>
         </div>
       </div>
-      <main>
+      <main >
         <nuxt :class="{'rtl':isAr}"/>
       </main>
       <CoralDivider/>
@@ -50,10 +50,12 @@ export default {
   },
   mounted (){
 
-    if(/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)) { console.log = function(){}; }
   },
   head () {
     return {
+      // script: [
+      //   { src: 'https://cdn.polyfill.io/v2/polyfill.min.js' }
+      // ],
       link: [
         // We use $route.path since we don't use query parameters
         {
@@ -104,9 +106,10 @@ export default {
 </style>
 
 <style scoped>
-main{padding-top:1.3em;}
+.main{padding-top:4em;}
 .hero{
     background-color: #00405c;
+    margin-bottom:4em;
 }
 .filler{
   margin-top:-.7em;
@@ -133,7 +136,7 @@ main{padding-top:1.3em;}
   position:relative;
   background-repeat: no-repeat;
   background-size: cover;
-
+  height:100%;
 }
 .hero-body{
   z-index: 100;

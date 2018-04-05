@@ -22,8 +22,14 @@
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    margin-bottom: 1.5em;
+    margin-bottom: 4em;
     min-height:450px;
+  }
+  .holder-two:after{
+    content:'';
+    min-height:inherit;
+    font-size:0;
+    display: block;
   }
   .text-holder-two{
     max-width:700px;

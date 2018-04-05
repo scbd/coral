@@ -1,8 +1,8 @@
 {
-  "title":"Coral Reef Resources",
+  "title":"Coral Reef Biodiversity Resources",
   "titleShort":"Resources",
   "search":"Search Results",
-  "description":"",
+  "description":"Curated list of Coral Reef Biodiversity Resources from the Secretariat of the Convention on Biological Diversity's clearing house mechinism",
   "cbdMaterials" : "SCBD Materials",
   "educationOutreachMaterials" : "Education Materials",
   "forReefManagers":"Training/Capacity Building Materials for Reef Managers",
@@ -17,6 +17,7 @@
   "noRecords":"No records found with search results:",
   "publicatoinYear":"Publicatoin Year",
   "ofType":"Of Type",
-  "keyword":"Keyword"
+  "keyword":"Keyword",
+  "keyWordPhrase":"Key Words"
 
 }

@@ -47,7 +47,7 @@ export default {
 <style scoped>
 
 .navbar-link:after{
-  border: unset;
+  border: 0px;
 }
 .caret {
     display: inline-block;

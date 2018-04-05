@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 550 128.19" >
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 600 128.19" preserveAspectRatio="xMinYMax meet">
       <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
       <desc > {{ $t('CORAL') }} {{ $t('REEFS') }} </desc>
       <defs>

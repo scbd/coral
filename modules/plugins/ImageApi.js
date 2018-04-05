@@ -55,8 +55,10 @@ export default async function (ctx, inject) {
     if(!name || !width) throw new Error('GetImageServer Lazy load image request must have a name and width.')
 
     if(!height) height = width
-
-    return `https://attachments.cbd.int/${width}x${height}/${name}`
+    if(~name.indexOf('.svg'))
+      return `https://attachments.cbd.int/${name}`
+    else
+      return `https://attachments.cbd.int/${width}x${height}/${name}`
   }
 
   //============================================================
@@ -68,13 +70,15 @@ export default async function (ctx, inject) {
 
     if(!height) height = width
 
-    if(supportsWebP  && !~name.indexOf('.webp') && !~name.indexOf('.png')){
+    if(supportsWebP  && !~name.indexOf('.webp') && !~name.indexOf('.png') && !~name.indexOf('.svg')){
 
       name = addWebP(name)
       return `https://attachments.cbd.int/${width}x${height}/${name}`
     }
-
-    return `https://attachments.cbd.int/${width}x${height}/${name}`
+    if(~name.indexOf('.svg'))
+      return `https://attachments.cbd.int/${name}`
+    else
+      return `https://attachments.cbd.int/${width}x${height}/${name}`
   }
 
   //============================================================

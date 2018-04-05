@@ -6,13 +6,13 @@
           <div class="modal-container" >
 
             <div class="modal-header" :class="{'modal-header-height':hasCover}"  v-lazy:background-image="getCover()">
-              <section class="hero">
+
                 <div class="hero-body" >
                     <h1 class="title" :class="{'has-cover':hasCover}" >
                     {{doc.title}}
                     </h1>
                 </div>
-              </section>
+
             </div>
 
             <div class="modal-body ">
@@ -117,12 +117,15 @@
   font-size: .8em;
 }
 .hero-body .title{
+  position: absolute;
+  top:25%;
+  right: 0px;
+  left: 0px;
   text-align: center;
   color:#fff;
   background-color: rgba(0, 0, 0, .5);
   padding: .5em .5em .5em .5em;
   font-size: 1em;
-
 }
 .modal-mask {
   position: fixed;

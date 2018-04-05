@@ -1,35 +1,28 @@
 <template>
   <section>
 
-    <nav class="navbar is-transparent default-header is-hidden-touch" v-lazy:background-image="$CBDImage.get('coral-urban-camo-background.jpg')">
-      <div class="container">
-          <div class="navbar-brand is-paddingless">
-            <nuxt-link class="navbar-item"  to="/">
-              <CoralLogo class="logo"/>
-            </nuxt-link>
-          </div>
-
-          <div class="navbar-item" style="flex-grow: 1;">
-            <div class="level is-mobile" style="width:100%;">
-              <div class="level-item" >
-                <nuxt-link class="main-nav"  :to="$i18n.path('about')">
-                  {{ $t('about') }}
+    <nav class="default-header is-hidden-touch " v-lazy:background-image="$CBDImage.get('coral-header-background-blue-camo.svg')">
+      <div class="container is-fullhd" >
+            <div class="level is-mobile " >
+                <nuxt-link  class="level-item main-nav logo-wrapper"  to="/">
+                  <CoralLogo  class="logo"/>
                 </nuxt-link>
-              </div>
-              <nuxt-link class="level-item main-nav"  :to="$i18n.path('commitments')">
-                {{ $t('commitments') }}
+                <nuxt-link class="level-item main-nav is-marginless"   :to="$i18n.path('about')">
+                  <div class="menu-text">{{ $t('about') }}</div>
+                </nuxt-link>
+              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('commitments')">
+                <div class="menu-text">{{ $t('commitments') }}</div>
               </nuxt-link>
-              <nuxt-link class="level-item main-nav"  :to="$i18n.path('initiatives')">
-                {{ $t('initiatives') }}
+              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('initiatives')">
+                <div class="menu-text">{{ $t('initiatives') }}</div>
               </nuxt-link>
-              <nuxt-link class="level-item main-nav"  :to="$i18n.path('actions')">
-                {{ $t('actions') }}
+              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('actions')">
+                <div class="menu-text">{{ $t('actions') }}</div>
               </nuxt-link>
-              <nuxt-link class="level-item main-nav"  :to="$i18n.path('resources')">
-                {{ $t('resources') }}
+              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('resources')">
+                <div class="menu-text">{{ $t('resources') }}</div>
               </nuxt-link>
             </div>
-          </div>
         </div>
     </nav>
 
@@ -167,12 +160,26 @@ export default {
 }
 </script>
 <style scoped>
+.container .level {
+  height:120px;
+}
+
+.logo-wrapper{
+  min-width:300px;
+}
 .default-header{
   background-color: #00405c;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 .navbar-item:hover,.navbar-link:hover, .is-active {
     color: #ff5690  !important;
 
+}
+.menu-text{
+  width:100%;
+  text-align:right;
 }
 .main-nav-mobi{
   position: fixed;
@@ -183,7 +190,7 @@ export default {
 }
 .navbar-brand{
   align-self:center;
-  padding-left: 1.5em;
+  /* padding-left: 1.5em; */
 }
 .top{font-size:54px;}
 .top,.bottom{fill:#00405c;font-family:Roboto-Black, Roboto, Arial, Helvetica, sans-serif, Trebuchet MS; font-weight: 900;}
@@ -215,9 +222,16 @@ export default {
   width:75px;
   margin-top: 5px;
   margin-left: 9px;
+
 }
 
 @media (min-width:1024px){
+  .navbar{
+    min-height:120px;
+  }
+  .level{
+    min-height:120px;
+  }
   .top,.bottom{fill:#ffffff;}
   .nav-bar-img{
     position:absolute;
@@ -238,14 +252,16 @@ export default {
   }
   .logo{
     width:100%;
+    max-width:379px;
+    align-self:start;
     /* margin-right:1em; */
-    margin-left:.7em;
+    /* margin-left:.7em; */
   }
   .default-header{
     position:relative;
     background-color: #00405c;
     /* margin-top:65px; */
-    min-height:120px;
+    height:120px;
   }
   .navbar-item{
     align-self: flex-end;
@@ -254,6 +270,7 @@ export default {
     font-weight: 600;
     font-size: 1.2em;
     color:#ffffff;
+    align-self: flex-end;
   }
   .main-nav:hover{
     color:#ff3e94;

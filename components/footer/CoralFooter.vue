@@ -1,10 +1,10 @@
 <template>
   <section >
     <div class="spacer is-hidden-desktop">&nbsp;</div>
-    <div  class="coral-footer is-hidden-touch" v-lazy:background-image="$CBDImage.get('coral-blue-camo-background-footer.jpg')">
-      <footer class="container is-fullhd ">
-        <div class="f-grid ">
-          <div class="centered">
+    <div  class="coral-footer is-hidden-touch" v-lazy:background-image="$CBDImage.get('coral-footer-background-blue-camo.svg')">
+      <footer class="container is-fullhd">
+        <div class="columns">
+          <div class="column  centered">
             <a href="http://ec.europa.eu/environment/nature/index_en.htm" target="_blank" rel="noopener nofollow" >
               <div class="hover ">
                 <img  v-on:mouseover="mouseOver('euActive')" v-lazy="$CBDImage.get('european-union-icon.png',83)" :alt="$t('europeanUnionFlag')" :title="$t('europeanUnionFlagTitle')" ></img>
@@ -12,7 +12,7 @@
               </div>
             </a>
           </div>
-          <div class="centered">
+          <div class="column  centered">
             <a href="https://www.unenvironment.org/" target="_blank" rel="noopener nofollow" >
               <div class="hover ">
                 <img   v-on:mouseover="mouseOver('unepActive')" v-lazy="$CBDImage.get('un-environment-icon.png',100)" :alt="$t('unEnvironmentLogo')" :title="$t('unEnvironmentLogoTitle')"></img>
@@ -20,7 +20,7 @@
               </div>
             </a>
           </div>
-          <div class="centered">
+          <div class="column  centered">
             <a class="bottom-row" href="https://www.cbd.int" target="_blank" rel="noopener">
                 <div class="hover ">
                   <img  v-on:mouseover="mouseOver('cbdActive')" v-lazy="$CBDImage.get('CBD-logo.png',133)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
@@ -28,7 +28,7 @@
                 </div>
             </a>
           </div>
-          <div >
+          <div class="column ">
 
               <span class="f-title">{{ $t('siteMap') }}</span>
               <ul class="menu-list" >
@@ -50,7 +50,7 @@
               </ul>
 
           </div>
-          <div >
+          <div class="column">
             <span class="f-title">{{ $t('contact') }}</span>
             <div class="address">{{ $t('nameCbdSecretariat') }} </div>
             <div class="address">{{ $t('cbdAddressStreet') }} </div>
@@ -60,7 +60,7 @@
             <div class="address"><a href="mailto:secretariat@cbd.int">secretariat@cbd.int</a> </div>
             <div class="address"><a href="tel:+1-514-288-2220" target="_blank" rel="noopener">1 514 288 2220 </a></div>
           </div>
-          <div class="centered">
+          <div class="column  centered">
               <a class="bottom-row" href="https://www.facebook.com/UNBiodiversity/" target="_blank" rel="noopener nofollow">
                   <div class="hover ">
                     <img    v-on:mouseover="mouseOver('fbActive')" v-lazy="$CBDImage.get('facebook-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
@@ -68,7 +68,7 @@
                   </div>
               </a>
           </div>
-          <div class="centered">
+          <div class="column  centered">
             <a class="bottom-row" href="https://www.linkedin.com/company/secretariat-of-the-convention-on-biological-diversity/" target="_blank" rel="noopener nofollow">
                <div class="hover ">
                 <img   v-on:mouseover="mouseOver('liActive')" v-lazy="$CBDImage.get('linkedin-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
@@ -76,7 +76,7 @@
               </div>
             </a>
           </div>
-          <div class="centered" v-on:mouseover="twActive=true;" v-on:mouseout="twActive=false;">
+          <div class="column  centered" v-on:mouseover="twActive=true;" v-on:mouseout="twActive=false;">
               <a class="bottom-row" href="https://twitter.com/cbdnews" target="_blank" rel="noopener nofollow">
                 <div class="hover">
                   <img   v-on:mouseover="mouseOver('twActive')"  v-lazy="$CBDImage.get('twitter-icon.png',40)"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
@@ -85,11 +85,11 @@
               </a>
           </div>
         </div>
-        <div class="bottom-grid is-hidden-touch ">
-          <div><a  href="https://www.cbd.int/terms/" target="_blank" rel="noopener"> {{ $t('termsOfUse') }} </a></div>
-          <div><a  href="https://www.cbd.int/privacy/" target="_blank" rel="noopener"> {{ $t('privacyPolicy') }}</a></div>
-          <div><a  href="https://www.cbd.int/credits/" target="_blank" rel="noopener"> {{ $t('credits') }}  </a></div>
-          <div><a  href="https://www.cbd.int/secretariat/" target="_blank" rel="noopener"> {{$t('secretariat')}} </a></div>
+        <div class="columns bottom-grid is-hidden-touch ">
+          <div class="column"><a  href="https://www.cbd.int/terms/" target="_blank" rel="noopener"> {{ $t('termsOfUse') }} </a></div>
+          <div class="column"><a  href="https://www.cbd.int/privacy/" target="_blank" rel="noopener"> {{ $t('privacyPolicy') }}</a></div>
+          <div class="column"><a  href="https://www.cbd.int/credits/" target="_blank" rel="noopener"> {{ $t('credits') }}  </a></div>
+          <div class="column"><a  href="https://www.cbd.int/secretariat/" target="_blank" rel="noopener"> {{$t('secretariat')}} </a></div>
         </div>
       </footer>
     </div>
@@ -189,21 +189,12 @@ methods: {
     text-transform: uppercase;
     font-weight: 900;
     font-size:1.2em;
+    color:#ffffff;
+    white-space: nowrap;
   }
-  .bottom-grid{
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-  }
-  .f-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 40px;
-    padding-top: 40px;
-  }
-  .f-grid div {color:#ffffff;}
-  .f-grid .centered {text-align: center;}
+
+  .centered {text-align: center;}
+
   .bottom-grid a{  font-size: 1em;font-weight: 500;color:white;}
   .bottom-grid a:hover{color:#ff3e94;}
   .bottom-grid div{text-align: center;}
@@ -213,6 +204,10 @@ methods: {
     background-size: cover;
     padding: 0 0 0 0;
     background-color: #00405c;
+    border: 1px solid #00405c;
+  }
+  .coral-footer  .columns{
+    margin-top: 1em;
   }
   footer{
     min-height: 275px;

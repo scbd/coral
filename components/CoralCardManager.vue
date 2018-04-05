@@ -145,8 +145,8 @@
   @import "~bulma/sass/components/card.sass"
   @import "~bulma/sass/elements/button.sass"
   $pagination-color: #ffffff
-  $pagination-hover-color: #e8768d
-  $pagination-current-background-color: #e8768d
+  $pagination-hover-color: #ff3e94
+  $pagination-current-background-color: #ff3e94
   $pagination-current-border-color: #ffffff
   @import "~bulma/sass/components/pagination.sass"
 </style>
@@ -301,6 +301,6 @@
   .card-manager{
     background-color: #00405c;
     padding: 1.4em 1.4em 1.4em 1.4em;
-    margin-bottom: 1.5em;
+    margin-bottom: 4em;
   }
 </style>

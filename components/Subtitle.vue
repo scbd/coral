@@ -45,7 +45,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.5em;
+    margin-bottom: 4em;
   }
 
 </style>

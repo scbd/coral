@@ -8,8 +8,8 @@
       <AboutIcon width="100%"   color="#00405c"/>
     </TitleDescription>
 
-    <div class="container is-fullhd grid">
-      <div class="ingog left" >
+    <div class="container is-fullhd columns is-4em-mb">
+      <div class="column is-half-tablet ingog left" >
         <!-- <div class="logo-holder">
           <span class="title-cr">{{ $t('CORAL') }}</span> <br v-if="!$breakpoints.isTouch">
           <span class="title-cr"> {{ $t('REEFS') }}</span>
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="ingog right" >
+      <div class="column is-half-tablet ingog right" >
         <div >
           <transition name="slide-fade">
             <span class="sliders" v-show="flags.importance"> {{$t('importanceDescription')}}</span>
@@ -45,38 +45,46 @@
 
     <Subtitle>{{$t('otherMarineWork')}}</Subtitle>
 
-    <div class="container is-fullhd other-work-grid">
-      <div class="square-box">
-        <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener" :title="$t('scbdLogo')" :alt="$t('scbdLogo')">
-        <div class="square-content" >
-          <div class="top"><div>
-            <img v-lazy="$CBDImage.get('cbd-logo-green.jpg',295)" v-if="!$breakpoints.isTouch"/>
-            <img v-lazy="$CBDImage.get('cbd-logo-green.jpg',147)" v-if="$breakpoints.isTouch"/>
-          </div></div>
-          <div class="bottom"><div> {{$t('cbdPOWMCB')}}</div></div>
-        </div>
-        </a>
-      </div>
-      <div class="square-box">
-        <div class="square-content" >
-          <a href="https://www.cbd.int/ebsa/" target="_blank" rel="noopener" :title="$t('ebsaLogo')" :alt="$t('ebsaLogo')">
+    <div class="container is-fullhd columns" :class="{'is-mobile':!$breakpoints.isMobile}">
+      <div class="column is-one-third-tablet is-one-mobile">
+        <div class="square-box">
+          <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener" :title="$t('scbdLogo')" :alt="$t('scbdLogo')">
+          <div class="square-content" >
             <div class="top"><div>
-              <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
-              <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
+              <img v-lazy="$CBDImage.get('cbd-logo-green.jpg',295)" v-if="!$breakpoints.isTouch"/>
+              <img v-lazy="$CBDImage.get('cbd-logo-green.jpg',147)" v-if="$breakpoints.isTouch"/>
             </div></div>
-            <div class="bottom"><div>{{$t('ebsa')}}</div></div>
+            <div class="bottom"><div> {{$t('cbdPOWMCB')}}</div></div>
+          </div>
           </a>
         </div>
       </div>
-      <div class="square-box">
-        <div class="square-content" >
-          <a href="https://www.cbd.int/soi/" target="_blank" rel="noopener" :title="$t('soiLogo')" :alt="$t('soiLogo')">
-            <div class="top"><div>
-              <img v-lazy="$CBDImage.get('SOI_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
-              <img v-lazy="$CBDImage.get('SOI_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
-            </div></div>
-            <div class="bottom"><div>{{$t('soi')}}</div></div>
-          </a>
+
+      <div class="column is-one-third-tablet">
+        <div class="square-box">
+          <div class="square-content" >
+            <a href="https://www.cbd.int/ebsa/" target="_blank" rel="noopener" :title="$t('ebsaLogo')" :alt="$t('ebsaLogo')">
+              <div class="top"><div>
+                <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
+                <img v-lazy="$CBDImage.get('EBSA_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
+              </div></div>
+              <div class="bottom"><div>{{$t('ebsa')}}</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third-tablet">
+        <div class="square-box">
+          <div class="square-content" >
+            <a href="https://www.cbd.int/soi/" target="_blank" rel="noopener" :title="$t('soiLogo')" :alt="$t('soiLogo')">
+              <div class="top"><div>
+                <img v-lazy="$CBDImage.get('SOI_Logo.jpg',220)" v-if="!$breakpoints.isTouch"/>
+                <img v-lazy="$CBDImage.get('SOI_Logo.jpg',110)" v-if="$breakpoints.isTouch"/>
+              </div></div>
+              <div class="bottom"><div>{{$t('soi')}}</div></div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -116,6 +124,9 @@
 </script>
 
 <style scoped>
+.is-4em-mb{
+  margin-bottom:4em;
+}
   .square-box{
       position: relative;
       width: 100%;
@@ -155,14 +166,6 @@
       vertical-align: middle;
   }
 
-
-  .other-work-grid {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 60px;
-    margin-bottom: 1.5em;
-  }
   .other-work{
     width:100%;
   }
@@ -190,14 +193,6 @@
     font-size: 1.4em;
   }
 
-  .grid{
-    padding: 0 0 0 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-gap: 1em;
-    margin-bottom: 1.3em;
-  }
   .ingog{
     position: relative;
     background-repeat: no-repeat;
@@ -211,6 +206,7 @@
     background-color: #00405c;
     border-bottom-left-radius: 2em;
     border-top-right-radius: 2em;
+    margin: 0 .5em 1em .5em;
   }
   .right{
     background-image: url('~/assets/images/right-background.svg');
@@ -220,6 +216,8 @@
     padding-left: 20px;
     border-bottom-right-radius: 2em;
     border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    margin: 0 .5em 4em .5em;
   }
   .title-item .title{
     margin: 0 0 0 0;
@@ -254,14 +252,13 @@
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .grid{
-      padding: 0 0 0 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 2em;
-    }
     .right{
       background-size: 4em;
+      margin: 0 0 0 .5em;
+    }
+    .left{
+      background-size: 4em;
+      margin: 0 .5em 0 0;
     }
     .other-work-grid {
       grid-template-columns: 1fr 1fr 1fr;
@@ -304,6 +301,14 @@
     color:white;
     /* font-size: 1.3em; */
     padding-right: 2em;
+  }
+  .right{
+    background-size: 4em;
+    margin: 0 0 0 .5em;
+  }
+  .left{
+    background-size: 4em;
+    margin: 0 .5em 0 0;
   }
 }
 

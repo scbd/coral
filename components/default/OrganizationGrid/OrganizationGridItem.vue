@@ -1,5 +1,5 @@
 <template>
-  <a :href="url" target="_blank" rel="noopener nofollow">
+  <a class="column is-half-tablet is-one-third-desktop" :href="url" target="_blank" rel="noopener nofollow">
     <div class="card org-card">
         <div class="org-card-image is-text-centered" >
           <figure class="grid-org-figure has-text-centered" >

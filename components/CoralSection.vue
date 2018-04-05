@@ -22,7 +22,13 @@
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-        margin-bottom: 1.5em;
+        margin-bottom: 4em;
+  }
+  .coral-section-holder:after{
+    content:'';
+    min-height:inherit;
+    font-size:0;
+    display: block;
   }
   .coral-section-text-holder{
     max-width:400px;
