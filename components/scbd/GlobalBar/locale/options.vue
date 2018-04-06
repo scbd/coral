@@ -6,12 +6,12 @@
              <strong>{{ $t('component.Locale.languages') }}</strong>
         </span>
         <hr class="dropdown-divider" style="margin:10px 0 0 0;">
-        <a class="navbar-item rtl" v-on:click="setLocale('ar')" :class="{'is-active':isLocale('ar')}" >لعربية <i class="fontello icon-ok is-pulled-left" v-if="isLocale('ar')"></i></a>
-        <a class="navbar-item" v-on:click="setLocale('zh')" :class="{'is-active':isLocale('zh')}" >中文 <i class="fontello icon-ok is-pulled-right" v-if="isLocale('zh')"></i></a>
+        <a class="navbar-item rtl disabled"  :class="{'is-active':isLocale('ar')}" >لعربية <i class="fontello icon-ok is-pulled-left" v-if="isLocale('ar')"></i></a>
+        <a class="navbar-item disabled" :class="{'is-active':isLocale('zh')}" >中文 <i class="fontello icon-ok is-pulled-right" v-if="isLocale('zh')"></i></a>
         <a class="navbar-item" v-on:click="setLocale('en')" :class="{'is-active':isLocale('en')}" >English <i class="fontello icon-ok is-pulled-right" v-if="isLocale('en')"></i></a>
-        <a class="navbar-item" v-on:click="setLocale('es')" :class="{'is-active':isLocale('es')}">Español <i class="fontello icon-ok is-pulled-right" v-if="isLocale('es')"></i></a>
-        <a class="navbar-item" v-on:click="setLocale('fr')" :class="{'is-active':isLocale('fr')}">Français <i class="fontello icon-ok is-pulled-right" v-if="isLocale('fr')"></i></a>
-        <a class="navbar-item" v-on:click="setLocale('ru')" :class="{'is-active':isLocale('ru')}">Русский <i class="fontello icon-ok is-pulled-right" v-if="isLocale('ru')"></i></a>
+        <a class="navbar-item disabled"  :class="{'is-active':isLocale('es')}">Español <i class="fontello icon-ok is-pulled-right" v-if="isLocale('es')"></i></a>
+        <a class="navbar-item disabled"  :class="{'is-active':isLocale('fr')}">Français <i class="fontello icon-ok is-pulled-right" v-if="isLocale('fr')"></i></a>
+        <a class="navbar-item disabled"  :class="{'is-active':isLocale('ru')}">Русский <i class="fontello icon-ok is-pulled-right" v-if="isLocale('ru')"></i></a>
       </div>
     </div>
   </transition>
@@ -71,5 +71,10 @@ export default {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translatey(-5px);
   opacity: 0;
+}
+.disabled{
+  cursor: not-allowed;
+  text-decoration: line-through;
+  color:#cccccc;
 }
 </style>
