@@ -13,7 +13,6 @@
 
 <script>
 
-  import Vue from 'vue'
   import CoralCard from '~/components/CoralCard'
 
   export default {
@@ -27,6 +26,7 @@
         slidesPerGroup: 4,
         slidesPerColumn: this.slidesPerColum,
         grabCursor:true,
+
         pagination:{
           el: '.swiper-pagination',
           type:'custom',
@@ -43,12 +43,14 @@
             slidesPerView: 3,
             slidesPerGroup: 3,
             spaceBetween: 30
+
           },
           640: {
             slidesPerView: 1,
             slidesPerGroup: 1,
             slidesPerColumn:1,
             spaceBetween: 20
+
           },
           320: {
             slidesPerView: 1,
@@ -124,8 +126,8 @@
 
 
     return `<nav class="container is-fullhd pagination is-centered" style="padding-top:10px;" role="navigation" aria-label="pagination">
-        <a class="pagination-previous" ${disabledPrev} onclick="Window.swiper['${this._uid}'].prev()">Previous</a>
-        <a class="pagination-next" ${disabledNext} onclick="Window.swiper['${this._uid}'].next()">Next page</a>
+        <a class="pagination-previous is-hidden-touch" ${disabledPrev} onclick="Window.swiper['${this._uid}'].prev()">Previous</a>
+        <a class="pagination-next is-hidden-touch" ${disabledNext} onclick="Window.swiper['${this._uid}'].next()">Next page</a>
         <ul class="pagination-list">
           <li><a class="pagination-link ${hideBoxOne}" aria-label="Goto page 1" onclick="Window.swiper['${this._uid}'].slideTo(Number(1))">1</a></li>
           <li><span class="pagination-ellipsis ${hideBoxOne}" >&hellip;</span></li>
@@ -133,7 +135,7 @@
           <li><a class="pagination-link is-current" aria-label="Page ${current}" aria-current="page">${current}</a></li>
           <li><a class="pagination-link ${hideBoxThree}" aria-label="Goto page ${current+1}" onclick="Window.swiper['${this._uid}'].slideTo(Number(${getIndex(swiper,current+1)}))">${current+1}</a></li>
           <li><span class="pagination-ellipsis ${hideBoxFour}" >&hellip;</span></li>
-          <li><a class="pagination-link ${hideBoxFour}" aria-label="Goto page ${total}" onclick="Window.swiper['${this._uid}'].slideTo(Number(${getIndex(swiper,total)}))">${total}</a></li>
+          <li><a class="pagination-link ${hideBoxFour} " aria-label="Goto page ${total}" onclick="Window.swiper['${this._uid}'].slideTo(Number(${getIndex(swiper,total)}))">${total}</a></li>
         </ul>
     </nav>`
   }

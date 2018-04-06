@@ -76,8 +76,8 @@ export default {
     box-shadow: 0 2px 3px hsla(0,0%,4%,.1), 0 0 0 1px hsla(0,0%,4%,.1);
     color: #4a4a4a;
     max-width: 100%;
-    margin: 0em 2em 0em 2em;
-    padding: 1em 1em 0 1em;
+    margin: 1em 2em 0em 2em;
+    padding: 1em 1em 1em 1em;
 
   }
 
@@ -88,7 +88,8 @@ export default {
     .description{
       box-shadow: none;
       width:100%;
-          margin: 0em 0em 0em 0em;
+      margin: 0em 0em -1em 0em;
+      padding: 1em 1em 0 1em;
     }
     .bar{
       height: 1em;
@@ -114,7 +115,8 @@ export default {
       box-shadow: none;
       margin-top: 0;
       width:100%;
-      margin: 0em 0em 0em 0em;
+      margin: 0em 0em -1em 0em;
+      padding: 1em 1em 0 1em;
     }
 
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="holder-two"  v-lazy:background-image="$CBDImage.get('blue-div-with-pink-embellishments.jpg')">
+  <div class="holder-two"  v-lazy:background-image="$CBDImage.get('blue-div-with-pink-embellishments.svg')">
     <div class="text-holder-two">
       <slot/>
     </div>

@@ -11,16 +11,16 @@
         <div class="container is-fullhd">
           <div class="gbo-container">
             <div class="columns gbo-background">
-              <div class="column is-half-desktop backer-one" v-lazy:background-image="getBGImg()">
+              <div class="column is-half-tablet is-one-mobile is-half-desktop backer-one" v-lazy:background-image="getBGImg()">
                 &nbsp;
               </div>
             </div>
 
-            <div class="gbo-content-container">
+            <div class="container gbo-content-container">
               <a href="https://www.cbd.int/doc/publications/cbd-aichi-target-10-en.pdf" download>
-                <div class="columns is-mobile ">
+                <div class="columns " :class="{'is-mobile':!$breakpoints.isMobile}">
                   <div class="column is-half-tablet is-one-mobile is-paddingless">
-                    <div class="left-side is-paddingless">
+                    <div class="left-side">
 
                           <div class="title-gbo-sub">{{$t('gboFourTitleOne')}}</div>
                           <div class="title-gbo is-capitalized" >
@@ -71,7 +71,7 @@
           </div>
 
           <div class="column is-half-tablet">
-            <Commitment c:title="$t('environmentalIndicatorsTitle')" :description="$t('environmentalIndicatorsDescription')" color="#fac1ff"
+            <Commitment :title="$t('environmentalIndicatorsTitle')" :description="$t('environmentalIndicatorsDescription')" color="#fac1ff"
             :abt="['08','10']"
             :sdg="['06','11','14']"/>
           </div>
@@ -140,7 +140,7 @@
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-
+    flex-direction:row;
   }
   .gbo-container:after{
     content:'';
@@ -151,25 +151,26 @@
   .gbo-background{
     position:absolute;
     top:10px;
-    left:10px;
-    right:0;
+    left: 10px;
     z-index:-10;
   }
   .gbo-content-container{
-    background-color: #00405c;
+
     color:white;
-    width: 100%;
+    /* width: 100%; */
   }
   .backer-one{
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     min-height: 500px;
-    min-width: 350px;
+    min-width: 400px;
     background-color: #00405c;
   }
   .left-side{
-    margin: 2em 1em 2em 1em;
+    margin: 2em 0 2em 0;
+    background-color: #00405c;
+    padding: 2em 1em 2em 1em;
   }
   .right-side{
     display:flex;
@@ -209,16 +210,9 @@
     padding: 1em 1em 1em 1em;
   }
 
-  .target-inner .title {
-    color: #fff;
-  }
-
   @media screen and (min-width: 768px) {
-    .target {
-      background-repeat: no-repeat;
-      background-size: 50% auto;
-      background-position: left center;
-      justify-content: flex-start;
+    .gbo-content-container{
+      background-color: #00405c;
     }
   }
 
@@ -231,6 +225,15 @@
       min-height: 512px;
       min-width: 512px;
     }
+    .left-side{
+      margin: 2em 0 2em 2em;
+    }
+    .gbo-content-container{
+      background-color: #00405c;
+    }
+    .gbo-background{
+      left: 12px;
+    }
   }
 
   @media screen and (min-width: 1216px)  {
@@ -241,6 +244,15 @@
     .backer-one{
       min-height: 672px;
       min-width: 672px;
+    }
+    .left-side{
+      margin: 2em 0 2em 2em;
+    }
+    .gbo-content-container{
+      background-color: #00405c;
+    }
+    .gbo-background{
+      left: 12px;
     }
   }
 

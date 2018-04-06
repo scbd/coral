@@ -1,5 +1,5 @@
 <template>
-  <div class="coral-section-holder"  v-lazy:background-image="$CBDImage.get('coral-bk.jpg')">
+  <div class="coral-section-holder"  v-lazy:background-image="$CBDImage.get('coral-bk.svg')">
     <div class="coral-section-text-holder">
       <slot/>
     </div>

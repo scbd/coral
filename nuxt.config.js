@@ -59,7 +59,7 @@ module.exports = {
   // ============================================================
   modules: [
     ['@nuxtjs/pwa'],
-    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 4 }],  // cache rendered componenents server side for 1 hour
+    ['@nuxtjs/component-cache', { maxAge: 24 * 1000 * 60 * 60 * 4 }],  // cache rendered componenents server side for 1 hour
     '@biodiversity/ssr-breakpoints'
   ],
 
@@ -107,7 +107,7 @@ module.exports = {
                     'vue-app',
                     {
                          useBuiltIns: true,
-                        targets: isServer ? { node: 'current' } : {ie: 11, uglify: true}
+                        targets: isServer ? { node: 'current' } : {ie: 10, uglify: true}
                     }]
             ];
         }

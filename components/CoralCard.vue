@@ -11,10 +11,10 @@
               {{(doc.title || doc.title_t) | trunc}}
           </div>
           <div class="card-bottom" :class="{'card-bottom-paginated':this.paginated}">
-            <p><time :datetime="doc.startDate  || doc.startDate_dt" v-if="doc.startDate || doc.startDate_dt">{{toLocaleString(doc.startDate || doc.startDate_dt)}}</time></p>
-            <a class="button  is-primary" :class="{'pink':!isEvent,'pink-event':isEvent}" :href="doc.url_ss[0]" target="_blank" rel="noopener nofollow">
-              View
-            </a>
+            <p class="has-text-centered "><time :datetime="doc.startDate  || doc.startDate_dt" v-if="doc.startDate || doc.startDate_dt">{{toLocaleString(doc.startDate || doc.startDate_dt)}}</time></p>
+            <div class="has-text-centered button-container"><a class="button  is-ligh"  :href="doc.url_ss[0]" target="_blank" rel="noopener nofollow">
+              View Record
+            </a></div>
           </div>
       </div>
   </div>
@@ -73,10 +73,12 @@
 </script>
 
 <style scopped>
-.header-img{
-  width:100%;
-}
-
+  .header-img{
+    width:100%;
+  }
+  .button-container{
+    width:100%;
+  }
   .pink {
     font-size: 1em;
     background-color: #ff3e94 !important;
@@ -84,10 +86,9 @@
     margin-top: .5em;
     transition: all 0.3s ease 0s;
     border-radius: 10px;
+    font-weight: 500;
   }
-  .pink-event{
-    background-color: #C37680 !important;
-  }
+
   .pink:hover {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
     transform: translateY(-4px);
@@ -106,6 +107,8 @@
   .card-bottom{
     position: absolute;
     bottom: 0px;
+    left:0;
+    right:0;
     padding: 1em 0 1em 0;
   }
   .card-bottom-paginated{
@@ -114,6 +117,8 @@
   @media (min-width:767px){
     .coral-card {
       max-width: 320px;
+      bottom: 10px;
+      /* max-height: 320px; */
     }
   }
 
