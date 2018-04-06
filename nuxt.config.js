@@ -135,12 +135,13 @@ module.exports = {
       plugins: {
          'postcss-custom-properties': false,
          'postcss-cssnext': {
-           browsers: ['last 2 versions', 'ie >= 10'],
+           browsers: ['last 5 versions', 'ie >= 10'],
            features: {
-              customProperties: false
+              customProperties: false,
+              grid: true,
+              flexbox:true
             }
          },
-         'autoprefixer':{grid: true, flexbox:true, browsers:['last 2 versions', 'ie >= 10']},
          'postcss-flexbugs-fixes':{}
        }
 
