@@ -57,7 +57,7 @@
 
         <CoralSectionTwo><div >{{$t('subDescription')}}</div></CoralSectionTwo>
 
-        <div class="container is-fullhd columns is-multiline linkages">
+        <div class="container is-fullhd columns is-multiline linkages is-4em-mb">
           <div class="column is-half-tablet">
             <Commitment  :title="$t('climateChangeTitle')" :description="$t('climateChangeDescription')" color="#00405c"
             :abt="['05','10','15']"
@@ -130,6 +130,9 @@
 </script>
 
 <style scoped>
+  .is-4em-mb{
+    margin-bottom:4em;
+  }
   .gbo-container{
     position:relative;
     min-height: 500px;

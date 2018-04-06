@@ -10,7 +10,7 @@
 
       <Subtitle >{{$t('help')}}</Subtitle>
 
-      <SVGMap/>
+      <SVGMap class="is-4em-mb"/>
   </section>
 </template>
 
@@ -38,3 +38,8 @@
 
   }
 </script>
+<style>
+  .is-4em-mb{
+    margin-bottom:4em;
+  }
+</style>

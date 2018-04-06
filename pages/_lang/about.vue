@@ -45,7 +45,7 @@
 
     <Subtitle>{{$t('otherMarineWork')}}</Subtitle>
 
-    <div class="container is-fullhd columns" :class="{'is-mobile':!$breakpoints.isMobile}">
+    <div class="container is-fullhd columns is-4em-mb" :class="{'is-mobile':!$breakpoints.isMobile}">
       <div class="column is-one-third-tablet is-one-mobile">
         <div class="square-box">
           <a href="https://www.cbd.int/marine/" target="_blank" rel="noopener" :title="$t('scbdLogo')" :alt="$t('scbdLogo')">

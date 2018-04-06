@@ -61,6 +61,6 @@
 </script>
 <style>
   main .margins{
-    margin: 4em 0 2em 0;
+    margin: 4em 0 6em 0;
   }
 </style>

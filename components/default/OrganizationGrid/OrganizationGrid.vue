@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-multiline" >
+  <div class="columns is-multiline org-grid" >
     <slot></slot>
   </div>
 </template>
@@ -15,3 +15,6 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .org-grid{margin-bottom: 4em;}
+</style>

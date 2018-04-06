@@ -20,7 +20,7 @@
         </div>
       </div>
       <main >
-        <nuxt :class="{'rtl':isAr}"/>
+        <nuxt class="main" :class="{'rtl':isAr}"/>
       </main>
       <CoralDivider/>
       <DividerGradBar/>
@@ -106,7 +106,7 @@ export default {
 </style>
 
 <style scoped>
-.main{padding-top:4em;}
+.main{margin-bottom:6em;}
 .hero{
     background-color: #00405c;
     margin-bottom:4em;
