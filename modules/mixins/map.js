@@ -110,7 +110,11 @@ function dropPins() {
 //=======================================================================
 function initMap() {
     AmChart = AmCharts
-    AmChart.maps.worldEUHigh = worldEUHigh
+    if(this.$breakpoints.isTouch)
+      require('ammap3/ammap/maps/js/worldLow')
+    else
+      AmChart.maps.worldEUHigh = worldEUHigh
+
 
     AmChart.themes.light = {
       themeName:"light",
@@ -145,7 +149,7 @@ function initMap() {
                'enabled': true
              },
           'dataProvider': {
-            'map': 'worldEUHigh',
+            'map': this.$breakpoints.isTouch ? 'worldLow':'worldEUHigh',
             'getAreasFromMap': true
           },
           'areasSettings': {
