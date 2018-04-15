@@ -30,7 +30,8 @@
       <DividerGradBar :size="Number(3)"/>
       <nav class="level is-hidden-desktop is-mobile">
         <p class="level-item has-text-centered" v-on:click="toggleDash()">
-          <span class="icon">&nbsp;
+          &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="icon">
             <!-- <i class="fontello icon-gauge is-size-4" v-if="!showDashboard"></i>
             <i class="fontello icon-cancel is-size-4" v-if="showDashboard"></i> -->
           </span>
@@ -50,12 +51,12 @@
         <p class="level-item has-text-centered">
           &nbsp;
         </p>
-        <div class="level-item has-text-centered" v-on:click="toggleMainNav()">
+        <p class="level-item has-text-centered" v-on:click="toggleMainNav()">
           <span class="icon">
             <i class="fontello icon-menu is-size-4" v-if="!showMainNav"></i>
             <i class="fontello icon-cancel is-size-4" v-if="showMainNav"></i>
           </span>
-        </div>
+        </p>
       </nav>
     </div>
 
@@ -200,13 +201,13 @@ export default {
   position:fixed;
   bottom:0px;
   max-height: 52px;
-  z-index: 200;
+  z-index:  99999;
   background-color: #ffffff;
   width:100%;
 }
 .grad-bar{
   width:100%;
-  z-index: 1000;
+  z-index:  99999;
 }
 .top-bar img{
   width:100%;
@@ -214,7 +215,7 @@ export default {
 .top-bar{
   position:fixed;
   bottom:52px;
-  z-index: 200;
+  z-index:  99999;
   width:100%;
   line-height: 5px;
 }
