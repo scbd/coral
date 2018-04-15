@@ -93,16 +93,16 @@
 </template>
 
 <script>
-  import Vue          from 'vue'
-  import VueLazyload  from 'vue-lazyload'
-  import pageMixin    from '~/modules/mixins/page'
-  import AboutIcon    from '~/components/icons/AboutIcon'
-  import Subtitle     from '~/components/Subtitle'
 
-  Vue.use(VueLazyload)
+  import Vue            from 'vue'
+  import AboutIcon      from '~/components/icons/AboutIcon'
+  import Subtitle       from '~/components/Subtitle'
+  import pageMixin      from '~/modules/mixins/page'
+
   let flags = {importance:true,target:false,priority:false,tca:false}
   export default {
-    name:'about',
+    name:   'about',
+    layout: 'default',
     mixins: [pageMixin],
     components: {
       AboutIcon,

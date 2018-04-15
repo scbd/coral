@@ -93,14 +93,14 @@
 </template>
 
 <script>
-  import pageMixin      from '~/modules/mixins/page'
   import InitiativeIcon from '~/components/icons/InitiativeIcon'
   import Subtitle       from '~/components/Subtitle'
+  import pageMixin        from '~/modules/mixins/page'
 
   export default {
-    name:'about',
+    layout: 'default',
+    name:   'about',
     mixins: [pageMixin],
-
     components: {
       InitiativeIcon,
       Subtitle,

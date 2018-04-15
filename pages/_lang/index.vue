@@ -29,22 +29,23 @@
 </template>
 
 <script>
-  import pageMixin from '~/modules/mixins/page'
-  import TwitterGrid from '~/components/home/TwitterGrid'
-  import Subtitle from '~/components/Subtitle'
-  import CoralSectionTwo from '~/components/CoralSectionTwo'
-  import CoralSection from '~/components/CoralSection'
-  import CoralCardManager from '~/components/CoralCardManager'
-  import { DateTime }  from 'luxon'
 
+  import TwitterGrid      from '~/components/home/TwitterGrid'
+  import Subtitle         from '~/components/Subtitle'
+  import CoralSectionTwo  from '~/components/CoralSectionTwo'
+  import CoralSection     from '~/components/CoralSection'
+  import CoralCardManager from '~/components/CoralCardManager'
+  import { DateTime }     from 'luxon'
+  import pageMixin         from '~/modules/mixins/page'
   // import VueLazyload from 'vue-lazyload'
   // Vue.use(VueLazyload)
 
   export default {
     layout: 'home',
-    name:'index',
+    name:   'index',
     mixins: [pageMixin],
     components:{TwitterGrid,Subtitle,CoralSectionTwo,CoralSection,CoralCardManager},
+
     // always use asyncData for better SSR
     async asyncData ({app,store}) {
 

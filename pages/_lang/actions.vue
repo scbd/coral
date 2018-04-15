@@ -16,12 +16,13 @@
 
 <script>
 
-  import pageMixin        from '~/modules/mixins/page'
   import TitleDescription from '~/components/default/TitleDescription'
   import Subtitle         from '~/components/Subtitle'
+  import pageMixin        from '~/modules/mixins/page'
 
   export default {
-    name:'actions',
+    layout: 'default',
+    name:   'actions',
     mixins: [pageMixin],
     components: {
       ActionIcon:() => import('~/components/icons/ActionIcon'),

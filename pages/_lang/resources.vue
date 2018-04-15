@@ -85,24 +85,30 @@
 </template>
 
 <script>
-  import pageMixin        from '~/modules/mixins/page'
+
   import ResourceIcon     from '~/components/icons/ResourceIcon'
   import CoralCardManager from '~/components/CoralCardManager'
   import Subtitle         from '~/components/Subtitle'
+  import pageMixin        from '~/modules/mixins/page'
 
   export default {
-    name:'resources',
+    layout: 'default',
+    name:   'resources',
     mixins: [pageMixin],
+
     async asyncData ({app,store}) {
-      await store.dispatch('resource/get')
+      store.dispatch('resource/get')
     },
+
     data () {return {search:'', isCBD: false, isEd: false, year: false}},
+
     components: {
       ResourceIcon,
       TitleDescription:()=> import('~/components/default/TitleDescription'),
       CoralCardManager,
       Subtitle
     },
+
     computed:{
       docs: function(){return this.$store.state.resource.docs[this.$i18n.locale]},
       docsEd: function(){return this.$store.getters['resource/getEd'] || []},
@@ -112,10 +118,12 @@
       searching: function(){ if(this.search || this.isEd || this.isCBD || this.year) return true; return false},
       slidesPerColum: function(){ if(this.$store.state.resource.docs[this.$i18n.locale].length > 4) return 2; else return 1}
     },
+
     methods:{
       query: function ()  { return this.$store.dispatch('resource/get',{search:this.search,isEd:this.isEd,isCBD:this.isCBD,year:this.year})},
       clearSearch: function(){this.search=''}
     },
+
     watch: {
         search: async function(val){
             await this.query()

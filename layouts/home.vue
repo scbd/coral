@@ -29,7 +29,8 @@
 </template>
 
 <script>
-import Vue            from 'vue'
+
+
 import CoralLogo      from '~/components/CoralLogo'
 import GlobalBar      from '~/components/scbd/GlobalBar/GlobalBar.vue'
 import CoralFooter    from '~/components/footer/CoralFooter.vue'
@@ -37,56 +38,31 @@ import MainNav        from '~/components/home/MainNav.vue'
 import DefaultHeader  from '~/components/default/header/DefaultHeader.vue'
 import DividerGradBar from '~/components/DividerGradBar.vue'
 import CoralDivider   from '~/components/CoralDivider.vue'
-import VueLazyload    from 'vue-lazyload'
-Vue.use(VueLazyload,{preload:10})
+// import pageMixin      from '~/modules/mixins/page'
+
 
 export default {
-  scrollToTop: true,
-  components: {GlobalBar,MainNav,CoralFooter,DefaultHeader,CoralLogo,DividerGradBar,CoralDivider},
-  computed: {
-    isAr: function () {
-      return !!(this.$store.state.locale.locale === 'ar')
-    }
-  },
-  mounted (){
 
-  },
+  // mixins: [pageMixin],
+  components: {GlobalBar,MainNav,CoralFooter,DefaultHeader,CoralLogo,DividerGradBar,CoralDivider},
   head () {
+
     return {
-      // script: [
-      //   { src: 'https://cdn.polyfill.io/v2/polyfill.min.js' }
-      // ],
-      link: [
-        // We use $route.path since we don't use query parameters
-        {
-          hid:'canonical',
-          rel: 'canonical',
-          href: `${process.env.baseUrl}${this.$route.path}`
-        }
-      ],
       meta: [
-        // We use $route.path since we don't use query parameters
-        { hid:'lang', name: 'lang', content: this.$i18n.locale },
-        { hid:'og:title', name: 'og:title', content: this.$i18n.t('title') },
-        { hid:'og:description', name: 'og:description', content: this.$i18n.t('description') },
         { hid:'og:image', name: 'og:image', content: 'https://attachments.cbd.int/1200x630/coral-reef-biodiversity.jpg' },
-        { hid:'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-        { hid:'twitter:site', name: 'twitter:site', content: '@CBDNews' },
-        { hid:'twitter:title', name: 'twitter:title', content: this.$i18n.t('title') },
-        { hid:'twitter:description', name: 'twitter:description', content: this.$i18n.t('description') },
-        { hid:'twitter:image', name: 'twitter:image', content: 'https://attachments.cbd.int/1200x675/coral-reef-biodiversity.jpg' },
-        { hid:'twitter:image:alt', name: 'twitter:image:alt', content: 'CBD Coral Reefs Portal' }
-      ],
-      htmlAttrs: {
-        lang: this.$i18n.locale,
-        dir:  this.$i18n.getDirection(this.$i18n.locale)
-      }
+        { hid:'twitter:image', name: 'twitter:image', content: 'https://attachments.cbd.int/1200x675/coral-reef-biodiversity.jpg' }
+      ]
     }
   },
   methods:{
     getHomeImg: function () {
           return this.$CBDImage.get('coral-water-boat-blue-overlay-lg.jpg')//coral-reef-biodiversity.jpg
 
+    }
+  },
+  computed: {
+    isAr: function () {
+      return !!(this.$store.state.locale.locale === 'ar')
     }
   }
 }

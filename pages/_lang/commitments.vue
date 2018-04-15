@@ -92,19 +92,16 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import pageMixin from '~/modules/mixins/page'
-  import CommitmentIcon from '~/components/icons/CommitmentIcon'
+  import CommitmentIcon   from '~/components/icons/CommitmentIcon'
   import TitleDescription from '~/components/default/TitleDescription'
-  import Commitment from '~/components/default/commitments/Commitment'
-  import VueLazyload from 'vue-lazyload'
-  import Subtitle     from '~/components/Subtitle'
-  import CoralSectionTwo from '~/components/CoralSectionTwo'
-
-  Vue.use(VueLazyload)
+  import Commitment       from '~/components/default/commitments/Commitment'
+  import Subtitle         from '~/components/Subtitle'
+  import CoralSectionTwo  from '~/components/CoralSectionTwo'
+  import pageMixin        from '~/modules/mixins/page'
 
   export default {
-    name:'commitments',
+    layout: 'default',
+    name:   'commitments',
     mixins: [pageMixin],
     components: {
       CommitmentIcon,TitleDescription,Commitment,Subtitle,CoralSectionTwo
