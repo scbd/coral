@@ -9,8 +9,6 @@ dependencies:
   override:
     - chmod -x compile.sh
     - bash ./compile.sh
-    - docker info
-    - docker build -t output --build-arg COMMIT=$CIRCLE_SHA1 --build-arg baseUrl=$base --build-arg apiUrl=$api .
 
 test:
   override:
