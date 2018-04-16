@@ -1,6 +1,6 @@
 
 import Vue          from 'vue'
-import worldEUHigh  from '~/static/worldEUHigh'
+//
 import Pin          from '~/components/default/MapPin'
 // import PinModal     from '~/components/default/PinModal'
 
@@ -19,20 +19,26 @@ export default {
   },
   mounted() {
     require('ammap3')
-    this.initMap()
-    this.hideEu()
-    this.createPinImages()
-    this.map.validateData()
-    this.dropPins()
+    this.mapLoader().then(map =>{
+      console.log(map)
+      if(map)
+        AmCharts.maps.worldEUHigh = map.default
+      this.initMap()
+      this.hideEu()
+      this.createPinImages()
+      this.map.validateData()
+      this.dropPins()
 
-    this.map.addListener("homeButtonClicked", this.updateCustomMarkers);
-    this.map.addListener("positionChanged", this.updateCustomMarkers)
-    this.map.addListener('zoomCompleted',this.updateCustomMarkers)
+      this.map.addListener("homeButtonClicked", this.updateCustomMarkers);
+      this.map.addListener("positionChanged", this.updateCustomMarkers)
+      this.map.addListener('zoomCompleted',this.updateCustomMarkers)
 
-    this.map.addListener("click", function(event) {
-      let info = event.chart.getDevInfo();
-        console.log(info);
+      this.map.addListener("click", function(event) {
+        let info = event.chart.getDevInfo();
+          console.log(info);
+      })
     })
+
 
   },
   methods:{
@@ -40,11 +46,23 @@ export default {
     createPinImages:createPinImages,
     initMap:initMap,
     updateCustomMarkers:updateCustomMarkers,
-    hideEu:hideEu
+    hideEu:hideEu,
+    mapLoader:mapLoader
   }
 }// export
 
+function mapLoader() {
+  if(this.$breakpoints.isTouch){
 
+    return new Promise(function(resolve, reject) {
+            require('ammap3/ammap/maps/js/worldLow')
+            resolve({then:function(onFulfill){onFulfill(true)}})
+          });
+  }
+  else
+    return import('~/static/worldEUHigh')
+
+}
 //=======================================================================
 //
 //=======================================================================
@@ -110,10 +128,6 @@ function dropPins() {
 //=======================================================================
 function initMap() {
     AmChart = AmCharts
-    if(this.$breakpoints.isTouch)
-      require('ammap3/ammap/maps/js/worldLow')
-    else
-      AmChart.maps.worldEUHigh = worldEUHigh
 
 
     AmChart.themes.light = {

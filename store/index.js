@@ -5,6 +5,7 @@ import routeSecurity    from './modules/routeSecurity'
 import locale           from './modules/locale'
 import scbd             from './modules/scbd'
 import footer           from './modules/footer'
+import nodeEnvVars      from './modules/nodeEnvVars'
 
 // schemas
 import events           from './modules/schemas/events'
@@ -26,7 +27,8 @@ export default () => {
         footer,
         scbd,
         events,
-        resource
+        resource,
+        nodeEnvVars
     }
   })
 }

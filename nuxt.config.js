@@ -93,7 +93,7 @@ module.exports = {
   // ============================================================
   // Build configuration
   // ============================================================
-  build: {  resourceHints:true,
+  build: {  
     extractCSS:true,
     analyze: false, //process.env.analyzeBuild,
   //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon''~/modules/plugins/ImageApi.js',,'~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'//
