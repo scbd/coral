@@ -1,14 +1,18 @@
 <template>
   <section ref="ammap">
     <a class="button map-button" href="https://www.cbd.int/2011-2020/dashboard/submit/event/new" target="_blank" rel="nofollow noopener" v-if="map">{{$t('rya')}}</a>
-    <div id="mapdiv" ref="mapdiv" >&nbsp;
-      <div class="v-spinner" v-if="!map">
-          <div class="v-clip-center">
-            <img  :src="require('~/assets/images/logo/cbd-leaf-green.svg')" :alt="$t('scbdLogoLeaf')" :title="$t('scbdLogoLeafTitle')"/>
-            <div>{{$t('loading')}}</div>
-          </div>
-          <div class="v-clip" v-bind:style="spinnerStyle"></div>
+    <div class="map-holder">
+      <div id="mapdiv" ref="mapdiv" >&nbsp;
+        <div class="v-spinner" v-if="!map">
+            <div class="v-clip-center">
+              <img  :src="require('~/assets/images/logo/cbd-leaf-green.svg')" :alt="$t('scbdLogoLeaf')" :title="$t('scbdLogoLeafTitle')"/>
+              <div>{{$t('loading')}}</div>
+            </div>
+            <div class="v-clip" v-bind:style="spinnerStyle"></div>
+        </div>
+
       </div>
+      <div class="disclaimer" href="#dialogDisclaimer" v-on:click="getAction">{{$t('disclaimer')}}</div>
     </div>
     <PinModal v-if="showModal"/>
   </section>
@@ -17,43 +21,53 @@
 <script>
 
 import MapMixin     from '~/modules/mixins/map'
-
-  let AmChart
-
-  export default {
-    name: 'SVGMap',
-    mixins:[MapMixin],
-    data () {
-      return {
-        map:null
-
+export default {
+  name: 'SVGMap',
+  mixins:[MapMixin],
+  props: {
+      highRes: {
+        type: Boolean,
+        default: false
       }
-    },
-    computed: {
-      events: function(){return this.$store.state.events.docs[this.$i18n.locale] || []},
-      showModal: function(){return this.$store.state.events.pin },
-      spinnerStyle () {
-        return {
-          height: '200px',
-          width: '200px',
-          borderWidth: '10px',
-          borderStyle: 'solid',
-          borderColor: '#00405c #00405c transparent',
-          borderRadius: '100%',
-          background: 'transparent'
-        }
+  },
+  data () {
+    return {
+      map:null
+    }
+  },
+  computed: {
+    events: function(){return this.$store.state.events.docs[this.$i18n.locale] || []},
+    showModal: function(){return this.$store.state.events.pin },
+    spinnerStyle () {
+      return {
+        height: '200px',
+        width: '200px',
+        borderWidth: '10px',
+        borderStyle: 'solid',
+        borderColor: '#00405c #00405c transparent',
+        borderRadius: '100%',
+        background: 'transparent'
       }
     }
-
-
   }
-
+}
 </script>
 <style lang="sass" scopped>
   @import '~assets/sass/vars.sass'
   @import "~bulma/sass/elements/button.sass"
 </style>
 <style>
+    .map-holder{position: relative;}
+    .disclaimer {
+      position: absolute;
+      bottom: 0px;
+      left: 47%;
+      cursor: pointer;
+      font-size: 11px;
+      color: rgb(0, 0, 0);
+      opacity: 0.7;
+      font-family: Verdana;
+    }
     .map-button{
       position: absolute;
       right:20%;

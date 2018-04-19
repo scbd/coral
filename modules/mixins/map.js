@@ -18,26 +18,15 @@ export default {
     events: function(){return this.$store.state.events.docs[this.$i18n.locale] || []}
   },
   mounted() {
-    require('ammap3')
-    this.mapLoader().then(map =>{
-      // console.log(map)
-      // if(map)
-      //   AmCharts.maps.worldEUHigh = map.default
-      this.initMap()
-      this.createPinImages()
-      this.map.validateData()
-      this.dropPins()
 
-      this.map.addListener("homeButtonClicked", this.updateCustomMarkers);
-      this.map.addListener("positionChanged", this.updateCustomMarkers)
-      this.map.addListener('zoomCompleted',this.updateCustomMarkers)
+    this.initMap()
+    this.createPinImages()
+    this.map.validateData()
+    this.dropPins()
 
-      // this.map.addListener("click", function(event) {
-      //   let info = event.chart.getDevInfo();
-      //     console.log(info);
-      // })
-    })
-
+    this.map.addListener("homeButtonClicked", this.updateCustomMarkers);
+    this.map.addListener("positionChanged", this.updateCustomMarkers)
+    this.map.addListener('zoomCompleted',this.updateCustomMarkers)
 
   },
   methods:{
@@ -45,25 +34,24 @@ export default {
     createPinImages:createPinImages,
     initMap:initMap,
     updateCustomMarkers:updateCustomMarkers,
-    mapLoader:mapLoader
+    getAction: function(){this.$store.dispatch('events/getAction',false)}
   }
 }// export
 
-function mapLoader() {
-  if(this.$breakpoints.isTouch){
-
-    return new Promise(function(resolve, reject) {
-            require('ammap3/ammap/maps/js/worldLow')
-            resolve({then:function(onFulfill){onFulfill(true)}})
-          });
-  }
-  else
-    return new Promise(function(resolve, reject) {
-          require('ammap3/ammap/maps/js/worldHigh')
-          resolve({then:function(onFulfill){onFulfill(true)}})
-        });
-
-}
+// function mapLoader() {
+//   if(!this.highRes){
+//     return new Promise(function(resolve, reject) {
+//             require('ammap3/ammap/maps/js/worldLow')
+//             resolve({then:function(onFulfill){onFulfill(true)}})
+//           });
+//   }
+//   else
+//     return new Promise(function(resolve, reject) {
+//           require('ammap3/ammap/maps/js/worldHigh')
+//           resolve({then:function(onFulfill){onFulfill(true)}})
+//         });
+//
+// }
 //=======================================================================
 //
 //=======================================================================
@@ -72,7 +60,6 @@ function createPinImages() {
   let images = this.map.dataProvider.images
 
   for (let i in events ) {
-    console.log(events[i])
     images[i]={}
     images[i].title = events[i].title
     images[i].id = events[i].identifier_s
@@ -82,17 +69,6 @@ function createPinImages() {
   }
 }//createPinImages
 
-//=======================================================================
-//
-//=======================================================================
-function hideEu() {
-
-  if(this.map && this.map.dataProvider)
-  for (let map of this.map.dataProvider.areas) {
-      if(map.id==='divider1' || map.id==='EU')
-        map.colorReal = '#3fa9f5'
-  }
-}
 
 //=======================================================================
 //
@@ -166,7 +142,7 @@ function initMap() {
                'enabled': true
              },
           'dataProvider': {
-            'map': this.$breakpoints.isTouch ? 'worldLow':'worldHigh',
+            'map': this.highRes ? 'worldHigh':'worldLow',
             'getAreasFromMap': true
           },
           'areasSettings': {

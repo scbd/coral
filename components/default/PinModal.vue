@@ -2,17 +2,13 @@
     <transition name="modal">
       <div class="modal-mask" >
         <div class="modal-wrapper" v-on:click.stop="close($event)">
-          <!-- v-on:click.stop="test($event)"  allow click on modal-->
           <div class="modal-container" >
-
             <div class="modal-header" :class="{'modal-header-height':hasCover}"  v-lazy:background-image="getCover()">
-
                 <div class="hero-body" >
                     <h1 class="title" :class="{'has-cover':hasCover}" >
                     {{doc.title}}
                     </h1>
                 </div>
-
             </div>
 
             <div class="modal-body ">
@@ -21,14 +17,21 @@
 
                 <div class="media-content">
                   <div class="content">
-                    <p>
+                    <p v-if="!doc.disclaimer">
                       <strong>{{doc.city}}<span v-if="doc.country && doc.city">,</span> {{doc.country}}</strong>
                     </p>
-                    <p>
+                    <p v-if="!doc.disclaimer">
                       <small>{{doc.startDate | lux($i18n.locale)}}</small>
                     </p>
                     <p class="content">
                       {{doc.description}}
+                    </p>
+                    <p class="content" v-if="doc.disclaimer">
+                      Please note if a nation, territory or area of land is not found kindly refer to the high resolution version:<br>
+                      <nuxt-link  :to="$i18n.path('actions-high-resolution')">
+                        High Resolution Map
+                      </nuxt-link><br>
+                      The low resolution is served by default in order to prioritise user experiance for nations with low internet speeds.
                     </p>
                   </div>
                 </div>
@@ -73,6 +76,7 @@
       },
       getLogo:function(){
         let doc = this.$store.state.events.pin
+        if(doc.disclaimer) return 'https://attachments.cbd.int/cbd-logo-en.svg'
         if(doc.logo) return `https://api.cbd.int/`+doc.logo
         else return this.$CBDImage.get('red-coral-blue-back.jpg',100)
       }
@@ -105,7 +109,6 @@
 } */
 .hero-body .has-cover{
   position: absolute;
-  bottom: 0px;
   width:100%;
   left:0px;
   padding: unset;

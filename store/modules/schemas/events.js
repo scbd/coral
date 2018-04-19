@@ -35,7 +35,7 @@ export default {
 //
 //============================================================
 function getAction ({state, commit},data){
-  let action = getByIdentifier(state,data)
+  let action = data ? getByIdentifier(state,data) : {title:'Disclaimer', description:'The designations employed and the presentation of material in this map do not imply the expression of any opinion whatsoever on the part of the Secretariat concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries.Upon its Approval of the Nagoya Protocol on Access and Benefit Sharing, the Government of Denmark notified the Secretary-General that the Protocol shall not apply in respect of Greenland and the Faroe Islands.', disclaimer:true}
 
   if(action)
     commit('setPin',action)

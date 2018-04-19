@@ -10,7 +10,7 @@
 
       <Subtitle >{{$t('help')}}</Subtitle>
 
-      <SVGMap class="is-4em-mb"/>
+      <SVGMap  :high-res="Boolean(true)" class="is-4em-mb"/>
   </section>
 </template>
 
@@ -38,7 +38,7 @@
     },
     mounted(){
       require('ammap3')
-      require('ammap3/ammap/maps/js/worldLow')
+      require('ammap3/ammap/maps/js/worldHigh')
     }
 
   }
