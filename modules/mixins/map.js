@@ -20,11 +20,10 @@ export default {
   mounted() {
     require('ammap3')
     this.mapLoader().then(map =>{
-      console.log(map)
-      if(map)
-        AmCharts.maps.worldEUHigh = map.default
+      // console.log(map)
+      // if(map)
+      //   AmCharts.maps.worldEUHigh = map.default
       this.initMap()
-      this.hideEu()
       this.createPinImages()
       this.map.validateData()
       this.dropPins()
@@ -33,10 +32,10 @@ export default {
       this.map.addListener("positionChanged", this.updateCustomMarkers)
       this.map.addListener('zoomCompleted',this.updateCustomMarkers)
 
-      this.map.addListener("click", function(event) {
-        let info = event.chart.getDevInfo();
-          console.log(info);
-      })
+      // this.map.addListener("click", function(event) {
+      //   let info = event.chart.getDevInfo();
+      //     console.log(info);
+      // })
     })
 
 
@@ -46,7 +45,6 @@ export default {
     createPinImages:createPinImages,
     initMap:initMap,
     updateCustomMarkers:updateCustomMarkers,
-    hideEu:hideEu,
     mapLoader:mapLoader
   }
 }// export
@@ -60,7 +58,10 @@ function mapLoader() {
           });
   }
   else
-    return import('~/static/worldEUHigh')
+    return new Promise(function(resolve, reject) {
+          require('ammap3/ammap/maps/js/worldHigh')
+          resolve({then:function(onFulfill){onFulfill(true)}})
+        });
 
 }
 //=======================================================================
@@ -71,7 +72,9 @@ function createPinImages() {
   let images = this.map.dataProvider.images
 
   for (let i in events ) {
+    console.log(events[i])
     images[i]={}
+    images[i].title = events[i].title
     images[i].id = events[i].identifier_s
     images[i].longitude = events[i].lng_d
     images[i].latitude =  events[i].lat_d
@@ -104,7 +107,7 @@ function dropPins() {
     holder.setAttribute('id',image.id+'-mount' )
 
     let PinComp = Vue.extend(Pin)
-    let props =  {propsData: {identifier: image.id}, parent: this}
+    let props =  {propsData: {identifier: image.id, title: image.title}, parent: this}
 
     let pin = new PinComp(props).$mount()
     holder.appendChild(pin.$el)
@@ -163,7 +166,7 @@ function initMap() {
                'enabled': true
              },
           'dataProvider': {
-            'map': this.$breakpoints.isTouch ? 'worldLow':'worldEUHigh',
+            'map': this.$breakpoints.isTouch ? 'worldLow':'worldHigh',
             'getAreasFromMap': true
           },
           'areasSettings': {
