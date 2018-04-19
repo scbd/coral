@@ -30,23 +30,25 @@
                 <div class="search-title">{{$t('filterByType')}}</div>
                 <div>
                   <div>
-                    <label class="checkbox">
-                      <input type="checkbox" v-model="isCBD">
+                    <label  for="idCBD" class="checkbox">
+                      <input id="idCBD" type="checkbox" v-model="isCBD">
                       {{$t('cBDMaterials')}}
                     </label>
                   </div>
-                  <label class="checkbox">
-                    <input type="checkbox" v-model="isEd">
+                  <label for="isEd" class="checkbox">
+                    <input id="isEd" type="checkbox" v-model="isEd">
                     {{$t('education')}}
                   </label>
                 </div>
               </div>
               <div class="column">
-                <div class="search-title">{{$t('filterByDate')}}</div>
+                <div class="search-title">
+                  <label for="yearFilter"> {{$t('filterByDate')}} </label>
+                </div>
                 <div>
                   <div class="control" >
                     <div class="select" >
-                      <select v-model="year">
+                      <select v-model="year" id="yearFilter">
                         <option   :value="Boolean(false)" >All Years</option>
                         <option v-for="aYear in years" :value="aYear">
                           {{ aYear }}
