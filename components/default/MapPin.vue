@@ -1,6 +1,6 @@
 <template>
 
-      <img class="pin" v-lazy="require('~/assets/images/action.svg')" v-on:click="getAction"/>
+      <img :id="`pin-${identifier}`" :alt="title+' Pin'" :title="title+' Pin'" class="pin" v-lazy="require('~/assets/images/action.svg')" v-on:click="getAction"/>
 
 </template>
 
@@ -11,12 +11,13 @@
     props: {
         identifier: {
           type: String
+        },
+        title: {
+          type: String
         }
     },
-
     methods:{
-
-      getAction: function(){  this.$store.dispatch('events/getAction',this.identifier);}
+      getAction: function(){this.$store.dispatch('events/getAction',this.identifier);}
     }
   }
 </script>
