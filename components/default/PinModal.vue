@@ -72,7 +72,7 @@
 
           return `https://api.cbd.int/`+doc.cover.url
         }
-        else return this.$CBDImage.get('coral-title-gradient-bar.png')
+        else return this.$CBDImage.get('coral-gradient-bar-v2.jpg')
       },
       getLogo:function(){
         let doc = this.$store.state.events.pin

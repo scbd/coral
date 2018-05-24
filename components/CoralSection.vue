@@ -23,6 +23,7 @@
     background-position: center top;
     background-repeat: no-repeat;
         margin-bottom: 4em;
+        min-height:450px;
   }
   .coral-section-holder:after{
     content:'';

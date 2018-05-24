@@ -236,14 +236,14 @@
   }
   .selection {
     color:white;
-    text-decoration: underline;
+    text-decoration: none;
     font-weight:500;
     line-height: 3em;
     font-size: 1em;
     cursor: pointer;
   }
   .selection li {
-    text-decoration: underline;
+    text-decoration: none;
     margin: 1em 0;
   }
   .selection-link  {

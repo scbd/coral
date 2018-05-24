@@ -1,12 +1,12 @@
 <template>
     <div class="container outer">
         <div class="inner">
-            <div class="img-div" v-lazy:background-image="$CBDImage.get('coral-title-gradient-bar.png')">
+            <div class="img-div" v-lazy:background-image="$CBDImage.get('coral-gradient-bar-v2.jpg')">
             </div>
             <h2>
               <slot></slot>
             </h2>
-            <div class="img-div" v-lazy:background-image="$CBDImage.get('coral-title-gradient-bar.png')">
+            <div class="img-div" v-lazy:background-image="$CBDImage.get('coral-gradient-bar-v2.jpg')">
             </div>
         </div>
     </div>

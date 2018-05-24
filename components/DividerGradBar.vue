@@ -1,5 +1,5 @@
 <template>
-  <div class="img-div" :style="{ height: this.getSize + 'px'}" v-lazy:background-image="$CBDImage.get('coral-gradient-bar.jpg')">
+  <div class="img-div" :style="{ height: this.getSize + 'px'}" v-lazy:background-image="$CBDImage.get('coral-gradient-bar-v2.jpg')">
 
   </div>
 </template>

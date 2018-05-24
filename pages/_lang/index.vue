@@ -4,20 +4,22 @@
         {{$t('p1')}}
       </CoralSectionTwo>
 
-      <Subtitle>{{$t('highlightedActions')}}</Subtitle>
+      <Subtitle v-if="actions.length" >{{$t('highlightedActions')}}</Subtitle>
 
-      <CoralCardManager :paginated="Boolean(false)" :docs="actions"/>
+      <CoralCardManager v-if="actions.length" :paginated="Boolean(false)" :docs="actions"/>
 
       <Subtitle>{{$t('IYOR2018')}}</Subtitle>
 
       <CoralSection>
-        {{$t('iyorDesc')}}
-        <div class="center-div">
-          <br/>
-          <a href="https://www.iyor2018.org/" target="_blank" rel="noopener nofollow" class="button is-rounded is-primary dark-blue msg-button">
-            <span>{{$t('visitWebsite')}}</span>
-          </a>
-        </div>
+
+          {{$t('iyorDesc')}}
+          <div class="center-div">
+            <br/>
+            <a href="https://www.iyor2018.org/" target="_blank" rel="noopener nofollow" class="button is-rounded is-primary dark-blue msg-button">
+              <span>{{$t('visitWebsite')}}</span>
+            </a>
+          </div>
+
       </CoralSection>
 
       <Subtitle v-if="!$breakpoints.isMobile">{{$t('news')}}</Subtitle>
@@ -70,6 +72,9 @@
 </script>
 
 <style scopped>
+.iyor-desc{
+  min-width: 500px;
+}
   .msg-button span{
     font-size: 1.5em;
     margin-top: 0;

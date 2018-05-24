@@ -112,7 +112,7 @@ async function getActions ({state,dispatch,commit,rootState},data){
 function eventsMutation (state,payLoad){
     let locale = payLoad.locale
     let docs = payLoad.docs
-    state.docs[locale] = docs
+    state.docs[locale] = docs || []
 
     for (let index in state.docs[locale])
       state.docs[locale][index] = normalize(state.docs[locale][index], locale)

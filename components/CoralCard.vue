@@ -40,7 +40,7 @@
       getImage:function(){
 
         if(this.doc.resourceType==='ed')
-          return this.$CBDImage.get('education-resource.jpg',320)
+          return this.$CBDImage.get('empty-resource.svg')
 
         if(this.doc.schema==='event')
           return this.$CBDImage.get('Actions_.svg')
