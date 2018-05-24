@@ -36,5 +36,6 @@
     min-width:200px;
     color:white;
     text-align: justify;
+    font-size: 1.5em;
   }
 </style>

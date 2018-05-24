@@ -24,6 +24,7 @@
     background-repeat: no-repeat;
     margin-bottom: 4em;
     min-height:450px;
+    font-size: 1.5em;
   }
   .holder-two:after{
     content:'';
