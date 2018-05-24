@@ -71,7 +71,7 @@ module.exports = {
     '~/modules/plugins/vuex-router-sync.js',
     '~/modules/plugins/i18n.js',
     { src: '~/modules/plugins/swiper.js', ssr: false },
-     { src: '~/modules/plugins/polyfill.js', ssr: false }
+    { src: '~/modules/plugins/polyfill.js', ssr: false }
     // {src: '~/modules/plugins/ga.js', ssr: false},
     // {src: '~/modules/plugins/gtm.js', ssr: false}
   ],
@@ -93,7 +93,7 @@ module.exports = {
   // ============================================================
   // Build configuration
   // ============================================================
-  build: {  
+  build: {
     extractCSS:true,
     analyze: false, //process.env.analyzeBuild,
   //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon''~/modules/plugins/ImageApi.js',,'~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'//

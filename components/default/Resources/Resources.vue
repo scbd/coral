@@ -71,7 +71,7 @@ export default {
 }
 .control{
   font-size: 5em;
-  color: #ff3e94;
+  color: #d44f83;
   cursor: pointer;
 }
 .disabled{

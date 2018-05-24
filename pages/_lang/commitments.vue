@@ -83,7 +83,7 @@
           </div>
 
           <div class="column is-half-tablet">
-            <Commitment  :title="$t('healthTitle')" :description="$t('healthDescription')" color="#ff3e94"
+            <Commitment  :title="$t('healthTitle')" :description="$t('healthDescription')" color="#d44f83"
             :abt="['13','14','16']"
             :sdg="['03','06']"/>
           </div>

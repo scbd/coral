@@ -166,7 +166,7 @@ methods: {
     color:#ffffff;
   }
   .address a:hover{
-    color:#ff3e94;
+    color:#d44f83;
   }
   .menu-list  a{
     font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
@@ -180,10 +180,10 @@ methods: {
     font-family: "Roboto" Arial, Helvetica, sans-serif, sans-serif, Trebuchet MS;
     font-weight: 400;
     background-color: unset;
-    color:#ff3e94 !important;
+    color:#d44f83 !important;
   }
   .menu-list a:hover {
-    color:#ff3e94 !important;
+    color:#d44f83 !important;
   }
   .f-title{
     text-transform: uppercase;
@@ -196,7 +196,7 @@ methods: {
   .centered {text-align: center;}
 
   .bottom-grid a{  font-size: 1em;font-weight: 500;color:white;}
-  .bottom-grid a:hover{color:#ff3e94;}
+  .bottom-grid a:hover{color:#d44f83;}
   .bottom-grid div{text-align: center;}
   .coral-footer {
     background-repeat: no-repeat;

@@ -210,7 +210,7 @@
   }
   .right{
     background-image: url('~/assets/images/right-background.svg');
-    background-color: #ff5690;
+    background-color: #d44f83;
 
     min-height: 280px;
     padding-left: 20px;

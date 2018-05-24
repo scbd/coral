@@ -147,7 +147,7 @@ export default {
 .comm-style{fill:#aacfff; }
 .initistives-style{fill:#dca3ff; }
 .action-style{fill:#ca7680; }
-.resources-fill{fill:#ff3e80; }
+.resources-fill{fill:#d44f83; }
 
 .about-style:hover{fill:#ffffff; }
 .comm-style:hover{fill:#ffffff; }
@@ -205,7 +205,7 @@ export default {
   .comm-style{fill:#aacfff; border: 5px solid #aacfff;}
   .initistives-style{fill:#dca3ff; border: 5px solid #dca3ff;}
   .action-style{fill:#ca7680; border: 5px solid #ca7680;}
-  .resources-fill{fill:#ff3e80; border: 5px solid #ff3e80;}
+  .resources-fill{fill:#d44f83; border: 5px solid #d44f83;}
 
   .about-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}
   .comm-style:hover{fill:#ffffff; border: 5px solid #ffffff; cursor: pointer;}

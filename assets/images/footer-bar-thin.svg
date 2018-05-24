@@ -7,7 +7,7 @@
       <stop offset="0.37" stop-color="#86abff"/>
       <stop offset="0.56" stop-color="#d79eff"/>
       <stop offset="0.77" stop-color="#c67680"/>
-      <stop offset="1" stop-color="#ff3e80"/>
+      <stop offset="1" stop-color="#d44f83"/>
     </linearGradient>
   </defs>
   <title>Header Divider Gradient</title>

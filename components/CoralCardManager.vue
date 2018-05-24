@@ -147,8 +147,8 @@
   @import "~bulma/sass/components/card.sass"
   @import "~bulma/sass/elements/button.sass"
   $pagination-color: #ffffff
-  $pagination-hover-color: #ff3e94
-  $pagination-current-background-color: #ff3e94
+  $pagination-hover-color: #d44f83
+  $pagination-current-background-color: #d44f83
   $pagination-current-border-color: #ffffff
   @import "~bulma/sass/components/pagination.sass"
 </style>

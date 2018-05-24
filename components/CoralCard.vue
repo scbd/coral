@@ -45,7 +45,7 @@
         if(this.doc.schema==='event')
           return this.$CBDImage.get('Actions_.svg')
 
-        return this.$CBDImage.get('scbd-resource.jpg',320)
+        return this.$CBDImage.get('scbd-resources.svg')
       },
       isEvent:function(){
         if(this.doc.schema==='event')
@@ -81,7 +81,7 @@
   }
   .pink {
     font-size: 1em;
-    background-color: #ff3e94 !important;
+    background-color: #d44f83 !important;
     font-weight: 900;
     margin-top: .5em;
     transition: all 0.3s ease 0s;

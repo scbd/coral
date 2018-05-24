@@ -4,8 +4,8 @@
       <TitleDescription
         :title="$t('titleShort')"
         :description="' '"
-        color="#ff3e94">
-        <ResourceIcon width="100%" color="#ff3e94"/>
+        color="#d44f83">
+        <ResourceIcon width="100%" color="#d44f83"/>
         <div class="search" slot="description">
           <div >
             <div class="columns">
@@ -158,7 +158,7 @@
     pointer-events: auto;
   }
   .search{
-    border: 6px solid #ff3e94;
+    border: 6px solid #d44f83;
     margin: .5em 1em 1em 1em;
     padding: .5em .5em .5em .5em;
   }

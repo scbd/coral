@@ -175,7 +175,7 @@ export default {
   background-repeat: no-repeat;
 }
 .navbar-item:hover,.navbar-link:hover, .is-active {
-    color: #ff5690  !important;
+    color: #d44f83  !important;
 
 }
 .menu-text{
@@ -274,12 +274,12 @@ export default {
     align-self: flex-end;
   }
   .main-nav:hover{
-    color:#ff3e94;
+    color:#d44f83;
   }
 }
 
 .is-active {
-  color:#ff3e94;
+  color:#d44f83;
 }
 
 </style>

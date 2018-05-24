@@ -1,31 +1,31 @@
 <template>
-<section  >
-      <GlobalBar  />
-      <DefaultHeader v-if="$breakpoints.isTouch"/>
-      <div class="hero">
-        <div class="hero-header" :class="{tint:$breakpoints.isMobile}">
+  <section  >
+        <GlobalBar  />
+        <DefaultHeader v-if="$breakpoints.isTouch"/>
+        <div class="hero">
+          <div class="hero-header" :class="{tint:$breakpoints.isMobile}">
 
-              <img class="home-img" v-lazy="getHomeImg()"  :title="$t('homeImage')" :alt="$t('homeImage')">
-              <div class="filler" >&nbsp;</div>
+                <img class="home-img" v-lazy="getHomeImg()"  :title="$t('homeImage')" :alt="$t('homeImage')">
+                <div class="filler" >&nbsp;</div>
 
-            <div class="logo-container" >
-              <CoralLogo class="logo"/>
-            </div>
-
-            <div class="hero-body">
-              <div class="container is-fullhd">
-                <MainNav class="main-nav"/>
+              <div class="logo-container" >
+                <CoralLogo class="logo"/>
               </div>
-            </div>
+
+              <div class="hero-body">
+                <div class="container is-fullhd">
+                  <MainNav class="main-nav"/>
+                </div>
+              </div>
+          </div>
         </div>
-      </div>
-      <main >
-        <nuxt class="main" :class="{'rtl':isAr}"/>
-      </main>
-      <CoralDivider/>
-      <DividerGradBar/>
-      <CoralFooter/>
-</section>
+        <main >
+          <nuxt class="main" :class="{'rtl':isAr}"/>
+        </main>
+        <CoralDivider/>
+        <DividerGradBar/>
+        <CoralFooter/>
+  </section>
 </template>
 
 <script>
