@@ -6,7 +6,7 @@ RUN apk update && apk upgrade && \
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-ENV HOST 0.0.0.0
+
 
 ARG BRANCH
 ENV NODE_ENV $BRANCH
