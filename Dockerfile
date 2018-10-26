@@ -11,7 +11,6 @@ ENV HOST 0.0.0.0
 ARG BRANCH
 ENV NODE_ENV $BRANCH
 
-RUN cd /usr/src/app/
 COPY . .
 
 RUN yarn
@@ -19,6 +18,7 @@ RUN yarn build:ci
 RUN rm -rf node_modules
 RUN yarn install --prod=true
 
+ENV NODE_ENV $BRANCH
 
 EXPOSE 3000
 
