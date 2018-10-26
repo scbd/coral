@@ -14,6 +14,7 @@ ENV NODE_ENV $BRANCH
 RUN cd /usr/src/app/
 COPY . .
 
+RUN yarn
 RUN yarn build:ci
 RUN rm -rf node_modules
 RUN npm install --production
