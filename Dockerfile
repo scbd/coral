@@ -16,8 +16,7 @@ COPY . .
 
 RUN yarn
 RUN yarn build:ci
-RUN rm -rf node_modules
-RUN npm install --production
+
 
 ENV NODE_ENV $BRANCH
 
