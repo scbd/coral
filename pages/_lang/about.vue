@@ -202,14 +202,14 @@
     padding: 1.2em 1.2em 1.2em 1.2em;
   }
   .left{
-    background-image: url('~/assets/images/left-background.svg');
+    background-image: url('~assets/images/left-background.svg');
     background-color: #00405c;
     border-bottom-left-radius: 2em;
     border-top-right-radius: 2em;
     margin: 0 .5em 1em .5em;
   }
   .right{
-    background-image: url('~/assets/images/right-background.svg');
+    background-image: url('~assets/images/right-background.svg');
     background-color: #d44f83;
 
     min-height: 280px;

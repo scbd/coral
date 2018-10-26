@@ -5,12 +5,16 @@
   "author": "Secretariat of the Convention on Biological Diversity <it@cbd.int>",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "dev": "rm -rf .nuxt  && NODE_ENV=local nuxt",
+    "build": " rm -rf .nuxt && NODE_ENV=production nuxt build",
+    "build:dev": " rm -rf .nuxt && NODE_ENV=dev nuxt build",
+    "build:stg": " rm -rf .nuxt && NODE_ENV=stg nuxt build",
+    "build:ci": " rm -rf .nuxt && NODE_ENV=$NODE_ENV nuxt build", 
+    "start": "NODE_ENV=production nuxt start",
+    "start:dev": "NODE_ENV=dev nuxt start",
+    "start:stg": "NODE_ENV=stg nuxt start",
+    "start:ci": "NODE_ENV=$NODE_ENV nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@biodiversity/ssr-breakpoints": "^0.1.0",
@@ -22,7 +26,7 @@
     "bulma": "^0.6.1",
     "dotenv": "^4.0.0",
     "luxon": "^0.2.11",
-    "nuxt": "^1.4.0",
+    "nuxt": "^2.2.0",
     "vue-awesome-swiper": "^3.1.3",
     "vue-i18n": "7.6.0",
     "vue-lazyload": "^1.1.4"
@@ -32,17 +36,15 @@
     "npm": ">=4.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "babel-eslint": "^8.2.1",
     "babel-preset-vue-app": "^2.0.0",
-    "eslint": "^4.8.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "replace": "^1.0.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "^3.13.1",
     "eventsource-polyfill": "^0.9.6",
     "file": "^0.2.2",
     "glob-all": "^3.1.0",
@@ -53,11 +55,7 @@
     "sass-loader": "6.0.7",
     "system": "^2.0.1",
     "vue-i18n-extensions": "^0.1.0"
-  },
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": "3333"
-    }
   }
+
+
 }

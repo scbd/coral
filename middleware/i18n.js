@@ -21,7 +21,7 @@ export default async function ({ isHMR, app, store, route, params, error, req })
   if(app.i18n.locale !== locale)
     await app.i18n.loadLanguageAsync(locale)
 
-  lazyLoadPage(app,store,route)
+  await lazyLoadPage(app,store,route)
   // Set locale
   store.commit('locale/setLocale', locale)
 

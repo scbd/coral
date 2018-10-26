@@ -3,13 +3,25 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 const path = require('path')
 
+let dotFile = '.env'
+
+if (['local','dev','stg','ios','iosdev'].includes(process.env.NODE_ENV))
+  dotFile = `${dotFile}.${process.env.NODE_ENV}`
+else 
+  process.env.NODE_ENV = 'production'
+  
+console.info(`##### Building for NODE_ENV: ${process.env.NODE_ENV}`)  
+console.info(`##### Reading dotenv file: ${dotFile}`)
+
+require('dotenv').config({path: path.resolve(process.cwd(), dotFile)})
 module.exports = {
+  dev: (process.env.NODE_ENV !== 'production'),
   render:{resourceHints:false},
   env: {
-    baseUrl: process.env.baseUrl,
-    isLocalHost: process.env.isLocalHost || false,
-    apiUrl: process.env.apiUrl || 'https://api.cbddev.xyz',
-    analyzeBuild:process.env.analyzeBuild || false
+    BASE_URL: process.env.BASE_URL,
+    isLocalHost: (process.env.NODE_ENV==='local'),
+    API: process.env.API || 'https://api.cbddev.xyz',
+    NODE_ENV:process.env.NODE_ENV
 
   },
   // ============================================================
@@ -80,7 +92,7 @@ module.exports = {
   //
   // ============================================================
   router: {
-    middleware: ['https', 'auth', 'i18n'],
+    middleware: ['https'],
     extendRoutes (routes) {
       // Generate our non language routes
       const newRoutes = makeRoutes(routes)
@@ -95,23 +107,6 @@ module.exports = {
   // ============================================================
   build: {
     extractCSS:true,
-    analyze: false, //process.env.analyzeBuild,
-  //  ,'vue-lazyload','@biodiversity/ssr-breakpoints','luxon''~/modules/plugins/ImageApi.js',,'~/components/scbd/GlobalBar/GlobalBar.vue','~/components/default/header/DefaultHeader.vue','~/components/footer/CoralFooter.vue'//
-    vendor: ['babel-polyfill','vue-i18n','@nuxtjs/component-cache','@biodiversity/ssr-breakpoints'],
-
-
-    	babel: {
-        presets({isServer}) {
-            return [
-                [
-                    'vue-app',
-                    {
-                         useBuiltIns: true,
-                        targets: isServer ? { node: 'current' } : {ie: 10, uglify: true}
-                    }]
-            ];
-        }
-    	},
 
     extend (config, { isDev, isClient }) {
 
@@ -129,29 +124,8 @@ module.exports = {
           })
         )
       }
-    },
-    postcss: {
-
-      plugins: {
-         'postcss-custom-properties': false,
-         'postcss-cssnext': {
-           browsers: ['last 5 versions', 'ie >= 10'],
-           features: {
-              customProperties: false,
-              grid: true,
-              flexbox:true
-            }
-         },
-         'postcss-flexbugs-fixes':{}
-       }
-
     }
 
-    // plugins: [
-    //   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
-    // ]
-
-    // watch: ['~/node_modules/@biodiversity/ssr-breakpoints/dist/main.js']
   }//build
 }//export
 

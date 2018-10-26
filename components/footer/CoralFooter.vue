@@ -75,6 +75,7 @@
                 <div class="overlay"  v-if="liActive" v-on:mouseleave="mouseOver('liActive')">&nbsp;</div>
               </div>
             </a>
+            <img  class="chm" v-lazy="$CBDImage.get('chm.svg')"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
           </div>
           <div class="column  centered" v-on:mouseover="twActive=true;" v-on:mouseout="twActive=false;">
               <a class="bottom-row" href="https://twitter.com/cbdnews" target="_blank" rel="noopener nofollow">
@@ -122,7 +123,9 @@ methods: {
 </script>
 
 <style scoped>
-
+.chm{
+  margin-top:3em;
+}
 .hover {
 
   display: inline-block;

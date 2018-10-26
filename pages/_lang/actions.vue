@@ -9,7 +9,7 @@
       </TitleDescription>
 
       <Subtitle >
-        <a class="button regg" href="https://www.cbd.int/2011-2020/dashboard/submit/event/new" target="_blank" rel="nofollow noopener" >{{$t('rya')}}</a>
+        <span class="button regg" href="#" target="_blank" rel="nofollow noopener" >{{$t('rya')}}</span>
       </Subtitle>
 
       <SVGMap class="is-4em-mb"/>

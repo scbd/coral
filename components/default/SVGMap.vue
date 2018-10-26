@@ -1,6 +1,6 @@
 <template>
   <section ref="ammap">
-    <a class="button map-button" href="https://www.cbd.int/2011-2020/dashboard/submit/event/new" target="_blank" rel="nofollow noopener" v-if="map">{{$t('rya')}}</a>
+    <!-- <a class="button map-button" href="https://www.cbd.int/2011-2020/dashboard/submit/event/new" target="_blank" rel="nofollow noopener" v-if="map">{{$t('rya')}}</a> -->
     <div class="map-holder">
       <div id="mapdiv" ref="mapdiv" >&nbsp;
         <div class="v-spinner" v-if="!map">

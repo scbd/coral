@@ -15,7 +15,7 @@ export default {
         {
           hid:'canonical',
           rel: 'canonical',
-          href: `${this.$store.state.nodeEnvVars.baseUrl}${this.$route.path}`
+          href: `${process.env.BASE_URL}${this.$route.path}`
         }
       ],
       meta: [

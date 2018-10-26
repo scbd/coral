@@ -18,8 +18,8 @@ export default async ({ app, store, serverStore }) => {
     }
   }
 
-  if(options.locale !== 'en')
-    options.messages[options.locale] = await import(/* webpackChunkName: "locale-[request]" */ `~/locales/${options.locale}.json`)
+  // if(options.locale !== 'en')
+  //   options.messages[options.locale] = await import(/* webpackChunkName: "locale-[request]" */ `~/locales/${options.locale}.json`)
 
   app.i18n = new VueI18n(options)
 
@@ -40,10 +40,10 @@ export default async ({ app, store, serverStore }) => {
     if (app.i18n.locale !== lang) {
       if (!app.i18n.isLangLoaded(lang)) {
         try {
-            return import(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}`).then(msgs => {
-              app.i18n.setLocaleMessage(lang, msgs)
-              loadedLanguages.push(lang)
-            })
+            // return import(/* webpackChunkName: "lang-[request]" */ `@/locales/${lang}`).then(msgs => {
+            //   app.i18n.setLocaleMessage(lang, msgs)
+            //   loadedLanguages.push(lang)
+            // })
         } catch (e) {
           console.log(  'Language module not found');
         }

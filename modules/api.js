@@ -55,7 +55,7 @@ function create (token) {
   if (token) {
     options.headers = {
       Authorization: token,
-      domain: 'https://api.cbddev.int'
+      domain: process.env.API
     }
   }
   return axios.create(options)

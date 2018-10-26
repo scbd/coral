@@ -106,6 +106,13 @@
     components: {
       CommitmentIcon,TitleDescription,Commitment,Subtitle,CoralSectionTwo
     },
+    data () {
+
+      return {
+        title:this.$i18n.t('title')
+      }
+
+    },
     methods:{
       getBGImg: function () {
           if(this.$breakpoints.isDesktopHD)
