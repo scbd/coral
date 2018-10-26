@@ -1,0 +1,63 @@
+{
+  "sDG":"Sustainable Development Goal",
+  "aBT":"Aichi Biodiversity Target",
+  "about": "About",
+  "commitments": "Commitments",
+  "initiatives": "Initiatives",
+  "resources": "Resources",
+  "actions": "Actions",
+  "siteMap": "Site Map",
+  "contact": "Contact",
+  "nameCbdSecretariat": "CBD Secretariat",
+  "cbdAddressStreet": "413 Rue Saint Jacques",
+  "cbdAddressSuite": "Suite 800",
+  "cbdAddressCityProvPostal": "Montreal, QC, H2Y 1N9",
+  "cbdAddressCountry": "Canada",
+  "termsOfUse": "Terms of Use",
+  "privacyPolicy": "Privacy Policy",
+  "inAssociation":"In  Association",
+  "credits": "Credits",
+  "home": "Home",
+"reefs":"reefs",
+"coral":"coral",
+"REEFS":"REEFS",
+"CORAL":"CORAL",
+"dashboard":"Dashboard",
+"dashboardControl":"Dashboard Control",
+"coralReefs":"Coral Reefs",
+"yourEvents":"Your Events",
+"yourOrganizations":"Your Organizations",
+"europeanUnion":"European Union",
+"secretariat":"Secretariat",
+"europeanUnionFlag":"European Union Flag",
+"unEnvironmentLogo":"UN Environment Logo",
+"unEnvironmentLogoTitle":"In Association with the UN Environment",
+"europeanUnionFlagTitle":"In Association with the European Union",
+"scbdLogo":"Secretariat of the Convention on Biological Diversity Logo",
+"scbdLogoTitle":"In Association with the Secretariat of the Convention on Biological Diversity",
+"scbdLogoLeaf":" Leaf Logo Secretariat of the Convention on Biological Diversity",
+"scbdLogoLeafTitle":" Leaf Logo for the Secretariat of the Convention on Biological Diversity",
+    "component": {
+        "HeaderBar": {
+
+        },
+        "Me": {
+            "signin": "Sign In",
+            "logout": "Log Out",
+            "profile": "Profile"
+        },
+        "Locale": {
+            "languages": "Languages"
+        },
+        "SCBD": {
+            "scbd": "Secretariat of the Convention on Biological Diversity (SCBD)",
+            "cbd": "Convention on Biological Diversity (CBD)",
+             "theConvention":"The Convention",
+             "cartagenaProtocol":"Cartagena Protocol",
+             "nagoyaProtocol":"Nagoya Protocol",
+             "programmes":"Programmes",
+             "information":"Information",
+             "secretariat":"Secretariat"
+        }
+    }
+}

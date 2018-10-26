@@ -1,0 +1,59 @@
+
+.page-enter-active, .page-leave-active {
+  transition: all .25s ease-out;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+  transform-origin: 50% 50%;
+}
+.debug {
+  border: 1px solid red;
+  min-width: 5px;
+  min-height: 5px;
+}
+.debug2 {
+  border: 2px solid red;
+  min-width: 5px;
+  min-height: 5px;
+}
+.debug3 {
+  border: 3px solid red;
+  min-width: 5px;
+  min-height: 5px;
+}
+.rtl{
+  direction:rtl;
+  font-family:"Droid Arabic Kufi", "Droid Sans", sans-serif;
+}
+body {
+  min-height:100vh;
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to{
+  transform: translatey(35px);
+  opacity: 0;
+}
+
+.pointer{
+  cursor:pointer;
+}
+
+@media screen and (min-width: 1024px) {
+  body{
+    font-size: 1.3em;
+  }
+}
+
+.navbar-item:hover,.navbar-link:hover, .is-active {
+    color: #979797  !important;
+}
+.grad-bar{
+  width:200px;
+  height:5px;
+}

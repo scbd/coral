@@ -1,0 +1,51 @@
+@charset "utf-8"
+@import "~assets/sass/vars.sass"
+@import "~bulma/sass/base/_all"
+@import "~bulma/sass/grid/columns.sass"
+
+@import "~bulma/sass/layout/footer.sass"
+
+@import "~bulma/sass/components/dropdown.sass"
+
+@import "~bulma/sass/components/navbar.sass"
+
+@import "~bulma/sass/components/level.sass"
+
+@import "~bulma/sass/elements/container.sass"
+@import "~bulma/sass/elements/title.sass"
+
+.navbar
+  background-color: unset
+
+$FontPath: "~/assets/font/" !default
+$FontName: "Roboto" !default
+
+=font-face($family, $path, $weight: 400, $style: normal)
+  @font-face
+    font-family: $family
+    src: url('#{$path}#{$family}-#{$style}.ttf') format('truetype')
+    font-weight: $weight
+    font-style: $style
+
++widescreen
++fullhd
+  +font-face('Roboto','~assets/font/',100,'Thin')
+  +font-face('Roboto','~assets/font/',400,'Regular')
+  +font-face('Roboto','~assets/font/',500,'Medium')
+  +font-face('Roboto','~assets/font/',900,'Black')
+
+
+.badge
+  vertical-align: middle;
+  margin: 2px 2px 2px 2px
+  display: inline-block
+  padding: 2px 7px 1px 7px
+  font-size: 1em
+  font-weight: 600
+  line-height: 1
+  text-align: center
+  white-space: nowrap
+  vertical-align: baseline
+  border-radius: 20px
+  background-color: #666666
+  color: #FFFFFF
