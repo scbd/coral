@@ -17,7 +17,7 @@ COPY . .
 RUN yarn
 RUN yarn build:ci
 RUN rm -rf node_modules
-RUN npm cache clean
+RUN npm cache clean --force
 RUN npm install --production
 
 ENV NODE_ENV $BRANCH
