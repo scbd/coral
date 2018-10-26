@@ -16,13 +16,8 @@ COPY . .
 
 RUN yarn
 RUN yarn build:ci
-RUN rm -rf node_modules
-RUN npm cache clean --force
-RUN npm install --production
-
-ENV NODE_ENV $BRANCH
 
 EXPOSE 3000
 
 # start command
-CMD ["yarn", "start" ]
+CMD ["yarn", "start:ci" ]
