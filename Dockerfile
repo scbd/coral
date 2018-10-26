@@ -17,7 +17,7 @@ COPY . .
 RUN yarn
 RUN yarn build:ci
 RUN rm -rf node_modules
-RUN npm install --production
+RUN yarn install --prod=true
 
 
 EXPOSE 3000
