@@ -33,7 +33,7 @@
             <span class="sliders" v-show="flags.target"> {{$t('targetTenDescription')}}</span>
           </transition>
           <transition name="slide-fade">
-            <span class="sliders" v-show="flags.priority">{{$t('priorityActionsDescription')}}</span>
+            <span class="sliders" v-show="flags.priority">{{$t('priorityActionsDescription')}} <a class="p-actions" href="https://www.cbd.int/doc/publications/cbd-aichi-target-10-en.pdf">{{$t('priorityActionsDescriptionLink')}}</a></span>
           </transition>
           <transition name="slide-fade">
             <span class="sliders" v-show="flags.tca">{{$t('tcaDescription')}}</span>
@@ -124,6 +124,10 @@
 </script>
 
 <style scoped>
+.p-actions{
+  color: white;
+  text-decoration: underline;
+}
 .is-4em-mb{
   margin-bottom:4em;
 }

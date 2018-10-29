@@ -75,7 +75,9 @@
                 <div class="overlay"  v-if="liActive" v-on:mouseleave="mouseOver('liActive')">&nbsp;</div>
               </div>
             </a>
-            <img  class="chm" v-lazy="$CBDImage.get('chm.svg')"  :alt="$t('scbdLogo')" :title="$t('scbdLogoTitle')"></img>
+            <a href="https://chm.cbd.int/" target="_blank" rel="noopener"> 
+              <img  class="chm" v-lazy="$CBDImage.get('chm-logo.png')"  :alt="$t('chmLogo')" :title="$t('chmLogo')"></img>
+            </a>
           </div>
           <div class="column  centered" v-on:mouseover="twActive=true;" v-on:mouseout="twActive=false;">
               <a class="bottom-row" href="https://twitter.com/cbdnews" target="_blank" rel="noopener nofollow">
