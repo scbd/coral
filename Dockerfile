@@ -15,7 +15,7 @@ RUN cd /usr/src/app/
 COPY . .
 
 RUN yarn
-RUN yarn build:ci
+RUN yarn build
 
 EXPOSE 3000
 
