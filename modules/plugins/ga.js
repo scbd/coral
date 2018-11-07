@@ -18,15 +18,6 @@ export default  ({ app: { router, store } }) => {
 
   ga('create', 'UA-1996573-1', 'auto')
 
-
-    // if ( window.addEventListener ) {
-  	// 	window.addEventListener('error', function(e) {
-  	// 		if ( e.lineno != 0 ) {
-  	// 			ga('send', 'event', 'Error', 'JavaScript Error', e.message + ' in: ' + e.filename + ' on line ' + e.lineno);
-  	// 			ga('send', 'exception', e.message, false);
-  	// 		}
-  	// 	});
-  	// }
 if(router)
     router.afterEach((to, from) => {
 
@@ -37,7 +28,7 @@ if(router)
         const settings = Object.assign({}, routeOption('analytics', from, to, store), to.meta && to.meta.analytics)
 
 
-        if (store.state.me._id)
+        if (store.state.me && store.state.me._id)
           ga('set', 'userId', store.state.me._id);
 
         ga('set', 'page', to.fullPath)
