@@ -11,5 +11,4 @@ npm-debug.log
 dist
 sw.*
 
-.env
 .DS_Store
