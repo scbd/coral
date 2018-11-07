@@ -1,4 +1,3 @@
-
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 const path = require('path')
@@ -86,9 +85,8 @@ module.exports = {
     '~/modules/plugins/vuex-router-sync.js',
     '~/modules/plugins/i18n.js',
     { src: '~/modules/plugins/swiper.js', ssr: false },
-    { src: '~/modules/plugins/polyfill.js', ssr: false }
-    {src: '~/modules/plugins/ga.js', ssr: false},
-    // {src: '~/modules/plugins/gtm.js', ssr: false}
+    { src: '~/modules/plugins/polyfill.js', ssr: false },
+    { src: '~/modules/plugins/ga.js', ssr: false}
   ],
 
   // ============================================================
