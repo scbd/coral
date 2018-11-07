@@ -55,6 +55,11 @@
     "sass-loader": "6.0.7",
     "system": "^2.0.1",
     "vue-i18n-extensions": "^0.1.0"
+  },
+  "config": {
+    "nuxt": {
+      "port": "8000"
+    }
   }
 
 
