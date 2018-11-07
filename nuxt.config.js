@@ -15,6 +15,9 @@ console.info(`##### Reading dotenv file: ${dotFile}`)
 
 require('dotenv').config({path: path.resolve(process.cwd(), dotFile)})
 module.exports = {
+  server: {
+    port: 8000, // default: 3000
+  },
   dev: (process.env.NODE_ENV !== 'production'),
   render:{resourceHints:false},
   env: {
