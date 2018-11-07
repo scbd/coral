@@ -9,11 +9,11 @@
     "build": " rm -rf .nuxt && NODE_ENV=production nuxt build",
     "build:dev": " rm -rf .nuxt && NODE_ENV=dev nuxt build",
     "build:stg": " rm -rf .nuxt && NODE_ENV=stg nuxt build",
-    "build:ci": " rm -rf .nuxt && NODE_ENV=$NODE_ENV nuxt build", 
+    "build": " rm -rf .nuxt && nuxt build", 
     "start": "NODE_ENV=production nuxt start",
     "start:dev": "NODE_ENV=dev nuxt start",
     "start:stg": "NODE_ENV=stg nuxt start",
-    "start:ci": "NODE_ENV=$NODE_ENV nuxt start",
+    "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
