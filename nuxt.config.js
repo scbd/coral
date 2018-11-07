@@ -87,7 +87,7 @@ module.exports = {
     '~/modules/plugins/i18n.js',
     { src: '~/modules/plugins/swiper.js', ssr: false },
     { src: '~/modules/plugins/polyfill.js', ssr: false }
-    // {src: '~/modules/plugins/ga.js', ssr: false},
+    {src: '~/modules/plugins/ga.js', ssr: false},
     // {src: '~/modules/plugins/gtm.js', ssr: false}
   ],
 
@@ -95,7 +95,6 @@ module.exports = {
   //
   // ============================================================
   router: {
-    middleware: ['https'],
     extendRoutes (routes) {
       // Generate our non language routes
       const newRoutes = makeRoutes(routes)

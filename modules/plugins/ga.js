@@ -16,10 +16,8 @@ export default  ({ app: { router, store } }) => {
   })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
 
-  if (process.env.STACK === 'production')
-    ga('create', 'UA-104645728-1', 'auto')
-  else
-    ga('create', 'UA-104605207-1', 'auto')
+  ga('create', 'UA-1996573-1', 'auto')
+
 
     // if ( window.addEventListener ) {
   	// 	window.addEventListener('error', function(e) {
