@@ -86,13 +86,14 @@ module.exports = {
     '~/modules/plugins/i18n.js',
     { src: '~/modules/plugins/swiper.js', ssr: false },
     { src: '~/modules/plugins/polyfill.js', ssr: false },
-    { src: '~/modules/plugins/ga.js', ssr: false}
+    { src: '~/modules/plugins/ga.js', ssr: false }
   ],
 
   // ============================================================
   //
   // ============================================================
   router: {
+    base: '/coral-reefs/',
     extendRoutes (routes) {
       // Generate our non language routes
       const newRoutes = makeRoutes(routes)
