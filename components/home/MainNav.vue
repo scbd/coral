@@ -137,7 +137,7 @@
 <script>
 
 export default {
-  name: 'MainNav'
+  name: 'MainNav',
   data: function () {
       return {
         BASE_PATH:process.env.BASE_PATH?process.env.BASE_PATH+'/' : ''
