@@ -112,7 +112,7 @@ module.exports = {
     extend (config, { isDev, isClient }) {
 
       if (!isDev) {
-        config.output.publicPath = './_nuxt/'
+        // config.output.publicPath = './_nuxt/'
         // Remove unused CSS using purgecss. See https://github.com/FullHuman/purgecss
         // for more information about purgecss.
         config.plugins.push(
