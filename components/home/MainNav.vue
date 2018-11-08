@@ -3,7 +3,7 @@
   <div class="columns main-level" >
     <div class="columns is-mobile is-hidden-desktop is-hidden-tablet" >
       <div class="column is-one-half-mobile" >
-        <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('about')">
+        <nuxt-link class="home-links is-size-5-mobile" :to="`${BASE_PATH}about`">
           <div class="main-menu about-style" >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.92 115"  preserveAspectRatio="xMinYMid meet" class="svg-content">
               <title>About Coral Reefs Icon</title>
@@ -18,7 +18,7 @@
         </nuxt-link>
       </div>
       <div class="column is-one-half-mobile" >
-        <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('commitments')" >
+        <nuxt-link class="home-links is-size-5-mobile" :to="`${BASE_PATH}commitments`" >
           <div class="main-menu comm-style ">
               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" preserveAspectRatio="xMinYMid meet" class="svg-content">
                 <title>Commitments Icon</title>
@@ -33,7 +33,7 @@
 
     <div class="columns main-level is-mobile is-hidden-desktop is-hidden-tablet" >
         <div class="column is-half-mobile" >
-          <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('initiatives')">
+          <nuxt-link class="home-links is-size-5-mobile" :to="`${BASE_PATH}initiatives`">
             <div class="main-menu initistives-style">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 130" preserveAspectRatio="xMidYMin meet" class="svg-content">
                 <title>Initiatives Icon</title>
@@ -46,7 +46,7 @@
           </nuxt-link>
         </div>
         <div class="column is-one-half-mobile" >
-          <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('actions')">
+          <nuxt-link class="home-links is-size-5-mobile" :to="`${BASE_PATH}actions`">
             <div class="main-menu action-style">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 130"preserveAspectRatio="xMidYMin meet" class="svg-content">
                 <title>Action Asset</title>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="column is-hidden-mobile" >
-      <nuxt-link class="home-links" :to="$i18n.path('about')">
+      <nuxt-link class="home-links" :to="`${BASE_PATH}about`">
         <div class="main-menu about-style">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.92 115"  preserveAspectRatio="xMinYMid meet" class="svg-content">
             <title>About Icon</title>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="column is-hidden-mobile" >
-      <nuxt-link class="home-links" :to="$i18n.path('commitments')">
+      <nuxt-link class="home-links" :to="`${BASE_PATH}commitments`">
         <div class="main-menu comm-style">
           <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" preserveAspectRatio="xMinYMid meet" class="svg-content">
             <title>Commitments Icon</title>
@@ -89,7 +89,7 @@
     </div>
 
     <div class="column is-hidden-mobile" >
-      <nuxt-link class="home-links" :to="$i18n.path('initiatives')">
+      <nuxt-link class="home-links" :to="`${BASE_PATH}initiatives`">
         <div class="main-menu initistives-style">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 130" preserveAspectRatio="xMidYMin meet" class="svg-content">
             <title>Initiatives Icon</title>
@@ -103,7 +103,7 @@
     </div>
 
     <div class="column is-hidden-mobile" >
-      <nuxt-link class="home-links" :to="$i18n.path('actions')">
+      <nuxt-link class="home-links" :to="`${BASE_PATH}actions`">
         <div class="main-menu action-style">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 130"preserveAspectRatio="xMidYMin meet" class="svg-content">
             <title>Action Asset</title>
@@ -116,7 +116,7 @@
     </div>
 
     <div class="column" >
-      <nuxt-link class="home-links is-size-5-mobile" :to="$i18n.path('resources')">
+      <nuxt-link class="home-links is-size-5-mobile" :to="`${BASE_PATH}resources`">
         <div class="main-menu resources-fill">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 130" preserveAspectRatio="xMidYMin meet" class="svg-content">
             <title>Resources</title>
@@ -138,7 +138,12 @@
 
 export default {
   name: 'MainNav'
+  data: function () {
+      return {
+        BASE_PATH:process.env.BASE_PATH?process.env.BASE_PATH+'/' : ''
+      }
 
+  },
 }
 </script>
 <style scoped>

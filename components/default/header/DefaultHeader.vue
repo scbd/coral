@@ -40,7 +40,7 @@
           &nbsp;
         </p>
         <p class="level-item has-text-centered">
-          <nuxt-link   to="/">
+          <nuxt-link   to="`${BASE_PATH}/`">
             <svg xmlns="http://www.w3.org/2000/svg" class="logo" viewBox="0 0 220 100">
               <title>{{ $t('CORAL') }} {{ $t('REEFS') }}</title>
               <text class="top" transform="translate(0 46.2)">{{ $t('CORAL') }}</text>
@@ -98,7 +98,7 @@
                 </nuxt-link>
               </li>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`/`"  exact>
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`${BASE_PATH}/`"  exact>
                 {{ $t('home') }}
                 </nuxt-link>
               </li>
