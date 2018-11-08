@@ -74,7 +74,7 @@ module.exports = {
   // ============================================================
   modules: [
     ['@nuxtjs/pwa'],
-    ['@nuxtjs/component-cache', { maxAge: 24 * 1000 * 60 * 60 * 4 }],  // cache rendered componenents server side for 1 hour
+    ['@nuxtjs/component-cache', { maxAge: 24 * 1000 * 60 * 60 * 4 }], 
     '@biodiversity/ssr-breakpoints'
   ],
 
@@ -84,7 +84,7 @@ module.exports = {
   plugins: [
     '~/modules/plugins/ImageApi.js',
     '~/modules/plugins/vuex-router-sync.js',
-    '~/modules/plugins/i18n.js',
+    '~/modules/plugins/i18n.js', 
     { src: '~/modules/plugins/swiper.js', ssr: false },
     { src: '~/modules/plugins/polyfill.js', ssr: false },
     { src: '~/modules/plugins/ga.js', ssr: false }
@@ -95,10 +95,10 @@ module.exports = {
   // ============================================================
   router: {
     extendRoutes (routes) {
-      // Generate our non language routes
-      const newRoutes = makeRoutes(routes)
-      // Add our routes **in front** of the existing routes
-      routes.unshift(...newRoutes)
+      if(process.env.BASE_PATH)
+        routes.forEach(item => {
+          item.alias = `${process.env.BASE_PATH}${item.path}`
+        })
     },
     linkActiveClass: 'is-active'
   },
@@ -112,8 +112,8 @@ module.exports = {
     extend (config, { isDev, isClient }) {
 
       if (!isDev) {
-        config.output.publicPath = 'https://www.cbd.int/coral-reefs/_nuxt/'
-        // config.output.publicPath = './_nuxt/'
+        //config.output.publicPath = 'https://www.cbd.int/coral-reefs/_nuxt/'
+
         // Remove unused CSS using purgecss. See https://github.com/FullHuman/purgecss
         // for more information about purgecss.
         config.plugins.push(
@@ -131,45 +131,3 @@ module.exports = {
 
   }//build
 }//export
-
-// ============================================================
-//
-// ============================================================
-function makeRoutes (routesIn) {
-  const routes = []
-  routesIn.forEach(r => {
-    let path = r.path
-    let name = r.name
-    let children = r.children
-    const component = r.component // re-use the same component/page
-    // Remove the /:lang prefix from the path
-    path = path.replace('/:lang', '')
-    // Adjust the route's name
-    if (name === 'lang') {
-      // Special case for /:lang index.vue page
-      name = 'index' // or you could make this an empty string name ""
-      // This becomes the new root index file
-      path = '/'
-    } else if (name) {
-      name = name.replace(/^lang-/, '')
-    }
-    // If the route has child routes, process them recursively
-    if (children) {
-      children = makeRoutes(children)
-    }
-    // Create the new route entry
-    const route = {
-      path: path,
-      name: name,
-      component: component
-    }
-    // Add the child routes if needed
-    if (children) {
-      route.children = children
-    }
-    // Add the route to our routes array
-    routes.push(route)
-  })
-  // Return the new routes
-  return routes
-}

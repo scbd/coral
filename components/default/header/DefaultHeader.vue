@@ -7,19 +7,19 @@
                 <nuxt-link  class="level-item main-nav logo-wrapper"  to="/">
                   <CoralLogo  class="logo"/>
                 </nuxt-link>
-                <nuxt-link class="level-item main-nav is-marginless"   :to="$i18n.path('about')">
+                <nuxt-link class="level-item main-nav is-marginless"   :to="`${BASE_PATH}about`">
                   <div class="menu-text">{{ $t('about') }}</div>
                 </nuxt-link>
-              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('commitments')">
+              <nuxt-link class="level-item main-nav is-marginless"  :to="`${BASE_PATH}commitments`">
                 <div class="menu-text">{{ $t('commitments') }}</div>
               </nuxt-link>
-              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('initiatives')">
+              <nuxt-link class="level-item main-nav is-marginless"  :to="`${BASE_PATH}initiatives`">
                 <div class="menu-text">{{ $t('initiatives') }}</div>
               </nuxt-link>
-              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('actions')">
+              <nuxt-link class="level-item main-nav is-marginless"  :to="`${BASE_PATH}actions`">
                 <div class="menu-text">{{ $t('actions') }}</div>
               </nuxt-link>
-              <nuxt-link class="level-item main-nav is-marginless"  :to="$i18n.path('resources')">
+              <nuxt-link class="level-item main-nav is-marginless"  :to="`${BASE_PATH}resources`">
                 <div class="menu-text">{{ $t('resources') }}</div>
               </nuxt-link>
             </div>
@@ -62,27 +62,7 @@
 
 
     <transition name="slide-fade">
-      <!-- dashboard menu mobile -->
-      <div class="box main-nav-mobi" v-if="showDashboard">
-        <div class="navbar-item has-dropdown" >
-          <div class="navbar-dropdown  is-boxed" >
-            <span class="navbar-item cbd-size">
-                 <strong>{{ $t('dashboard') }}</strong>
-            </span>
-            <hr class="dropdown-divider" style="margin:10px 0 0 0;">
-            <nuxt-link class="navbar-item" v-on:click="toggleDash()" :to="$i18n.path('dashboard')">
-              {{ $t('dashboardControl') }}
-            </nuxt-link>
-            <nuxt-link class="navbar-item" v-on:click="toggleDash()" :to="$i18n.path('dashboard/events')">
-              {{ $t('yourEvents') }}
-            </nuxt-link>
-            <nuxt-link class="navbar-item" v-on:click="toggleDash()" :to="$i18n.path('dashboard/organizations')">
-              {{ $t('yourOrganizations') }}
-            </nuxt-link>
 
-          </div>
-        </div>
-      </div>
       <!-- main menu mobile -->
       <div class="box main-nav-mobi" v-if="showMainNav">
         <div class="navbar-item has-dropdown" >
@@ -93,32 +73,32 @@
             <hr class="dropdown-divider" style="margin:10px 0 0 0;">
             <ul>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('about')">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`${BASE_PATH}about`">
                 {{ $t('about') }}
                 </nuxt-link>
               </li>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item"  :to="$i18n.path('commitments')">
+                <nuxt-link class="navbar-item"  :to="`${BASE_PATH}commitments`">
                 {{ $t('commitments') }}
                 </nuxt-link>
               </li>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('initiatives')">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`${BASE_PATH}initiatives`">
                 {{ $t('initiatives') }}
                 </nuxt-link>
               </li>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('actions')">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`${BASE_PATH}actions`">
                 {{ $t('actions') }}
                 </nuxt-link>
               </li>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('resources')">
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`${BASE_PATH}resources`">
                 {{ $t('resources') }}
                 </nuxt-link>
               </li>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="$i18n.path('')"  exact>
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`/`"  exact>
                 {{ $t('home') }}
                 </nuxt-link>
               </li>
@@ -145,7 +125,10 @@ export default {
   name: 'DefaultHeader',
   components: {DividerGradBar,CoralLogo},
   data: function () {
-      return {showMainNav:showMainNav, showDashboard:showDashboard}
+      return {showMainNav:showMainNav, 
+        showDashboard:showDashboard,
+        BASE_PATH:process.env.BASE_PATH?process.env.BASE_PATH+'/' : ''
+      }
 
   },
   // define methods under the `methods` object
