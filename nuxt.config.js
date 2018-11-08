@@ -24,8 +24,8 @@ module.exports = {
     BASE_URL: process.env.BASE_URL,
     isLocalHost: (process.env.NODE_ENV==='local'),
     API: process.env.API || 'https://api.cbddev.xyz',
-    NODE_ENV:process.env.NODE_ENV
-
+    NODE_ENV:process.env.NODE_ENV,
+    BASE_PATH:process.env.BASE_PATH
   },
   // ============================================================
   // Headers of the page
@@ -143,15 +143,15 @@ function makeRoutes (routesIn) {
     let children = r.children
     const component = r.component // re-use the same component/page
     // Remove the /:lang prefix from the path
-    path = path.replace('/:lang', '')
+    path = path.replace('/:lang', process.env.BASE_PATH || '')
     // Adjust the route's name
     if (name === 'lang') {
       // Special case for /:lang index.vue page
       name = 'index' // or you could make this an empty string name ""
       // This becomes the new root index file
-      path = '/'
+      path = process.env.BASE_PATH || '/'
     } else if (name) {
-      name = name.replace(/^lang-/, '')
+      name = name.replace(/^lang-/, process.env.BASE_PATH || '')
     }
     // If the route has child routes, process them recursively
     if (children) {
