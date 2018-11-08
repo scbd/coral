@@ -4,7 +4,7 @@
     <nav class="default-header is-hidden-touch " v-lazy:background-image="$CBDImage.get('coral-header-background-blue-camo.svg')">
       <div class="container is-fullhd" >
             <div class="level is-mobile " >
-                <nuxt-link  class="level-item main-nav logo-wrapper"  to="/">
+                <nuxt-link  class="level-item main-nav logo-wrapper"  :to="BASE_PATH? BASE_PATH :`/`">
                   <CoralLogo  class="logo"/>
                 </nuxt-link>
                 <nuxt-link class="level-item main-nav is-marginless"   :to="`${BASE_PATH}about`">
@@ -98,7 +98,7 @@
                 </nuxt-link>
               </li>
               <li @click="toggleMainNav()">
-                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="`${BASE_PATH}/`"  exact>
+                <nuxt-link class="navbar-item" @click="toggleMainNav()" :to="BASE_PATH? BASE_PATH :`/`"  exact>
                 {{ $t('home') }}
                 </nuxt-link>
               </li>
