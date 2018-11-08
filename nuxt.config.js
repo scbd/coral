@@ -10,7 +10,9 @@ else
   process.env.NODE_ENV = 'production'
   
 console.info(`##### Building for NODE_ENV: ${process.env.NODE_ENV}`)  
-console.info(`##### Reading dotenv file: ${dotFile}`)
+console.info(`#####   Reading dotenv file: ${dotFile}`)
+console.info(`#####              BASE_URL: ${process.env.BASE_URL}`)
+console.info(`#####             BASE_PATH: ${process.env.BASE_PATH}`)
 
 require('dotenv').config({path: path.resolve(process.cwd(), dotFile)})
 module.exports = {
