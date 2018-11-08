@@ -143,15 +143,15 @@ function makeRoutes (routesIn) {
     let children = r.children
     const component = r.component // re-use the same component/page
     // Remove the /:lang prefix from the path
-    path = path.replace('/:lang', process.env.BASE_PATH || '')
+    path = path.replace('/:lang', '')
     // Adjust the route's name
     if (name === 'lang') {
       // Special case for /:lang index.vue page
       name = 'index' // or you could make this an empty string name ""
       // This becomes the new root index file
-      path = process.env.BASE_PATH || '/'
+      path = '/'
     } else if (name) {
-      name = name.replace(/^lang-/, process.env.BASE_PATH || '')
+      name = name.replace(/^lang-/, '')
     }
     // If the route has child routes, process them recursively
     if (children) {
@@ -159,7 +159,7 @@ function makeRoutes (routesIn) {
     }
     // Create the new route entry
     const route = {
-      path: path,
+      path: process.env.BASE_PATH+path,
       name: name,
       component: component
     }
