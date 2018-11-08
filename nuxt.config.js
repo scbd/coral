@@ -94,7 +94,6 @@ module.exports = {
   //
   // ============================================================
   router: {
-    base: '/coral-reefs'
     extendRoutes (routes) {
       // Generate our non language routes
       const newRoutes = makeRoutes(routes)
