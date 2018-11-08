@@ -112,7 +112,7 @@ module.exports = {
     extend (config, { isDev, isClient }) {
 
       if (!isDev) {
-        //config.output.publicPath = 'https://www.cbd.int/coral-reefs/_nuxt/'
+        config.output.publicPath = `${process.env.BASE_URL}${process.env.BASE_PATH}/_nuxt/`//'https://www.cbd.int/coral-reefs/_nuxt/'
 
         // Remove unused CSS using purgecss. See https://github.com/FullHuman/purgecss
         // for more information about purgecss.
