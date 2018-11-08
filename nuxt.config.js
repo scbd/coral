@@ -4,7 +4,7 @@ const path = require('path')
 
 let dotFile = '.env'
 
-if (['local','dev','stg','ios','iosdev'].includes(process.env.NODE_ENV))
+if (['local','dev','stg'].includes(process.env.NODE_ENV))
   dotFile = `${dotFile}.${process.env.NODE_ENV}`
 else 
   process.env.NODE_ENV = 'production'
