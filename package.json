@@ -5,13 +5,13 @@
   "author": "Secretariat of the Convention on Biological Diversity <it@cbd.int>",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .nuxt  && NODE_ENV=stg nuxt",
+    "dev": "rm -rf .nuxt  &&   NODE_ENV=stg node --stack-size=1500 node_modules/.bin/nuxt",
     "build": " rm -rf .nuxt && nuxt build",
     "build:dev": " rm -rf .nuxt && NODE_ENV=dev nuxt build",
     "build:stg": " rm -rf .nuxt && NODE_ENV=stg nuxt build",
-    "start": "nuxt start",
-    "start:dev": "NODE_ENV=dev nuxt start",
-    "start:stg": "NODE_ENV=stg nuxt start",
+    "start": "--stack-size=1500 node_modules/.bin/nuxt start",
+    "start:dev": "NODE_ENV=dev node --stack-size=1500 node_modules/.bin/nuxt start",
+    "start:stg": "NODE_ENV=stg node --stack-size=1500 node_modules/.bin/nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
