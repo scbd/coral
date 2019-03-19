@@ -11,8 +11,6 @@ else
   
 console.info(`##### Building for NODE_ENV: ${process.env.NODE_ENV}`)  
 console.info(`#####   Reading dotenv file: ${dotFile}`)
-console.info(`#####              BASE_URL: ${process.env.BASE_URL}`)
-console.info(`#####             BASE_PATH: ${process.env.BASE_PATH}`)
 
 require('dotenv').config({path: path.resolve(process.cwd(), dotFile)})
 module.exports = {
@@ -27,7 +25,8 @@ module.exports = {
     isLocalHost: (process.env.NODE_ENV==='local'),
     API: process.env.API || 'https://api.cbddev.xyz',
     NODE_ENV:process.env.NODE_ENV,
-    BASE_PATH:process.env.BASE_PATH
+    BASE_PATH:process.env.BASE_PATH,
+    CANONICAL:process.env.CANONICAL
   },
   // ============================================================
   // Headers of the page

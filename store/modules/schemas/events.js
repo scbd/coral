@@ -202,7 +202,7 @@ function getThisMonth (state) {
 
 function removeDuplicates(arr, key) {
     if (!(arr instanceof Array) || (key && typeof key !== 'string')) {
-        return false;
+        return [];
     }
 
     if (key && typeof key === 'string') {
