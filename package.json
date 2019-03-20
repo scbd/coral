@@ -9,9 +9,9 @@
     "build": " rm -rf .nuxt && nuxt build",
     "build:dev": " rm -rf .nuxt && NODE_ENV=dev nuxt build",
     "build:stg": " rm -rf .nuxt && NODE_ENV=stg nuxt build",
-    "start": "node --stack-size=2500 node_modules/.bin/nuxt start",
-    "start:dev": "NODE_ENV=dev node --stack-size=2500 node_modules/.bin/nuxt start",
-    "start:stg": "NODE_ENV=stg node --stack-size=2500 node_modules/.bin/nuxt start",
+    "start": "nuxt start",
+    "start:dev": "NODE_ENV=dev nuxt start",
+    "start:stg": "NODE_ENV=stg nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
