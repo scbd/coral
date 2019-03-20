@@ -4,7 +4,7 @@ const path = require('path')
 
 let dotFile = '.env'
 
-if (['local','dev','stg'].includes(process.env.NODE_ENV))
+if (!isProduction())
   dotFile = `${dotFile}.${process.env.NODE_ENV}`
 else 
   process.env.NODE_ENV = 'production'
@@ -13,7 +13,7 @@ console.info(`##### Building for NODE_ENV: ${process.env.NODE_ENV}`)
 console.info(`#####   Reading dotenv file: ${dotFile}`)
 
 require('dotenv').config({path: path.resolve(process.cwd(), dotFile)})
-module.exports = {
+const config = {
   server: {
     server: '0.0.0.0',
     port: 8000, // default: 3000
@@ -131,4 +131,12 @@ module.exports = {
     }
 
   }//build
-}//export
+}
+if(!isProduction())
+  config.head.meta.push({ name: 'robots', content: 'noindex' })
+  
+module.exports = config
+
+function isProduction(){
+  return !['local','dev','stg'].includes(process.env.NODE_ENV)
+}
