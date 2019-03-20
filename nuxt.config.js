@@ -2,17 +2,8 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
 const path = require('path')
 
-let dotFile = '.env'
+loadDotEnv()
 
-if (!isProduction())
-  dotFile = `${dotFile}.${process.env.NODE_ENV}`
-else 
-  process.env.NODE_ENV = 'production'
-  
-console.info(`##### Building for NODE_ENV: ${process.env.NODE_ENV}`)  
-console.info(`#####   Reading dotenv file: ${dotFile}`)
-
-require('dotenv').config({path: path.resolve(process.cwd(), dotFile)})
 const config = {
   server: {
     server: '0.0.0.0',
@@ -139,4 +130,18 @@ module.exports = config
 
 function isProduction(){
   return !['local','dev','stg'].includes(process.env.NODE_ENV)
+}
+
+function loadDotEnv(){
+  let dotFile = '.env'
+
+  if (!isProduction())
+    dotFile = `${dotFile}.${process.env.NODE_ENV}`
+  else 
+    process.env.NODE_ENV = 'production'
+    
+  console.info(`##### Building for NODE_ENV: ${process.env.NODE_ENV}`)  
+  console.info(`#####   Reading dotenv file: ${dotFile}`)
+
+  require('dotenv').config({path: path.resolve(process.cwd(), dotFile)})
 }

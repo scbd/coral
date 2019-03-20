@@ -14,7 +14,6 @@ function sync (store, router, options) {
     state: cloneRoute(router.currentRoute),
     mutations: {
       'ROUTE_CHANGED': function (state, transition) {
-        // console.log(transition);
         if (transition.to && transition.to.path.indexOf('bootstrap.css.map') == -1) { store.state[moduleName] = cloneRoute(transition.to, transition.from) }
       }
     }
