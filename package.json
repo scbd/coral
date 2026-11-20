@@ -12,7 +12,8 @@
     "start": "nuxt start --dotenv false",
     "start:dev": "NODE_ENV=dev nuxt start --dotenv false",
     "start:stg": "NODE_ENV=stg nuxt start --dotenv false",
-    "generate": "nuxt generate --dotenv false"
+    "generate": "nuxt generate --dotenv false",
+    "test": "node --test \"test/**/*.test.mjs\""
   },
   "dependencies": {
     "@biodiversity/ssr-breakpoints": "^0.1.0",
