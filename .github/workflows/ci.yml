@@ -1,0 +1,120 @@
+# Secrets required:
+#
+# Registry (org-level):
+#   DOCKERHUB_USERNAME  - Docker Hub username
+#   DOCKERHUB_TOKEN     - Docker Hub access token
+
+name: CI
+
+on:
+  push:
+    branches: ['**']
+    tags: ['[0-9]*', 'v[0-9]*']
+  pull_request:
+    branches: [master, dev]
+
+permissions:
+  contents: read
+
+env:
+  IMAGE_NAME: scbd/coral
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Logic (push only from the scbd org):
+      #   version tag (v?N.N.N)  → tags=<tag without v> + latest,  push=true
+      #   master/dev/stg         → tags=<branch>,                  push=true
+      #   stg/<name>             → tags=stg-<name>,                push=true
+      #   release/<name>         → tags=release-<name>,            push=true
+      #   other branches         → tags=build-<sha>,               push=false
+      - name: Resolve image tags
+        id: meta
+        run: |
+          SHORT_SHA="${GITHUB_SHA::7}"
+          IMAGE="${{ env.IMAGE_NAME }}"
+          REF="${GITHUB_REF}"
+          PUSH=true
+
+          if [[ "${REF}" =~ ^refs/tags/v?([0-9]+(\.[0-9]+)*)$ ]]; then
+            TAG="${BASH_REMATCH[1]}"
+            echo "tags<<EOF"          >> $GITHUB_OUTPUT
+            echo "${IMAGE}:${TAG}"    >> $GITHUB_OUTPUT
+            echo "${IMAGE}:latest"    >> $GITHUB_OUTPUT
+            echo "EOF"                >> $GITHUB_OUTPUT
+
+          elif [[ "${REF}" =~ ^refs/heads/(master|dev|stg)$ ]]; then
+            echo "tags=${IMAGE}:${BASH_REMATCH[1]}" >> $GITHUB_OUTPUT
+
+          elif [[ "${REF}" =~ ^refs/heads/(stg|release)/(.+)$ ]]; then
+            NAME="${BASH_REMATCH[2]//\//-}"
+            echo "tags=${IMAGE}:${BASH_REMATCH[1]}-${NAME}" >> $GITHUB_OUTPUT
+
+          else
+            echo "tags=${IMAGE}:build-${SHORT_SHA}" >> $GITHUB_OUTPUT
+            PUSH=false
+          fi
+
+          if [[ "${{ github.repository_owner }}" != "scbd" ]]; then
+            PUSH=false
+          fi
+          echo "push=${PUSH}" >> $GITHUB_OUTPUT
+
+      - name: Log in to Docker Hub
+        if: steps.meta.outputs.push == 'true'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # BRANCH becomes NODE_ENV in the image, which selects .env / .env.dev / .env.stg.
+      - name: Build image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          build-args: BRANCH=${{ github.ref_name }}
+          load: true
+          tags: ci-build:local
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Start image
+        run: |
+          docker run --name coral -d -p 8000:8000 ci-build:local
+          curl --retry 20 --retry-delay 3 --retry-all-errors -fsS -o /dev/null http://localhost:8000/
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Test image
+        env:
+          NODE_ENV: ${{ github.ref_name }}
+          TEST_URL: http://localhost:8000
+          TEST_LOG_FILE: ${{ runner.temp }}/coral.log
+        run: |
+          export TEST_NODE_VERSION="$(docker exec coral node --version)"
+          docker logs coral > "$TEST_LOG_FILE" 2>&1
+          node --test "test/**/*.test.mjs"
+
+      - name: Show container log
+        if: failure()
+        run: docker logs coral || true
+
+      - name: Push image
+        if: steps.meta.outputs.push == 'true'
+        run: |
+          while IFS= read -r tag; do
+            [[ -z "$tag" ]] && continue
+            docker tag ci-build:local "$tag"
+            docker push "$tag"
+          done <<< "${{ steps.meta.outputs.tags }}"
