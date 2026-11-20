@@ -110,12 +110,14 @@ module.exports = {
   // ============================================================
   build: {
     extractCSS:true,
+    // Behind the cbd.int proxy the app lives under BASE_PATH, which the proxy strips before forwarding.
+    // An absolute URL makes the HTML point at ${BASE_URL}${BASE_PATH}/_nuxt/ while the server keeps
+    // serving the files at /_nuxt/. Nuxt ignores absolute URLs in dev.
+    ...(process.env.BASE_PATH && { publicPath: `${process.env.BASE_URL}${process.env.BASE_PATH}/_nuxt/` }),
 
     extend (config, { isDev, isClient }) {
 
       if (!isDev) {
-        config.output.publicPath = `${process.env.BASE_URL}${process.env.BASE_PATH}/_nuxt/`//'https://www.cbd.int/coral-reefs/_nuxt/'
-
         // Remove unused CSS using purgecss. See https://github.com/FullHuman/purgecss
         // for more information about purgecss.
         config.plugins.push(
