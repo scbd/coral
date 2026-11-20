@@ -201,7 +201,7 @@ function getThisMonth (state) {
 }
 
 function removeDuplicates(arr, key) {
-    if (!(arr instanceof Array) || (key && typeof key !== 'string')) {
+    if (!Array.isArray(arr) || (key && typeof key !== 'string')) {
         return false;
     }
 
