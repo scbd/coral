@@ -32,7 +32,7 @@
     "vue-lazyload": "^1.1.4"
   },
   "engines": {
-    "node": ">=7.8",
+    "node": "^22.23.4 || ^24.22.1 || >=26.12.1",
     "npm": ">=4.0"
   },
   "devDependencies": {
