@@ -70,7 +70,7 @@ async function getResource({state,dispatch,commit,rootState},data){
         'rows':10000
     }
 
-    response = await api.ax.get('https://api.cbd.int/api/v2013/index/select', {'params': queryParameters})
+    response = await api.ax.get(`${process.env.API}/api/v2013/index/select`, {'params': queryParameters})
 
     if(response.status != 200)
       responseHandeler (commit, response)

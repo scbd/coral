@@ -1,0 +1,3 @@
+# Nuxt 2.18 scans every file under store/ as a store module. This app builds
+# its store in store/index.js (classic mode) and imports these files itself.
+store/modules
